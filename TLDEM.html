@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Days Evangelism Ministries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6f28;
+            --secondary: #f5a623;
+            --light: #f9f9f9;
+            --dark: #222;
+            --text: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: white;
+            color: var(--primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-main {
+            font-size: 1.2rem;
+            line-height: 1.0;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .admin-btn {
+            background-color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x800/4a6f28/white?text=Church+Background');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .event-cards, .sermon-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .event-card, .sermon-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover, .sermon-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-card img, .sermon-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-card-content, .sermon-card-content {
+            padding: 1.5rem;
+        }
+
+        .event-card h3, .sermon-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .event-card .date, .sermon-card .date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sermon-card .speaker {
+            color: var(--primary);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .stream-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stream-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .partnership-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .partnership-option {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .partnership-option i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .partnership-option h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .partnership-option p {
+            margin-bottom: 1.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 1rem;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="church-logo.jpeg">
+            </div>
+            <h1>The Last Days Evangelism Ministries</h1>
+        </div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="sermons.html">Sermons</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="partner.html">Partner With Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+    <div class="hero-content">
+        <h2>Welcome to The Last Days Evangelism Ministries</h2>
+        <div class="subtitle">"A House Of Prayer"</div>
+        <p>Experience God's love and power in our services</p>
+        <a href="events.html" class="btn">Join Us This Sunday</a>
+    </div>
+</section>
+
+        <section class="upcoming-events">
+            <h2>Upcoming Events</h2>
+            <div class="event-cards" id="event-cards">
+                <!-- Sample event cards (will be replaced by dynamic content) -->
+                <div class="event-card">
+                    <img src="RRR.jpeg" alt="Sunday Service">
+                    <div class="event-card-content">
+                        <h3>Sunday Worship Service</h3>
+                        <p class="date">Every Sunday at 09:00 AM</p>
+                        <p>Join us for powerful worship and the Word of God with Apostle Mothushi Chuene.</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="WhatsApp%20Image%202025-11-25%20at%2014.09.36%20(1).jpeg" alt="Teaching and Miracle servicee">
+                    <div class="event-card-content">
+                        <h3>Thursday Teaching and Miracle service</h3>
+                        <p class="date">Every Thursday at 10:00 AM</p>
+                        <p>Deep dive into God's Word with Apostle Mothushi Chuene.</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="MondayS.jpeg" alt="Prayer Meeting">
+                    <div class="event-card-content">
+                        <h3>Weekly Prayer Meeting</h3>
+                        <p class="date">Every Monday at 6:00 PM</p>
+                        <p>Corporate prayer for breakthroughs and miracles.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="events.html" class="btn">View All Events</a>
+            </div>
+        </section>
+
+        <section class="sermons">
+            <h2>Recent Sermons</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="recent">Recent</button>
+                <button class="tab-btn" data-tab="popular">Most Popular</button>
+                <button class="tab-btn" data-tab="series">Series</button>
+            </div>
+
+            <div class="tab-content active" id="recent">
+                <div class="sermon-cards">
+                    <div class="sermon-card">
+                        <img src="TheComing.jpeg" alt="Faith Journey Sermon">
+                        <div class="sermon-card-content">
+                            <h3>The Coming Of The Bridegroom</h3>
+                            <p class="date">August , 2025</p>
+                            <p class="speaker">Apostle Mothushi Chuene</p>
+                            <p>Exploring the path of faith and how to strengthen your relationship with God.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sermon-card">
+                        <img src="https://placehold.co/600x400/4a6f28/white?text=God's+Love" alt="God's Love Sermon">
+                        <div class="sermon-card-content">
+                            <h3>The Coming Of The BRIDEGROOM</h3>
+                            <p class="date">August 13, 2025</p>
+                            <p class="speaker">Apostle Mothushi Chuene</p>
+                            <p>Understanding the depth of God's love and how to receive it in your life.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sermon-card">
+                        <img src="https://placehold.co/600x400/4a6f28/white?text=Holy+Spirit" alt="Holy Spirit Sermon">
+                        <div class="sermon-card-content">
+                            <h3>The Coming Of The Bridegroom</h3>
+                            <p class="date">August 6, 2025</p>
+                            <p class="speaker">Apostle Mothushi Chuene</p>
+                            <p>Discover how to tap into the power of the Holy Spirit in your daily life.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="popular">
+                <div class="sermon-cards">
+                    <div class="sermon-card">
+                        <img src="https://placehold.co/600x400/4a6f28/white?text=Breakthrough" alt="Breakthrough Sermon">
+                        <div class="sermon-card-content">
+                            <h3>Breakthrough Prayers</h3>
+                            <p class="date">July 16, 2025</p>
+                            <p class="speaker">Apostle Mothushi Chuene</p>
+                            <p>Powerful prayers that bring breakthroughs in difficult situations.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sermon-card">
+                        <img src="https://placehold.co/600x400/4a6f28/white?text=Financial+Blessing" alt="Financial Blessing Sermon">
+                        <div class="sermon-card-content">
+                            <h3>Biblical Principles of Finance</h3>
+                            <p class="date">June 25, 2025</p>
+                            <p class="speaker">Apostle Mothushi Chuene</p>
+                            <p>God's principles for financial freedom and blessing.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sermon-card">
+                        <img src="InTheLastDays.jpeg" alt="We Are In The Last Day">
+                        <div class="sermon-card-content">
+                            <h3>Divine Healing</h3>
+                            <p class="date">July , 2025</p>
+                            <p class="speaker">Apostle Mothushi Chuene</p>
+                            <p>Understanding God's power to heal and restore wholeness.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
+                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="sermons.html" class="btn">View All Sermons</a>
+            </div>
+        </section>
+
+        <section class="live-stream">
+            <h2>Watch Live</h2>
+            <div class="stream-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fyourpage%2Flive&show_text=0&width=560" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="partnership">
+            <h2>Partner With Us</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Your partnership helps us spread the Gospel and make a difference in our community. There are several ways you can support our ministry:</p>
+
+            <div class="partnership-options">
+                <div class="partnership-option">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Prayer Partnership</h3>
+                    <p>Join our prayer team and intercede for the ministry's needs and outreach efforts.</p>
+                    <a href="partner.html#prayer" class="btn">Join Prayer Team</a>
+                </div>
+                <div class="partnership-option">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Financial Partnership</h3>
+                    <p>Support our ministry financially through tithes, offerings, or specific project donations.</p>
+                    <a href="partner.html#financial" class="btn">Give Now</a>
+                </div>
+                <div class="partnership-option">
+                    <i class="fas fa-people-carry"></i>
+                    <h3>Volunteer Partnership</h3>
+                    <p>Offer your time and talents to serve in various ministry areas and outreach programs.</p>
+                    <a href="partner.html#volunteer" class="btn">Volunteer</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Polokwane Moletjie Motinti</p>
+                <p><i class="fas fa-phone"></i> 072 228 5667</p>
+                <p><i class="fas fa-envelope"></i> mothusi@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Service Times</h3>
+                <p>Sunday Worship: 09:00 AM</p>
+                <p>Thursday Bible Study: 10:00 AM</p>
+                <p>Monday Prayer: 6:00 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="partner.html">Partner With Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; <span id="year"></span> The Last Days Evangelism Ministries. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('show');
+        });
+
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Tab functionality for sermons
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Firebase initialization (replace with your config)
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "church-website-7882d.firebaseapp.com",
+            projectId: "church-website-7882d",
+            storageBucket: "church-website-7882d.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase (commented out for safety)
+        // firebase.initializeApp(firebaseConfig);
+        // const db = firebase.firestore();
+
+        // Function to create sermon cards dynamically
+        function createSermonCard(sermon) {
+            const sermonCard = document.createElement('div');
+            sermonCard.className = 'sermon-card';
+
+            sermonCard.innerHTML = `
+                <img src="${sermon.image || 'https://placehold.co/600x400/4a6f28/white?text=Sermon'}" alt="${sermon.title}">
+                <div class="sermon-card-content">
+                    <h3>${sermon.title}</h3>
+                    <p class="date">${sermon.date}</p>
+                    <p class="speaker">${sermon.speaker}</p>
+                    <p>${sermon.description}</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="${sermon.watchLink || '#'}" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
+                            <i class="fas fa-play-circle"></i> Watch
+                        </a>
+                        <a href="${sermon.downloadLink || '#'}" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return sermonCard;
+        }
+
+        // Sample sermon data (would typically come from a database)
+        const sermonData = {
+            recent: [
+                {
+                    title: "The Journey of Faith",
+                    date: "August 20, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Exploring the path of faith and how to strengthen your relationship with God.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Faith+Journey"
+                },
+                {
+                    title: "Experiencing God's Love",
+                    date: "August 13, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the depth of God's love and how to receive it in your life.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=God's+Love"
+                },
+                {
+                    title: "The Power of the Holy Spirit",
+                    date: "August 6, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Discover how to tap into the power of the Holy Spirit in your daily life.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Holy+Spirit"
+                }
+            ],
+            popular: [
+                {
+                    title: "Breakthrough Prayers",
+                    date: "July 16, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Powerful prayers that bring breakthroughs in difficult situations.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Breakthrough"
+                },
+                {
+                    title: "Biblical Principles of Finance",
+                    date: "June 25, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "God's principles for financial freedom and blessing.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Financial+Blessing"
+                },
+                {
+                    title: "Divine Healing",
+                    date: "May 30, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding God's power to heal and restore wholeness.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Healing"
+                }
+            ]
+        };
+
+        // Function to load sermons (simulated)
+        function loadSermons() {
+            // In a real implementation, you would fetch this from a database
+            const recentContainer = document.querySelector('#recent .sermon-cards');
+            const popularContainer = document.querySelector('#popular .sermon-cards');
+
+            // Clear existing content
+            recentContainer.innerHTML = '';
+            popularContainer.innerHTML = '';
+
+            // Add recent sermons
+            sermonData.recent.forEach(sermon => {
+                recentContainer.appendChild(createSermonCard(sermon));
+            });
+
+            // Add popular sermons
+            sermonData.popular.forEach(sermon => {
+                popularContainer.appendChild(createSermonCard(sermon));
+            });
+        }
+
+        // Call loadSermons when the page loads
+        window.addEventListener('DOMContentLoaded', loadSermons);
+    </script>
+</body>
+</html>
