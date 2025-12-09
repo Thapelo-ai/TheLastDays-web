@@ -380,11 +380,11 @@ function loadSermonSeries() {
             title: "Review Reflect Rest",
             image: "RRR.jpeg",
             sermonCount: 5,
-            description: "If you review and reflect your life you can predict your future."
+            description: "If you review and reflect your life you can be able to predict your future."
         },
         {
-            title: "The Power of Prayer",
-            image: "https://placehold.co/600x400/4a6f28/white?text=Prayer+Series",
+            title: "Building Strong And Godly Families",
+            image: "BuildingStrong&Godly.jpeg",
             sermonCount: 4,
             description: "Discover how prayer can transform your life and circumstances."
         },
@@ -615,3 +615,4 @@ function initLazyLoading() {
 // Initialize all functionality when DOM is fully loaded
 
 document.addEventListener('DOMContentLoaded', initializeApp);
+
