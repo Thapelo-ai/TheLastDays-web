@@ -380,7 +380,7 @@ function loadSermonSeries() {
             title: "Review Reflect Rest",
             image: "RRR.jpeg",
             sermonCount: 5,
-            description: "A deep dive into what it means to live by faith."
+            description: "If you review and reflect your life you can predict your future."
         },
         {
             title: "The Power of Prayer",
@@ -613,4 +613,5 @@ function initLazyLoading() {
 }
 
 // Initialize all functionality when DOM is fully loaded
+
 document.addEventListener('DOMContentLoaded', initializeApp);
