@@ -81,7 +81,7 @@ nav a:hover {
 .hero {
     background:
         linear-gradient(rgba(74, 111, 40, 0.7), rgba(74, 111, 40, 0.8)),
-        url('../images/WhatsApp Image 2025-08-27 at 17.34.30.jpeg') center/cover no-repeat;
+        url('../images/church-logo.jpeg') center/cover no-repeat;
     height: 80vh;
     display: flex;
     align-items: center;
@@ -637,4 +637,5 @@ footer {
 
 .delay-3 {
     animation-delay: 0.6s;
+
 }
