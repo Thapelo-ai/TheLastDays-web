@@ -81,7 +81,7 @@ nav a:hover {
 .hero {
     background:
         linear-gradient(rgba(74, 111, 40, 0.7), rgba(74, 111, 40, 0.8)),
-        url('../images/church-logo.jpeg') center/cover no-repeat;
+        url('../images/church-logo!.jpeg') center/cover no-repeat;
     height: 80vh;
     display: flex;
     align-items: center;
@@ -639,3 +639,4 @@ footer {
     animation-delay: 0.6s;
 
 }
+
