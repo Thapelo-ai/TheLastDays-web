@@ -578,6 +578,32 @@
             color: var(--primary);
         }
 
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Sermons section highlight when navigated to */
+        .sermons-section {
+            scroll-margin-top: 100px;
+        }
+
+        .sermons-section:target {
+            animation: highlightSection 2s ease;
+        }
+
+        @keyframes highlightSection {
+            0% {
+                background-color: transparent;
+            }
+            20% {
+                background-color: rgba(245, 166, 35, 0.1);
+            }
+            100% {
+                background-color: transparent;
+            }
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -638,6 +664,10 @@
             .contact-details p {
                 font-size: 1rem;
             }
+
+            .sermons-section {
+                scroll-margin-top: 80px;
+            }
         }
     </style>
 </head>
@@ -684,7 +714,7 @@
                     <img src="https://placehold.co/300x300/4a6f28/white?text=Apostle+Mothushi+Chuene" alt="Apostle Mothushi Chuene">
                     <h3>Apostle Mothushi Chuene</h3>
                     <p>Founder and Senior Pastor</p>
-                    <p>Apostle Mothushi Chuene is a devoted servant of God called to preach the Gospel in these last days. He leads the ministry with passion and dedication, teaching the Word of God with clarity and anointing. He is also a teacher of the gospel of Jesus Christ, a mentor, and a life coach.</p>
+                    <p>Apostle Mothushi Chuene is a devoted servant of God called to preach the Gospel in these last days. He leads the ministry with passion and dedication, teaching the Word of God with clarity and anointing.</p>
                 </div>
                 
                 <div style="text-align: center; margin-top: 2rem;">
@@ -756,7 +786,7 @@
                 </div>
                 
                 <div class="contact-note">
-                    <p>We'd love to hear from you! Feel free to contact us for prayer requests, inquiries, or to visit our services. Remain in the Peace of Christ!</p>
+                    <p>We'd love to hear from you! Feel free to contact us for prayer requests, inquiries, or to visit our services. God bless you!</p>
                 </div>
                 
                 <div style="text-align: center; margin-top: 1.5rem;">
@@ -782,8 +812,8 @@
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#" id="aboutLink">About Us</a></li>
-                <li><a href="index.html">Sermons</a></li>
-                <li><a href="index.html">Events</a></li>
+                <li><a href="#sermons" id="sermonsLink">Sermons</a></li>
+                <li><a href="#events" id="eventsLink">Events</a></li>
                 <li><a href="partner.html">Partner With Us</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
@@ -803,7 +833,7 @@
             </div>
         </section>
 
-        <section class="upcoming-events">
+        <section class="upcoming-events" id="events">
             <h2>Upcoming Events</h2>
             <div class="event-cards" id="event-cards">
                 <!-- Sample event cards (will be replaced by dynamic content) -->
@@ -837,7 +867,7 @@
             </div>
         </section>
 
-        <section class="sermons">
+        <section class="sermons sermons-section" id="sermons">
             <h2>Recent Sermons</h2>
             <div class="tabs">
                 <button class="tab-btn active" data-tab="recent">Recent</button>
@@ -990,8 +1020,8 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
-                    <li><a href="index.html">Sermons</a></li>
-                    <li><a href="index.html">Events</a></li>
+                    <li><a href="#sermons">Sermons</a></li>
+                    <li><a href="#events">Events</a></li>
                     <li><a href="partner.html">Partner With Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
@@ -1143,6 +1173,70 @@
             });
         }
 
+        // Smooth scroll to sections when clicking navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Check if it's a modal link first
+                if (this.id === 'aboutLink' || this.id === 'contactLink') {
+                    return; // Let modal handlers handle these
+                }
+                
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        document.getElementById('nav-menu').classList.remove('show');
+                        
+                        // Scroll to section
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Add highlight effect
+                        targetElement.style.animation = 'none';
+                        setTimeout(() => {
+                            targetElement.style.animation = 'highlightSection 2s ease';
+                        }, 10);
+                    }
+                }
+            });
+        });
+
+        // Also handle footer links
+        document.querySelectorAll('.footer-section a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Check if it's a modal link first
+                if (this.id === 'aboutFooterLink' || this.id === 'contactFooterLink') {
+                    return; // Let modal handlers handle these
+                }
+                
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Add highlight effect
+                        targetElement.style.animation = 'none';
+                        setTimeout(() => {
+                            targetElement.style.animation = 'highlightSection 2s ease';
+                        }, 10);
+                    }
+                }
+            });
+        });
+
         // Firebase initialization (replace with your config)
         const firebaseConfig = {
             apiKey: "YOUR_API_KEY",
@@ -1253,6 +1347,4 @@
         window.addEventListener('DOMContentLoaded', loadSermons);
     </script>
 </body>
-</html>
-
-
+    </html>
