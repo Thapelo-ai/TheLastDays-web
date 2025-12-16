@@ -336,7 +336,7 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* About Us Modal Styles */
+        /* Modal Styles */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -354,11 +354,11 @@
             display: flex;
         }
 
-        .about-modal {
+        .modal {
             background-color: white;
             border-radius: 10px;
             width: 90%;
-            max-width: 800px;
+            max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
@@ -390,6 +390,7 @@
             color: white;
             margin: 0;
             text-align: left;
+            font-size: 1.8rem;
         }
 
         .close-modal {
@@ -410,6 +411,7 @@
             padding: 2rem;
         }
 
+        /* About Us Modal Specific Styles */
         .about-intro {
             font-size: 1.2rem;
             margin-bottom: 2rem;
@@ -485,6 +487,97 @@
             font-style: italic;
         }
 
+        /* Contact Modal Specific Styles */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: rgba(74, 111, 40, 0.05);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-details h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-details p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-action {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-action:hover {
+            background-color: #e69500;
+        }
+
+        .contact-map {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .contact-note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(74, 111, 40, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+            color: var(--primary);
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -526,16 +619,35 @@
             .modal-content {
                 padding: 1.5rem;
             }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .contact-details h3 {
+                font-size: 1.2rem;
+            }
+
+            .contact-details p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- About Us Modal -->
     <div class="modal-overlay" id="aboutModal">
-        <div class="about-modal">
+        <div class="modal about-modal">
             <div class="modal-header">
                 <h2><i class="fas fa-church"></i> About The Last Days Evangelism Ministries</h2>
-                <button class="close-modal" id="closeModal">&times;</button>
+                <button class="close-modal" data-modal="aboutModal">&times;</button>
             </div>
             <div class="modal-content">
                 <div class="about-intro">
@@ -576,7 +688,83 @@
                 </div>
                 
                 <div style="text-align: center; margin-top: 2rem;">
-                    <p>For more information about our ministry, feel free to <a href="contact.html" style="color: var(--primary); font-weight: 600;">contact us</a> or visit us during our service times.</p>
+                    <p>For more information about our ministry, feel free to <a href="#" id="aboutToContact" style="color: var(--primary); font-weight: 600;">contact us</a> or visit us during our service times.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal contact-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-address-book"></i> Contact The Last Days Evangelism Ministries</h2>
+                <button class="close-modal" data-modal="contactModal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p>Mothushic@gmail.com</p>
+                            <button class="contact-action" onclick="copyToClipboard('Mothushic@gmail.com', 'Email')">
+                                <i class="fas fa-copy"></i> Copy Email
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Contact Number</h3>
+                            <p>072 228 5667</p>
+                            <button class="contact-action" onclick="copyToClipboard('0722285667', 'Phone Number')">
+                                <i class="fas fa-copy"></i> Copy Number
+                            </button>
+                            <button class="contact-action" onclick="window.location.href='tel:0722285667'" style="margin-left: 0.5rem;">
+                                <i class="fas fa-phone"></i> Call Now
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Moletjie Motinti, Polokwane, South Africa</p>
+                            <p><strong>Service Times:</strong><br>
+                            Sunday: 09:00 AM<br>
+                            Thursday: 10:00 AM<br>
+                            Monday: 06:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.182629323679!2d29.450661215034786!3d-23.90455328359638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d9e6a9b5b5b5%3A0x1b9b9b9b9b9b9b9b!2sPolokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1629999999999!5m2!1sen!2sza" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <div class="contact-note">
+                    <p>We'd love to hear from you! Feel free to contact us for prayer requests, inquiries, or to visit our services. God bless you!</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <p>Follow us on social media: 
+                        <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-whatsapp"></i></a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -597,7 +785,7 @@
                 <li><a href="index.html">Sermons</a></li>
                 <li><a href="index.html">Events</a></li>
                 <li><a href="partner.html">Partner With Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" id="contactLink">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
             </ul>
         </nav>
@@ -676,7 +864,7 @@
                         <img src="https://placehold.co/600x400/4a6f28/white?text=God's+Love" alt="God's Love Sermon">
                         <div class="sermon-card-content">
                             <h3>The Coming Of The BRIDEGROOM</h3>
-                            <p class="date">August , 2025</p>
+                            <p class="date">August 13, 2025</p>
                             <p class="speaker">Apostle Mothushi Chuene</p>
                             <p>Understanding the depth of God's love and how to receive it in your life.</p>
                             <div style="margin-top: 1rem;">
@@ -805,7 +993,7 @@
                     <li><a href="index.html">Sermons</a></li>
                     <li><a href="index.html">Events</a></li>
                     <li><a href="partner.html">Partner With Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -850,47 +1038,110 @@
             });
         });
 
-        // About Us Modal Functionality
-        const aboutModal = document.getElementById('aboutModal');
-        const aboutLink = document.getElementById('aboutLink');
-        const aboutFooterLink = document.getElementById('aboutFooterLink');
-        const closeModal = document.getElementById('closeModal');
+        // Modal Functionality
+        const modals = {
+            aboutModal: document.getElementById('aboutModal'),
+            contactModal: document.getElementById('contactModal')
+        };
 
-        // Open modal when clicking About Us in navigation
-        aboutLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            aboutModal.classList.add('active');
+        const modalLinks = {
+            aboutLink: document.getElementById('aboutLink'),
+            contactLink: document.getElementById('contactLink'),
+            aboutFooterLink: document.getElementById('aboutFooterLink'),
+            contactFooterLink: document.getElementById('contactFooterLink'),
+            aboutToContact: document.getElementById('aboutToContact')
+        };
+
+        // Function to open a modal
+        function openModal(modalId) {
+            // Close all modals first
+            Object.values(modals).forEach(modal => {
+                modal.classList.remove('active');
+            });
+            
+            // Open the requested modal
+            modals[modalId].classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
+        }
 
-        // Open modal when clicking About Us in footer
-        aboutFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            aboutModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-
-        // Close modal when clicking close button
-        closeModal.addEventListener('click', function() {
-            aboutModal.classList.remove('active');
+        // Function to close a modal
+        function closeModal(modalId) {
+            modals[modalId].classList.remove('active');
             document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Event listeners for opening modals
+        modalLinks.aboutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('aboutModal');
         });
 
-        // Close modal when clicking outside the modal
-        aboutModal.addEventListener('click', function(e) {
-            if (e.target === aboutModal) {
-                aboutModal.classList.remove('active');
-                document.body.style.overflow = 'auto'; // Restore scrolling
-            }
+        modalLinks.contactLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('contactModal');
+        });
+
+        modalLinks.aboutFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('aboutModal');
+        });
+
+        modalLinks.contactFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('contactModal');
+        });
+
+        modalLinks.aboutToContact.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeModal('aboutModal');
+            setTimeout(() => openModal('contactModal'), 300);
+        });
+
+        // Event listeners for close buttons
+        document.querySelectorAll('.close-modal').forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                closeModal(modalId);
+            });
+        });
+
+        // Close modal when clicking outside
+        Object.values(modals).forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    const modalId = modal.id;
+                    closeModal(modalId);
+                }
+            });
         });
 
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && aboutModal.classList.contains('active')) {
-                aboutModal.classList.remove('active');
-                document.body.style.overflow = 'auto'; // Restore scrolling
+            if (e.key === 'Escape') {
+                Object.entries(modals).forEach(([modalId, modal]) => {
+                    if (modal.classList.contains('active')) {
+                        closeModal(modalId);
+                    }
+                });
             }
         });
+
+        // Copy to clipboard function
+        function copyToClipboard(text, type) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert(`${type} copied to clipboard: ${text}`);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert(`${type} copied to clipboard: ${text}`);
+            });
+        }
 
         // Firebase initialization (replace with your config)
         const firebaseConfig = {
@@ -901,10 +1152,6 @@
             messagingSenderId: "YOUR_SENDER_ID",
             appId: "YOUR_APP_ID"
         };
-
-        // Initialize Firebase (commented out for safety)
-        // firebase.initializeApp(firebaseConfig);
-        // const db = firebase.firestore();
 
         // Function to create sermon cards dynamically
         function createSermonCard(sermon) {
@@ -932,21 +1179,21 @@
             return sermonCard;
         }
 
-        // Sample sermon data (would typically come from a database)
+        // Sample sermon data
         const sermonData = {
             recent: [
                 {
                     title: "Review Reflect Rest",
                     date: "December, 2025",
                     speaker: "Apostle Mothushi Chuene",
-                    description: "If you review and reflect on your life, you can predict your success.",
+                    description: "If you review and reflect your life, you can be able to predict your success.",
                     image: "RRR.jpeg"
                 },
                 {
                     title: "Building Strong and Godly Families",
                     date: "November, 2025",
                     speaker: "Apostle Mothushi Chuene",
-                    description: "Family is the first institution that God designed",
+                    description: "Family is the first institute that was designed by God",
                     image: "BuildingStrong&Godly.jpeg"
                 },
                 {
@@ -959,7 +1206,7 @@
             ],
             popular: [
                 {
-                    title: "The Two Resurrection",
+                    title: "The Two Ressurection",
                     date: "September, 2025",
                     speaker: "Apostle Mothushi Chuene",
                     description: "Jesus is the first Fruit of those to be resurrected.",
@@ -982,9 +1229,8 @@
             ]
         };
 
-        // Function to load sermons (simulated)
+        // Function to load sermons
         function loadSermons() {
-            // In a real implementation, you would fetch this from a database
             const recentContainer = document.querySelector('#recent .sermon-cards');
             const popularContainer = document.querySelector('#popular .sermon-cards');
 
@@ -1008,4 +1254,3 @@
     </script>
 </body>
 </html>
-
