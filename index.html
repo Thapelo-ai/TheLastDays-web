@@ -45,36 +45,22 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            justify-content: space-between;
-            padding: 10px;
         }
 
         .logo img {
             height: 60px;
             width: 65px;
             border-radius: 8px;
-            display: block;
-            margin-left: 20px;
-            margin-right: 20px;
         }
 
         .logo-text {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: white;
-            color: var(--primary);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .logo-main {
-            font-size: 1.2rem;
-            line-height: 1.0;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
         .logo-subtitle {
@@ -350,6 +336,155 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* About Us Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .about-modal {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .modal-header h2 {
+            color: white;
+            margin: 0;
+            text-align: left;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .modal-content {
+            padding: 2rem;
+        }
+
+        .about-intro {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .about-highlight {
+            background-color: rgba(74, 111, 40, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .about-highlight p {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .about-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-card {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .about-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .about-card i {
+            color: var(--secondary);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .about-leader {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: center;
+            border: 2px solid rgba(74, 111, 40, 0.2);
+        }
+
+        .about-leader img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--secondary);
+        }
+
+        .about-leader h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-leader p {
+            color: var(--text);
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -383,21 +518,82 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- About Us Modal -->
+    <div class="modal-overlay" id="aboutModal">
+        <div class="about-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-church"></i> About The Last Days Evangelism Ministries</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="about-intro">
+                    <p><strong>The Last Days Evangelism Ministries</strong>, also known as "God's Castle," is a vibrant Christian ministry dedicated to spreading the Gospel of Jesus Christ and preparing believers for His second coming.</p>
+                </div>
+                
+                <div class="about-highlight">
+                    <p>"This is The Last Days Evangelism Ministries, we are based in Moletjie Motinti, Polokwane."</p>
+                </div>
+                
+                <div class="about-details">
+                    <div class="about-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                        <p>We are located in Moletjie Motinti, Polokwane, South Africa. Our ministry serves the local community and reaches out to people across the region with the message of hope and salvation.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3><i class="fas fa-cross"></i> Our Mission</h3>
+                        <p>To evangelize the lost, equip believers for service, and empower the body of Christ through sound biblical teaching and the demonstration of God's power.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                        <p>To raise a generation of believers who are spiritually prepared for the last days, walking in holiness, power, and purpose according to God's Word.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3><i class="fas fa-calendar-alt"></i> Our Services</h3>
+                        <p>We hold regular services including Sunday Worship (09:00 AM), Thursday Teaching and Miracle Service (10:00 AM), and Monday Prayer Meetings (06:00 PM).</p>
+                    </div>
+                </div>
+                
+                <div class="about-leader">
+                    <img src="https://placehold.co/300x300/4a6f28/white?text=Apostle+Mothushi+Chuene" alt="Apostle Mothushi Chuene">
+                    <h3>Apostle Mothushi Chuene</h3>
+                    <p>Founder and Senior Pastor</p>
+                    <p>Apostle Mothushi Chuene is a devoted servant of God called to preach the Gospel in these last days. He leads the ministry with passion and dedication, teaching the Word of God with clarity and anointing.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p>For more information about our ministry, feel free to <a href="contact.html" style="color: var(--primary); font-weight: 600;">contact us</a> or visit us during our service times.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="logo">
-            <img src="church-logo!.jpeg">
+            <img src="church-logo!.jpeg" alt="Church Logo">
+            <div class="logo-text">
+                <div class="logo-main">The Last Days Evangelism Ministries</div>
+                <div class="logo-subtitle">"God's Castle"</div>
             </div>
-            <h1>The Last Days Evangelism Ministries</h1>
         </div>
         <nav>
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <p>This is the last days evangelism ministries based in moletjie Motinti</p>
+                <li><a href="#" id="aboutLink">About Us</a></li>
                 <li><a href="index.html">Sermons</a></li>
                 <li><a href="index.html">Events</a></li>
                 <li><a href="partner.html">Partner With Us</a></li>
@@ -412,13 +608,12 @@
 
     <main>
         <section class="hero">
-    <div class="hero-content">
-        <h2>Welcome to The Last Days Evangelism Ministries</h2>
-        <div class="subtitle">"God's Castle"</div>
-        <p>Experience God's love and power in our services</p>
-        <a href="events.html" class="btn">Join Us This Sunday</a>
-    </div>
-</section>
+            <div class="hero-content">
+                <h2>Welcome to The Last Days Evangelism Ministries</h2>
+                <p>Experience God's love and power in our services</p>
+                <a href="events.html" class="btn">Join Us This Sunday</a>
+            </div>
+        </section>
 
         <section class="upcoming-events">
             <h2>Upcoming Events</h2>
@@ -606,7 +801,7 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#" id="aboutFooterLink">About Us</a></li>
                     <li><a href="index.html">Sermons</a></li>
                     <li><a href="index.html">Events</a></li>
                     <li><a href="partner.html">Partner With Us</a></li>
@@ -653,6 +848,48 @@
                 const tabId = btn.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
+        });
+
+        // About Us Modal Functionality
+        const aboutModal = document.getElementById('aboutModal');
+        const aboutLink = document.getElementById('aboutLink');
+        const aboutFooterLink = document.getElementById('aboutFooterLink');
+        const closeModal = document.getElementById('closeModal');
+
+        // Open modal when clicking About Us in navigation
+        aboutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            aboutModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        // Open modal when clicking About Us in footer
+        aboutFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            aboutModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        // Close modal when clicking close button
+        closeModal.addEventListener('click', function() {
+            aboutModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+
+        // Close modal when clicking outside the modal
+        aboutModal.addEventListener('click', function(e) {
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && aboutModal.classList.contains('active')) {
+                aboutModal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
         });
 
         // Firebase initialization (replace with your config)
@@ -702,14 +939,14 @@
                     title: "Review Reflect Rest",
                     date: "December, 2025",
                     speaker: "Apostle Mothushi Chuene",
-                    description: "If you review and reflect your life, you can be able to predict your success.",
+                    description: "If you review and reflect on your life, you can predict your success.",
                     image: "RRR.jpeg"
                 },
                 {
                     title: "Building Strong and Godly Families",
                     date: "November, 2025",
                     speaker: "Apostle Mothushi Chuene",
-                    description: "Family is the first institute that was designed by God",
+                    description: "Family is the first institution that God designed",
                     image: "BuildingStrong&Godly.jpeg"
                 },
                 {
@@ -717,12 +954,12 @@
                     date: "October, 2025",
                     speaker: "Apostle Mothushi Chuene",
                     description: "The new covenant is the reality and fulfillment of what the old covenant only pictured.",
-                    image: "The Covenant.jpeg"
+                    image: "The Covenant.jpeg."
                 }
             ],
             popular: [
                 {
-                    title: "The Two Ressurection",
+                    title: "The Two Resurrection",
                     date: "September, 2025",
                     speaker: "Apostle Mothushi Chuene",
                     description: "Jesus is the first Fruit of those to be resurrected.",
@@ -771,18 +1008,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
