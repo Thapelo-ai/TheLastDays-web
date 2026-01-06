@@ -104,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh; /* Fixed: Changed from 100vh to 100% */
+            width: 100%; /* Fixed: Changed from 100vh to 100% */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -154,6 +154,17 @@
             font-size: 0.9rem;
         }
 
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -165,6 +176,12 @@
             margin-bottom: 2rem;
             font-size: 2.2rem;
             color: var(--primary);
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         .event-cards, .sermon-cards {
@@ -244,6 +261,12 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .partnership-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
         .partnership-option i {
@@ -259,6 +282,87 @@
 
         .partnership-option p {
             margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .partnership-benefits {
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .partnership-benefits h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .partnership-benefits ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .partnership-benefits li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .partnership-benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .partnership-details {
+            background-color: rgba(74, 111, 40, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .partnership-details h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .partnership-details p {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .financial-details {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .financial-details h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .financial-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .financial-method {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .financial-method h5 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
         .tabs {
@@ -425,6 +529,103 @@
 
         .modal-content {
             padding: 2rem;
+        }
+
+        /* Partnership Modal Specific Styles */
+        .partnership-intro {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .partnership-highlight {
+            background-color: rgba(74, 111, 40, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .partnership-highlight p {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .partnership-scripture {
+            background-color: rgba(245, 166, 35, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .partnership-scripture p {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .partnership-type-details {
+            margin-bottom: 2rem;
+        }
+
+        .partnership-type-details h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .partnership-type-details h3 i {
+            color: var(--secondary);
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .benefits-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .commitment-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .commitment-level {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .commitment-level h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .commitment-level p {
+            color: var(--text);
+            font-size: 0.9rem;
         }
 
         /* Contact Tabs Styles */
@@ -870,6 +1071,14 @@
             .sermons-section {
                 scroll-margin-top: 80px;
             }
+
+            .commitment-levels {
+                grid-template-columns: 1fr;
+            }
+
+            .financial-methods {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1078,6 +1287,132 @@
         </div>
     </div>
 
+    <!-- Partnership Modal -->
+    <div class="modal-overlay" id="partnershipModal">
+        <div class="modal partnership-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-hands-helping"></i> Partnership Details</h2>
+                <button class="close-modal" data-modal="partnershipModal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="partnership-intro">
+                    <p>Welcome to the partnership family of <strong>The Last Days Evangelism Ministries</strong>. Your partnership is vital to our mission of spreading the Gospel and transforming lives in these last days.</p>
+                </div>
+                
+                <div class="partnership-scripture">
+                    <p>"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Corinthians 9:7</p>
+                </div>
+                
+                <div class="partnership-highlight">
+                    <p>Your partnership enables us to reach souls, build disciples, and prepare believers for Christ's return. Together, we are making an eternal difference!</p>
+                </div>
+                
+                <div class="partnership-type-details">
+                    <h3><i class="fas fa-hands-helping"></i> Prayer Partnership</h3>
+                    <p>As a prayer partner, you join our spiritual army that intercedes for the ministry, our outreaches, and the souls we are reaching.</p>
+                    
+                    <h4>What Prayer Partners Do:</h4>
+                    <ul class="benefits-list">
+                        <li>Pray daily for the ministry and leadership</li>
+                        <li>Intercede for upcoming events and outreaches</li>
+                        <li>Pray for financial provision and resources</li>
+                        <li>Stand in prayer for specific needs and breakthroughs</li>
+                        <li>Participate in monthly prayer conference calls</li>
+                    </ul>
+                    
+                    <div class="commitment-levels">
+                        <div class="commitment-level">
+                            <h4>Basic Level</h4>
+                            <p>Pray for the ministry at least once a week</p>
+                        </div>
+                        <div class="commitment-level">
+                            <h4>Intermediate Level</h4>
+                            <p>Pray daily and join monthly prayer calls</p>
+                        </div>
+                        <div class="commitment-level">
+                            <h4>Advanced Level</h4>
+                            <p>Lead prayer groups and coordinate prayer initiatives</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn" onclick="openModal('contactModal')">
+                            <i class="fas fa-pray"></i> Become a Prayer Partner
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="partnership-type-details">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Financial Partnership</h3>
+                    <p>Your financial support enables us to carry out evangelism, support outreach programs, maintain our facilities, and expand our ministry impact.</p>
+                    
+                    <div class="financial-details">
+                        <h4>Financial Partnership Options:</h4>
+                        <div class="financial-methods">
+                            <div class="financial-method">
+                                <h5>Tithes & Offerings</h5>
+                                <p>Regular giving as an act of worship and obedience to God's command.</p>
+                            </div>
+                            <div class="financial-method">
+                                <h5>Monthly Support</h5>
+                                <p>Consistent monthly contributions that help with operational costs.</p>
+                            </div>
+                            <div class="financial-method">
+                                <h5>Project Sponsorship</h5>
+                                <p>Support specific projects like outreach events, building projects, or media equipment.</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-top: 2rem;">Banking Details:</h4>
+                        <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                            <p><strong>Bank:</strong> [Your Bank Name]</p>
+                            <p><strong>Account Name:</strong> The Last Days Evangelism Ministries</p>
+                            <p><strong>Account Number:</strong> [Your Account Number]</p>
+                            <p><strong>Branch Code:</strong> [Your Branch Code]</p>
+                            <p><strong>Reference:</strong> Your Name + "Partnership"</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn" onclick="copyBankingDetails()">
+                            <i class="fas fa-copy"></i> Copy Banking Details
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="partnership-type-details">
+                    <h3><i class="fas fa-people-carry"></i> Volunteer Partnership</h3>
+                    <p>Your time and talents are valuable resources that help us accomplish our mission. There are many areas where you can serve.</p>
+                    
+                    <h4>Volunteer Opportunities:</h4>
+                    <ul class="benefits-list">
+                        <li><strong>Worship Team:</strong> Musicians, singers, sound technicians</li>
+                        <li><strong>Media Team:</strong> Photography, videography, social media management</li>
+                        <li><strong>Hospitality Team:</strong> Greeters, ushers, event coordination</li>
+                        <li><strong>Children's Ministry:</strong> Teaching, caring for children during services</li>
+                        <li><strong>Outreach Team:</strong> Evangelism, community service projects</li>
+                        <li><strong>Administrative Team:</strong> Office support, data entry, communications</li>
+                        <li><strong>Prayer Team:</strong> Intercessory prayer, prayer chain coordination</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn" onclick="openModal('contactModal')">
+                            <i class="fas fa-hands"></i> Volunteer to Serve
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="partnership-note" style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(74, 111, 40, 0.1); border-radius: 8px; text-align: center;">
+                    <p><i class="fas fa-star"></i> <strong>All partners receive:</strong> Monthly ministry updates, exclusive prayer requests, recognition in our annual report, and special invitations to partnership events.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p>For more information about partnership, contact us at <strong>mothushic@gmail.com</strong> or call <strong>072 228 5667</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="logo">
             <img src="church-logo!.jpeg" alt="Church Logo">
@@ -1092,7 +1427,7 @@
                 <li><a href="#" id="aboutLink">About Us</a></li>
                 <li><a href="#sermons" id="sermonsLink">Sermons</a></li>
                 <li><a href="#events" id="eventsLink">Events</a></li>
-                <li><a href="partner.html">Partner With Us</a></li>
+                <li><a href="#" id="partnershipLink">Partner With Us</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
             </ul>
@@ -1255,26 +1590,133 @@
 
         <section class="partnership">
             <h2>Partner With Us</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Your partnership helps us spread the Gospel and make a difference in our community. There are several ways you can support our ministry:</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                Your partnership helps us spread the Gospel and make a difference in our community. 
+                <strong>Together, we can reach more souls and prepare believers for Christ's return.</strong>
+            </p>
 
             <div class="partnership-options">
                 <div class="partnership-option">
                     <i class="fas fa-hands-helping"></i>
                     <h3>Prayer Partnership</h3>
-                    <p>Join our prayer team and intercede for the ministry's needs and outreach efforts.</p>
-                    <a href="partner.html#prayer" class="btn">Join Prayer Team</a>
+                    <p>Join our spiritual army that intercedes for the ministry, our outreaches, and the souls we are reaching.</p>
+                    
+                    <div class="partnership-benefits">
+                        <h4>Benefits Include:</h4>
+                        <ul>
+                            <li>Monthly prayer updates</li>
+                            <li>Exclusive prayer requests</li>
+                            <li>Prayer conference calls</li>
+                            <li>Special prayer events</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn btn-outline" onclick="openPartnershipModal('prayer')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                    <button class="btn" onclick="openModal('contactModal')">
+                        <i class="fas fa-pray"></i> Join Now
+                    </button>
                 </div>
+                
                 <div class="partnership-option">
                     <i class="fas fa-hand-holding-heart"></i>
                     <h3>Financial Partnership</h3>
-                    <p>Support our ministry financially through tithes, offerings, or specific project donations.</p>
-                    <a href="partner.html#financial" class="btn">Give Now</a>
+                    <p>Support our ministry financially through tithes, offerings, monthly support, or specific project donations.</p>
+                    
+                    <div class="partnership-benefits">
+                        <h4>Benefits Include:</h4>
+                        <ul>
+                            <li>Monthly ministry reports</li>
+                            <li>Tax-deductible receipts</li>
+                            <li>Partnership certificate</li>
+                            <li>Annual appreciation event</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn btn-outline" onclick="openPartnershipModal('financial')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                    <button class="btn" onclick="openModal('contactModal')">
+                        <i class="fas fa-donate"></i> Give Now
+                    </button>
                 </div>
+                
                 <div class="partnership-option">
                     <i class="fas fa-people-carry"></i>
                     <h3>Volunteer Partnership</h3>
                     <p>Offer your time and talents to serve in various ministry areas and outreach programs.</p>
-                    <a href="partner.html#volunteer" class="btn">Volunteer</a>
+                    
+                    <div class="partnership-benefits">
+                        <h4>Benefits Include:</h4>
+                        <ul>
+                            <li>Skills development</li>
+                            <li>Team building</li>
+                            <li>Ministry experience</li>
+                            <li>Recognition events</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn btn-outline" onclick="openPartnershipModal('volunteer')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                    <button class="btn" onclick="openModal('contactModal')">
+                        <i class="fas fa-hands"></i> Volunteer
+                    </button>
+                </div>
+            </div>
+
+            <div class="partnership-details">
+                <h3>Why Partner With Us?</h3>
+                <p>Your partnership enables us to:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-cross" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--primary);">Spread the Gospel</h4>
+                        <p>Reach souls with the message of salvation</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-church" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--primary);">Build Disciples</h4>
+                        <p>Equip believers for effective ministry</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-hands" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--primary);">Serve Community</h4>
+                        <p>Meet practical needs in our community</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-globe" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--primary);">Expand Impact</h4>
+                        <p>Grow our outreach locally and beyond</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="financial-details">
+                <h3 style="text-align: center;">Financial Partnership Details</h3>
+                <p style="text-align: center;">We offer multiple ways to support us financially:</p>
+                
+                <div class="financial-methods">
+                    <div class="financial-method">
+                        <h5>Electronic Funds Transfer (EFT)</h5>
+                        <p>Direct bank transfers to our ministry account</p>
+                    </div>
+                    <div class="financial-method">
+                        <h5>Cash/Cheque Donations</h5>
+                        <p>Accepted during services or at our office</p>
+                    </div>
+                    <div class="financial-method">
+                        <h5>Mobile Payments</h5>
+                        <p>Zapper, SnapScan, or other mobile payment options</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p>For banking details or to discuss specific giving options, please contact us.</p>
+                    <button class="btn" onclick="openModal('contactModal')">
+                        <i class="fas fa-envelope"></i> Request Banking Details
+                    </button>
                 </div>
             </div>
         </section>
@@ -1303,7 +1745,7 @@
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
                     <li><a href="#sermons">Sermons</a></li>
                     <li><a href="#events">Events</a></li>
-                    <li><a href="partner.html">Partner With Us</a></li>
+                    <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
             </div>
@@ -1371,14 +1813,17 @@
         // Modal Functionality
         const modals = {
             aboutModal: document.getElementById('aboutModal'),
-            contactModal: document.getElementById('contactModal')
+            contactModal: document.getElementById('contactModal'),
+            partnershipModal: document.getElementById('partnershipModal')
         };
 
         const modalLinks = {
             aboutLink: document.getElementById('aboutLink'),
             contactLink: document.getElementById('contactLink'),
+            partnershipLink: document.getElementById('partnershipLink'),
             aboutFooterLink: document.getElementById('aboutFooterLink'),
             contactFooterLink: document.getElementById('contactFooterLink'),
+            partnershipFooterLink: document.getElementById('partnershipFooterLink'),
             aboutToContact: document.getElementById('aboutToContact')
         };
 
@@ -1411,6 +1856,11 @@
             openModal('contactModal');
         });
 
+        modalLinks.partnershipLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('partnershipModal');
+        });
+
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('aboutModal');
@@ -1419,6 +1869,11 @@
         modalLinks.contactFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('contactModal');
+        });
+
+        modalLinks.partnershipFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('partnershipModal');
         });
 
         modalLinks.aboutToContact.addEventListener('click', function(e) {
@@ -1480,26 +1935,52 @@
             });
         }
 
+        // Copy banking details function
+        function copyBankingDetails() {
+            const bankingDetails = `Bank: [Your Bank Name]\nAccount Name: The Last Days Evangelism Ministries\nAccount Number: [Your Account Number]\nBranch Code: [Your Branch Code]\nReference: Your Name + "Partnership"`;
+            copyToClipboard(bankingDetails, 'Banking Details');
+        }
+
         // Get Directions Function
         function openDirections(app) {
             // Coordinates for Moletjie Motinti, Polokwane area
-            // Note: You should replace these with the exact coordinates of your church
-            const latitude = -23.90455;  // Approximate coordinates for Polokwane
-            const longitude = 29.45066;  // Approximate coordinates for Polokwane
-            
-            // Church address for display
+            const latitude = -23.90455;
+            const longitude = 29.45066;
             const churchAddress = "Moletjie Motinti, Polokwane, South Africa";
             
             if (app === 'google') {
-                // Open Google Maps with directions
                 const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(churchAddress)}&travelmode=driving`;
                 window.open(googleMapsUrl, '_blank');
-                
             } else if (app === 'waze') {
-                // Open Waze with directions
                 const wazeUrl = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`;
                 window.open(wazeUrl, '_blank');
             }
+        }
+
+        // Open partnership modal with specific section
+        function openPartnershipModal(section) {
+            openModal('partnershipModal');
+            // Scroll to specific section after modal opens
+            setTimeout(() => {
+                const modalContent = document.querySelector('.partnership-modal .modal-content');
+                let targetElement;
+                
+                switch(section) {
+                    case 'prayer':
+                        targetElement = document.querySelector('.partnership-type-details:nth-child(4)');
+                        break;
+                    case 'financial':
+                        targetElement = document.querySelector('.partnership-type-details:nth-child(5)');
+                        break;
+                    case 'volunteer':
+                        targetElement = document.querySelector('.partnership-type-details:nth-child(6)');
+                        break;
+                }
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 300);
         }
 
         // Contact Form Submission
@@ -1590,7 +2071,7 @@ ${message}
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 // Check if it's a modal link first
-                if (this.id === 'aboutLink' || this.id === 'contactLink') {
+                if (this.id === 'aboutLink' || this.id === 'contactLink' || this.id === 'partnershipLink') {
                     return; // Let modal handlers handle these
                 }
                 
@@ -1624,7 +2105,7 @@ ${message}
         document.querySelectorAll('.footer-section a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 // Check if it's a modal link first
-                if (this.id === 'aboutFooterLink' || this.id === 'contactFooterLink') {
+                if (this.id === 'aboutFooterLink' || this.id === 'contactFooterLink' || this.id === 'partnershipFooterLink') {
                     return; // Let modal handlers handle these
                 }
                 
@@ -1750,10 +2231,7 @@ ${message}
         window.addEventListener('DOMContentLoaded', loadSermons);
 
         // Initialize Google Maps with better coordinates
-        // Note: You should get the exact coordinates for your church location
-        // You can get them from Google Maps by right-clicking on your location and selecting "What's here?"
         function initializeMap() {
-            // This function can be expanded if you want to use the Google Maps JavaScript API
             console.log('Map initialized');
         }
 
@@ -1762,4 +2240,3 @@ ${message}
     </script>
 </body>
 </html>
-
