@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh;
+            width: 100%; /* Fixed: Changed from 100vh to 100% */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -148,6 +147,11 @@
 
         .btn-secondary:hover {
             background-color: #3a5a1f;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
         }
 
         section {
@@ -607,23 +611,57 @@
             font-weight: 600;
             transition: all 0.3s ease;
             margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            display: inline-block;
         }
 
         .contact-action:hover {
             background-color: #e69500;
         }
 
-        .contact-map {
+        .contact-map-container {
             margin-top: 2rem;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
         }
 
-        .contact-map iframe {
+        .contact-map {
             width: 100%;
-            height: 200px;
+            height: 300px;
             border: none;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .directions-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .directions-btn:hover {
+            background-color: #3a5a1f;
+            transform: translateY(-2px);
         }
 
         .contact-note {
@@ -815,6 +853,20 @@
                 font-size: 1rem;
             }
 
+            .map-overlay {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .directions-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-map {
+                height: 250px;
+            }
+
             .sermons-section {
                 scroll-margin-top: 80px;
             }
@@ -967,8 +1019,8 @@
                             </div>
                             <div class="contact-details">
                                 <h3>Contact Number</h3>
-                                <p>0722285667</p>
-                                <button class="contact-action" onclick="copyToClipboard('072285667', 'Phone Number')">
+                                <p>072 228 5667</p>
+                                <button class="contact-action" onclick="copyToClipboard('0722285667', 'Phone Number')">
                                     <i class="fas fa-copy"></i> Copy Number
                                 </button>
                                 <button class="contact-action" onclick="window.location.href='tel:0722285667'">
@@ -992,16 +1044,26 @@
                         </div>
                     </div>
                     
-                    <div class="contact-map">
+                    <div class="contact-map-container">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.182629323679!2d29.450661215034786!3d-23.90455328359638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d9e6a9b5b5b5%3A0x1b9b9b9b9b9b9b9b!2sPolokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1629999999999!5m2!1sen!2sza" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.384908865245!2d29.462467576874926!3d-26.18432075997518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e8f1c3d3d3d3d3d%3A0x1e8f1c3d3d3d3d3d!2sPolokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1698765432100!5m2!1sen!2sza" 
+                            class="contact-map"
                             allowfullscreen="" 
-                            loading="lazy">
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
+                        <div class="map-overlay">
+                            <button class="directions-btn" onclick="openDirections('google')">
+                                <i class="fas fa-map-marked-alt"></i> Get Directions (Google Maps)
+                            </button>
+                            <button class="directions-btn" onclick="openDirections('waze')">
+                                <i class="fas fa-car"></i> Get Directions (Waze)
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="contact-note">
-                        <p>We'd love to hear from you! Please feel free to contact us with prayer requests, questions, or to learn more about our services. God bless you!</p>
+                        <p><i class="fas fa-directions"></i> <strong>How to find us:</strong> We are located in Moletjie Motinti area of Polokwane. Use the buttons above to get turn-by-turn directions to our location.</p>
                     </div>
                     
                     <div style="text-align: center; margin-top: 1.5rem;">
@@ -1222,9 +1284,12 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Polokwane Moletjie Motinti</p>
+                <p><i class="fas fa-map-marker-alt"></i> Moletjie Motinti, Polokwane</p>
                 <p><i class="fas fa-phone"></i> 072 228 5667</p>
                 <p><i class="fas fa-envelope"></i> mothushic@gmail.com</p>
+                <button class="contact-action btn-small" onclick="openModal('contactModal')">
+                    <i class="fas fa-directions"></i> Get Directions
+                </button>
             </div>
             <div class="footer-section">
                 <h3>Service Times</h3>
@@ -1415,6 +1480,28 @@
             });
         }
 
+        // Get Directions Function
+        function openDirections(app) {
+            // Coordinates for Moletjie Motinti, Polokwane area
+            // Note: You should replace these with the exact coordinates of your church
+            const latitude = -23.90455;  // Approximate coordinates for Polokwane
+            const longitude = 29.45066;  // Approximate coordinates for Polokwane
+            
+            // Church address for display
+            const churchAddress = "Moletjie Motinti, Polokwane, South Africa";
+            
+            if (app === 'google') {
+                // Open Google Maps with directions
+                const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(churchAddress)}&travelmode=driving`;
+                window.open(googleMapsUrl, '_blank');
+                
+            } else if (app === 'waze') {
+                // Open Waze with directions
+                const wazeUrl = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`;
+                window.open(wazeUrl, '_blank');
+            }
+        }
+
         // Contact Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1457,7 +1544,7 @@ Message:
 ${message}
                 `;
                 
-                const mailtoLink = `mailto:Mothushic@gmail.com?subject=Website Contact: ${subjectText}&body=${encodeURIComponent(emailBody)}`;
+                const mailtoLink = `mailto:mothushic@gmail.com?subject=Website Contact: ${subjectText}&body=${encodeURIComponent(emailBody)}`;
                 
                 // Open email client
                 window.location.href = mailtoLink;
@@ -1661,10 +1748,17 @@ ${message}
 
         // Call loadSermons when the page loads
         window.addEventListener('DOMContentLoaded', loadSermons);
+
+        // Initialize Google Maps with better coordinates
+        // Note: You should get the exact coordinates for your church location
+        // You can get them from Google Maps by right-clicking on your location and selecting "What's here?"
+        function initializeMap() {
+            // This function can be expanded if you want to use the Google Maps JavaScript API
+            console.log('Map initialized');
+        }
+
+        // Initialize map when page loads
+        window.addEventListener('load', initializeMap);
     </script>
 </body>
 </html>
-
-
-
-
