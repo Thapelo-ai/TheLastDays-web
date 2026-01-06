@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.3;
+            line-height: 1.6;
             color: var(--text);
             background-color: var(--light);
         }
@@ -104,7 +105,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -132,11 +133,21 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #3a5a1f;
         }
 
         section {
@@ -359,7 +370,7 @@
             background-color: white;
             border-radius: 10px;
             width: 90%;
-            max-width: 600px;
+            max-width: 800px;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
@@ -412,7 +423,220 @@
             padding: 2rem;
         }
 
-        /* About Us Modal Specific Styles */
+        /* Contact Tabs Styles */
+        .contact-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .contact-tab-btn {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-tab-btn.active {
+            color: var(--primary);
+        }
+
+        .contact-tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .contact-tab-content {
+            display: none;
+        }
+
+        .contact-tab-content.active {
+            display: block;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 111, 40, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .message-status {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .message-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .message-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: rgba(74, 111, 40, 0.05);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-details h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-details p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-action {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 0.5rem;
+        }
+
+        .contact-action:hover {
+            background-color: #e69500;
+        }
+
+        .contact-map {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .contact-note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(74, 111, 40, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        /* About Us Modal Styles */
         .about-intro {
             font-size: 1.2rem;
             margin-bottom: 2rem;
@@ -488,97 +712,6 @@
             font-style: italic;
         }
 
-        /* Contact Modal Specific Styles */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: rgba(74, 111, 40, 0.05);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details {
-            flex: 1;
-        }
-
-        .contact-details h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-details p {
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-action {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .contact-action:hover {
-            background-color: #e69500;
-        }
-
-        .contact-map {
-            margin-top: 2rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .contact-map iframe {
-            width: 100%;
-            height: 200px;
-            border: none;
-        }
-
-        .contact-note {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: rgba(74, 111, 40, 0.1);
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-            color: var(--primary);
-        }
-
         /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
@@ -647,6 +780,22 @@
                 padding: 1.5rem;
             }
 
+            .contact-tabs {
+                flex-direction: column;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions .btn {
+                width: 100%;
+            }
+
             .contact-item {
                 flex-direction: column;
                 text-align: center;
@@ -682,7 +831,7 @@
             </div>
             <div class="modal-content">
                 <div class="about-intro">
-                    <p><strong>The Last Days Evangelism Ministries</strong>, also known as "<strong></strong>God's Castle</strong>," is a vibrant Christian ministry dedicated to spreading the Gospel of Jesus Christ and preparing believers for His second coming.</p>
+                    <p><strong>The Last Days Evangelism Ministries</strong>, also known as "<strong>God's Castle</strong>," is a vibrant Christian ministry dedicated to spreading the Gospel of Jesus Christ and preparing believers for His second coming.</p>
                 </div>
                 
                 <div class="about-highlight">
@@ -737,69 +886,131 @@
                 <button class="close-modal" data-modal="contactModal">&times;</button>
             </div>
             <div class="modal-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                <div class="contact-tabs">
+                    <button class="contact-tab-btn active" data-contact-tab="contact-form">Send Message</button>
+                    <button class="contact-tab-btn" data-contact-tab="contact-info">Contact Info</button>
+                </div>
+
+                <!-- Contact Form Tab -->
+                <div class="contact-tab-content active" id="contact-form">
+                    <div class="contact-form">
+                        <div id="messageStatus" class="message-status"></div>
+                        
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject"><i class="fas fa-tag"></i> Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" disabled selected>Select a subject</option>
+                                    <option value="prayer-request">Prayer Request</option>
+                                    <option value="general-inquiry">General Inquiry</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="volunteer">Volunteer Opportunity</option>
+                                    <option value="testimony">Share Testimony</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message"><i class="fas fa-comment"></i> Your Message *</label>
+                                <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="reset" class="btn btn-secondary">Clear Form</button>
+                                <button type="submit" class="btn">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="contact-note">
+                        <p><i class="fas fa-info-circle"></i> Your message will be sent directly to Apostle Mothushi Chuene. We typically respond within 24-48 hours. For urgent matters, please call 072 228 5667.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Info Tab -->
+                <div class="contact-tab-content" id="contact-info">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Address</h3>
+                                <p>Mothushic@gmail.com</p>
+                                <button class="contact-action" onclick="copyToClipboard('Mothushic@gmail.com', 'Email')">
+                                    <i class="fas fa-copy"></i> Copy Email
+                                </button>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h3>Email Address</h3>
-                            <p>Mothushic@gmail.com</p>
-                            <button class="contact-action" onclick="copyToClipboard('Mothushic@gmail.com', 'Email')">
-                                <i class="fas fa-copy"></i> Copy Email
-                            </button>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Contact Number</h3>
+                                <p>072 228 5667</p>
+                                <button class="contact-action" onclick="copyToClipboard('0722285667', 'Phone Number')">
+                                    <i class="fas fa-copy"></i> Copy Number
+                                </button>
+                                <button class="contact-action" onclick="window.location.href='tel:0722285667'">
+                                    <i class="fas fa-phone"></i> Call Now
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <p>Moletjie Motinti, Polokwane, South Africa</p>
+                                <p><strong>Service Times:</strong><br>
+                                Sunday: 09:00 AM<br>
+                                Thursday: 10:00 AM<br>
+                                Monday: 06:00 PM</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Contact Number</h3>
-                            <p>072 228 5667</p>
-                            <button class="contact-action" onclick="copyToClipboard('0722285667', 'Phone Number')">
-                                <i class="fas fa-copy"></i> Copy Number
-                            </button>
-                            <button class="contact-action" onclick="window.location.href='tel:0722285667'" style="margin-left: 0.5rem;">
-                                <i class="fas fa-phone"></i> Call Now
-                            </button>
-                        </div>
+                    <div class="contact-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.182629323679!2d29.450661215034786!3d-23.90455328359638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d9e6a9b5b5b5%3A0x1b9b9b9b9b9b9b9b!2sPolokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1629999999999!5m2!1sen!2sza" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>Moletjie Motinti, Polokwane, South Africa</p>
-                            <p><strong>Service Times:</strong><br>
-                            Sunday: 09:00 AM<br>
-                            Thursday: 10:00 AM<br>
-                            Monday: 06:00 PM</p>
-                        </div>
+                    <div class="contact-note">
+                        <p>We'd love to hear from you! Feel free to contact us for prayer requests, inquiries, or to visit our services. God bless you!</p>
                     </div>
-                </div>
-                
-                <div class="contact-map">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.182629323679!2d29.450661215034786!3d-23.90455328359638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d9e6a9b5b5b5%3A0x1b9b9b9b9b9b9b9b!2sPolokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1629999999999!5m2!1sen!2sza" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-                
-                <div class="contact-note">
-                    <p>We'd love to hear from you! Feel free to contact us for prayer requests, inquiries, or to visit our services. God bless you!</p>
-                </div>
-                
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <p>Follow us on social media: 
-                        <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-facebook"></i></a>
-                        <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-youtube"></i></a>
-                        <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-whatsapp"></i></a>
-                    </p>
+                    
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <p>Follow us on social media: 
+                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-facebook"></i></a>
+                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-youtube"></i></a>
+                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-whatsapp"></i></a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1073,6 +1284,25 @@
             });
         });
 
+        // Contact Tabs Functionality
+        const contactTabBtns = document.querySelectorAll('.contact-tab-btn');
+        const contactTabContents = document.querySelectorAll('.contact-tab-content');
+
+        contactTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                contactTabBtns.forEach(b => b.classList.remove('active'));
+                contactTabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-contact-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
         // Modal Functionality
         const modals = {
             aboutModal: document.getElementById('aboutModal'),
@@ -1129,7 +1359,14 @@
         modalLinks.aboutToContact.addEventListener('click', function(e) {
             e.preventDefault();
             closeModal('aboutModal');
-            setTimeout(() => openModal('contactModal'), 300);
+            setTimeout(() => {
+                openModal('contactModal');
+                // Switch to contact form tab when coming from about modal
+                const contactFormTab = document.querySelector('[data-contact-tab="contact-form"]');
+                if (contactFormTab) {
+                    contactFormTab.click();
+                }
+            }, 300);
         });
 
         // Event listeners for close buttons
@@ -1176,6 +1413,90 @@
                 document.body.removeChild(textArea);
                 alert(`${type} copied to clipboard: ${text}`);
             });
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const messageStatus = document.getElementById('messageStatus');
+            
+            // Get form values
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Validate form
+            if (!name || !email || !subject || !message) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Here you would typically send the data to your server
+            // For now, we'll simulate a successful submission
+            setTimeout(() => {
+                // Create email link with form data
+                const subjectText = getSubjectText(subject);
+                const emailBody = `
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Subject: ${subjectText}
+
+Message:
+${message}
+                `;
+                
+                const mailtoLink = `mailto:Mothushic@gmail.com?subject=Website Contact: ${subjectText}&body=${encodeURIComponent(emailBody)}`;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                showMessage('Thank you! Your message has been prepared. Please check your email client to send it.', 'success');
+                
+                // Reset form
+                form.reset();
+                
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Auto-hide success message after 10 seconds
+                setTimeout(() => {
+                    messageStatus.style.display = 'none';
+                }, 10000);
+                
+            }, 1500); // Simulate network delay
+        });
+        
+        function getSubjectText(subjectValue) {
+            const subjects = {
+                'prayer-request': 'Prayer Request',
+                'general-inquiry': 'General Inquiry',
+                'partnership': 'Partnership Inquiry',
+                'volunteer': 'Volunteer Opportunity',
+                'testimony': 'Share Testimony',
+                'other': 'Other Inquiry'
+            };
+            return subjects[subjectValue] || 'Website Inquiry';
+        }
+        
+        function showMessage(message, type) {
+            const messageStatus = document.getElementById('messageStatus');
+            messageStatus.textContent = message;
+            messageStatus.className = `message-status ${type}`;
+            messageStatus.style.display = 'block';
         }
 
         // Smooth scroll to sections when clicking navigation links
@@ -1241,16 +1562,6 @@
                 }
             });
         });
-
-        // Firebase initialization (replace with your config)
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "church-website-7882d.firebaseapp.com",
-            projectId: "church-website-7882d",
-            storageBucket: "church-website-7882d.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
 
         // Function to create sermon cards dynamically
         function createSermonCard(sermon) {
@@ -1352,11 +1663,4 @@
         window.addEventListener('DOMContentLoaded', loadSermons);
     </script>
 </body>
-    </html>
-
-
-
-
-
-
-
+</html>
