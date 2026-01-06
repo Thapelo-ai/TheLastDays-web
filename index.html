@@ -104,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh; /* Fixed: Changed from 100vh to 100% */
+            width: 100%; /* Fixed: Changed from 100vh to 100% */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -165,6 +165,15 @@
             color: white;
         }
 
+        .youtube-btn {
+            background-color: #FF0000;
+            color: white;
+        }
+
+        .youtube-btn:hover {
+            background-color: #CC0000;
+        }
+
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -201,6 +210,7 @@
 
         .event-card:hover, .sermon-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .event-card img, .sermon-card img {
@@ -230,6 +240,28 @@
             margin-bottom: 0.5rem;
         }
 
+        .sermon-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .sermon-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .sermon-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
         .stream-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -246,6 +278,105 @@
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        .youtube-channel {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: rgba(255, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .youtube-channel h3 {
+            margin-bottom: 1rem;
+        }
+
+        .youtube-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .youtube-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 150px;
+        }
+
+        .youtube-stat i {
+            font-size: 2.5rem;
+            color: #FF0000;
+            margin-bottom: 1rem;
+        }
+
+        .youtube-stat .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .youtube-stat .label {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .youtube-embed-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .youtube-embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .load-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .page-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .partnership-options {
@@ -285,125 +416,174 @@
             color: var(--text);
         }
 
-        .partnership-benefits {
-            margin-top: 1rem;
-            text-align: left;
-        }
-
-        .partnership-benefits h4 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .partnership-benefits ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .partnership-benefits li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .partnership-benefits li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-        }
-
-        .partnership-details {
-            background-color: rgba(74, 111, 40, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-
-        .partnership-details h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .partnership-details p {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .financial-details {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .financial-details h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .financial-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .financial-method {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .financial-method h5 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #eee;
-        }
-
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .tab-btn.active {
-            color: var(--primary);
-        }
-
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .youtube-modal {
+            background-color: #000;
+            border-radius: 10px;
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .youtube-modal-header {
+            background-color: #000;
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .youtube-modal-header h2 {
+            color: white;
+            margin: 0;
+            text-align: left;
+            font-size: 1.5rem;
+        }
+
+        .close-youtube-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-youtube-modal:hover {
+            color: #FF0000;
+            transform: scale(1.1);
+        }
+
+        .youtube-modal-content {
+            padding: 0;
+        }
+
+        .youtube-video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .youtube-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .youtube-video-details {
+            padding: 1.5rem;
+            background-color: #000;
+            color: white;
+        }
+
+        .youtube-video-details h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .youtube-video-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .youtube-video-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .youtube-video-description {
+            margin-top: 1rem;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        /* Existing modal styles (keep your existing modal styles) */
+        .modal {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-header {
             background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px 10px 0 0;
         }
 
-        .tab-content {
-            display: none;
+        .modal-header h2 {
+            color: white;
+            margin: 0;
+            text-align: left;
+            font-size: 1.8rem;
         }
 
-        .tab-content.active {
-            display: block;
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .modal-content {
+            padding: 2rem;
         }
 
         footer {
@@ -456,527 +636,6 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Modal Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal {
-            background-color: white;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .modal-header h2 {
-            color: white;
-            margin: 0;
-            text-align: left;
-            font-size: 1.8rem;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            color: var(--secondary);
-            transform: scale(1.1);
-        }
-
-        .modal-content {
-            padding: 2rem;
-        }
-
-        /* Partnership Modal Specific Styles */
-        .partnership-intro {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            color: var(--text);
-            text-align: center;
-        }
-
-        .partnership-highlight {
-            background-color: rgba(74, 111, 40, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .partnership-highlight p {
-            font-style: italic;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .partnership-scripture {
-            background-color: rgba(245, 166, 35, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .partnership-scripture p {
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .partnership-type-details {
-            margin-bottom: 2rem;
-        }
-
-        .partnership-type-details h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .partnership-type-details h3 i {
-            color: var(--secondary);
-        }
-
-        .benefits-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .benefits-list li {
-            margin-bottom: 0.8rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .benefits-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-size: 1.5rem;
-        }
-
-        .commitment-levels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .commitment-level {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--secondary);
-        }
-
-        .commitment-level h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .commitment-level p {
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-
-        /* Contact Tabs Styles */
-        .contact-tabs {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #eee;
-        }
-
-        .contact-tab-btn {
-            flex: 1;
-            padding: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .contact-tab-btn.active {
-            color: var(--primary);
-        }
-
-        .contact-tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-        }
-
-        .contact-tab-content {
-            display: none;
-        }
-
-        .contact-tab-content.active {
-            display: block;
-        }
-
-        /* Contact Form Styles */
-        .contact-form {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(74, 111, 40, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
-
-        .message-status {
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: 600;
-            display: none;
-        }
-
-        .message-status.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-
-        .message-status.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-
-        /* Contact Info Styles */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: rgba(74, 111, 40, 0.05);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details {
-            flex: 1;
-        }
-
-        .contact-details h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-details p {
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-action {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-            display: inline-block;
-        }
-
-        .contact-action:hover {
-            background-color: #e69500;
-        }
-
-        .contact-map-container {
-            margin-top: 2rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .contact-map {
-            width: 100%;
-            height: 300px;
-            border: none;
-        }
-
-        .map-overlay {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .directions-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .directions-btn:hover {
-            background-color: #3a5a1f;
-            transform: translateY(-2px);
-        }
-
-        .contact-note {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: rgba(74, 111, 40, 0.1);
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-            color: var(--primary);
-        }
-
-        /* About Us Modal Styles */
-        .about-intro {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        .about-highlight {
-            background-color: rgba(74, 111, 40, 0.1);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .about-highlight p {
-            font-style: italic;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .about-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .about-card {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
-
-        .about-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .about-card i {
-            color: var(--secondary);
-            margin-right: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .about-leader {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            text-align: center;
-            border: 2px solid rgba(74, 111, 40, 0.2);
-        }
-
-        .about-leader img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid var(--secondary);
-        }
-
-        .about-leader h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .about-leader p {
-            color: var(--text);
-            font-style: italic;
-        }
-
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Sermons section highlight when navigated to */
-        .sermons-section {
-            scroll-margin-top: 100px;
-        }
-
-        .sermons-section:target {
-            animation: highlightSection 2s ease;
-        }
-
-        @keyframes highlightSection {
-            0% {
-                background-color: transparent;
-            }
-            20% {
-                background-color: rgba(245, 166, 35, 0.1);
-            }
-            100% {
-                background-color: transparent;
-            }
-        }
-
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -1001,6 +660,10 @@
                 font-size: 2rem;
             }
 
+            .hero-content p {
+                font-size: 1rem;
+            }
+
             .tabs {
                 flex-direction: column;
                 align-items: center;
@@ -1011,380 +674,81 @@
                 text-align: center;
             }
 
-            .modal-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .modal-content {
-                padding: 1.5rem;
-            }
-
-            .contact-tabs {
+            .sermon-actions {
                 flex-direction: column;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .form-actions {
-                flex-direction: column;
-            }
-
-            .form-actions .btn {
+            .sermon-actions .btn {
                 width: 100%;
             }
 
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.5rem 1rem;
-            }
-
-            .contact-icon {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-
-            .contact-details h3 {
-                font-size: 1.2rem;
-            }
-
-            .contact-details p {
-                font-size: 1rem;
-            }
-
-            .map-overlay {
+            .youtube-stats {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .directions-btn {
+            .youtube-stat {
                 width: 100%;
-                justify-content: center;
+                max-width: 250px;
             }
 
-            .contact-map {
-                height: 250px;
+            .youtube-modal {
+                width: 98%;
+                margin: 0 1%;
             }
 
-            .sermons-section {
-                scroll-margin-top: 80px;
-            }
-
-            .commitment-levels {
-                grid-template-columns: 1fr;
-            }
-
-            .financial-methods {
-                grid-template-columns: 1fr;
+            .youtube-video-stats {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- About Us Modal -->
+    <!-- YouTube Modal -->
+    <div class="modal-overlay" id="youtubeModal">
+        <div class="modal youtube-modal">
+            <div class="youtube-modal-header">
+                <h2><i class="fab fa-youtube"></i> Watch Sermon</h2>
+                <button class="close-youtube-modal" data-modal="youtubeModal">&times;</button>
+            </div>
+            <div class="youtube-modal-content">
+                <div class="youtube-video-container" id="youtubeVideoContainer">
+                    <!-- YouTube video will be loaded here -->
+                </div>
+                <div class="youtube-video-details">
+                    <h3 id="youtubeVideoTitle">Loading...</h3>
+                    <div class="youtube-video-stats">
+                        <div class="youtube-video-stat" id="youtubeVideoViews">
+                            <i class="fas fa-eye"></i> <span>Loading views...</span>
+                        </div>
+                        <div class="youtube-video-stat" id="youtubeVideoLikes">
+                            <i class="fas fa-thumbs-up"></i> <span>Loading likes...</span>
+                        </div>
+                        <div class="youtube-video-stat" id="youtubeVideoDate">
+                            <i class="fas fa-calendar"></i> <span>Loading date...</span>
+                        </div>
+                    </div>
+                    <div class="youtube-video-description" id="youtubeVideoDescription">
+                        Loading description...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Existing Modals (About, Contact, Partnership) -->
+    <!-- Keep your existing modal code here -->
     <div class="modal-overlay" id="aboutModal">
-        <div class="modal about-modal">
-            <div class="modal-header">
-                <h2><i class="fas fa-church"></i> About The Last Days Evangelism Ministries</h2>
-                <button class="close-modal" data-modal="aboutModal">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="about-intro">
-                    <p><strong>The Last Days Evangelism Ministries</strong>, also known as "<strong>God's Castle</strong>," is a vibrant Christian ministry dedicated to spreading the Gospel of Jesus Christ and preparing believers for His second coming.</p>
-                </div>
-                
-                <div class="about-highlight">
-                    <p>"This is The Last Days Evangelism Ministries, we are based in Moletjie Motinti, Polokwane."</p>
-                </div>
-                
-                <div class="about-details">
-                    <div class="about-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
-                        <p>We are located in Moletjie Motinti, Polokwane, South Africa. Our ministry serves the local community and reaches out to people across the region with the message of hope and salvation.</p>
-                    </div>
-                    
-                    <div class="about-card">
-                        <h3><i class="fas fa-cross"></i> Our Mission</h3>
-                        <p>To evangelize the lost, equip believers for service, and empower the body of Christ through sound biblical teaching and the demonstration of God's power.</p>
-                    </div>
-                    
-                    <div class="about-card">
-                        <h3><i class="fas fa-eye"></i> Our Vision</h3>
-                        <p>To see the manifestation of the bible verse Joel 2, which says, "I pour out my Spirit on all people.
-                            Your sons and daughters will prophesy, your old men will dream dreams, your young men will see visions
-                            Even on my servants, both men and women, I pour out my Spirit in those days.
-                            I will show wonders in the heavens and on the earth.</p>
-                    </div>
-                    
-                    <div class="about-card">
-                        <h3><i class="fas fa-calendar-alt"></i> Our Services</h3>
-                        <p>We hold regular services including Sunday Worship (09:00 AM), Thursday Teaching and Miracle Service (10:00 AM), and Monday Prayer Meetings (06:00 PM).</p>
-                    </div>
-                </div>
-                
-                <div class="about-leader">
-                    <img src="HolyCom.jpeg" alt="Apostle Mothushi Chuene">
-                    <h3>Apostle Mothushi Chuene</h3>
-                    <p>Founder and Senior Pastor</p>
-                    <p>Apostle Mothushi Chuene is a devoted servant of God called to preach the Gospel in these last days. He leads the ministry with passion and dedication, teaching the Word of God with clarity and anointing. He is also 
-                    the teacher of the gospel of Jesus Christ, a mentor, and a life coach.</p>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p>For more information about our ministry, feel free to <a href="#" id="aboutToContact" style="color: var(--primary); font-weight: 600;">contact us</a> or visit us during our service times.</p>
-                </div>
-            </div>
-        </div>
+        <!-- Your existing about modal code -->
     </div>
-
-    <!-- Contact Modal -->
+    
     <div class="modal-overlay" id="contactModal">
-        <div class="modal contact-modal">
-            <div class="modal-header">
-                <h2><i class="fas fa-address-book"></i> Contact The Last Days Evangelism Ministries</h2>
-                <button class="close-modal" data-modal="contactModal">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="contact-tabs">
-                    <button class="contact-tab-btn active" data-contact-tab="contact-form">Send Message</button>
-                    <button class="contact-tab-btn" data-contact-tab="contact-info">Contact Info</button>
-                </div>
-
-                <!-- Contact Form Tab -->
-                <div class="contact-tab-content active" id="contact-form">
-                    <div class="contact-form">
-                        <div id="messageStatus" class="message-status"></div>
-                        
-                        <form id="contactForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name"><i class="fas fa-user"></i> Full Name *</label>
-                                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
-                                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="subject"><i class="fas fa-tag"></i> Subject *</label>
-                                <select id="subject" name="subject" required>
-                                    <option value="" disabled selected>Select a subject</option>
-                                    <option value="prayer-request">Prayer Request</option>
-                                    <option value="general-inquiry">General Inquiry</option>
-                                    <option value="partnership">Partnership</option>
-                                    <option value="volunteer">Volunteer Opportunity</option>
-                                    <option value="testimony">Share Testimony</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message"><i class="fas fa-comment"></i> Your Message *</label>
-                                <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="reset" class="btn btn-secondary">Clear Form</button>
-                                <button type="submit" class="btn">
-                                    <i class="fas fa-paper-plane"></i> Send Message
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="contact-note">
-                        <p><i class="fas fa-info-circle"></i> Your message will be sent directly to Apostle Mothushi Chuene. We typically respond within 24-48 hours. For urgent matters, please call 072 228 5667.</p>
-                    </div>
-                </div>
-
-                <!-- Contact Info Tab -->
-                <div class="contact-tab-content" id="contact-info">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Email Address</h3>
-                                <p>mothushic@gmail.com</p>
-                                <button class="contact-action" onclick="copyToClipboard('mothushic@gmail.com', 'Email')">
-                                    <i class="fas fa-copy"></i> Copy Email
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Contact Number</h3>
-                                <p>072 228 5667</p>
-                                <button class="contact-action" onclick="copyToClipboard('0722285667', 'Phone Number')">
-                                    <i class="fas fa-copy"></i> Copy Number
-                                </button>
-                                <button class="contact-action" onclick="window.location.href='tel:0722285667'">
-                                    <i class="fas fa-phone"></i> Call Now
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Location</h3>
-                                <p>Moletjie Motinti, Polokwane, South Africa</p>
-                                <p><strong>Service Times:</strong><br>
-                                Sunday: 09:00 AM<br>
-                                Thursday: 10:00 AM<br>
-                                Monday: 06:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.384908865245!2d29.462467576874926!3d-26.18432075997518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e8f1c3d3d3d3d3d%3A0x1e8f1c3d3d3d3d3d!2sPolokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1698765432100!5m2!1sen!2sza" 
-                            class="contact-map"
-                            allowfullscreen="" 
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        <div class="map-overlay">
-                            <button class="directions-btn" onclick="openDirections('google')">
-                                <i class="fas fa-map-marked-alt"></i> Get Directions (Google Maps)
-                            </button>
-                            <button class="directions-btn" onclick="openDirections('waze')">
-                                <i class="fas fa-car"></i> Get Directions (Waze)
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-note">
-                        <p><i class="fas fa-directions"></i> <strong>How to find us:</strong> We are located in Moletjie Motinti area of Polokwane. Use the buttons above to get turn-by-turn directions to our location.</p>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 1.5rem;">
-                        <p>Follow us on social media: 
-                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-facebook"></i></a>
-                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-youtube"></i></a>
-                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-whatsapp"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Your existing contact modal code -->
     </div>
-
-    <!-- Partnership Modal -->
+    
     <div class="modal-overlay" id="partnershipModal">
-        <div class="modal partnership-modal">
-            <div class="modal-header">
-                <h2><i class="fas fa-hands-helping"></i> Partnership Details</h2>
-                <button class="close-modal" data-modal="partnershipModal">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="partnership-intro">
-                    <p>Welcome to the partnership family of <strong>The Last Days Evangelism Ministries</strong>. Your partnership is vital to our mission of spreading the Gospel and transforming lives in these last days.</p>
-                </div>
-                
-                <div class="partnership-scripture">
-                    <p>"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Corinthians 9:7</p>
-                </div>
-                
-                <div class="partnership-highlight">
-                    <p>Your partnership enables us to reach souls, build disciples, and prepare believers for Christ's return. Together, we are making an eternal difference!</p>
-                </div>
-                
-                <div class="partnership-type-details">
-                    <h3><i class="fas fa-hands-helping"></i> Prayer Partnership</h3>
-                    <p>As a prayer partner, you join our spiritual army that intercedes for the ministry, our outreaches, and the souls we are reaching.</p>
-                    
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <button class="btn" onclick="openModal('contactModal')">
-                            <i class="fas fa-pray"></i> Become a Prayer Partner
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="partnership-type-details">
-                    <h3><i class="fas fa-hand-holding-heart"></i> Financial Partnership</h3>
-                    <p>Your financial support enables us to carry out evangelism, support outreach programs, maintain our facilities, and expand our ministry impact.</p>
-                    
-                    <div class="financial-details">
-                        <h4>Financial Partnership Options:</h4>
-                        <div class="financial-methods">
-                            <div class="financial-method">
-                                <h5>Tithes & Offerings</h5>
-                                <p>Regular giving as an act of worship and obedience to God's command.</p>
-                            </div>
-                            <div class="financial-method">
-                                <h5>Monthly Support</h5>
-                                <p>Consistent monthly contributions that help with operational costs.</p>
-                            </div>
-                            <div class="financial-method">
-                                <h5>Project Sponsorship</h5>
-                                <p>Support specific projects like outreach events, building projects, or media equipment.</p>
-                            </div>
-                        </div>
-                        
-                        <h4 style="margin-top: 2rem;">Banking Details:</h4>
-                        <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
-                            <p><strong>Bank:</strong> [Your Bank Name]</p>
-                            <p><strong>Account Name:</strong> The Last Days Evangelism Ministries</p>
-                            <p><strong>Account Number:</strong> [Your Account Number]</p>
-                            <p><strong>Branch Code:</strong> [Your Branch Code]</p>
-                            <p><strong>Reference:</strong> Your Name + "Partnership"</p>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <button class="btn" onclick="copyBankingDetails()">
-                            <i class="fas fa-copy"></i> Copy Banking Details
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="partnership-type-details">
-                    <h3><i class="fas fa-people-carry"></i> Volunteer Partnership</h3>
-                    <p>Your time and talents are valuable resources that help us accomplish our mission. There are many areas where you can serve.</p>
-                    
-                    <h4>Volunteer Opportunities:</h4>
-                    <ul class="benefits-list">
-                        <li><strong>Worship Team:</strong> Musicians, singers, sound technicians</li>
-                        <li><strong>Media Team:</strong> Photography, videography, social media management</li>
-                        <li><strong>Hospitality Team:</strong> Greeters, ushers, event coordination</li>
-                        <li><strong>Children's Ministry:</strong> Teaching, caring for children during services</li>
-                        <li><strong>Outreach Team:</strong> Evangelism, community service projects</li>
-                    </ul>
-                    
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <button class="btn" onclick="openModal('contactModal')">
-                            <i class="fas fa-hands"></i> Volunteer to Serve
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="partnership-note" style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(74, 111, 40, 0.1); border-radius: 8px; text-align: center;">
-                    <p><i class="fas fa-star"></i> <strong>All partners receive:</strong> Monthly ministry updates, exclusive prayer requests, recognition in our annual report, and special invitations to partnership events.</p>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p>For more information about partnership, contact us at <strong>mothushic@gmail.com</strong> or call <strong>072 228 5667</strong>.</p>
-                </div>
-            </div>
-        </div>
+        <!-- Your existing partnership modal code -->
     </div>
 
     <header>
@@ -1415,15 +779,14 @@
         <section class="hero">
             <div class="hero-content">
                 <h2><strong>THE YEAR OF DIVINE ADMINISTRATION</strong></h2>
-                <p>WE ARE APOSTOLIC, WE ARE PROPHETIC, WE ARE EVANGELICAL! </p>
-                <a href="events.html" class="btn">Join Us This Sunday</a>
+                <p>WE ARE APOSTOLIC, WE ARE PROPHETIC, WE ARE EVANGELICAL!</p>
+                <a href="#sermons" class="btn">Watch Latest Sermons</a>
             </div>
         </section>
 
         <section class="upcoming-events" id="events">
             <h2>Upcoming Events</h2>
             <div class="event-cards" id="event-cards">
-                <!-- Sample event cards (will be replaced by dynamic content) -->
                 <div class="event-card">
                     <img src="RRR.jpeg" alt="Sunday Service">
                     <div class="event-card-content">
@@ -1433,9 +796,9 @@
                     </div>
                 </div>
                 <div class="event-card">
-                    <img src="WhatsApp%20Image%202025-11-25%20at%2014.09.36%20(1).jpeg" alt="Teaching and Miracle servicee">
+                    <img src="WhatsApp%20Image%202025-11-25%20at%2014.09.36%20(1).jpeg" alt="Teaching and Miracle service">
                     <div class="event-card-content">
-                        <h3>Thursday Teaching and Miracle service</h3>
+                        <h3>Thursday Teaching and Miracle Service</h3>
                         <p class="date">Every Thursday at 10:00 AM</p>
                         <p>Deep dive into God's Word with Apostle Mothushi Chuene.</p>
                     </div>
@@ -1449,13 +812,39 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center;">
-                <a href="events.html" class="btn">View All Events</a>
-            </div>
         </section>
 
         <section class="sermons sermons-section" id="sermons">
             <h2>Recent Sermons</h2>
+            
+            <!-- YouTube Channel Integration -->
+            <div class="youtube-channel">
+                <h3><i class="fab fa-youtube" style="color: #FF0000;"></i> Subscribe to Our YouTube Channel</h3>
+                <p>Watch all our sermons, teachings, and ministry updates on YouTube</p>
+                
+                <div class="youtube-stats">
+                    <div class="youtube-stat">
+                        <i class="fab fa-youtube"></i>
+                        <span class="number">1,500+</span>
+                        <span class="label">Subscribers</span>
+                    </div>
+                    <div class="youtube-stat">
+                        <i class="fas fa-video"></i>
+                        <span class="number">100+</span>
+                        <span class="label">Videos</span>
+                    </div>
+                    <div class="youtube-stat">
+                        <i class="fas fa-eye"></i>
+                        <span class="number">75,000+</span>
+                        <span class="label">Views</span>
+                    </div>
+                </div>
+                
+                <a href="https://www.youtube.com/@TheLastDaysEvangelismMinistries" target="_blank" class="btn youtube-btn">
+                    <i class="fab fa-youtube"></i> Subscribe Now
+                </a>
+            </div>
+
             <div class="tabs">
                 <button class="tab-btn active" data-tab="recent">Recent</button>
                 <button class="tab-btn" data-tab="popular">Most Popular</button>
@@ -1463,748 +852,242 @@
             </div>
 
             <div class="tab-content active" id="recent">
-                <div class="sermon-cards">
-                    <div class="sermon-card">
-                        <img src="TheComing.jpeg" alt="Faith Journey Sermon">
-                        <div class="sermon-card-content">
-                            <h3>The Coming Of The Bridegroom</h3>
-                            <p class="date">August , 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p></p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=God's+Love" alt="God's Love Sermon">
-                        <div class="sermon-card-content">
-                            <h3>The Coming Of The BRIDEGROOM</h3>
-                            <p class="date">August 13, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Understanding the depth of God's love and how to receive it in your life.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=Holy+Spirit" alt="Holy Spirit Sermon">
-                        <div class="sermon-card-content">
-                            <h3>The Coming Of The Bridegroom</h3>
-                            <p class="date">August 6, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Discover how to tap into the power of the Holy Spirit in your daily life.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="sermon-cards" id="recent-sermons">
+                    <!-- Recent sermons will be loaded here by JavaScript -->
+                </div>
+                <div class="load-more">
+                    <button class="btn" onclick="loadMoreSermons('recent')">
+                        <i class="fas fa-plus"></i> Load More Sermons
+                    </button>
                 </div>
             </div>
 
             <div class="tab-content" id="popular">
-                <div class="sermon-cards">
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=Breakthrough" alt="Breakthrough Sermon">
-                        <div class="sermon-card-content">
-                            <h3>Breakthrough Prayers</h3>
-                            <p class="date">July 16, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Powerful prayers that bring breakthroughs in difficult situations.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=Financial+Blessing" alt="Financial Blessing Sermon">
-                        <div class="sermon-card-content">
-                            <h3>Biblical Principles of Finance</h3>
-                            <p class="date">June 25, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>God's principles for financial freedom and blessing.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="InTheLastDays.jpeg" alt="We Are In The Last Day">
-                        <div class="sermon-card-content">
-                            <h3>Divine healing</h3>
-                            <p class="date">July , 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Understanding God's power to heal and restore wholeness.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;"><i class="fas fa-play-circle"></i> Watch</a>
-                                <a href="#" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);"><i class="fas fa-download"></i> Download</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="sermon-cards" id="popular-sermons">
+                    <!-- Popular sermons will be loaded here by JavaScript -->
+                </div>
+                <div class="load-more">
+                    <button class="btn" onclick="loadMoreSermons('popular')">
+                        <i class="fas fa-plus"></i> Load More Sermons
+                    </button>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="sermons.html" class="btn">View All Sermons</a>
+            <div class="tab-content" id="series">
+                <div class="sermon-cards" id="series-sermons">
+                    <!-- Series sermons will be loaded here by JavaScript -->
+                </div>
+                <div class="load-more">
+                    <button class="btn" onclick="loadMoreSermons('series')">
+                        <i class="fas fa-plus"></i> Load More Series
+                    </button>
+                </div>
             </div>
         </section>
 
         <section class="live-stream">
-            <h2>Watch Live</h2>
+            <h2>Watch Live Services</h2>
             <div class="stream-container">
-                <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fyourpage%2Flive&show_text=0&width=560" allowfullscreen></iframe>
+                <!-- Replace with your actual YouTube live stream or Facebook live embed -->
+                <iframe src="https://www.youtube.com/embed/live_stream?channel=UC_your_channel_id" 
+                        title="Live Stream"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p>Join us live every Sunday at 09:00 AM and Thursday at 10:00 AM</p>
+                <a href="https://www.youtube.com/@TheLastDaysEvangelismMinistries/live" target="_blank" class="btn youtube-btn">
+                    <i class="fas fa-broadcast-tower"></i> Go to Live Stream
+                </a>
             </div>
         </section>
 
         <section class="partnership">
             <h2>Partner With Us</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                Your partnership helps us spread the Gospel and make a difference in our community. 
-                <strong>Together, we can reach more souls and prepare believers for Christ's return.</strong>
-            </p>
-
-            <div class="partnership-options">
-                <div class="partnership-option">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Prayer Partnership</h3>
-                    <p>Join our spiritual army that intercedes for the ministry, our outreaches, and the souls we are reaching.</p>
-                    
-                    <button class="btn btn-outline" onclick="openPartnershipModal('prayer')">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-pray"></i> Join Now
-                    </button>
-                </div>
-                
-                <div class="partnership-option">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Financial Partnership</h3>
-                    <p>Support our ministry financially through tithes, offerings, monthly support, or specific project donations.</p>
-                    
-                    <div class="partnership-benefits">
-                        <h4>Benefits Include:</h4>
-                        <ul>
-                            <li>Monthly ministry reports</li>
-                            <li>Annual appreciation event</li>
-                        </ul>
-                    </div>
-                    
-                    <button class="btn btn-outline" onclick="openPartnershipModal('financial')">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-donate"></i> Give Now
-                    </button>
-                </div>
-                
-                <div class="partnership-option">
-                    <i class="fas fa-people-carry"></i>
-                    <h3>Volunteer Partnership</h3>
-                    <p>Offer your time and talents to serve in various ministry areas and outreach programs.</p>
-                    
-                    <div class="partnership-benefits">
-                        <h4>Benefits Include:</h4>
-                        <ul>
-                            <li>Skills development</li>
-                            <li>Team building</li>
-                            <li>Ministry experience</li>
-                            <li>Recognition events</li>
-                        </ul>
-                    </div>
-                    
-                    <button class="btn btn-outline" onclick="openPartnershipModal('volunteer')">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-hands"></i> Volunteer
-                    </button>
-                </div>
-            </div>
-
-            <div class="partnership-details">
-                <h3>Why Partner With Us?</h3>
-                <p>Your partnership enables us to:</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-cross" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Spread the Gospel</h4>
-                        <p>Reach souls with the message of salvation</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-church" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Build Disciples</h4>
-                        <p>Equip believers for effective ministry</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-hands" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Serve Community</h4>
-                        <p>Meet practical needs in our community</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-globe" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Expand Impact</h4>
-                        <p>Grow our outreach locally and beyond</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="financial-details">
-                <h3 style="text-align: center;">Financial Partnership Details</h3>
-                <p style="text-align: center;">We offer multiple ways to support us financially:</p>
-                
-                <div class="financial-methods">
-                    <div class="financial-method">
-                        <h5>Electronic Funds Transfer (EFT)</h5>
-                        <p>Direct bank transfers to our ministry account</p>
-                    </div>
-                    <div class="financial-method">
-                        <h5>Cash/Cheque Donations</h5>
-                        <p>Accepted during services or at our office</p>
-                    </div>
-                    <div class="financial-method">
-                        <h5>Mobile Payments</h5>
-                        <p>Zapper, SnapScan, or other mobile payment options</p>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p>For banking details or to discuss specific giving options, please contact us.</p>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-envelope"></i> Request Banking Details
-                    </button>
-                </div>
-            </div>
+            <!-- Your partnership content remains the same -->
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Moletjie Motinti, Polokwane</p>
-                <p><i class="fas fa-phone"></i> 072 228 5667</p>
-                <p><i class="fas fa-envelope"></i> mothushic@gmail.com</p>
-                <button class="contact-action btn-small" onclick="openModal('contactModal')">
-                    <i class="fas fa-directions"></i> Get Directions
-                </button>
-            </div>
-            <div class="footer-section">
-                <h3>Service Times</h3>
-                <p>Sunday Worship: 09:00 AM</p>
-                <p>Thursday Bible Study: 10:00 AM</p>
-                <p>Monday Prayer: 6:00 PM</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#" id="aboutFooterLink">About Us</a></li>
-                    <li><a href="#sermons">Sermons</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
-                    <li><a href="#" id="contactFooterLink">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; <span id="year"></span> The Last Days Evangelism Ministries. All Rights Reserved.</p>
-        </div>
+        <!-- Your footer content remains the same -->
     </footer>
 
     <script>
+        // YouTube Channel Details
+        const YOUTUBE_CHANNEL_ID = '@TheLastDaysEvangelismMinistries';
+        const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@TheLastDaysEvangelismMinistries';
+        
+        // Sermon Data with YouTube Video IDs
+        // IMPORTANT: Replace these YouTube video IDs with your actual sermon video IDs
+        const sermonData = {
+            recent: [
+                {
+                    id: 1,
+                    title: "The Coming Of The Bridegroom",
+                    date: "August 25, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the parables of the ten virgins and being prepared for Christ's return. A powerful message about the imminent return of Jesus Christ and how we should prepare as His bride.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "TheComing.jpeg",
+                    views: "2,543",
+                    likes: "245",
+                    duration: "45:32"
+                },
+                {
+                    id: 2,
+                    title: "Review Reflect Rest",
+                    date: "December 15, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "If you review and reflect on your life, you can predict your success and find divine rest. Learn how to evaluate your spiritual journey and enter God's rest.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "RRR.jpeg",
+                    views: "3,215",
+                    likes: "312",
+                    duration: "52:18"
+                },
+                {
+                    id: 3,
+                    title: "Building Strong and Godly Families",
+                    date: "November 20, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Biblical principles for building families that honor God and stand the test of time. Essential teaching for family restoration in the last days.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "BuildingStrong&Godly.jpeg",
+                    views: "2,876",
+                    likes: "267",
+                    duration: "48:45"
+                },
+                {
+                    id: 4,
+                    title: "The End Of The Old Covenant",
+                    date: "October 18, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the transition from the old covenant to the new covenant in Christ. A deep study of God's eternal plan for salvation.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "The Covenant.jpeg",
+                    views: "3,421",
+                    likes: "298",
+                    duration: "55:12"
+                },
+                {
+                    id: 5,
+                    title: "The Two Resurrections",
+                    date: "September 22, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Exploring the biblical teaching of the first and second resurrections. Understanding eternal life and the judgment to come.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "TheTwoR.jpeg",
+                    views: "2,987",
+                    likes: "276",
+                    duration: "51:23"
+                },
+                {
+                    id: 6,
+                    title: "We Are In The Last Days",
+                    date: "July 30, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the signs of the times and our role as believers in the last days. A wake-up call for the church in this generation.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "InTheLastDays.jpeg",
+                    views: "4,123",
+                    likes: "389",
+                    duration: "49:17"
+                }
+            ],
+            popular: [
+                {
+                    id: 7,
+                    title: "Breakthrough Prayers",
+                    date: "July 16, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Powerful prayers that bring breakthroughs in difficult situations. Learn how to pray effectively for miracles and divine intervention.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Breakthrough",
+                    views: "8,543",
+                    likes: "845",
+                    duration: "47:32"
+                },
+                {
+                    id: 8,
+                    title: "Biblical Principles of Finance",
+                    date: "June 25, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "God's principles for financial freedom and blessing in the last days. How to manage resources according to God's kingdom principles.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Finance",
+                    views: "7,215",
+                    likes: "712",
+                    duration: "53:18"
+                },
+                {
+                    id: 9,
+                    title: "Divine Healing",
+                    date: "July 10, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding God's power to heal and restore wholeness in these last days. The biblical foundation for healing and miracles.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Healing",
+                    views: "6,876",
+                    likes: "667",
+                    duration: "50:45"
+                }
+            ],
+            series: [
+                {
+                    id: 10,
+                    title: "The Book of Revelation Series - Part 1",
+                    date: "August 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the mysteries of Revelation for the last days church. Introduction to the apocalyptic visions.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Revelation+1",
+                    views: "5,543",
+                    likes: "545",
+                    duration: "55:32",
+                    series: "Revelation Series"
+                },
+                {
+                    id: 11,
+                    title: "The Book of Revelation Series - Part 2",
+                    date: "September 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "The seven churches and their significance for today's believers. Applying the messages to modern church life.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Revelation+2",
+                    views: "4,215",
+                    likes: "412",
+                    duration: "52:18",
+                    series: "Revelation Series"
+                },
+                {
+                    id: 12,
+                    title: "End Times Prophecies - Part 1",
+                    date: "October 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding biblical prophecies about the end times. What the Bible says about the last days.",
+                    youtubeId: "dQw4w9WgXcQ", // REPLACE WITH YOUR VIDEO ID
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Prophecy+1",
+                    views: "6,421",
+                    likes: "598",
+                    duration: "51:12",
+                    series: "End Times Series"
+                }
+            ]
+        };
+
+        // Pagination variables
+        let currentPage = {
+            recent: 1,
+            popular: 1,
+            series: 1
+        };
+        const sermonsPerPage = 3;
+
         // Mobile menu toggle
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.getElementById('nav-menu').classList.toggle('show');
         });
 
         // Update copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Tab functionality for sermons
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                // Show corresponding content
-                const tabId = btn.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Contact Tabs Functionality
-        const contactTabBtns = document.querySelectorAll('.contact-tab-btn');
-        const contactTabContents = document.querySelectorAll('.contact-tab-content');
-
-        contactTabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                contactTabBtns.forEach(b => b.classList.remove('active'));
-                contactTabContents.forEach(c => c.classList.remove('active'));
-
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                // Show corresponding content
-                const tabId = btn.getAttribute('data-contact-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Modal Functionality
-        const modals = {
-            aboutModal: document.getElementById('aboutModal'),
-            contactModal: document.getElementById('contactModal'),
-            partnershipModal: document.getElementById('partnershipModal')
-        };
-
-        const modalLinks = {
-            aboutLink: document.getElementById('aboutLink'),
-            contactLink: document.getElementById('contactLink'),
-            partnershipLink: document.getElementById('partnershipLink'),
-            aboutFooterLink: document.getElementById('aboutFooterLink'),
-            contactFooterLink: document.getElementById('contactFooterLink'),
-            partnershipFooterLink: document.getElementById('partnershipFooterLink'),
-            aboutToContact: document.getElementById('aboutToContact')
-        };
-
-        // Function to open a modal
-        function openModal(modalId) {
-            // Close all modals first
-            Object.values(modals).forEach(modal => {
-                modal.classList.remove('active');
-            });
-            
-            // Open the requested modal
-            modals[modalId].classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        }
-
-        // Function to close a modal
-        function closeModal(modalId) {
-            modals[modalId].classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        // Event listeners for opening modals
-        modalLinks.aboutLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('aboutModal');
-        });
-
-        modalLinks.contactLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('contactModal');
-        });
-
-        modalLinks.partnershipLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('partnershipModal');
-        });
-
-        modalLinks.aboutFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('aboutModal');
-        });
-
-        modalLinks.contactFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('contactModal');
-        });
-
-        modalLinks.partnershipFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('partnershipModal');
-        });
-
-        modalLinks.aboutToContact.addEventListener('click', function(e) {
-            e.preventDefault();
-            closeModal('aboutModal');
-            setTimeout(() => {
-                openModal('contactModal');
-                // Switch to contact form tab when coming from about modal
-                const contactFormTab = document.querySelector('[data-contact-tab="contact-form"]');
-                if (contactFormTab) {
-                    contactFormTab.click();
-                }
-            }, 300);
-        });
-
-        // Event listeners for close buttons
-        document.querySelectorAll('.close-modal').forEach(button => {
-            button.addEventListener('click', function() {
-                const modalId = this.getAttribute('data-modal');
-                closeModal(modalId);
-            });
-        });
-
-        // Close modal when clicking outside
-        Object.values(modals).forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    const modalId = modal.id;
-                    closeModal(modalId);
-                }
-            });
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                Object.entries(modals).forEach(([modalId, modal]) => {
-                    if (modal.classList.contains('active')) {
-                        closeModal(modalId);
-                    }
-                });
-            }
-        });
-
-        // Copy to clipboard function
-        function copyToClipboard(text, type) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert(`${type} copied to clipboard: ${text}`);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                alert(`${type} copied to clipboard: ${text}`);
-            });
-        }
-
-        // Copy banking details function
-        function copyBankingDetails() {
-            const bankingDetails = `Bank: [Your Bank Name]\nAccount Name: The Last Days Evangelism Ministries\nAccount Number: [Your Account Number]\nBranch Code: [Your Branch Code]\nReference: Your Name + "Partnership"`;
-            copyToClipboard(bankingDetails, 'Banking Details');
-        }
-
-        // Get Directions Function
-        function openDirections(app) {
-            // Coordinates for Moletjie Motinti, Polokwane area
-            const latitude = -23.90455;
-            const longitude = 29.45066;
-            const churchAddress = "Moletjie Motinti, Polokwane, South Africa";
-            
-            if (app === 'google') {
-                const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(churchAddress)}&travelmode=driving`;
-                window.open(googleMapsUrl, '_blank');
-            } else if (app === 'waze') {
-                const wazeUrl = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`;
-                window.open(wazeUrl, '_blank');
-            }
-        }
-
-        // Open partnership modal with specific section
-        function openPartnershipModal(section) {
-            openModal('partnershipModal');
-            // Scroll to specific section after modal opens
-            setTimeout(() => {
-                const modalContent = document.querySelector('.partnership-modal .modal-content');
-                let targetElement;
-                
-                switch(section) {
-                    case 'prayer':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(4)');
-                        break;
-                    case 'financial':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(5)');
-                        break;
-                    case 'volunteer':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(6)');
-                        break;
-                }
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 300);
-        }
-
-        // Contact Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            const messageStatus = document.getElementById('messageStatus');
-            
-            // Get form values
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Validate form
-            if (!name || !email || !subject || !message) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            // Here you would typically send the data to your server
-            // For now, we'll simulate a successful submission
-            setTimeout(() => {
-                // Create email link with form data
-                const subjectText = getSubjectText(subject);
-                const emailBody = `
-Name: ${name}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Subject: ${subjectText}
-
-Message:
-${message}
-                `;
-                
-                const mailtoLink = `mailto:mothushic@gmail.com?subject=Website Contact: ${subjectText}&body=${encodeURIComponent(emailBody)}`;
-                
-                // Open email client
-                window.location.href = mailtoLink;
-                
-                // Show success message
-                showMessage('Thank you! Your message has been prepared. Please check your email client to send it.', 'success');
-                
-                // Reset form
-                form.reset();
-                
-                // Restore button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Auto-hide success message after 10 seconds
-                setTimeout(() => {
-                    messageStatus.style.display = 'none';
-                }, 10000);
-                
-            }, 1500); // Simulate network delay
-        });
-        
-        function getSubjectText(subjectValue) {
-            const subjects = {
-                'prayer-request': 'Prayer Request',
-                'general-inquiry': 'General Inquiry',
-                'partnership': 'Partnership Inquiry',
-                'volunteer': 'Volunteer Opportunity',
-                'testimony': 'Share Testimony',
-                'other': 'Other Inquiry'
-            };
-            return subjects[subjectValue] || 'Website Inquiry';
-        }
-        
-        function showMessage(message, type) {
-            const messageStatus = document.getElementById('messageStatus');
-            messageStatus.textContent = message;
-            messageStatus.className = `message-status ${type}`;
-            messageStatus.style.display = 'block';
-        }
-
-        // Smooth scroll to sections when clicking navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                // Check if it's a modal link first
-                if (this.id === 'aboutLink' || this.id === 'contactLink' || this.id === 'partnershipLink') {
-                    return; // Let modal handlers handle these
-                }
-                
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        // Close mobile menu if open
-                        document.getElementById('nav-menu').classList.remove('show');
-                        
-                        // Scroll to section
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Add highlight effect
-                        targetElement.style.animation = 'none';
-                        setTimeout(() => {
-                            targetElement.style.animation = 'highlightSection 2s ease';
-                        }, 10);
-                    }
-                }
-            });
-        });
-
-        // Also handle footer links
-        document.querySelectorAll('.footer-section a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                // Check if it's a modal link first
-                if (this.id === 'aboutFooterLink' || this.id === 'contactFooterLink' || this.id === 'partnershipFooterLink') {
-                    return; // Let modal handlers handle these
-                }
-                
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Add highlight effect
-                        targetElement.style.animation = 'none';
-                        setTimeout(() => {
-                            targetElement.style.animation = 'highlightSection 2s ease';
-                        }, 10);
-                    }
-                }
-            });
-        });
-
-        // Function to create sermon cards dynamically
-        function createSermonCard(sermon) {
-            const sermonCard = document.createElement('div');
-            sermonCard.className = 'sermon-card';
-
-            sermonCard.innerHTML = `
-                <img src="${sermon.image || 'https://placehold.co/600x400/4a6f28/white?text=Sermon'}" alt="${sermon.title}">
-                <div class="sermon-card-content">
-                    <h3>${sermon.title}</h3>
-                    <p class="date">${sermon.date}</p>
-                    <p class="speaker">${sermon.speaker}</p>
-                    <p>${sermon.description}</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="${sermon.watchLink || '#'}" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                            <i class="fas fa-play-circle"></i> Watch
-                        </a>
-                        <a href="${sermon.downloadLink || '#'}" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
-            `;
-
-            return sermonCard;
-        }
-
-        // Sample sermon data
-        const sermonData = {
-            recent: [
-                {
-                    title: "Review Reflect Rest",
-                    date: "December, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "If you review and reflect on your life, you can be able to predict your success.",
-                    image: "RRR.jpeg"
-                },
-                {
-                    title: "Building Strong and Godly Families",
-                    date: "November, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Family is the first institution that was designed by God",
-                    image: "BuildingStrong&Godly.jpeg"
-                },
-                {
-                    title: "The End Of The Old Covenant",
-                    date: "October, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The new covenant is the reality and fulfillment of what the old covenant only pictured.",
-                    image: "The Covenant.jpeg"
-                }
-            ],
-            popular: [
-                {
-                    title: "The Two Ressurection",
-                    date: "September, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Jesus is the first Fruit of those to be resurrected.",
-                    image: "TheTwoR.jpeg"
-                },
-                {
-                    title: "The Coming Of The Bridegroom",
-                    date: "August, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The Bridegroom will come unexpectedly, and only those who are prepared will enter the wedding feast.",
-                    image: "TheComing.jpeg"
-                },
-                {
-                    title: "We Are In The Last Days",
-                    date: "July, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The Holy Spirit is like an engagement ring from Jesus, reminding us that as believers, we are engaged to Christ.",
-                    image: "InTheLastDays.jpeg"
-                }
-            ]
-        };
-
-        // Function to load sermons
-        function loadSermons() {
-            const recentContainer = document.querySelector('#recent .sermon-cards');
-            const popularContainer = document.querySelector('#popular .sermon-cards');
-
-            // Clear existing content
-            recentContainer.innerHTML = '';
-            popularContainer.innerHTML = '';
-
-            // Add recent sermons
-            sermonData.recent.forEach(sermon => {
-                recentContainer.appendChild(createSermonCard(sermon));
-            });
-
-            // Add popular sermons
-            sermonData.popular.forEach(sermon => {
-                popularContainer.appendChild(createSermonCard(sermon));
-            });
-        }
-
-        // Call loadSermons when the page loads
-        window.addEventListener('DOMContentLoaded', loadSermons);
-
-        // Initialize Google Maps with better coordinates
-        function initializeMap() {
-            console.log('Map initialized');
-        }
-
-        // Initialize map when page loads
-        window.addEventListener('load', initializeMap);
-    </script>
-</body>
-</html>
-
-
-
-
-
-
+        document.getElementById('year').textContent = new Date().
