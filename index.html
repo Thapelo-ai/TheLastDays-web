@@ -104,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -984,15 +984,15 @@
             }
         }
 
-        /* View All Sermons button */
-        .view-all-sermons {
+        /* View More Sermons button */
+        .view-more-sermons {
             text-align: center;
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 2px solid rgba(74, 111, 40, 0.1);
         }
 
-        .view-all-btn {
+        .view-more-btn {
             background-color: var(--primary);
             color: white;
             padding: 1rem 2.5rem;
@@ -1004,12 +1004,72 @@
             gap: 0.5rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(74, 111, 40, 0.2);
+            border: none;
+            cursor: pointer;
         }
 
-        .view-all-btn:hover {
+        .view-more-btn:hover {
             background-color: #3a5a1f;
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(74, 111, 40, 0.3);
+        }
+
+        .view-more-btn.loading {
+            background-color: var(--secondary);
+            pointer-events: none;
+        }
+
+        .view-more-btn.loading i {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Loading animation for sermons */
+        .sermon-loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .sermon-loading.active {
+            display: block;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(74, 111, 40, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        /* Additional sermons styling */
+        .sermon-cards .sermon-card.hidden {
+            display: none;
+        }
+
+        .sermon-cards .sermon-card.fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sermon counter */
+        .sermon-counter {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text);
+            font-style: italic;
         }
 
         @media (max-width: 768px) {
@@ -1491,6 +1551,9 @@
 
         <section class="sermons sermons-section" id="sermons">
             <h2>Recent Sermons</h2>
+            <div class="sermon-counter">
+                Showing <span id="visibleCount">3</span> of <span id="totalCount">12</span> sermons
+            </div>
             <div class="tabs">
                 <button class="tab-btn active" data-tab="recent">Recent</button>
                 <button class="tab-btn" data-tab="popular">Most Popular</button>
@@ -1498,179 +1561,41 @@
             </div>
 
             <div class="tab-content active" id="recent">
-                <div class="sermon-cards">
-                    <div class="sermon-card">
-                        <img src="TheComing.jpeg" alt="Faith Journey Sermon">
-                        <div class="sermon-card-content">
-                            <h3>The Coming Of The Bridegroom</h3>
-                            <p class="date">August , 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>A powerful message about preparing for Christ's return.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#the-coming-of-the-bridegroom" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch
-                                </a>
-                                <a href="sermons.html#the-coming-of-the-bridegroom" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=God's+Love" alt="God's Love Sermon">
-                        <div class="sermon-card-content">
-                            <h3>The Power of God's Love</h3>
-                            <p class="date">August 13, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Understanding the depth of God's love and how to receive it in your life.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#power-of-gods-love" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch
-                                </a>
-                                <a href="sermons.html#power-of-gods-love" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=Holy+Spirit" alt="Holy Spirit Sermon">
-                        <div class="sermon-card-content">
-                            <h3>Empowered by the Holy Spirit</h3>
-                            <p class="date">August 6, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Discover how to tap into the power of the Holy Spirit in your daily life.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#empowered-by-holy-spirit" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch
-                                </a>
-                                <a href="sermons.html#empowered-by-holy-spirit" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="sermon-cards" id="recent-sermons">
+                    <!-- Initial sermons will be loaded here -->
+                </div>
+                <div class="sermon-loading" id="recent-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading more sermons...</p>
                 </div>
             </div>
 
             <div class="tab-content" id="popular">
-                <div class="sermon-cards">
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=Breakthrough" alt="Breakthrough Sermon">
-                        <div class="sermon-card-content">
-                            <h3>Breakthrough Prayers</h3>
-                            <p class="date">July 16, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Powerful prayers that bring breakthroughs in difficult situations.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#breakthrough-prayers" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch
-                                </a>
-                                <a href="sermons.html#breakthrough-prayers" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="https://placehold.co/600x400/4a6f28/white?text=Financial+Blessing" alt="Financial Blessing Sermon">
-                        <div class="sermon-card-content">
-                            <h3>Biblical Principles of Finance</h3>
-                            <p class="date">June 25, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>God's principles for financial freedom and blessing.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#biblical-finance" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch
-                                </a>
-                                <a href="sermons.html#biblical-finance" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="InTheLastDays.jpeg" alt="We Are In The Last Day">
-                        <div class="sermon-card-content">
-                            <h3>Divine Healing</h3>
-                            <p class="date">July , 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Understanding God's power to heal and restore wholeness.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#divine-healing" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch
-                                </a>
-                                <a href="sermons.html#divine-healing" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="sermon-cards" id="popular-sermons">
+                    <!-- Popular sermons will be loaded here -->
+                </div>
+                <div class="sermon-loading" id="popular-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading more sermons...</p>
                 </div>
             </div>
 
             <div class="tab-content" id="series">
-                <div class="sermon-cards">
-                    <div class="sermon-card">
-                        <img src="TheTwoR.jpeg" alt="The Two Resurrections">
-                        <div class="sermon-card-content">
-                            <h3>The Two Resurrections Series</h3>
-                            <p class="date">September, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Understanding the resurrection of the just and the unjust.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#two-resurrections-series" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch Series
-                                </a>
-                                <a href="sermons.html#two-resurrections-series" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> All Messages
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="TheCovenant.jpeg" alt="The Covenant Series">
-                        <div class="sermon-card-content">
-                            <h3>Covenant Series</h3>
-                            <p class="date">October, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Understanding God's covenants throughout history.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#covenant-series" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch Series
-                                </a>
-                                <a href="sermons.html#covenant-series" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> All Messages
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sermon-card">
-                        <img src="BuildingStrong&Godly.jpeg" alt="Family Series">
-                        <div class="sermon-card-content">
-                            <h3>Building Godly Families Series</h3>
-                            <p class="date">November, 2025</p>
-                            <p class="speaker">Apostle Mothushi Chuene</p>
-                            <p>Biblical principles for strong, godly families.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="sermons.html#family-series" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;">
-                                    <i class="fas fa-play-circle"></i> Watch Series
-                                </a>
-                                <a href="sermons.html#family-series" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);">
-                                    <i class="fas fa-download"></i> All Messages
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="sermon-cards" id="series-sermons">
+                    <!-- Series sermons will be loaded here -->
+                </div>
+                <div class="sermon-loading" id="series-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading more sermons...</p>
                 </div>
             </div>
 
-            <!-- VIEW ALL SERMONS BUTTON - NOW PROPERLY LINKS TO SERMONS PAGE -->
-            <div class="view-all-sermons">
-                <a href="sermons.html" class="view-all-btn">
-                    <i class="fas fa-book-open"></i> View All Sermons
-                </a>
-                <p style="margin-top: 1rem; color: var(--text);">Explore our full library of messages, teachings, and sermon series</p>
+            <!-- VIEW MORE SERMONS BUTTON - LOADS MORE SERMONS DYNAMICALLY -->
+            <div class="view-more-sermons">
+                <button class="view-more-btn" id="loadMoreSermons">
+                    <i class="fas fa-book-open"></i> View More Sermons
+                </button>
+                <p style="margin-top: 1rem; color: var(--text);">Click to load more messages from our library</p>
             </div>
         </section>
 
@@ -1872,6 +1797,9 @@
                 
                 // Store active tab in session storage
                 sessionStorage.setItem('activeSermonTab', tabId);
+                
+                // Update sermon counter for active tab
+                updateSermonCounter(tabId);
             });
         });
 
@@ -2217,19 +2145,6 @@ ${message}
 
         // Enhanced sermon card click functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Add click event to entire sermon cards
-            document.querySelectorAll('.sermon-card').forEach(card => {
-                card.addEventListener('click', function(e) {
-                    // Don't trigger if clicking on buttons
-                    if (!e.target.closest('.btn')) {
-                        const watchLink = this.querySelector('a.btn:not(.btn[style*="background-color: var(--primary)"])');
-                        if (watchLink && watchLink.href) {
-                            window.location.href = watchLink.href;
-                        }
-                    }
-                });
-            });
-            
             // Make sermon card titles clickable
             document.querySelectorAll('.sermon-card h3').forEach(title => {
                 title.addEventListener('click', function(e) {
@@ -2237,7 +2152,7 @@ ${message}
                     const card = this.closest('.sermon-card');
                     const watchLink = card.querySelector('a.btn:not(.btn[style*="background-color: var(--primary)"])');
                     if (watchLink && watchLink.href) {
-                        window.location.href = watchLink.href;
+                        window.open(watchLink.href, '_blank');
                     }
                 });
             });
@@ -2261,6 +2176,9 @@ ${message}
                     }
                 }, 100);
             }
+            
+            // Initialize sermons
+            initializeSermons();
         });
 
         // Smooth scroll to sermons when clicking nav link
@@ -2291,7 +2209,371 @@ ${message}
 
         // Initialize map when page loads
         window.addEventListener('load', initializeMap);
+
+        // Sermon Management System
+        const sermonData = {
+            recent: [
+                {
+                    id: 1,
+                    title: "The Coming Of The Bridegroom",
+                    date: "August 25, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "A powerful message about preparing for Christ's return and being ready for the bridegroom.",
+                    image: "TheComing.jpeg",
+                    watchLink: "https://youtube.com/watch?v=example1",
+                    downloadLink: "https://example.com/sermons/coming-bridegroom.mp3"
+                },
+                {
+                    id: 2,
+                    title: "The Power of God's Love",
+                    date: "August 18, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the depth of God's love and how to receive it in your life.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=God's+Love",
+                    watchLink: "https://youtube.com/watch?v=example2",
+                    downloadLink: "https://example.com/sermons/gods-love.mp3"
+                },
+                {
+                    id: 3,
+                    title: "Empowered by the Holy Spirit",
+                    date: "August 11, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Discover how to tap into the power of the Holy Spirit in your daily life.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Holy+Spirit",
+                    watchLink: "https://youtube.com/watch?v=example3",
+                    downloadLink: "https://example.com/sermons/holy-spirit.mp3"
+                },
+                {
+                    id: 4,
+                    title: "Walking in Divine Purpose",
+                    date: "August 4, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Discovering and walking in God's divine purpose for your life.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Divine+Purpose",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 5,
+                    title: "Overcoming Fear and Anxiety",
+                    date: "July 28, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Biblical strategies to overcome fear and anxiety through faith in God.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Overcoming+Fear",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 6,
+                    title: "The Power of Prayer",
+                    date: "July 21, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the transformative power of prayer in a believer's life.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Power+of+Prayer",
+                    watchLink: "#",
+                    downloadLink: "#"
+                }
+            ],
+            popular: [
+                {
+                    id: 7,
+                    title: "Breakthrough Prayers",
+                    date: "July 16, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Powerful prayers that bring breakthroughs in difficult situations.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Breakthrough",
+                    watchLink: "https://youtube.com/watch?v=example4",
+                    downloadLink: "https://example.com/sermons/breakthrough-prayers.mp3"
+                },
+                {
+                    id: 8,
+                    title: "Biblical Principles of Finance",
+                    date: "June 25, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "God's principles for financial freedom and blessing.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Financial+Blessing",
+                    watchLink: "https://youtube.com/watch?v=example5",
+                    downloadLink: "https://example.com/sermons/biblical-finance.mp3"
+                },
+                {
+                    id: 9,
+                    title: "Divine Healing",
+                    date: "July 9, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding God's power to heal and restore wholeness.",
+                    image: "InTheLastDays.jpeg",
+                    watchLink: "https://youtube.com/watch?v=example6",
+                    downloadLink: "https://example.com/sermons/divine-healing.mp3"
+                },
+                {
+                    id: 10,
+                    title: "Living by Faith",
+                    date: "June 18, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Practical steps to live a life of faith in God's promises.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Living+by+Faith",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 11,
+                    title: "Spiritual Warfare",
+                    date: "June 11, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding and engaging in spiritual warfare as a believer.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Spiritual+Warfare",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 12,
+                    title: "The Joy of Salvation",
+                    date: "June 4, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Experiencing and sharing the joy that comes from salvation.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Joy+of+Salvation",
+                    watchLink: "#",
+                    downloadLink: "#"
+                }
+            ],
+            series: [
+                {
+                    id: 13,
+                    title: "The Two Resurrections Series",
+                    date: "September, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding the resurrection of the just and the unjust.",
+                    image: "TheTwoR.jpeg",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 14,
+                    title: "Covenant Series",
+                    date: "October, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding God's covenants throughout history.",
+                    image: "TheCovenant.jpeg",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 15,
+                    title: "Building Godly Families Series",
+                    date: "November, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Biblical principles for strong, godly families.",
+                    image: "BuildingStrong&Godly.jpeg",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 16,
+                    title: "End Times Prophecy Series",
+                    date: "December, 2025",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Understanding biblical prophecies about the end times.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=End+Times",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 17,
+                    title: "The Book of Revelation Series",
+                    date: "January, 2026",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "In-depth study of the Book of Revelation.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Revelation",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 18,
+                    title: "Kingdom Living Series",
+                    date: "February, 2026",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Living according to God's kingdom principles.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Kingdom+Living",
+                    watchLink: "#",
+                    downloadLink: "#"
+                }
+            ]
+        };
+
+        // Sermon loading configuration
+        const sermonConfig = {
+            itemsPerLoad: 3,
+            initialLoad: {
+                recent: 3,
+                popular: 3,
+                series: 3
+            },
+            loadedCount: {
+                recent: 0,
+                popular: 0,
+                series: 0
+            },
+            totalCount: {
+                recent: sermonData.recent.length,
+                popular: sermonData.popular.length,
+                series: sermonData.series.length
+            }
+        };
+
+        // Function to create sermon card HTML
+        function createSermonCard(sermon) {
+            return `
+                <div class="sermon-card fade-in" data-id="${sermon.id}">
+                    <img src="${sermon.image}" alt="${sermon.title}">
+                    <div class="sermon-card-content">
+                        <h3>${sermon.title}</h3>
+                        <p class="date">${sermon.date}</p>
+                        <p class="speaker">${sermon.speaker}</p>
+                        <p>${sermon.description}</p>
+                        <div style="margin-top: 1rem;">
+                            <a href="${sermon.watchLink || '#'}" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;" target="_blank">
+                                <i class="fas fa-play-circle"></i> Watch
+                            </a>
+                            <a href="${sermon.downloadLink || '#'}" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);" target="_blank">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to initialize sermons
+        function initializeSermons() {
+            // Load initial sermons for each tab
+            loadInitialSermons('recent');
+            loadInitialSermons('popular');
+            loadInitialSermons('series');
+            
+            // Update counters
+            updateSermonCounter('recent');
+        }
+
+        // Function to load initial sermons
+        function loadInitialSermons(tab) {
+            const container = document.getElementById(`${tab}-sermons`);
+            const data = sermonData[tab];
+            const initialCount = sermonConfig.initialLoad[tab];
+            
+            container.innerHTML = '';
+            sermonConfig.loadedCount[tab] = 0;
+            
+            // Load initial sermons
+            for (let i = 0; i < Math.min(initialCount, data.length); i++) {
+                container.innerHTML += createSermonCard(data[i]);
+                sermonConfig.loadedCount[tab]++;
+            }
+            
+            // Hide remaining sermons
+            for (let i = sermonConfig.loadedCount[tab]; i < data.length; i++) {
+                container.innerHTML += createSermonCard(data[i]);
+            }
+            
+            // Initially hide extra sermons
+            const allCards = container.querySelectorAll('.sermon-card');
+            allCards.forEach((card, index) => {
+                if (index >= initialCount) {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Function to load more sermons
+        function loadMoreSermons(tab) {
+            const container = document.getElementById(`${tab}-sermons`);
+            const loadingElement = document.getElementById(`${tab}-loading`);
+            const data = sermonData[tab];
+            
+            if (sermonConfig.loadedCount[tab] >= data.length) {
+                // All sermons loaded
+                document.getElementById('loadMoreSermons').disabled = true;
+                document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
+                return;
+            }
+            
+            // Show loading animation
+            loadingElement.classList.add('active');
+            document.getElementById('loadMoreSermons').classList.add('loading');
+            document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                // Show next batch of sermons
+                const hiddenCards = container.querySelectorAll('.sermon-card.hidden');
+                const cardsToShow = Math.min(sermonConfig.itemsPerLoad, hiddenCards.length);
+                
+                for (let i = 0; i < cardsToShow; i++) {
+                    hiddenCards[i].classList.remove('hidden');
+                    hiddenCards[i].classList.add('fade-in');
+                    sermonConfig.loadedCount[tab]++;
+                }
+                
+                // Hide loading animation
+                loadingElement.classList.remove('active');
+                document.getElementById('loadMoreSermons').classList.remove('loading');
+                document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-book-open"></i> View More Sermons';
+                
+                // Update counters
+                updateSermonCounter(tab);
+                
+                // Disable button if all sermons loaded
+                if (sermonConfig.loadedCount[tab] >= data.length) {
+                    document.getElementById('loadMoreSermons').disabled = true;
+                    document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
+                }
+                
+                // Scroll to newly loaded sermons
+                if (cardsToShow > 0) {
+                    const lastVisibleCard = container.querySelector('.sermon-card:not(.hidden)');
+                    lastVisibleCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }, 1000);
+        }
+
+        // Function to update sermon counter
+        function updateSermonCounter(tab) {
+            const visibleCount = sermonConfig.loadedCount[tab];
+            const totalCount = sermonConfig.totalCount[tab];
+            
+            document.getElementById('visibleCount').textContent = visibleCount;
+            document.getElementById('totalCount').textContent = totalCount;
+            
+            // Update button text based on remaining sermons
+            const remaining = totalCount - visibleCount;
+            const loadMoreBtn = document.getElementById('loadMoreSermons');
+            
+            if (remaining > 0) {
+                loadMoreBtn.innerHTML = `<i class="fas fa-book-open"></i> View More Sermons (${remaining} remaining)`;
+                loadMoreBtn.disabled = false;
+            } else {
+                loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
+                loadMoreBtn.disabled = true;
+            }
+        }
+
+        // Load More Sermons button event listener
+        document.getElementById('loadMoreSermons').addEventListener('click', function() {
+            const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
+            loadMoreSermons(activeTab);
+        });
+
+        // Add click event to sermon cards
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.sermon-card')) {
+                const card = e.target.closest('.sermon-card');
+                if (!e.target.closest('.btn')) {
+                    const watchLink = card.querySelector('a.btn:not(.btn[style*="background-color: var(--primary)"])');
+                    if (watchLink && watchLink.href !== '#') {
+                        window.open(watchLink.href, '_blank');
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
-
