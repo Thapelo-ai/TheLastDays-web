@@ -104,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100%;
+            width: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -756,72 +756,6 @@
             display: block;
         }
 
-        /* Praise Report Modal Specific Styles */
-        .praise-intro {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            color: var(--text);
-            text-align: center;
-        }
-
-        .praise-scripture {
-            background-color: rgba(245, 166, 35, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .praise-scripture p {
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .praise-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .praise-category {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .praise-category:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .praise-category.selected {
-            border-color: var(--secondary);
-            background-color: rgba(245, 166, 35, 0.1);
-        }
-
-        .praise-category i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .praise-category h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .praise-category p {
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-
         /* Contact Info Styles */
         .contact-info {
             display: flex;
@@ -1138,126 +1072,6 @@
             font-style: italic;
         }
 
-        /* NEW TESTIMONIES SECTION STYLES */
-        .testimonies-section {
-            background-color: rgba(74, 111, 40, 0.05);
-            padding: 4rem 2rem;
-            margin: 2rem auto;
-            border-radius: 10px;
-            max-width: 1200px;
-        }
-
-        .testimonies-section h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .testimonies-section > p {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-
-        .testimonies-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .testimony-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .testimony-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .testimony-quote {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .testimony-quote:before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -10px;
-            font-size: 3rem;
-            color: var(--secondary);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .testimony-author {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .author-info {
-            flex: 1;
-        }
-
-        .author-name {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.2rem;
-        }
-
-        .testimony-date {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .testimony-category {
-            display: inline-block;
-            background-color: rgba(245, 166, 35, 0.1);
-            color: var(--secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .view-all-testimonies {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid rgba(74, 111, 40, 0.1);
-        }
-
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -1360,18 +1174,6 @@
             .financial-methods {
                 grid-template-columns: 1fr;
             }
-
-            .praise-categories {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonies-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimony-card {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -1463,7 +1265,7 @@
 
                             <div class="form-group">
                                 <label for="phone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                             </div>
 
                             <div class="form-group">
@@ -1679,124 +1481,6 @@
         </div>
     </div>
 
-    <!-- Praise Report Modal - Keeping but removing access from UI -->
-    <div class="modal-overlay" id="praiseModal">
-        <div class="modal praise-modal">
-            <div class="modal-header">
-                <h2><i class="fas fa-hands-praying"></i> Share Your Praise Report</h2>
-                <button class="close-modal" data-modal="praiseModal">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="praise-intro">
-                    <p>We rejoice with you! Share how God has moved in your life through the ministry of The Last Days Evangelism Ministries. Your testimony encourages others and brings glory to God.</p>
-                </div>
-                
-                <div class="praise-scripture">
-                    <p>"I will tell of your deeds; I will sing of your way, O LORD." - Psalm 119:26</p>
-                </div>
-                
-                <div class="contact-form">
-                    <div id="praiseMessageStatus" class="message-status"></div>
-                    
-                    <form id="praiseForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="praiseName"><i class="fas fa-user"></i> Your Name *</label>
-                                <input type="text" id="praiseName" name="praiseName" required placeholder="Enter your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="praiseEmail"><i class="fas fa-envelope"></i> Email Address (Optional)</label>
-                                <input type="email" id="praiseEmail" name="praiseEmail" placeholder="Enter your email address">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="praisePhone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
-                            <input type="tel" id="praisePhone" name="praisePhone" placeholder="Enter your phone number">
-                        </div>
-
-                        <div class="form-group">
-                            <label><i class="fas fa-heart"></i> Category of Praise *</label>
-                            <div class="praise-categories">
-                                <div class="praise-category" data-category="healing">
-                                    <i class="fas fa-heartbeat"></i>
-                                    <h4>Healing</h4>
-                                    <p>Physical or emotional healing</p>
-                                </div>
-                                <div class="praise-category" data-category="deliverance">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <h4>Deliverance</h4>
-                                    <p>Freedom from bondage</p>
-                                </div>
-                                <div class="praise-category" data-category="breakthrough">
-                                    <i class="fas fa-door-open"></i>
-                                    <h4>Breakthrough</h4>
-                                    <p>Victory in difficult situations</p>
-                                </div>
-                                <div class="praise-category" data-category="provision">
-                                    <i class="fas fa-hand-holding-usd"></i>
-                                    <h4>Provision</h4>
-                                    <p>Financial or material blessing</p>
-                                </div>
-                                <div class="praise-category" data-category="salvation">
-                                    <i class="fas fa-cross"></i>
-                                    <h4>Salvation</h4>
-                                    <p>Coming to faith in Christ</p>
-                                </div>
-                                <div class="praise-category" data-category="other">
-                                    <i class="fas fa-star"></i>
-                                    <h4>Other</h4>
-                                    <p>Other blessings and victories</p>
-                                </div>
-                            </div>
-                            <input type="hidden" id="praiseCategory" name="praiseCategory" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="praiseTitle"><i class="fas fa-heading"></i> Title of Your Praise Report *</label>
-                            <input type="text" id="praiseTitle" name="praiseTitle" required placeholder="Brief title of your testimony">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="praiseTestimony"><i class="fas fa-comment"></i> Your Testimony *</label>
-                            <textarea id="praiseTestimony" name="praiseTestimony" required placeholder="Share your full testimony here... (Please include what happened, when it happened, and how God moved)" rows="6"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="praiseScripture"><i class="fas fa-bible"></i> Scripture that Encouraged You (Optional)</label>
-                            <input type="text" id="praiseScripture" name="praiseScripture" placeholder="e.g., Psalm 23:1">
-                        </div>
-
-                        <div class="form-group">
-                            <label><i class="fas fa-share-alt"></i> Permission to Share</label>
-                            <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
-                                <label style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <input type="radio" name="sharePermission" value="yes" checked>
-                                    Yes, you may share my testimony to encourage others
-                                </label>
-                                <label style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <input type="radio" name="sharePermission" value="no">
-                                    No, please keep this private
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="reset" class="btn btn-secondary">Clear Form</button>
-                            <button type="submit" class="btn">
-                                <i class="fas fa-hands-praying"></i> Submit Praise Report
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="contact-note">
-                    <p><i class="fas fa-info-circle"></i> Your praise report will be shared with Apostle Mothushi Chuene and the ministry team. We celebrate every victory with you and may share testimonies (with permission) to encourage the body of Christ.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <header>
         <div class="logo">
             <img src="church-logo!.jpeg" alt="Church Logo">
@@ -1812,7 +1496,6 @@
                 <li><a href="#sermons" id="sermonsLink">Sermons</a></li>
                 <li><a href="#events" id="eventsLink">Events</a></li>
                 <li><a href="#" id="partnershipLink">Partner With Us</a></li>
-                <!-- REMOVED: <li><a href="#" id="praiseLink" class="praise-btn">Praise Report</a></li> -->
                 <li><a href="#" id="contactLink">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
             </ul>
@@ -1827,19 +1510,14 @@
             <div class="hero-content">
                 <h2><strong>THE YEAR OF DIVINE ADMINISTRATION</strong></h2>
                 <p>WE ARE APOSTOLIC, WE ARE PROPHETIC, WE ARE EVANGELICAL! </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="events.html" class="btn">Join Us This Sunday</a>
-                    <!-- REMOVED: Praise Report button from hero -->
-                    <button class="btn btn-secondary" onclick="openModal('contactModal')">
-                        <i class="fas fa-phone"></i> Contact Us
-                    </button>
-                </div>
+                <a href="events.html" class="btn">Join Us This Sunday</a>
             </div>
         </section>
 
         <section class="upcoming-events" id="events">
             <h2>Upcoming Events</h2>
             <div class="event-cards" id="event-cards">
+                <!-- Sample event cards (will be replaced by dynamic content) -->
                 <div class="event-card">
                     <img src="RRR.jpeg" alt="Sunday Service">
                     <div class="event-card-content">
@@ -1911,28 +1589,12 @@
                 </div>
             </div>
 
+            <!-- VIEW MORE SERMONS BUTTON - LOADS MORE SERMONS DYNAMICALLY -->
             <div class="view-more-sermons">
                 <button class="view-more-btn" id="loadMoreSermons">
                     <i class="fas fa-book-open"></i> View More Sermons
                 </button>
                 <p style="margin-top: 1rem; color: var(--text);">Click to load more messages from our library</p>
-            </div>
-        </section>
-
-        <!-- NEW TESTIMONIES SECTION -->
-        <section class="testimonies-section" id="testimonies">
-            <h2><i class="fas fa-quote-left"></i> Testimonies</h2>
-            <p>Hear what God is doing in the lives of people through The Last Days Evangelism Ministries. These testimonies bring glory to God and encourage the body of Christ.</p>
-            
-            <div class="testimonies-container" id="testimonies-container">
-                <!-- Testimony cards will be loaded here -->
-            </div>
-            
-            <div class="view-all-testimonies">
-                <button class="btn" onclick="loadMoreTestimonies()" id="loadMoreTestimonies">
-                    <i class="fas fa-book-open"></i> View More Testimonies
-                </button>
-                <p style="margin-top: 1rem; color: var(--text);">Click to read more testimonies of God's faithfulness</p>
             </div>
         </section>
 
@@ -2085,9 +1747,7 @@
                     <li><a href="#sermons">Sermons</a></li>
                     <li><a href="#events">Events</a></li>
                     <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
-                    <li><a href="#testimonies">Testimonies</a></li> <!-- Added Testimonies link -->
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
-                    <!-- REMOVED: Praise Report link -->
                 </ul>
             </div>
             <div class="footer-section">
@@ -2161,8 +1821,7 @@
         const modals = {
             aboutModal: document.getElementById('aboutModal'),
             contactModal: document.getElementById('contactModal'),
-            partnershipModal: document.getElementById('partnershipModal'),
-            praiseModal: document.getElementById('praiseModal')
+            partnershipModal: document.getElementById('partnershipModal')
         };
 
         const modalLinks = {
@@ -2209,8 +1868,6 @@
             openModal('partnershipModal');
         });
 
-        // Praise link removed - no longer in navigation
-
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('aboutModal');
@@ -2225,8 +1882,6 @@
             e.preventDefault();
             openModal('partnershipModal');
         });
-
-        // Praise footer link removed
 
         modalLinks.aboutToContact.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2419,113 +2074,6 @@ ${message}
             messageStatus.style.display = 'block';
         }
 
-        // Praise Report Form Submission (keeping for admin use)
-        document.getElementById('praiseForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            const messageStatus = document.getElementById('praiseMessageStatus');
-            
-            // Get form values
-            const name = formData.get('praiseName');
-            const email = formData.get('praiseEmail');
-            const phone = formData.get('praisePhone');
-            const category = formData.get('praiseCategory');
-            const title = formData.get('praiseTitle');
-            const testimony = formData.get('praiseTestimony');
-            const scripture = formData.get('praiseScripture');
-            const sharePermission = formData.get('sharePermission');
-            
-            // Validate form
-            if (!name || !category || !title || !testimony) {
-                showPraiseMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-            submitBtn.disabled = true;
-            
-            // Simulate submission
-            setTimeout(() => {
-                // Create email link with praise report data
-                const subjectText = `Praise Report: ${title}`;
-                const emailBody = `
-PRAISE REPORT SUBMISSION
-
-Name: ${name}
-Email: ${email || 'Not provided'}
-Phone: ${phone || 'Not provided'}
-Category: ${category}
-Title: ${title}
-
-Testimony:
-${testimony}
-
-Scripture: ${scripture || 'Not provided'}
-Permission to Share: ${sharePermission === 'yes' ? 'Yes, may share testimony' : 'No, keep private'}
-
-Submitted on: ${new Date().toLocaleDateString()}
-                `;
-                
-                const mailtoLink = `mailto:mothushic@gmail.com?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(emailBody)}`;
-                
-                // Open email client
-                window.location.href = mailtoLink;
-                
-                // Show success message
-                showPraiseMessage('Praise God! Your testimony has been prepared. Please check your email client to send it. Thank you for sharing what God has done!', 'success');
-                
-                // Reset form
-                form.reset();
-                resetPraiseCategories();
-                
-                // Restore button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Auto-hide success message after 10 seconds
-                setTimeout(() => {
-                    messageStatus.style.display = 'none';
-                }, 10000);
-                
-            }, 1500);
-        });
-        
-        function showPraiseMessage(message, type) {
-            const messageStatus = document.getElementById('praiseMessageStatus');
-            messageStatus.textContent = message;
-            messageStatus.className = `message-status ${type}`;
-            messageStatus.style.display = 'block';
-        }
-
-        // Praise Report Category Selection
-        function resetPraiseCategories() {
-            document.querySelectorAll('.praise-category').forEach(category => {
-                category.classList.remove('selected');
-            });
-            document.getElementById('praiseCategory').value = '';
-        }
-
-        document.querySelectorAll('.praise-category').forEach(category => {
-            category.addEventListener('click', function() {
-                // Remove selected class from all categories
-                document.querySelectorAll('.praise-category').forEach(cat => {
-                    cat.classList.remove('selected');
-                });
-                
-                // Add selected class to clicked category
-                this.classList.add('selected');
-                
-                // Set the hidden input value
-                const categoryValue = this.getAttribute('data-category');
-                document.getElementById('praiseCategory').value = categoryValue;
-            });
-        });
-
         // Smooth scroll to sections when clicking navigation links
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -2626,9 +2174,6 @@ Submitted on: ${new Date().toLocaleDateString()}
             
             // Initialize sermons
             initializeSermons();
-            
-            // Initialize testimonies
-            loadInitialTestimonies();
         });
 
         // Smooth scroll to sermons when clicking nav link
@@ -3024,164 +2569,6 @@ Submitted on: ${new Date().toLocaleDateString()}
                 }
             }
         });
-
-        // TESTIMONIES SYSTEM
-        const testimoniesData = [
-            {
-                id: 1,
-                name: "Sarah M.",
-                quote: "I had been struggling with chronic pain for over 5 years. After attending the Thursday Miracle Service and receiving prayer from Apostle Chuene, I experienced complete healing. The pain vanished and hasn't returned for 6 months now. Glory to God!",
-                date: "March 15, 2024",
-                category: "Healing"
-            },
-            {
-                id: 2,
-                name: "John T.",
-                quote: "I was delivered from addiction through the ministry at The Last Days Evangelism Ministries. The teachings on spiritual warfare and the power of prayer transformed my life. Today I am free, serving God, and helping others find freedom.",
-                date: "February 28, 2024",
-                category: "Deliverance"
-            },
-            {
-                id: 3,
-                name: "Miriam K.",
-                quote: "After years of financial struggle, I learned about biblical principles of giving and sowing at this ministry. As I applied these principles, God opened doors I never imagined. I now have a thriving business and can support the work of God.",
-                date: "January 10, 2024",
-                category: "Provision"
-            },
-            {
-                id: 4,
-                name: "David L.",
-                quote: "The teaching on 'The Coming Bridegroom' changed my perspective on eternity. I rededicated my life to Christ and now live with purpose and expectation. My family has been transformed as we prepare for Christ's return together.",
-                date: "December 5, 2023",
-                category: "Salvation"
-            },
-            {
-                id: 5,
-                name: "Grace N.",
-                quote: "I received a breakthrough in my marriage after attending the family series. The biblical principles taught helped restore love and communication in our home. We are now serving together in ministry.",
-                date: "November 20, 2023",
-                category: "Breakthrough"
-            },
-            {
-                id: 6,
-                name: "Peter S.",
-                quote: "After the teaching on the Holy Spirit, I experienced a fresh infilling and began operating in spiritual gifts I never knew I had. Now I'm actively involved in ministry and seeing God move through me to bless others.",
-                date: "October 15, 2023",
-                category: "Spiritual Growth"
-            },
-            {
-                id: 7,
-                name: "Ruth B.",
-                quote: "My son was healed from asthma after the children's ministry prayed for him. He hasn't used an inhaler for 8 months now. We give God all the glory!",
-                date: "September 8, 2023",
-                category: "Healing"
-            },
-            {
-                id: 8,
-                name: "Samuel G.",
-                quote: "I found a job after 2 years of unemployment, just one week after attending the breakthrough service. God is faithful!",
-                date: "August 22, 2023",
-                category: "Provision"
-            }
-        ];
-
-        // Testimonies loading configuration
-        const testimoniesConfig = {
-            itemsPerLoad: 3,
-            loadedCount: 0,
-            totalCount: testimoniesData.length
-        };
-
-        // Function to create testimony card HTML
-        function createTestimonyCard(testimony) {
-            // Get initials for avatar
-            const initials = testimony.name.split(' ').map(n => n[0]).join('');
-            
-            return `
-                <div class="testimony-card">
-                    <div class="testimony-quote">
-                        ${testimony.quote}
-                    </div>
-                    <div class="testimony-author">
-                        <div class="author-avatar">
-                            ${initials}
-                        </div>
-                        <div class="author-info">
-                            <div class="author-name">${testimony.name}</div>
-                            <div class="testimony-date">${testimony.date}</div>
-                        </div>
-                    </div>
-                    <span class="testimony-category">${testimony.category}</span>
-                </div>
-            `;
-        }
-
-        // Function to load initial testimonies
-        function loadInitialTestimonies() {
-            const container = document.getElementById('testimonies-container');
-            container.innerHTML = '';
-            
-            // Load initial testimonies
-            const initialCount = Math.min(3, testimoniesData.length);
-            testimoniesConfig.loadedCount = initialCount;
-            
-            for (let i = 0; i < initialCount; i++) {
-                container.innerHTML += createTestimonyCard(testimoniesData[i]);
-            }
-            
-            // Update button text
-            updateTestimoniesButton();
-        }
-
-        // Function to load more testimonies
-        function loadMoreTestimonies() {
-            const container = document.getElementById('testimonies-container');
-            const button = document.getElementById('loadMoreTestimonies');
-            
-            // Show loading state
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-            button.disabled = true;
-            
-            // Simulate loading delay
-            setTimeout(() => {
-                // Calculate how many more to load
-                const remaining = testimoniesData.length - testimoniesConfig.loadedCount;
-                const toLoad = Math.min(testimoniesConfig.itemsPerLoad, remaining);
-                
-                // Load next batch
-                for (let i = testimoniesConfig.loadedCount; i < testimoniesConfig.loadedCount + toLoad; i++) {
-                    if (i < testimoniesData.length) {
-                        container.innerHTML += createTestimonyCard(testimoniesData[i]);
-                    }
-                }
-                
-                // Update loaded count
-                testimoniesConfig.loadedCount += toLoad;
-                
-                // Update button
-                updateTestimoniesButton();
-                
-                // Scroll to newly loaded testimonies
-                if (toLoad > 0) {
-                    const lastCard = container.lastElementChild;
-                    lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            }, 800);
-        }
-
-        // Function to update testimonies button
-        function updateTestimoniesButton() {
-            const button = document.getElementById('loadMoreTestimonies');
-            const remaining = testimoniesData.length - testimoniesConfig.loadedCount;
-            
-            if (remaining > 0) {
-                button.innerHTML = `<i class="fas fa-book-open"></i> View More Testimonies (${remaining} remaining)`;
-                button.disabled = false;
-            } else {
-                button.innerHTML = '<i class="fas fa-check"></i> All Testimonies Loaded';
-                button.disabled = true;
-            }
-        }
     </script>
 </body>
 </html>
