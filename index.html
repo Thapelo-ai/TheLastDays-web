@@ -93,6 +93,22 @@
             font-weight: 600;
         }
 
+        .praise-btn {
+            background-color: #e74c3c;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .praise-btn:hover {
+            background-color: #c0392b;
+            color: white;
+            transform: translateY(-2px);
+        }
+
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
@@ -104,7 +120,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -756,6 +772,72 @@
             display: block;
         }
 
+        /* Praise Report Modal Specific Styles */
+        .praise-intro {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .praise-scripture {
+            background-color: rgba(245, 166, 35, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .praise-scripture p {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .praise-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .praise-category {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .praise-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .praise-category.selected {
+            border-color: var(--secondary);
+            background-color: rgba(245, 166, 35, 0.1);
+        }
+
+        .praise-category i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .praise-category h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .praise-category p {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
         /* Contact Info Styles */
         .contact-info {
             display: flex;
@@ -1072,6 +1154,60 @@
             font-style: italic;
         }
 
+        /* Praise Report Section */
+        .praise-report-section {
+            background-color: rgba(245, 166, 35, 0.05);
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            border-radius: 10px;
+            max-width: 1200px;
+        }
+
+        .praise-report-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .praise-report-section p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .praise-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .praise-stat {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .praise-stat i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .praise-stat h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .praise-stat p {
+            color: var(--text);
+            font-size: 1rem;
+            margin: 0;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -1174,6 +1310,14 @@
             .financial-methods {
                 grid-template-columns: 1fr;
             }
+
+            .praise-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .praise-stats {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1265,7 +1409,7 @@
 
                             <div class="form-group">
                                 <label for="phone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                             </div>
 
                             <div class="form-group">
@@ -1481,6 +1625,124 @@
         </div>
     </div>
 
+    <!-- Praise Report Modal -->
+    <div class="modal-overlay" id="praiseModal">
+        <div class="modal praise-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-hands-praying"></i> Share Your Praise Report</h2>
+                <button class="close-modal" data-modal="praiseModal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="praise-intro">
+                    <p>We rejoice with you! Share how God has moved in your life through the ministry of The Last Days Evangelism Ministries. Your testimony encourages others and brings glory to God.</p>
+                </div>
+                
+                <div class="praise-scripture">
+                    <p>"I will tell of your deeds; I will sing of your way, O LORD." - Psalm 119:26</p>
+                </div>
+                
+                <div class="contact-form">
+                    <div id="praiseMessageStatus" class="message-status"></div>
+                    
+                    <form id="praiseForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="praiseName"><i class="fas fa-user"></i> Your Name *</label>
+                                <input type="text" id="praiseName" name="praiseName" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="praiseEmail"><i class="fas fa-envelope"></i> Email Address (Optional)</label>
+                                <input type="email" id="praiseEmail" name="praiseEmail" placeholder="Enter your email address">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="praisePhone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
+                            <input type="tel" id="praisePhone" name="praisePhone" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-heart"></i> Category of Praise *</label>
+                            <div class="praise-categories">
+                                <div class="praise-category" data-category="healing">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <h4>Healing</h4>
+                                    <p>Physical or emotional healing</p>
+                                </div>
+                                <div class="praise-category" data-category="deliverance">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Deliverance</h4>
+                                    <p>Freedom from bondage</p>
+                                </div>
+                                <div class="praise-category" data-category="breakthrough">
+                                    <i class="fas fa-door-open"></i>
+                                    <h4>Breakthrough</h4>
+                                    <p>Victory in difficult situations</p>
+                                </div>
+                                <div class="praise-category" data-category="provision">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <h4>Provision</h4>
+                                    <p>Financial or material blessing</p>
+                                </div>
+                                <div class="praise-category" data-category="salvation">
+                                    <i class="fas fa-cross"></i>
+                                    <h4>Salvation</h4>
+                                    <p>Coming to faith in Christ</p>
+                                </div>
+                                <div class="praise-category" data-category="other">
+                                    <i class="fas fa-star"></i>
+                                    <h4>Other</h4>
+                                    <p>Other blessings and victories</p>
+                                </div>
+                            </div>
+                            <input type="hidden" id="praiseCategory" name="praiseCategory" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="praiseTitle"><i class="fas fa-heading"></i> Title of Your Praise Report *</label>
+                            <input type="text" id="praiseTitle" name="praiseTitle" required placeholder="Brief title of your testimony">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="praiseTestimony"><i class="fas fa-comment"></i> Your Testimony *</label>
+                            <textarea id="praiseTestimony" name="praiseTestimony" required placeholder="Share your full testimony here... (Please include what happened, when it happened, and how God moved)" rows="6"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="praiseScripture"><i class="fas fa-bible"></i> Scripture that Encouraged You (Optional)</label>
+                            <input type="text" id="praiseScripture" name="praiseScripture" placeholder="e.g., Psalm 23:1">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-share-alt"></i> Permission to Share</label>
+                            <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="radio" name="sharePermission" value="yes" checked>
+                                    Yes, you may share my testimony to encourage others
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="radio" name="sharePermission" value="no">
+                                    No, please keep this private
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-secondary">Clear Form</button>
+                            <button type="submit" class="btn">
+                                <i class="fas fa-hands-praying"></i> Submit Praise Report
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-note">
+                    <p><i class="fas fa-info-circle"></i> Your praise report will be shared with Apostle Mothushi Chuene and the ministry team. We celebrate every victory with you and may share testimonies (with permission) to encourage the body of Christ.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="logo">
             <img src="church-logo!.jpeg" alt="Church Logo">
@@ -1496,6 +1758,7 @@
                 <li><a href="#sermons" id="sermonsLink">Sermons</a></li>
                 <li><a href="#events" id="eventsLink">Events</a></li>
                 <li><a href="#" id="partnershipLink">Partner With Us</a></li>
+                <li><a href="#" id="praiseLink" class="praise-btn">Praise Report</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
             </ul>
@@ -1510,7 +1773,48 @@
             <div class="hero-content">
                 <h2><strong>THE YEAR OF DIVINE ADMINISTRATION</strong></h2>
                 <p>WE ARE APOSTOLIC, WE ARE PROPHETIC, WE ARE EVANGELICAL! </p>
-                <a href="events.html" class="btn">Join Us This Sunday</a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="events.html" class="btn">Join Us This Sunday</a>
+                    <button class="btn btn-secondary" onclick="openModal('praiseModal')">
+                        <i class="fas fa-hands-praying"></i> Share Your Praise
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Praise Report Section -->
+        <section class="praise-report-section">
+            <h2><i class="fas fa-hands-praying"></i> Praise Reports</h2>
+            <p>We celebrate what God is doing in our midst! Share your testimony of God's goodness and read how He has moved in the lives of others.</p>
+            
+            <div class="praise-stats">
+                <div class="praise-stat">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3 id="healingCount">24+</h3>
+                    <p>Healings Testified</p>
+                </div>
+                <div class="praise-stat">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3 id="deliveranceCount">18+</h3>
+                    <p>Deliverances</p>
+                </div>
+                <div class="praise-stat">
+                    <i class="fas fa-door-open"></i>
+                    <h3 id="breakthroughCount">42+</h3>
+                    <p>Breakthroughs</p>
+                </div>
+                <div class="praise-stat">
+                    <i class="fas fa-cross"></i>
+                    <h3 id="salvationCount">156+</h3>
+                    <p>Souls Saved</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn" onclick="openModal('praiseModal')" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                    <i class="fas fa-hands-praying"></i> Share Your Praise Report
+                </button>
+                <p style="margin-top: 1rem; color: var(--text);">Your testimony can encourage someone today!</p>
             </div>
         </section>
 
@@ -1747,6 +2051,7 @@
                     <li><a href="#sermons">Sermons</a></li>
                     <li><a href="#events">Events</a></li>
                     <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
+                    <li><a href="#" id="praiseFooterLink">Praise Report</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
             </div>
@@ -1821,16 +2126,19 @@
         const modals = {
             aboutModal: document.getElementById('aboutModal'),
             contactModal: document.getElementById('contactModal'),
-            partnershipModal: document.getElementById('partnershipModal')
+            partnershipModal: document.getElementById('partnershipModal'),
+            praiseModal: document.getElementById('praiseModal')
         };
 
         const modalLinks = {
             aboutLink: document.getElementById('aboutLink'),
             contactLink: document.getElementById('contactLink'),
             partnershipLink: document.getElementById('partnershipLink'),
+            praiseLink: document.getElementById('praiseLink'),
             aboutFooterLink: document.getElementById('aboutFooterLink'),
             contactFooterLink: document.getElementById('contactFooterLink'),
             partnershipFooterLink: document.getElementById('partnershipFooterLink'),
+            praiseFooterLink: document.getElementById('praiseFooterLink'),
             aboutToContact: document.getElementById('aboutToContact')
         };
 
@@ -1868,6 +2176,11 @@
             openModal('partnershipModal');
         });
 
+        modalLinks.praiseLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('praiseModal');
+        });
+
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('aboutModal');
@@ -1881,6 +2194,11 @@
         modalLinks.partnershipFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('partnershipModal');
+        });
+
+        modalLinks.praiseFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('praiseModal');
         });
 
         modalLinks.aboutToContact.addEventListener('click', function(e) {
@@ -2074,11 +2392,158 @@ ${message}
             messageStatus.style.display = 'block';
         }
 
+        // Praise Report Form Submission
+        document.getElementById('praiseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const messageStatus = document.getElementById('praiseMessageStatus');
+            
+            // Get form values
+            const name = formData.get('praiseName');
+            const email = formData.get('praiseEmail');
+            const phone = formData.get('praisePhone');
+            const category = formData.get('praiseCategory');
+            const title = formData.get('praiseTitle');
+            const testimony = formData.get('praiseTestimony');
+            const scripture = formData.get('praiseScripture');
+            const sharePermission = formData.get('sharePermission');
+            
+            // Validate form
+            if (!name || !category || !title || !testimony) {
+                showPraiseMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            // Simulate submission
+            setTimeout(() => {
+                // Create email link with praise report data
+                const subjectText = `Praise Report: ${title}`;
+                const emailBody = `
+PRAISE REPORT SUBMISSION
+
+Name: ${name}
+Email: ${email || 'Not provided'}
+Phone: ${phone || 'Not provided'}
+Category: ${category}
+Title: ${title}
+
+Testimony:
+${testimony}
+
+Scripture: ${scripture || 'Not provided'}
+Permission to Share: ${sharePermission === 'yes' ? 'Yes, may share testimony' : 'No, keep private'}
+
+Submitted on: ${new Date().toLocaleDateString()}
+                `;
+                
+                const mailtoLink = `mailto:mothushic@gmail.com?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(emailBody)}`;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                showPraiseMessage('Praise God! Your testimony has been prepared. Please check your email client to send it. Thank you for sharing what God has done!', 'success');
+                
+                // Update praise counters
+                updatePraiseCounter(category);
+                
+                // Reset form
+                form.reset();
+                resetPraiseCategories();
+                
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Auto-hide success message after 10 seconds
+                setTimeout(() => {
+                    messageStatus.style.display = 'none';
+                }, 10000);
+                
+            }, 1500);
+        });
+        
+        function showPraiseMessage(message, type) {
+            const messageStatus = document.getElementById('praiseMessageStatus');
+            messageStatus.textContent = message;
+            messageStatus.className = `message-status ${type}`;
+            messageStatus.style.display = 'block';
+        }
+
+        // Praise Report Category Selection
+        function resetPraiseCategories() {
+            document.querySelectorAll('.praise-category').forEach(category => {
+                category.classList.remove('selected');
+            });
+            document.getElementById('praiseCategory').value = '';
+        }
+
+        document.querySelectorAll('.praise-category').forEach(category => {
+            category.addEventListener('click', function() {
+                // Remove selected class from all categories
+                document.querySelectorAll('.praise-category').forEach(cat => {
+                    cat.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked category
+                this.classList.add('selected');
+                
+                // Set the hidden input value
+                const categoryValue = this.getAttribute('data-category');
+                document.getElementById('praiseCategory').value = categoryValue;
+            });
+        });
+
+        // Praise Report Counter System
+        const praiseCounts = {
+            healing: 24,
+            deliverance: 18,
+            breakthrough: 42,
+            provision: 36,
+            salvation: 156,
+            other: 87
+        };
+
+        function updatePraiseCounter(category) {
+            if (praiseCounts[category]) {
+                praiseCounts[category]++;
+                
+                // Update displayed counts
+                document.getElementById('healingCount').textContent = praiseCounts.healing + '+';
+                document.getElementById('deliveranceCount').textContent = praiseCounts.deliverance + '+';
+                document.getElementById('breakthroughCount').textContent = praiseCounts.breakthrough + '+';
+                document.getElementById('salvationCount').textContent = praiseCounts.salvation + '+';
+                
+                // Animate the update
+                const counterElement = document.getElementById(`${category}Count`);
+                if (counterElement) {
+                    counterElement.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        counterElement.style.transform = 'scale(1)';
+                    }, 300);
+                }
+            }
+        }
+
+        // Initialize praise counters
+        document.getElementById('healingCount').textContent = praiseCounts.healing + '+';
+        document.getElementById('deliveranceCount').textContent = praiseCounts.deliverance + '+';
+        document.getElementById('breakthroughCount').textContent = praiseCounts.breakthrough + '+';
+        document.getElementById('salvationCount').textContent = praiseCounts.salvation + '+';
+
         // Smooth scroll to sections when clicking navigation links
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 // Check if it's a modal link first
-                if (this.id === 'aboutLink' || this.id === 'contactLink' || this.id === 'partnershipLink') {
+                if (this.id === 'aboutLink' || this.id === 'contactLink' || this.id === 'partnershipLink' || this.id === 'praiseLink') {
                     return; // Let modal handlers handle these
                 }
                 
@@ -2112,7 +2577,7 @@ ${message}
         document.querySelectorAll('.footer-section a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 // Check if it's a modal link first
-                if (this.id === 'aboutFooterLink' || this.id === 'contactFooterLink' || this.id === 'partnershipFooterLink') {
+                if (this.id === 'aboutFooterLink' || this.id === 'contactFooterLink' || this.id === 'partnershipFooterLink' || this.id === 'praiseFooterLink') {
                     return; // Let modal handlers handle these
                 }
                 
@@ -2572,14 +3037,3 @@ ${message}
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
