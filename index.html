@@ -104,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh;
+            width: 100vw; /* FIXED: Changed from 100vh to 100vw */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1435,10 +1435,11 @@
                         
                         <h4 style="margin-top: 2rem;">Banking Details:</h4>
                         <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
-                            <p><strong>Bank:</strong> [Standard Bank]</p>
+                            <!-- UPDATED BANKING DETAILS -->
+                            <p><strong>Bank:</strong> Standard Bank</p>
                             <p><strong>Account Name:</strong> Evangelical awakenings</p>
-                            <p><strong>Account Number:</strong> [10127203549]</p>
-                            <p><strong>Branch Code:</strong> [51001]</p>
+                            <p><strong>Account Number:</strong> 10127203549</p>
+                            <p><strong>Branch Code:</strong> 51001</p>
                             <p><strong>Reference:</strong> Your Name + "Partnership"</p>
                         </div>
                     </div>
@@ -1557,7 +1558,7 @@
                 <button class="tab-btn active" data-tab="recent">Recent</button>
                 <button class="tab-btn" data-tab="popular">Most Popular</button>
                 <button class="tab-btn" data-tab="series">Series</button>
-                <button class="tab-btn" data-tab="Praise Report">Praise Report</button>
+                <button class="tab-btn" data-tab="praise">Praise Report</button>
             </div>
 
             <div class="tab-content active" id="recent">
@@ -1589,11 +1590,11 @@
                     <p>Loading more sermons...</p>
                 </div>
             </div>
-                 <div class="tab-content" id="Praise Report">
-                <div class="sermon-cards" id="Praise Report-sermons">
+                 <div class="tab-content" id="praise">
+                <div class="sermon-cards" id="praise-sermons">
                     <!-- Praise Report sermons will be loaded here -->
                 </div>
-                <div class="sermon-loading" id="Praise Report-loading">
+                <div class="sermon-loading" id="praise-loading">
                     <div class="loading-spinner"></div>
                     <p>Loading more sermons...</p>
                 </div>
@@ -1611,7 +1612,8 @@
         <section class="live-stream">
             <h2>Watch Live</h2>
             <div class="stream-container">
-                <iframe src="https://www.facebook.com/share/v/1AH83JmjyQ/" allowfullscreen></iframe>
+                <!-- UPDATED FACEBOOK LIVE LINK -->
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fyourpage%2Flive" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -1954,7 +1956,7 @@
 
         // Copy banking details function
         function copyBankingDetails() {
-            const bankingDetails = `Bank: [Standard Bank]\nAccount Name: Evangelical awakenings\nAccount Number: [10127203549]\nBranch Code: [51001]\nReference: Your Name + "Partnership"`;
+            const bankingDetails = `Bank: Standard Bank\nAccount Name: Evangelical awakenings\nAccount Number: 10127203549\nBranch Code: 51001\nReference: Your Name + "Partnership"`;
             copyToClipboard(bankingDetails, 'Banking Details');
         }
 
@@ -2403,18 +2405,38 @@ ${message}
                     downloadLink: "#"
                 }
             ],
-            Praise Report:[
-            {
-                id: 18,
-                    title: "Kingdom Living Series",
-                    date: "February, 2026",
+            praise: [ // FIXED: Corrected the syntax error
+                {
+                    id: 19,
+                    title: "Miracle Healing Service",
+                    date: "March, 2026",
                     speaker: "Apostle Mothushi Chuene",
-                    description: "Living according to God's kingdom principles.",
-                    image: "https://placehold.co/600x400/4a6f28/white?text=Kingdom+Living",
+                    description: "Testimonies of God's healing power from our recent services.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Praise+Report",
                     watchLink: "#",
                     downloadLink: "#"
-            };
-        ]
+                },
+                {
+                    id: 20,
+                    title: "Financial Breakthrough Testimonies",
+                    date: "February, 2026",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Sharing testimonies of God's provision and financial miracles.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Financial+Miracles",
+                    watchLink: "#",
+                    downloadLink: "#"
+                },
+                {
+                    id: 21,
+                    title: "Deliverance and Freedom Stories",
+                    date: "January, 2026",
+                    speaker: "Apostle Mothushi Chuene",
+                    description: "Powerful testimonies of deliverance from bondage.",
+                    image: "https://placehold.co/600x400/4a6f28/white?text=Deliverance",
+                    watchLink: "#",
+                    downloadLink: "#"
+                }
+            ]
         };
 
         // Sermon loading configuration
@@ -2424,19 +2446,19 @@ ${message}
                 recent: 6,
                 popular: 6,
                 series: 6,
-                praise report:5
+                praise: 5
             },
             loadedCount: {
                 recent: 0,
                 popular: 0,
                 series: 0,
-                praise report:0
+                praise: 0
             },
             totalCount: {
                 recent: sermonData.recent.length,
                 popular: sermonData.popular.length,
                 series: sermonData.series.length,
-                praise report: sermonData.praise report.length
+                praise: sermonData.praise.length
             }
         };
 
@@ -2469,7 +2491,7 @@ ${message}
             loadInitialSermons('recent');
             loadInitialSermons('popular');
             loadInitialSermons('series');
-            loadInitialSermons('praise report');
+            loadInitialSermons('praise');
             
             // Update counters
             updateSermonCounter('recent');
