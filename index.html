@@ -2402,7 +2402,7 @@ ${message}
                     watchLink: "#",
                     downloadLink: "#"
                 }
-            ]
+            ],
             Praise Report:[
             {
                 id: 18,
@@ -2419,21 +2419,24 @@ ${message}
 
         // Sermon loading configuration
         const sermonConfig = {
-            itemsPerLoad: 3,
+            itemsPerLoad: 10,
             initialLoad: {
-                recent: 3,
-                popular: 3,
-                series: 3
+                recent: 6,
+                popular: 6,
+                series: 6,
+                praise report:5
             },
             loadedCount: {
                 recent: 0,
                 popular: 0,
-                series: 0
+                series: 0,
+                praise report:0
             },
             totalCount: {
                 recent: sermonData.recent.length,
                 popular: sermonData.popular.length,
-                series: sermonData.series.length
+                series: sermonData.series.length,
+                praise report: sermonData.praise report.length
             }
         };
 
@@ -2466,6 +2469,7 @@ ${message}
             loadInitialSermons('recent');
             loadInitialSermons('popular');
             loadInitialSermons('series');
+            loadInitialSermons('praise report');
             
             // Update counters
             updateSermonCounter('recent');
@@ -2594,6 +2598,7 @@ ${message}
     </script>
 </body>
 </html>
+
 
 
 
