@@ -104,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh; /* FIXED: Changed from 100vh to 100vw */
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -239,7 +239,7 @@
 
         .stream-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
@@ -463,7 +463,6 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Modal Styles */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -538,7 +537,6 @@
             padding: 2rem;
         }
 
-        /* Partnership Modal Specific Styles */
         .partnership-intro {
             font-size: 1.2rem;
             margin-bottom: 2rem;
@@ -635,7 +633,6 @@
             font-size: 0.9rem;
         }
 
-        /* Contact Tabs Styles */
         .contact-tabs {
             display: flex;
             margin-bottom: 2rem;
@@ -677,7 +674,6 @@
             display: block;
         }
 
-        /* Contact Form Styles */
         .contact-form {
             background-color: #f9f9f9;
             padding: 2rem;
@@ -756,7 +752,6 @@
             display: block;
         }
 
-        /* Contact Info Styles */
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -882,7 +877,6 @@
             color: var(--primary);
         }
 
-        /* About Us Modal Styles */
         .about-intro {
             font-size: 1.2rem;
             margin-bottom: 2rem;
@@ -958,12 +952,10 @@
             font-style: italic;
         }
 
-        /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Sermons section highlight when navigated to */
         .sermons-section {
             scroll-margin-top: 100px;
         }
@@ -984,7 +976,6 @@
             }
         }
 
-        /* View More Sermons button */
         .view-more-sermons {
             text-align: center;
             margin-top: 3rem;
@@ -1028,7 +1019,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Loading animation for sermons */
         .sermon-loading {
             display: none;
             text-align: center;
@@ -1050,7 +1040,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Additional sermons styling */
         .sermon-cards .sermon-card.hidden {
             display: none;
         }
@@ -1064,12 +1053,252 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Sermon counter */
         .sermon-counter {
             text-align: center;
             margin-bottom: 2rem;
             color: var(--text);
             font-style: italic;
+        }
+
+        /* NEW: Special Ministries Section Styles */
+        .special-ministries {
+            background-color: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+
+        .ministries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ministry-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .ministry-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .ministry-card-content {
+            padding: 1.5rem;
+        }
+
+        .ministry-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .ministry-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .ministry-highlights {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .ministry-highlights li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .ministry-highlights li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .view-ministry-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 0.8rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-ministry-btn:hover {
+            background-color: #3a5a1f;
+            transform: translateY(-3px);
+        }
+
+        /* Ministry Pages Styles */
+        .ministry-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .ministry-hero.youth {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+
+        .ministry-hero.healing {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516549655669-df565b8bcae6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+
+        .ministry-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .ministry-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .ministry-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .ministry-section {
+            margin-bottom: 3rem;
+        }
+
+        .ministry-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .upcoming-tours, .youth-programs, .healing-events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tour-item, .program-item, .event-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .tour-item h3, .program-item h3, .event-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tour-date, .program-date, .event-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .join-ministry {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+
+        .join-ministry h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .join-ministry .btn {
+            background-color: var(--secondary);
+            color: white;
+            margin-top: 1rem;
+        }
+
+        .join-ministry .btn:hover {
+            background-color: #e69500;
+        }
+
+        /* Back to Home button for ministry pages */
+        .back-to-home {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background: #3a5a1f;
+            transform: translateX(-5px);
+        }
+
+        /* Hide ministry pages by default */
+        .ministry-page {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -1173,6 +1402,22 @@
 
             .financial-methods {
                 grid-template-columns: 1fr;
+            }
+
+            /* Mobile styles for new sections */
+            .ministry-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .ministry-content {
+                padding: 2rem 1rem;
+            }
+            
+            .back-to-home {
+                top: 80px;
+                left: 10px;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -1482,6 +1727,307 @@
         </div>
     </div>
 
+    <!-- NEW: Apostolic Tour Ministry Page -->
+    <div id="apostolic-tour-page" class="ministry-page">
+        <a href="#" class="back-to-home" onclick="returnToMainPage()">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <section class="ministry-hero">
+            <div>
+                <h1>Apostolic Tour Ministry</h1>
+                <p>Taking the Gospel to nations, cities, and communities through apostolic missions and revival meetings</p>
+                <a href="#join" class="btn">Join Our Next Tour</a>
+            </div>
+        </section>
+
+        <section class="ministry-content">
+            <div class="ministry-section">
+                <h2>About Apostolic Tours</h2>
+                <p>The Apostolic Tour Ministry is dedicated to spreading the Gospel through strategic missions, revival meetings, and apostolic visitations to various regions. Led by Apostle Mothushi Chuene, these tours are marked by powerful demonstrations of the Holy Spirit, prophetic declarations, and the establishment of God's kingdom principles in new territories.</p>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Upcoming Tours</h2>
+                <div class="upcoming-tours">
+                    <div class="tour-item">
+                        <h3>Nationwide Revival Tour</h3>
+                        <div class="tour-date">March 15-30, 2024</div>
+                        <p>A 15-day revival tour covering major cities across South Africa with daily crusades and healing services.</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
+                    </div>
+                    <div class="tour-item">
+                        <h3>Zimbabwe Apostolic Mission</h3>
+                        <div class="tour-date">April 20-25, 2024</div>
+                        <p>Cross-border mission to Harare and Bulawayo with church leadership training and mass evangelism.</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
+                    </div>
+                    <div class="tour-item">
+                        <h3>Botswana Crusade</h3>
+                        <div class="tour-date">May 10-12, 2024</div>
+                        <p>Weekend crusade in Gaborone with emphasis on healing and deliverance ministries.</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Tour Impact</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">50+</div>
+                        <h4>Cities Reached</h4>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">10,000+</div>
+                        <h4>Souls Saved</h4>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">2,000+</div>
+                        <h4>Healings Reported</h4>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">15</div>
+                        <h4>Nations Visited</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Testimonies</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"During the Apostolic Tour in Durban, my son who was deaf for 5 years received his hearing. Glory to God!"</p>
+                        <p class="testimonial-author">- Sarah M., Durban</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The apostolic teaching during the Cape Town tour transformed our church. We've seen unprecedented growth."</p>
+                        <p class="testimonial-author">- Pastor James, Cape Town</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I was delivered from demonic oppression that had tormented me for years. I'm now free to serve God!"</p>
+                        <p class="testimonial-author">- David K., Johannesburg</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="join-ministry" id="join">
+                <h2>Join the Next Apostolic Tour</h2>
+                <p>Be part of the next move of God! Join us as we take the Gospel to the nations.</p>
+                <button class="btn" onclick="openModal('contactModal')">
+                    <i class="fas fa-plane"></i> Register for Next Tour
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- NEW: Youth Ministry Page -->
+    <div id="youth-ministry-page" class="ministry-page">
+        <a href="#" class="back-to-home" onclick="returnToMainPage()">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <section class="ministry-hero youth">
+            <div>
+                <h1>Youth & Young Adults Ministry</h1>
+                <p>Empowering the next generation to live passionately for Christ and impact their world</p>
+                <a href="#join" class="btn">Join Youth Ministry</a>
+            </div>
+        </section>
+
+        <section class="ministry-content">
+            <div class="ministry-section">
+                <h2>About Youth Ministry</h2>
+                <p>The Youth and Young Adults Ministry (ages 13-35) is dedicated to raising a generation of radical disciples who are grounded in God's Word, passionate in worship, and effective in ministry. We provide a safe space for youth to grow spiritually, develop their gifts, and build godly relationships.</p>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Weekly Programs</h2>
+                <div class="youth-programs">
+                    <div class="program-item">
+                        <h3>Friday Night Fire</h3>
+                        <div class="program-date">Every Friday, 6:00 PM</div>
+                        <p>Youth worship night with contemporary music, relevant teaching, and altar ministry.</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Tonight</button>
+                    </div>
+                    <div class="program-item">
+                        <h3>Bible Study Connect</h3>
+                        <div class="program-date">Tuesdays, 5:00 PM</div>
+                        <p>Interactive Bible study groups discussing real-life issues from a biblical perspective.</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Study</button>
+                    </div>
+                    <div class="program-item">
+                        <h3>Impact Teams</h3>
+                        <div class="program-date">Saturdays, 9:00 AM</div>
+                        <p>Community outreach and evangelism training for youth passionate about soul-winning.</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Team</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Annual Events</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary);">Summer Youth Camp</h3>
+                        <p style="color: var(--secondary); font-weight: 600;">December 15-20, 2024</p>
+                        <p>5-day camp with outdoor activities, worship, and intensive discipleship training.</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary);">Youth Conference</h3>
+                        <p style="color: var(--secondary); font-weight: 600;">June 28-30, 2024</p>
+                        <p>3-day conference with guest speakers, workshops, and career guidance sessions.</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary);">Mission Trips</h3>
+                        <p style="color: var(--secondary); font-weight: 600;">Quarterly</p>
+                        <p>Short-term mission trips to local communities and neighboring countries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Ministry Areas</h2>
+                <div class="ministry-highlights">
+                    <li><strong>Worship & Creative Arts:</strong> Band, choir, dance, drama, media team</li>
+                    <li><strong>Leadership Development:</strong> Mentorship program, leadership training</li>
+                    <li><strong>Career Guidance:</strong> Career workshops, university preparation</li>
+                    <li><strong>Sports Ministry:</strong> Soccer, basketball, and fitness programs</li>
+                    <li><strong>Tech Team:</strong> Sound, lighting, video production training</li>
+                    <li><strong>Counseling:</strong> Peer counseling and professional guidance</li>
+                </div>
+            </div>
+
+            <div class="join-ministry" id="join">
+                <h2>Join the Youth Revolution!</h2>
+                <p>Be part of a generation that's changing the world for Christ!</p>
+                <button class="btn" onclick="openModal('contactModal')">
+                    <i class="fas fa-user-plus"></i> Register for Youth Ministry
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- NEW: Healing Hand Ministry Page -->
+    <div id="healing-hand-page" class="ministry-page">
+        <a href="#" class="back-to-home" onclick="returnToMainPage()">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <section class="ministry-hero healing">
+            <div>
+                <h1>Healing Hand Ministry</h1>
+                <p>Ministering God's healing power to the sick, afflicted, and broken-hearted</p>
+                <a href="#prayer" class="btn">Request Prayer</a>
+            </div>
+        </section>
+
+        <section class="ministry-content">
+            <div class="ministry-section">
+                <h2>About Healing Hand Ministry</h2>
+                <p>The Healing Hand Ministry operates under the anointing of the Holy Spirit to minister healing to those suffering from various ailments, diseases, and spiritual afflictions. Based on Mark 16:17-18, we believe in the power of Jesus Christ to heal all manner of sickness and disease. The ministry conducts regular healing services, hospital visitations, and prayer lines for those in need of divine intervention.</p>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Healing Services Schedule</h2>
+                <div class="healing-events">
+                    <div class="event-item">
+                        <h3>Thursday Healing Service</h3>
+                        <div class="event-date">Every Thursday, 10:00 AM</div>
+                        <p>Weekly healing and miracle service with Apostle Mothushi Chuene</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Service</button>
+                    </div>
+                    <div class="event-item">
+                        <h3>Monthly Miracle Night</h3>
+                        <div class="event-date">Last Friday of Month, 6:00 PM</div>
+                        <p>All-night prayer and healing service for critical cases</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">View Schedule</button>
+                    </div>
+                    <div class="event-item">
+                        <h3>Special Healing Crusades</h3>
+                        <div class="event-date">Quarterly</div>
+                        <p>Mass healing crusades in various locations</p>
+                        <button class="btn btn-small" onclick="openModal('contactModal')">Upcoming Crusades</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Areas of Healing Ministry</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Physical Healing</h4>
+                        <ul style="padding-left: 1.5rem;">
+                            <li>Chronic diseases</li>
+                            <li>Inherited illnesses</li>
+                            <li>Accident-related injuries</li>
+                            <li>Terminal illnesses</li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Emotional Healing</h4>
+                        <ul style="padding-left: 1.5rem;">
+                            <li>Depression and anxiety</li>
+                            <li>Trauma and PTSD</li>
+                            <li>Grief and loss</li>
+                            <li>Relationship wounds</li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Spiritual Healing</h4>
+                        <ul style="padding-left: 1.5rem;">
+                            <li>Demonic oppression</li>
+                            <li>Generational curses</li>
+                            <li>Spiritual bondage</li>
+                            <li>Soul wounds</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Healing Testimonies</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I was diagnosed with stage 4 cancer. After prayer at the healing service, my next scan showed complete remission. The doctors called it a miracle!"</p>
+                        <p class="testimonial-author">- Mary T., Polokwane</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"My daughter was born blind. During the miracle night service, Apostle prayed for her, and she received her sight immediately!"</p>
+                        <p class="testimonial-author">- John D., Pretoria</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"After 15 years of infertility, we received prayer at the healing service. We now have twin boys - our miracle babies!"</p>
+                        <p class="testimonial-author">- Sarah & Mike K., Johannesburg</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section" id="prayer">
+                <h2>Request Healing Prayer</h2>
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Submit Your Prayer Request</h3>
+                    <p>Our prayer team intercedes daily for all prayer requests submitted. For urgent cases, please call our prayer line.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Prayer Line: 072 228 5667</h4>
+                        <p style="color: var(--secondary); font-weight: 600;">Available Monday-Friday, 8:00 AM - 5:00 PM</p>
+                        
+                        <div style="margin-top: 2rem;">
+                            <button class="btn" onclick="openModal('contactModal')">
+                                <i class="fas fa-pray"></i> Submit Online Prayer Request
+                            </button>
+                            <button class="btn" onclick="window.location.href='tel:0722285667'" style="background-color: var(--primary); margin-left: 1rem;">
+                                <i class="fas fa-phone"></i> Call Prayer Line Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Website Content -->
     <header>
         <div class="logo">
             <img src="church-logo!.jpeg" alt="Church Logo">
@@ -1492,10 +2038,11 @@
         </div>
         <nav>
             <ul id="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="returnToMainPage()">Home</a></li>
                 <li><a href="#" id="aboutLink">About Us</a></li>
-                <li><a href="#sermons" id="sermonsLink">Sermons</a></li>
-                <li><a href="#events" id="eventsLink">Events</a></li>
+                <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
+                <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
+                <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
                 <li><a href="#" id="partnershipLink">Partner With Us</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
@@ -1506,19 +2053,18 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="hero-content">
                 <h2><strong>THE YEAR OF DIVINE ADMINISTRATION</strong></h2>
                 <p>WE'RE APOSTOLIC | WE'RE PROPHETIC | WE'RE EVANGELICAL | WE'RE GOD'S CASTLE! </p>
-                <a href="events.html" class="btn">Join Us This Sunday</a>
+                <a href="#events" class="btn" onclick="scrollToSection('events')">Join Us This Sunday</a>
             </div>
         </section>
 
         <section class="upcoming-events" id="events">
             <h2>Upcoming Events</h2>
             <div class="event-cards" id="event-cards">
-                <!-- Sample event cards (will be replaced by dynamic content) -->
                 <div class="event-card">
                     <img src="RRR.jpeg" alt="Sunday Service">
                     <div class="event-card-content">
@@ -1545,7 +2091,84 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <a href="events.html" class="btn">View All Events</a>
+                <button class="btn" onclick="openModal('contactModal')">View All Events</button>
+            </div>
+        </section>
+
+        <!-- NEW: Special Ministries Section -->
+        <section class="special-ministries" id="ministries">
+            <h2>Our Special Ministries</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                Discover the various ministries that make up The Last Days Evangelism Ministries. 
+                Each ministry is designed to meet specific needs and reach different groups with the Gospel.
+            </p>
+
+            <div class="ministries-grid">
+                <div class="ministry-card" onclick="openMinistryPage('apostolic-tour')">
+                    <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Apostolic Tour Ministry">
+                    <div class="ministry-card-content">
+                        <div class="ministry-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h3>Apostolic Tour Ministry</h3>
+                        <p>Taking the Gospel to nations, cities, and communities through apostolic missions and revival meetings. Join us as we spread the fire of revival!</p>
+                        
+                        <ul class="ministry-highlights">
+                            <li>Nationwide revival tours</li>
+                            <li>International missions</li>
+                            <li>Crusades and evangelism</li>
+                            <li>Church planting</li>
+                        </ul>
+                        
+                        <div class="view-ministry-btn">
+                            <i class="fas fa-external-link-alt"></i> Visit Apostolic Tour Ministry
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ministry-card" onclick="openMinistryPage('youth-ministry')">
+                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Youth Ministry">
+                    <div class="ministry-card-content">
+                        <div class="ministry-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Youth & Young Adults Ministry</h3>
+                        <p>Empowering the next generation (ages 13-35) to live passionately for Christ and impact their world through relevant programs and discipleship.</p>
+                        
+                        <ul class="ministry-highlights">
+                            <li>Friday Night Fire worship</li>
+                            <li>Bible study groups</li>
+                            <li>Leadership development</li>
+                            <li>Annual youth camps</li>
+                        </ul>
+                        
+                        <div class="view-ministry-btn">
+                            <i class="fas fa-external-link-alt"></i> Visit Youth Ministry
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ministry-card" onclick="openMinistryPage('healing-hand')">
+                    <img src="https://images.unsplash.com/photo-1516549655669-df565b8bcae6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Healing Hand Ministry">
+                    <div class="ministry-card-content">
+                        <div class="ministry-icon">
+                            <i class="fas fa-hand-holding-medical"></i>
+                        </div>
+                        <h3>Healing Hand Ministry</h3>
+                        <p>Ministering God's healing power to the sick, afflicted, and broken-hearted through prayer, anointing, and miracle services.</p>
+                        
+                        <ul class="ministry-highlights">
+                            <li>Weekly healing services</li>
+                            <li>Prayer line for the sick</li>
+                            <li>Hospital visitations</li>
+                            <li>Miracle testimonies</li>
+                        </ul>
+                        
+                        <div class="view-ministry-btn">
+                            <i class="fas fa-external-link-alt"></i> Visit Healing Ministry
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1563,7 +2186,7 @@
 
             <div class="tab-content active" id="recent">
                 <div class="sermon-cards" id="recent-sermons">
-                    <!-- Initial sermons will be loaded here -->
+                    <!-- Sermons will be loaded here -->
                 </div>
                 <div class="sermon-loading" id="recent-loading">
                     <div class="loading-spinner"></div>
@@ -1573,7 +2196,7 @@
 
             <div class="tab-content" id="popular">
                 <div class="sermon-cards" id="popular-sermons">
-                    <!-- Popular sermons will be loaded here -->
+                    <!-- Sermons will be loaded here -->
                 </div>
                 <div class="sermon-loading" id="popular-loading">
                     <div class="loading-spinner"></div>
@@ -1583,7 +2206,7 @@
 
             <div class="tab-content" id="series">
                 <div class="sermon-cards" id="series-sermons">
-                    <!-- Series sermons will be loaded here -->
+                    <!-- Sermons will be loaded here -->
                 </div>
                 <div class="sermon-loading" id="series-loading">
                     <div class="loading-spinner"></div>
@@ -1592,7 +2215,7 @@
             </div>
                  <div class="tab-content" id="praise">
                 <div class="sermon-cards" id="praise-sermons">
-                    <!-- Praise Report sermons will be loaded here -->
+                    <!-- Sermons will be loaded here -->
                 </div>
                 <div class="sermon-loading" id="praise-loading">
                     <div class="loading-spinner"></div>
@@ -1600,7 +2223,6 @@
                 </div>
             </div>
 
-            <!-- VIEW MORE SERMONS BUTTON - LOADS MORE SERMONS DYNAMICALLY -->
             <div class="view-more-sermons">
                 <button class="view-more-btn" id="loadMoreSermons">
                     <i class="fas fa-book-open"></i> View More Sermons
@@ -1612,7 +2234,6 @@
         <section class="live-stream">
             <h2>Watch Live</h2>
             <div class="stream-container">
-                <!-- UPDATED FACEBOOK LIVE LINK -->
                 <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fyourpage%2Flive" allowfullscreen></iframe>
             </div>
         </section>
@@ -1756,8 +2377,9 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
-                    <li><a href="#sermons">Sermons</a></li>
-                    <li><a href="#events">Events</a></li>
+                    <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
+                    <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
+                    <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
                     <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
@@ -1791,21 +2413,14 @@
 
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
                 tabBtns.forEach(b => b.classList.remove('active'));
                 tabContents.forEach(c => c.classList.remove('active'));
 
-                // Add active class to clicked button
                 btn.classList.add('active');
-
-                // Show corresponding content
                 const tabId = btn.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
                 
-                // Store active tab in session storage
                 sessionStorage.setItem('activeSermonTab', tabId);
-                
-                // Update sermon counter for active tab
                 updateSermonCounter(tabId);
             });
         });
@@ -1816,14 +2431,10 @@
 
         contactTabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
                 contactTabBtns.forEach(b => b.classList.remove('active'));
                 contactTabContents.forEach(c => c.classList.remove('active'));
 
-                // Add active class to clicked button
                 btn.classList.add('active');
-
-                // Show corresponding content
                 const tabId = btn.getAttribute('data-contact-tab');
                 document.getElementById(tabId).classList.add('active');
             });
@@ -1846,22 +2457,18 @@
             aboutToContact: document.getElementById('aboutToContact')
         };
 
-        // Function to open a modal
         function openModal(modalId) {
-            // Close all modals first
             Object.values(modals).forEach(modal => {
                 modal.classList.remove('active');
             });
             
-            // Open the requested modal
             modals[modalId].classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
         }
 
-        // Function to close a modal
         function closeModal(modalId) {
             modals[modalId].classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
 
         // Event listeners for opening modals
@@ -1900,7 +2507,6 @@
             closeModal('aboutModal');
             setTimeout(() => {
                 openModal('contactModal');
-                // Switch to contact form tab when coming from about modal
                 const contactFormTab = document.querySelector('[data-contact-tab="contact-form"]');
                 if (contactFormTab) {
                     contactFormTab.click();
@@ -1943,7 +2549,6 @@
                 alert(`${type} copied to clipboard: ${text}`);
             }).catch(err => {
                 console.error('Failed to copy: ', err);
-                // Fallback for older browsers
                 const textArea = document.createElement('textarea');
                 textArea.value = text;
                 document.body.appendChild(textArea);
@@ -1962,7 +2567,6 @@
 
         // Get Directions Function
         function openDirections(app) {
-            // Coordinates for Moletjie Motinti, Polokwane area
             const latitude = -23.90455;
             const longitude = 29.45066;
             const churchAddress = "Moletjie Motinti, Polokwane, South Africa";
@@ -1979,7 +2583,6 @@
         // Open partnership modal with specific section
         function openPartnershipModal(section) {
             openModal('partnershipModal');
-            // Scroll to specific section after modal opens
             setTimeout(() => {
                 const modalContent = document.querySelector('.partnership-modal .modal-content');
                 let targetElement;
@@ -2010,29 +2613,23 @@
             const formData = new FormData(form);
             const messageStatus = document.getElementById('messageStatus');
             
-            // Get form values
             const name = formData.get('name');
             const email = formData.get('email');
             const phone = formData.get('phone');
             const subject = formData.get('subject');
             const message = formData.get('message');
             
-            // Validate form
             if (!name || !email || !subject || !message) {
                 showMessage('Please fill in all required fields.', 'error');
                 return;
             }
             
-            // Show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             
-            // Here you would typically send the data to your server
-            // For now, we'll simulate a successful submission
             setTimeout(() => {
-                // Create email link with form data
                 const subjectText = getSubjectText(subject);
                 const emailBody = `
 Name: ${name}
@@ -2046,25 +2643,20 @@ ${message}
                 
                 const mailtoLink = `mailto:mothushic@gmail.com?subject=Website Contact: ${subjectText}&body=${encodeURIComponent(emailBody)}`;
                 
-                // Open email client
                 window.location.href = mailtoLink;
                 
-                // Show success message
                 showMessage('Thank you! Your message has been prepared. Please check your email client to send it.', 'success');
                 
-                // Reset form
                 form.reset();
                 
-                // Restore button
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 
-                // Auto-hide success message after 10 seconds
                 setTimeout(() => {
                     messageStatus.style.display = 'none';
                 }, 10000);
                 
-            }, 1500); // Simulate network delay
+            }, 1500);
         });
         
         function getSubjectText(subjectValue) {
@@ -2086,69 +2678,59 @@ ${message}
             messageStatus.style.display = 'block';
         }
 
-        // Smooth scroll to sections when clicking navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                // Check if it's a modal link first
-                if (this.id === 'aboutLink' || this.id === 'contactLink' || this.id === 'partnershipLink') {
-                    return; // Let modal handlers handle these
-                }
-                
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        // Close mobile menu if open
-                        document.getElementById('nav-menu').classList.remove('show');
-                        
-                        // Scroll to section
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Add highlight effect
-                        targetElement.style.animation = 'none';
-                        setTimeout(() => {
-                            targetElement.style.animation = 'highlightSection 2s ease';
-                        }, 10);
-                    }
-                }
-            });
-        });
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('nav-menu').classList.remove('show');
+            }
+        }
 
-        // Also handle footer links
-        document.querySelectorAll('.footer-section a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                // Check if it's a modal link first
-                if (this.id === 'aboutFooterLink' || this.id === 'contactFooterLink' || this.id === 'partnershipFooterLink') {
-                    return; // Let modal handlers handle these
-                }
-                
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Add highlight effect
-                        targetElement.style.animation = 'none';
-                        setTimeout(() => {
-                            targetElement.style.animation = 'highlightSection 2s ease';
-                        }, 10);
-                    }
-                }
+        // NEW: Ministry Pages Functionality
+        function openMinistryPage(ministry) {
+            // Hide main content and all ministry pages
+            document.getElementById('main-content').style.display = 'none';
+            document.querySelectorAll('.ministry-page').forEach(page => {
+                page.style.display = 'none';
             });
-        });
+            
+            // Show the selected ministry page
+            const ministryPage = document.getElementById(`${ministry}-page`);
+            if (ministryPage) {
+                ministryPage.style.display = 'block';
+                document.title = getMinistryTitle(ministry) + ' - The Last Days Evangelism Ministries';
+            }
+            
+            // Close mobile menu if open
+            document.getElementById('nav-menu').classList.remove('show');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function getMinistryTitle(ministry) {
+            const titles = {
+                'apostolic-tour': 'Apostolic Tour Ministry',
+                'youth-ministry': 'Youth & Young Adults Ministry',
+                'healing-hand': 'Healing Hand Ministry'
+            };
+            return titles[ministry] || 'Ministry';
+        }
+
+        function returnToMainPage() {
+            // Hide all ministry pages
+            document.querySelectorAll('.ministry-page').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show main content
+            document.getElementById('main-content').style.display = 'block';
+            document.title = 'The Last Days Evangelism Ministries';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         // Enhanced sermon card click functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -2171,51 +2753,9 @@ ${message}
                 tabBtn.click();
             }
             
-            // Check if we should scroll to sermons section
-            if (window.location.hash === '#sermons') {
-                setTimeout(() => {
-                    const sermonsSection = document.getElementById('sermons');
-                    if (sermonsSection) {
-                        window.scrollTo({
-                            top: sermonsSection.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 100);
-            }
-            
             // Initialize sermons
             initializeSermons();
         });
-
-        // Smooth scroll to sermons when clicking nav link
-        document.getElementById('sermonsLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            const sermonsSection = document.getElementById('sermons');
-            if (sermonsSection) {
-                // Close mobile menu if open
-                document.getElementById('nav-menu').classList.remove('show');
-                
-                window.scrollTo({
-                    top: sermonsSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-                
-                // Add highlight animation
-                sermonsSection.style.animation = 'none';
-                setTimeout(() => {
-                    sermonsSection.style.animation = 'highlightSection 2s ease';
-                }, 10);
-            }
-        });
-
-        // Initialize Google Maps with better coordinates
-        function initializeMap() {
-            console.log('Map initialized');
-        }
-
-        // Initialize map when page loads
-        window.addEventListener('load', initializeMap);
 
         // Sermon Management System
         const sermonData = {
@@ -2249,7 +2789,9 @@ ${message}
                     image: "The Covenant.jpeg",
                     watchLink: "https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g",
                     downloadLink: "https://example.com/sermons/holy-spirit.mp3"
-                },
+                }
+            ],
+            popular: [
                 {
                     id: 4,
                     title: "The Two Resurrection",
@@ -2281,71 +2823,9 @@ ${message}
                     downloadLink: "#"
                 }
             ],
-            popular: [
-                {
-                    id: 7,
-                    title: "Putting On The Full Armor Of God",
-                    date: "June, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "We are not called to be passive believers-we are called to be spiritual warriors, fully dressed and ready to stand firm.",
-                    image: "FullAmor.jpg",
-                    watchLink: "https://youtube.com/watch?v=example4",
-                    downloadLink: "https://example.com/sermons/breakthrough-prayers.mp3"
-                },
-                {
-                    id: 8,
-                    title: "The Matters Of The Kingdom",
-                    date: "May, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The Kingdom of God is not a passive experience--it's a place of transformation, responsibility, and power.",
-                    image: "MattersOfTheKingdom.jpeg",
-                    watchLink: "https://youtube.com/watch?v=example5",
-                    downloadLink: "https://example.com/sermons/biblical-finance.mp3"
-                },
-                {
-                    id: 9,
-                    title: "Setting your Mind",
-                    date: "April, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Understanding God's power to heal and restore wholeness.",
-                    image: "Mind.jpg",
-                    watchLink: "https://youtube.com/watch?v=example6",
-                    downloadLink: "https://example.com/sermons/divine-healing.mp3"
-                },
-                {
-                    id: 10,
-                    title: "Understanding Salvation",
-                    date: "March, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Many people don't understand that with  salvation, it is your soul that is being saved from being ruled/controlled by the enemeny.",
-                    image: "Salvation.jpg",
-                    watchLink: "#",
-                    downloadLink: "#"
-                },
-                {
-                    id: 11,
-                    title: "The Work Of The Blood Of Jesus",
-                    date: "February, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Understanding and engaging in spiritual warfare as a believer.",
-                    image: "https://placehold.co/600x400/4a6f28/white?text=Spiritual+Warfare",
-                    watchLink: "#",
-                    downloadLink: "#"
-                },
-                {
-                    id: 12,
-                    title: "Building The Altar Of Prayer",
-                    date: "January, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Experiencing and sharing the joy that comes from salvation.",
-                    image: "https://placehold.co/600x400/4a6f28/white?text=Joy+of+Salvation",
-                    watchLink: "#",
-                    downloadLink: "#"
-                }
-            ],
             series: [
                 {
-                    id: 13,
+                    id: 7,
                     title: "The Two Resurrections Series",
                     date: "September, 2025",
                     speaker: "Apostle Mothushi Chuene",
@@ -2355,7 +2835,7 @@ ${message}
                     downloadLink: "#"
                 },
                 {
-                    id: 14,
+                    id: 8,
                     title: "Covenant Series",
                     date: "October, 2025",
                     speaker: "Apostle Mothushi Chuene",
@@ -2365,7 +2845,7 @@ ${message}
                     downloadLink: "#"
                 },
                 {
-                    id: 15,
+                    id: 9,
                     title: "Building Godly Families Series",
                     date: "November, 2025",
                     speaker: "Apostle Mothushi Chuene",
@@ -2373,41 +2853,11 @@ ${message}
                     image: "BuildingStrong&Godly.jpeg",
                     watchLink: "#",
                     downloadLink: "#"
-                },
-                {
-                    id: 16,
-                    title: "Review, Reflect, Rest",
-                    date: "December, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Before resting, we are called to Review, and Reflect- to evaluate where we are, what we have learned, and what we must change.",
-                    image: "RRR.jpeg",
-                    watchLink: "#",
-                    downloadLink: "#"
-                },
-                {
-                    id: 17,
-                    title: "The Book of Revelation Series",
-                    date: "January, 2026",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "In-depth study of the Book of Revelation.",
-                    image: "https://placehold.co/600x400/4a6f28/white?text=Revelation",
-                    watchLink: "#",
-                    downloadLink: "#"
-                },
-                {
-                    id: 18,
-                    title: "Kingdom Living Series",
-                    date: "February, 2026",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Living according to God's kingdom principles.",
-                    image: "https://placehold.co/600x400/4a6f28/white?text=Kingdom+Living",
-                    watchLink: "#",
-                    downloadLink: "#"
                 }
             ],
-            praise: [ // FIXED: Corrected the syntax error
+            praise: [
                 {
-                    id: 19,
+                    id: 10,
                     title: "Miracle Healing Service",
                     date: "March, 2026",
                     speaker: "Apostle Mothushi Chuene",
@@ -2417,7 +2867,7 @@ ${message}
                     downloadLink: "#"
                 },
                 {
-                    id: 20,
+                    id: 11,
                     title: "Financial Breakthrough Testimonies",
                     date: "February, 2026",
                     speaker: "Apostle Mothushi Chuene",
@@ -2427,7 +2877,7 @@ ${message}
                     downloadLink: "#"
                 },
                 {
-                    id: 21,
+                    id: 12,
                     title: "Deliverance and Freedom Stories",
                     date: "January, 2026",
                     speaker: "Apostle Mothushi Chuene",
@@ -2441,12 +2891,12 @@ ${message}
 
         // Sermon loading configuration
         const sermonConfig = {
-            itemsPerLoad: 10,
+            itemsPerLoad: 3,
             initialLoad: {
-                recent: 6,
-                popular: 6,
-                series: 6,
-                praise: 5
+                recent: 3,
+                popular: 3,
+                series: 3,
+                praise: 3
             },
             loadedCount: {
                 recent: 0,
@@ -2512,18 +2962,8 @@ ${message}
                 sermonConfig.loadedCount[tab]++;
             }
             
-            // Hide remaining sermons
-            for (let i = sermonConfig.loadedCount[tab]; i < data.length; i++) {
-                container.innerHTML += createSermonCard(data[i]);
-            }
-            
-            // Initially hide extra sermons
-            const allCards = container.querySelectorAll('.sermon-card');
-            allCards.forEach((card, index) => {
-                if (index >= initialCount) {
-                    card.classList.add('hidden');
-                }
-            });
+            // Update counters
+            updateSermonCounter(tab);
         }
 
         // Function to load more sermons
@@ -2533,48 +2973,35 @@ ${message}
             const data = sermonData[tab];
             
             if (sermonConfig.loadedCount[tab] >= data.length) {
-                // All sermons loaded
                 document.getElementById('loadMoreSermons').disabled = true;
                 document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
                 return;
             }
             
-            // Show loading animation
             loadingElement.classList.add('active');
             document.getElementById('loadMoreSermons').classList.add('loading');
             document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
             
-            // Simulate loading delay
             setTimeout(() => {
-                // Show next batch of sermons
-                const hiddenCards = container.querySelectorAll('.sermon-card.hidden');
-                const cardsToShow = Math.min(sermonConfig.itemsPerLoad, hiddenCards.length);
+                const startIndex = sermonConfig.loadedCount[tab];
+                const endIndex = Math.min(startIndex + sermonConfig.itemsPerLoad, data.length);
                 
-                for (let i = 0; i < cardsToShow; i++) {
-                    hiddenCards[i].classList.remove('hidden');
-                    hiddenCards[i].classList.add('fade-in');
+                for (let i = startIndex; i < endIndex; i++) {
+                    container.innerHTML += createSermonCard(data[i]);
                     sermonConfig.loadedCount[tab]++;
                 }
                 
-                // Hide loading animation
                 loadingElement.classList.remove('active');
                 document.getElementById('loadMoreSermons').classList.remove('loading');
                 document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-book-open"></i> View More Sermons';
                 
-                // Update counters
                 updateSermonCounter(tab);
                 
-                // Disable button if all sermons loaded
                 if (sermonConfig.loadedCount[tab] >= data.length) {
                     document.getElementById('loadMoreSermons').disabled = true;
                     document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
                 }
                 
-                // Scroll to newly loaded sermons
-                if (cardsToShow > 0) {
-                    const lastVisibleCard = container.querySelector('.sermon-card:not(.hidden)');
-                    lastVisibleCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
             }, 1000);
         }
 
@@ -2586,7 +3013,6 @@ ${message}
             document.getElementById('visibleCount').textContent = visibleCount;
             document.getElementById('totalCount').textContent = totalCount;
             
-            // Update button text based on remaining sermons
             const remaining = totalCount - visibleCount;
             const loadMoreBtn = document.getElementById('loadMoreSermons');
             
@@ -2617,8 +3043,18 @@ ${message}
                 }
             }
         });
+
+        // Ministry card click handlers
+        document.querySelectorAll('.ministry-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('.view-ministry-btn') && !e.target.closest('.btn')) {
+                    const ministry = this.getAttribute('data-ministry') || 
+                                   this.querySelector('h3').textContent.toLowerCase().includes('apostolic') ? 'apostolic-tour' :
+                                   this.querySelector('h3').textContent.toLowerCase().includes('youth') ? 'youth-ministry' : 'healing-hand';
+                    openMinistryPage(ministry);
+                }
+            });
+        });
     </script>
 </body>
 </html>
-
-
