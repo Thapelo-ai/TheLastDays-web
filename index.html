@@ -104,7 +104,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh;
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1168,7 +1168,7 @@
         }
 
         .ministry-hero.healing {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516549655669-df565b8bcae6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
         }
 
         .ministry-hero h1 {
@@ -1757,7 +1757,7 @@
                         <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
                     </div>
                     <div class="tour-item">
-                        <h3>The Last Days  Evangelism Ministries | Steiloop </h3>
+                        <h3>The Last Days Evangelism Ministries | Steiloop </h3>
                         <div class="tour-date">March, 2025</div>
                         <p>Cross-border mission to Harare and Bulawayo with church leadership training and mass evangelism.</p>
                         <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
@@ -1798,7 +1798,7 @@
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
                         <p class="testimonial-text">"During the Apostolic Tour in Pretoria, my son who was deaf for 5 years received his hearing. Glory to God!"</p>
-                        <p class="testimonial-author">- Thapelo M., Pretorial</p>
+                        <p class="testimonial-author">- Thapelo M., Pretoria</p>
                     </div>
                     <div class="testimonial-card">
                         <p class="testimonial-text">"The apostolic teaching during the Pretoria tour transformed our church. We've seen unprecedented growth."</p>
@@ -1908,7 +1908,7 @@
         </section>
     </div>
 
-    <!-- NEW: Healing Hand Ministry Page -->
+    <!-- UPDATED: Healing Hands Ministry Page - Now an Orphan Care Charity -->
     <div id="healing-hand-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -1916,113 +1916,279 @@
         
         <section class="ministry-hero healing">
             <div>
-                <h1>Healing Hand Ministry</h1>
-                <p>Ministering God's healing power to the sick, afflicted, and broken-hearted</p>
-                <a href="#prayer" class="btn">Request Prayer</a>
+                <h1>Healing Hands Orphan Care Ministry</h1>
+                <p>Extending God's love and care to orphaned and vulnerable children in our community</p>
+                <a href="#donate" class="btn">Donate Now</a>
             </div>
         </section>
 
         <section class="ministry-content">
             <div class="ministry-section">
-                <h2>About Healing Hand Ministry</h2>
-                <p>The Healing Hand Ministry operates under the anointing of the Holy Spirit to minister healing to those suffering from various ailments, diseases, and spiritual afflictions. Based on Mark 16:17-18, we believe in the power of Jesus Christ to heal all manner of sickness and disease. The ministry conducts regular healing services, hospital visitations, and prayer lines for those in need of divine intervention.</p>
+                <h2>About Healing Hands Orphan Care</h2>
+                <p>The Healing Hands Orphan Care Ministry is a compassionate outreach dedicated to providing love, care, and support to orphaned and vulnerable children in our community. Founded on the biblical principle found in James 1:27, "Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress," we are committed to being the hands and feet of Jesus to children who have lost their parents or come from difficult family situations.</p>
+                
+                <div style="background: rgba(74, 111, 40, 0.1); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                    <h3 style="color: var(--primary); text-align: center;">Our Mission Statement</h3>
+                    <p style="text-align: center; font-style: italic; margin-top: 1rem;">
+                        "To provide a loving, Christ-centered environment where orphaned and vulnerable children can experience God's healing love, receive quality care, and develop into godly, productive members of society."
+                    </p>
+                </div>
             </div>
 
             <div class="ministry-section">
-                <h2>Healing Services Schedule</h2>
-                <div class="healing-events">
-                    <div class="event-item">
-                        <h3>Thursday Healing Service</h3>
-                        <div class="event-date">Every Thursday, 10:00 AM</div>
-                        <p>Weekly healing and miracle service with Apostle Mothushi Chuene</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Service</button>
+                <h2>Our Programs & Services</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 style="color: var(--primary);">Residential Care</h3>
+                        <p>Safe, loving homes for orphaned children with house parents who provide family-style care, spiritual guidance, and emotional support.</p>
                     </div>
-                    <div class="event-item">
-                        <h3>Monthly Miracle Night</h3>
-                        <div class="event-date">Last Friday of Month, 6:00 PM</div>
-                        <p>All-night prayer and healing service for critical cases</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">View Schedule</button>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 style="color: var(--primary);">Education Support</h3>
+                        <p>School fees, uniforms, books, and tutoring for children from preschool through university level.</p>
                     </div>
-                    <div class="event-item">
-                        <h3>Special Healing Crusades</h3>
-                        <div class="event-date">Quarterly</div>
-                        <p>Mass healing crusades in various locations</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Upcoming Crusades</button>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 style="color: var(--primary);">Healthcare & Nutrition</h3>
+                        <p>Comprehensive healthcare, regular medical check-ups, balanced meals, and nutritional support.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 style="color: var(--primary);">Counseling & Trauma Care</h3>
+                        <p>Professional counseling services for children dealing with grief, trauma, and emotional challenges.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
+                            <i class="fas fa-bible"></i>
+                        </div>
+                        <h3 style="color: var(--primary);">Spiritual Development</h3>
+                        <p>Daily devotions, Sunday school, Bible studies, and character-building programs.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3 style="color: var(--primary);">Recreation & Skills</h3>
+                        <p>Sports, arts, music programs, and life skills training for holistic development.</p>
                     </div>
                 </div>
             </div>
 
             <div class="ministry-section">
-                <h2>Areas of Healing Ministry</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Physical Healing</h4>
-                        <ul style="padding-left: 1.5rem;">
-                            <li>Chronic diseases</li>
-                            <li>Inherited illnesses</li>
-                            <li>Accident-related injuries</li>
-                            <li>Terminal illnesses</li>
-                        </ul>
-                    </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Emotional Healing</h4>
-                        <ul style="padding-left: 1.5rem;">
-                            <li>Depression and anxiety</li>
-                            <li>Trauma and PTSD</li>
-                            <li>Grief and loss</li>
-                            <li>Relationship wounds</li>
-                        </ul>
-                    </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Spiritual Healing</h4>
-                        <ul style="padding-left: 1.5rem;">
-                            <li>Demonic oppression</li>
-                            <li>Generational curses</li>
-                            <li>Spiritual bondage</li>
-                            <li>Soul wounds</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Healing Testimonies</h2>
+                <h2>Children's Stories</h2>
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
-                        <p class="testimonial-text">"I was diagnosed with stage 4 cancer. After prayer at the healing service, my next scan showed complete remission. The doctors called it a miracle!"</p>
-                        <p class="testimonial-author">- Mary T., Polokwane</p>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                                <span style="color: white; font-weight: bold; font-size: 1.2rem;">T</span>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary); margin: 0;">Thabo (Age 8)</h4>
+                                <p style="color: var(--text); font-size: 0.9rem; margin: 0;">Lost both parents in 2022</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"When I came to Healing Hands, I was very sad and scared. Now I have new brothers and sisters, and Mama Sarah takes care of us. I love going to school and playing soccer with my friends."</p>
                     </div>
+                    
                     <div class="testimonial-card">
-                        <p class="testimonial-text">"My daughter was born blind. During the miracle night service, Apostle prayed for her, and she received her sight immediately!"</p>
-                        <p class="testimonial-author">- John D., Pretoria</p>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                                <span style="color: white; font-weight: bold; font-size: 1.2rem;">L</span>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary); margin: 0;">Lerato (Age 14)</h4>
+                                <p style="color: var(--text); font-size: 0.9rem; margin: 0;">Orphaned since age 10</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Healing Hands helped me when I had nowhere to go. They paid for my school fees and gave me a safe place to live. Now I want to become a doctor so I can help other children like me."</p>
                     </div>
+                    
                     <div class="testimonial-card">
-                        <p class="testimonial-text">"After 15 years of infertility, we received prayer at the healing service. We now have twin boys - our miracle babies!"</p>
-                        <p class="testimonial-author">- Sarah & Mike K., Johannesburg</p>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                                <span style="color: white; font-weight: bold; font-size: 1.2rem;">S</span>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary); margin: 0;">Sarah, House Mother</h4>
+                                <p style="color: var(--text); font-size: 0.9rem; margin: 0;">Caring for 12 children</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Seeing these children heal, grow, and discover their purpose in Christ is the greatest blessing. They come to us broken, but through God's love, they become whole again."</p>
                     </div>
                 </div>
             </div>
 
-            <div class="ministry-section" id="prayer">
-                <h2>Request Healing Prayer</h2>
-                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 2rem;">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Submit Your Prayer Request</h3>
-                    <p>Our prayer team intercedes daily for all prayer requests submitted. For urgent cases, please call our prayer line.</p>
+            <div class="ministry-section">
+                <h2>Our Impact</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">48</div>
+                        <h4 style="color: var(--primary);">Children Cared For</h4>
+                        <p style="font-size: 0.9rem;">Currently in our residential program</p>
+                    </div>
                     
-                    <div style="margin-top: 2rem;">
-                        <h4>Prayer Line: 072 228 5667</h4>
-                        <p style="color: var(--secondary); font-weight: 600;">Available Monday-Friday, 8:00 AM - 5:00 PM</p>
-                        
-                        <div style="margin-top: 2rem;">
-                            <button class="btn" onclick="openModal('contactModal')">
-                                <i class="fas fa-pray"></i> Submit Online Prayer Request
-                            </button>
-                            <button class="btn" onclick="window.location.href='tel:0722285667'" style="background-color: var(--primary); margin-left: 1rem;">
-                                <i class="fas fa-phone"></i> Call Prayer Line Now
-                            </button>
-                        </div>
+                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">127</div>
+                        <h4 style="color: var(--primary);">Children Supported</h4>
+                        <p style="font-size: 0.9rem;">In education and outreach programs</p>
+                    </div>
+                    
+                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">15</div>
+                        <h4 style="color: var(--primary);">University Students</h4>
+                        <p style="font-size: 0.9rem;">Currently pursuing higher education</p>
+                    </div>
+                    
+                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">8</div>
+                        <h4 style="color: var(--primary);">Years of Service</h4>
+                        <p style="font-size: 0.9rem;">Since ministry establishment</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="ministry-section" id="donate">
+                <h2>How You Can Help</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <h3 style="color: var(--primary);">Financial Support</h3>
+                        <p style="margin: 1rem 0;">Your donations help provide:</p>
+                        <ul style="text-align: left; padding-left: 1.5rem;">
+                            <li>Food and clothing for children</li>
+                            <li>School fees and educational materials</li>
+                            <li>Medical care and medications</li>
+                            <li>Maintenance of homes and facilities</li>
+                        </ul>
+                        <button class="btn" style="margin-top: 1.5rem;" onclick="openModal('contactModal')">
+                            <i class="fas fa-donate"></i> Make a Donation
+                        </button>
+                    </div>
+                    
+                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <h3 style="color: var(--primary);">Volunteer Opportunities</h3>
+                        <p style="margin: 1rem 0;">Share your time and talents:</p>
+                        <ul style="text-align: left; padding-left: 1.5rem;">
+                            <li>Tutoring and homework help</li>
+                            <li>Mentoring and life skills training</li>
+                            <li>Organizing recreational activities</li>
+                            <li>Maintenance and repair work</li>
+                            <li>Administrative support</li>
+                        </ul>
+                        <button class="btn" style="margin-top: 1.5rem;" onclick="openModal('contactModal')">
+                            <i class="fas fa-hands-helping"></i> Volunteer
+                        </button>
+                    </div>
+                    
+                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                        <h3 style="color: var(--primary);">In-Kind Donations</h3>
+                        <p style="margin: 1rem 0;">We always need:</p>
+                        <ul style="text-align: left; padding-left: 1.5rem;">
+                            <li>School supplies and uniforms</li>
+                            <li>Non-perishable food items</li>
+                            <li>Children's clothing and shoes</li>
+                            <li>Books and educational toys</li>
+                            <li>Bedding and household items</li>
+                        </ul>
+                        <button class="btn" style="margin-top: 1.5rem;" onclick="openModal('contactModal')">
+                            <i class="fas fa-box"></i> Donate Items
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Sponsorship Programs</h2>
+                <div style="background: rgba(74, 111, 40, 0.05); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                    <h3 style="color: var(--primary); text-align: center;">Change a Child's Life Through Sponsorship</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <h4 style="color: var(--primary);">Basic Care Sponsor</h4>
+                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R300/month</div>
+                            <p>Provides food, clothing, and basic necessities for one child</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <h4 style="color: var(--primary);">Education Sponsor</h4>
+                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R500/month</div>
+                            <p>Covers school fees, books, and educational materials</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <h4 style="color: var(--primary);">Full Support Sponsor</h4>
+                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R800/month</div>
+                            <p>Comprehensive support including healthcare and extras</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <p><strong>As a sponsor, you will receive:</strong></p>
+                        <ul style="display: inline-block; text-align: left; margin-top: 1rem;">
+                            <li>Monthly updates about your sponsored child</li>
+                            <li>Photos and letters from the child</li>
+                            <li>Annual progress reports</li>
+                            <li>Special invitation to visit the ministry</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn" onclick="openModal('contactModal')">
+                            <i class="fas fa-heart"></i> Become a Sponsor Today
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministry-section">
+                <h2>Banking Details for Donations</h2>
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 2rem; text-align: center;">
+                    <div style="background: rgba(245, 166, 35, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Healing Hands Orphan Care Ministry</h3>
+                        <p><strong>Account Name:</strong> Healing Hands Orphan Care</p>
+                        <p><strong>Bank:</strong> Standard Bank</p>
+                        <p><strong>Account Number:</strong> 10127203549</p>
+                        <p><strong>Branch Code:</strong> 51001</p>
+                        <p><strong>Reference:</strong> Your Name + "Orphan Care"</p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <button class="btn" onclick="copyToClipboard('Bank: Standard Bank\nAccount Name: Healing Hands Orphan Care\nAccount Number: 10127203549\nBranch Code: 51001\nReference: Your Name + \"Orphan Care\"', 'Banking Details')">
+                            <i class="fas fa-copy"></i> Copy Banking Details
+                        </button>
+                        <button class="btn" onclick="openModal('contactModal')" style="background-color: var(--primary); margin-left: 1rem;">
+                            <i class="fas fa-question-circle"></i> Get More Information
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="join-ministry">
+                <h2>Join Us in Caring for God's Children</h2>
+                <p>"Whoever welcomes one such child in my name welcomes me." - Matthew 18:5</p>
+                <div style="margin-top: 2rem;">
+                    <button class="btn" onclick="openModal('contactModal')">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </button>
+                    <button class="btn" onclick="window.location.href='tel:0722285667'" style="background-color: var(--primary); margin-left: 1rem;">
+                        <i class="fas fa-mobile-alt"></i> Call: 072 228 5667
+                    </button>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                    <i class="fas fa-envelope"></i> Email: healinghands@lastdaysevangelism.org
+                </p>
             </div>
         </section>
     </div>
@@ -2148,24 +2314,25 @@
                     </div>
                 </div>
                 
+                <!-- UPDATED: Healing Hands Ministry Card -->
                 <div class="ministry-card" onclick="openMinistryPage('healing-hand')">
-                    <img src="https://images.unsplash.com/photo-1516549655669-df565b8bcae6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Healing Hand Ministry">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Healing Hands Orphan Care">
                     <div class="ministry-card-content">
                         <div class="ministry-icon">
-                            <i class="fas fa-hand-holding-medical"></i>
+                            <i class="fas fa-hands-helping"></i>
                         </div>
-                        <h3>Healing Hand Ministry</h3>
-                        <p>Ministering God's healing power to the sick, afflicted, and broken-hearted through prayer, anointing, and miracle services.</p>
+                        <h3>Healing Hands Orphan Care</h3>
+                        <p>Providing love, care, and support to orphaned and vulnerable children in our community through Christ-centered programs.</p>
                         
                         <ul class="ministry-highlights">
-                            <li>Weekly healing services</li>
-                            <li>Prayer line for the sick</li>
-                            <li>Hospital visitations</li>
-                            <li>Miracle testimonies</li>
+                            <li>Residential care for orphans</li>
+                            <li>Education and healthcare support</li>
+                            <li>Counseling and trauma care</li>
+                            <li>Child sponsorship programs</li>
                         </ul>
                         
                         <div class="view-ministry-btn">
-                            <i class="fas fa-external-link-alt"></i> Visit Healing Ministry
+                            <i class="fas fa-external-link-alt"></i> Visit Orphan Care Ministry
                         </div>
                     </div>
                 </div>
@@ -2713,7 +2880,7 @@ ${message}
             const titles = {
                 'apostolic-tour': 'Apostolic Tour Ministry',
                 'youth-ministry': 'Youth & Young Adults Ministry',
-                'healing-hand': 'Healing Hand Ministry'
+                'healing-hand': 'Healing Hands Orphan Care Ministry'
             };
             return titles[ministry] || 'Ministry';
         }
@@ -3058,5 +3225,3 @@ ${message}
     </script>
 </body>
 </html>
-
-
