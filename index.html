@@ -1060,7 +1060,7 @@
             font-style: italic;
         }
 
-        /* NEW: Special Ministries Section Styles */
+        /* Special Ministries Section Styles */
         .special-ministries {
             background-color: #f8f9fa;
             padding: 4rem 2rem;
@@ -1169,6 +1169,10 @@
 
         .ministry-hero.healing {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+        }
+
+        .ministry-hero.treasures {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
         }
 
         .ministry-hero h1 {
@@ -1301,6 +1305,233 @@
             display: none;
         }
 
+        /* Transformed Treasures Specific Styles */
+        .treasures-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #3a5a1f 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .treasures-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .treasures-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .treasures-about {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .treasures-about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .treasures-about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .treasures-mission {
+            background: rgba(74, 111, 40, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .treasures-mission h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .image-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 250px;
+        }
+
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .upload-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .upload-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 1rem;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input[type="file"]:hover {
+            border-color: var(--primary);
+            background: rgba(74, 111, 40, 0.05);
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .preview-container {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .preview-container.active {
+            display: block;
+        }
+
+        .image-preview {
+            max-width: 300px;
+            max-height: 200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .treasures-modal .modal-content {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .fullscreen-image {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .image-caption {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        .treasures-page {
+            background-color: var(--light);
+        }
+
+        .treasures-nav-item {
+            color: var(--secondary) !important;
+            font-weight: 700 !important;
+        }
+
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -1418,6 +1649,22 @@
                 left: 10px;
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
+            }
+
+            .treasures-header h1 {
+                font-size: 2rem;
+            }
+            
+            .treasures-about {
+                padding: 0 1rem 2rem;
+            }
+            
+            .upload-section {
+                padding: 2rem 1rem;
+            }
+            
+            .image-item {
+                height: 200px;
             }
         }
     </style>
@@ -1727,7 +1974,22 @@
         </div>
     </div>
 
-    <!-- NEW: Apostolic Tour Ministry Page -->
+    <!-- Transformed Treasures Modal -->
+    <div class="modal-overlay" id="treasuresModal">
+        <div class="modal treasures-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-gem"></i> Transformed Treasures</h2>
+                <button class="close-modal" data-modal="treasuresModal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="fullscreen-image-container">
+                    <!-- Image will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apostolic Tour Ministry Page -->
     <div id="apostolic-tour-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -1744,7 +2006,7 @@
         <section class="ministry-content">
             <div class="ministry-section">
                 <h2>About Apostolic Tours</h2>
-                <img src= PTA1.jpg>
+                <img src="PTA1.jpg">
                 <p>The Apostolic Tour Ministry is dedicated to spreading the Gospel through strategic missions, revival meetings, and apostolic visitations to various regions. Led by Apostle Mothushi Chuene, these tours are marked by powerful demonstrations of the Holy Spirit, prophetic declarations, and the establishment of God's kingdom principles in new territories.</p>
             </div>
 
@@ -1822,7 +2084,7 @@
         </section>
     </div>
 
-    <!-- NEW: Youth Ministry Page -->
+    <!-- Youth Ministry Page -->
     <div id="youth-ministry-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -1908,7 +2170,7 @@
         </section>
     </div>
 
-    <!-- UPDATED: Healing Hands Ministry Page - Now an Orphan Care Charity -->
+    <!-- Healing Hands Ministry Page -->
     <div id="healing-hand-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -2149,6 +2411,192 @@
         </section>
     </div>
 
+    <!-- NEW: Transformed Treasures Ministry Page -->
+    <div id="treasures-page" class="ministry-page treasures-page">
+        <a href="#" class="back-to-home" onclick="returnToMainPage()">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <section class="ministry-hero treasures">
+            <div>
+                <h1>Transformed Treasures</h1>
+                <p>Witness the miraculous transformations and testimonies of God's work in our ministry</p>
+                <a href="#upload" class="btn">Share Your Testimony</a>
+            </div>
+        </section>
+
+        <section class="ministry-content">
+            <div class="treasures-about-content">
+                <div>
+                    <h2 style="color: var(--primary); margin-bottom: 1.5rem;">About Transformed Treasures</h2>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        Transformed Treasures is a visual testimony ministry that documents and celebrates the miraculous 
+                        transformations happening in the lives of people touched by God through The Last Days Evangelism Ministries.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        This ministry serves as a living gallery of God's faithfulness, showcasing before-and-after stories, 
+                        healing testimonies, deliverance experiences, and life transformations that glorify God's power and love.
+                    </p>
+                    
+                    <div class="treasures-mission">
+                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                        <p>To document and share visual testimonies of God's transformative power, encouraging believers and 
+                        inspiring faith in those seeking God's touch in their lives.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Share Your Testimony</h2>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        Have you experienced a transformation through our ministry? We invite you to share your testimony 
+                        with pictures to encourage others and give glory to God.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        Your story could be the encouragement someone needs to believe God for their own miracle.
+                    </p>
+                    
+                    <div style="background: rgba(245, 166, 35, 0.1); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                            <i class="fas fa-heart"></i> Why Share Your Story?
+                        </h3>
+                        <ul style="padding-left: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;">Encourage others facing similar challenges</li>
+                            <li style="margin-bottom: 0.5rem;">Give glory to God for what He has done</li>
+                            <li style="margin-bottom: 0.5rem;">Build faith in the body of Christ</li>
+                            <li style="margin-bottom: 0.5rem;">Document God's faithfulness for future generations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="color: var(--primary); text-align: center; margin-bottom: 2rem;">
+                Gallery of Transformations
+            </h2>
+            
+            <div class="gallery-controls">
+                <button class="filter-btn active" data-filter="all">All Testimonies</button>
+                <button class="filter-btn" data-filter="healing">Healing</button>
+                <button class="filter-btn" data-filter="deliverance">Deliverance</button>
+                <button class="filter-btn" data-filter="salvation">Salvation</button>
+                <button class="filter-btn" data-filter="provision">Provision</button>
+            </div>
+
+            <div class="image-gallery" id="testimonyGallery">
+                <div class="image-item" data-category="salvation" data-title="New Birth Testimony">
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salvation testimony">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
+                        <p style="font-size: 0.9rem; margin: 0;">New Birth - From darkness to light</p>
+                    </div>
+                </div>
+                
+                <div class="image-item" data-category="healing" data-title="Healing Miracle">
+                    <img src="https://images.unsplash.com/photo-1516549655669-df6654e435f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Healing testimony">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
+                        <p style="font-size: 0.9rem; margin: 0;">Healing - Miraculous recovery</p>
+                    </div>
+                </div>
+                
+                <div class="image-item" data-category="deliverance" data-title="Freedom from Bondage">
+                    <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Deliverance testimony">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
+                        <p style="font-size: 0.9rem; margin: 0;">Deliverance - Set free in Christ</p>
+                    </div>
+                </div>
+                
+                <div class="image-item" data-category="provision" data-title="God's Provision">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Provision testimony">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
+                        <p style="font-size: 0.9rem; margin: 0;">Provision - God's faithfulness</p>
+                    </div>
+                </div>
+
+                <div class="image-item" data-category="healing" data-title="Restored Health">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Healing testimony">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
+                        <p style="font-size: 0.9rem; margin: 0;">Healing - Complete restoration</p>
+                    </div>
+                </div>
+
+                <div class="image-item" data-category="salvation" data-title="Family Salvation">
+                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Family salvation">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
+                        <p style="font-size: 0.9rem; margin: 0;">Family - Whole household saved</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-section" id="upload">
+                <h2><i class="fas fa-upload"></i> Share Your Transformation Story</h2>
+                <p style="margin-bottom: 2rem; color: var(--text);">
+                    Upload pictures of your transformation testimony to encourage others
+                </p>
+                
+                <form class="upload-form" id="testimonyUploadForm">
+                    <div class="form-group">
+                        <label for="testimonyTitle"><i class="fas fa-heading"></i> Testimony Title</label>
+                        <input type="text" id="testimonyTitle" placeholder="e.g., My Healing from Cancer" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonyCategory"><i class="fas fa-tag"></i> Category</label>
+                        <select id="testimonyCategory" style="width: 100%; padding: 0.8rem; border: 2px solid #ddd; border-radius: 5px;">
+                            <option value="healing">Healing</option>
+                            <option value="deliverance">Deliverance</option>
+                            <option value="salvation">Salvation</option>
+                            <option value="provision">Provision</option>
+                            <option value="marriage">Marriage Restoration</option>
+                            <option value="family">Family Restoration</option>
+                            <option value="business">Business Breakthrough</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonyDescription"><i class="fas fa-file-alt"></i> Brief Description</label>
+                        <textarea id="testimonyDescription" placeholder="Briefly describe your testimony..." 
+                                  style="width: 100%; padding: 0.8rem; border: 2px solid #ddd; border-radius: 5px; min-height: 100px; font-family: 'Poppins', sans-serif;"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonyImage"><i class="fas fa-image"></i> Upload Pictures</label>
+                        <input type="file" id="testimonyImage" accept="image/*" multiple required>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">
+                            You can upload multiple images (before/after pictures are encouraged)
+                        </p>
+                    </div>
+                    
+                    <div class="preview-container" id="imagePreview">
+                        <div class="image-preview">
+                            <!-- Preview will be shown here -->
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                            <i class="fas fa-share-square"></i> Share Testimony
+                        </button>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                            Your testimony will be reviewed before being added to the gallery
+                        </p>
+                    </div>
+                </form>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(74, 111, 40, 0.05); border-radius: 10px;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-quote-left"></i> The Power of Testimony
+                </h3>
+                <p style="font-style: italic; color: var(--text); max-width: 800px; margin: 0 auto;">
+                    "They triumphed over him by the blood of the Lamb and by the word of their testimony..." 
+                    <br>- Revelation 12:11
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    Your testimony has power! Share what God has done for you and watch Him use it to transform others.
+                </p>
+            </div>
+        </section>
+    </div>
+
     <!-- Main Website Content -->
     <header>
         <div class="logo">
@@ -2165,6 +2613,7 @@
                 <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                 <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
+                <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
                 <li><a href="#" id="partnershipLink">Partner With Us</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
@@ -2217,7 +2666,7 @@
             </div>
         </section>
 
-        <!-- NEW: Special Ministries Section -->
+        <!-- Special Ministries Section -->
         <section class="special-ministries" id="ministries">
             <h2>Our Special Ministries</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
@@ -2269,7 +2718,6 @@
                     </div>
                 </div>
                 
-                <!-- UPDATED: Healing Hands Ministry Card -->
                 <div class="ministry-card" onclick="openMinistryPage('healing-hand')">
                     <img src="Apostle2 - Copy.jpg" alt="Healing Hands Ministry">
                     <div class="ministry-card-content">
@@ -2288,6 +2736,29 @@
                         
                         <div class="view-ministry-btn">
                             <i class="fas fa-external-link-alt"></i> Visit Healing Hands Ministry
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Transformed Treasures Card -->
+                <div class="ministry-card" onclick="openMinistryPage('treasures')">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Transformed Treasures Ministry">
+                    <div class="ministry-card-content">
+                        <div class="ministry-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Transformed Treasures</h3>
+                        <p>A gallery of testimonies showcasing God's transformative power through before-and-after stories and miracle testimonies.</p>
+                        
+                        <ul class="ministry-highlights">
+                            <li>Visual testimonies gallery</li>
+                            <li>Before & after stories</li>
+                            <li>Miracle documentation</li>
+                            <li>Share your testimony</li>
+                        </ul>
+                        
+                        <div class="view-ministry-btn">
+                            <i class="fas fa-external-link-alt"></i> Visit Transformed Treasures
                         </div>
                     </div>
                 </div>
@@ -2495,6 +2966,7 @@
                     <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                     <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                     <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
+                    <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
                     <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
@@ -2559,7 +3031,8 @@
         const modals = {
             aboutModal: document.getElementById('aboutModal'),
             contactModal: document.getElementById('contactModal'),
-            partnershipModal: document.getElementById('partnershipModal')
+            partnershipModal: document.getElementById('partnershipModal'),
+            treasuresModal: document.getElementById('treasuresModal')
         };
 
         const modalLinks = {
@@ -2802,7 +3275,7 @@ ${message}
             }
         }
 
-        // NEW: Ministry Pages Functionality
+        // Ministry Pages Functionality
         function openMinistryPage(ministry) {
             // Hide main content and all ministry pages
             document.getElementById('main-content').style.display = 'none';
@@ -2828,7 +3301,8 @@ ${message}
             const titles = {
                 'apostolic-tour': 'Apostolic Tour Ministry',
                 'youth-ministry': 'Youth & Young Adults Ministry',
-                'healing-hand': 'Healing Hands Ministry'
+                'healing-hand': 'Healing Hands Ministry',
+                'treasures': 'Transformed Treasures Ministry'
             };
             return titles[ministry] || 'Ministry';
         }
@@ -2870,6 +3344,9 @@ ${message}
             
             // Initialize sermons
             initializeSermons();
+            
+            // Initialize treasures page
+            initializeTreasuresPage();
         });
 
         // Sermon Management System
@@ -2987,7 +3464,7 @@ ${message}
                     date: "December, 2025",
                     speaker: "Apostle Mothushi Chuene",
                     description: "Sharing testimonies of God's provision and financial miracles.",
-                    image: "Apostle!",
+                    image: "Apostle1.jpg",
                     watchLink: "https://www.youtube.com/live/iR4OswrfJ0A?si=ckLPPgugBoBslcS7",
                     downloadLink: "#"
                 },
@@ -3165,16 +3642,135 @@ ${message}
                 if (!e.target.closest('.view-ministry-btn') && !e.target.closest('.btn')) {
                     const ministry = this.getAttribute('data-ministry') || 
                                    this.querySelector('h3').textContent.toLowerCase().includes('apostolic') ? 'apostolic-tour' :
-                                   this.querySelector('h3').textContent.toLowerCase().includes('youth') ? 'youth-ministry' : 'healing-hand';
+                                   this.querySelector('h3').textContent.toLowerCase().includes('youth') ? 'youth-ministry' : 
+                                   this.querySelector('h3').textContent.toLowerCase().includes('healing') ? 'healing-hand' : 'treasures';
                     openMinistryPage(ministry);
                 }
             });
         });
+
+        // Transformed Treasures Functionality
+        function initializeTreasuresPage() {
+            // Add click event to image items
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.image-item')) {
+                    const imageItem = e.target.closest('.image-item');
+                    const imgSrc = imageItem.querySelector('img').src;
+                    const caption = imageItem.getAttribute('data-title') || 'Transformation Testimony';
+                    
+                    openImageModal(imgSrc, caption);
+                }
+            });
+            
+            // Image upload preview
+            const imageInput = document.getElementById('testimonyImage');
+            const previewContainer = document.getElementById('imagePreview');
+            
+            if (imageInput) {
+                imageInput.addEventListener('change', function() {
+                    previewContainer.classList.remove('active');
+                    
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            previewContainer.classList.add('active');
+                            previewContainer.querySelector('.image-preview').innerHTML = 
+                                `<img src="${e.target.result}" alt="Preview">`;
+                        }
+                        
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+            }
+            
+            // Testimony upload form
+            const uploadForm = document.getElementById('testimonyUploadForm');
+            if (uploadForm) {
+                uploadForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const title = document.getElementById('testimonyTitle').value;
+                    const category = document.getElementById('testimonyCategory').value;
+                    const description = document.getElementById('testimonyDescription').value;
+                    const imageInput = document.getElementById('testimonyImage');
+                    
+                    if (!imageInput.files || imageInput.files.length === 0) {
+                        alert('Please select an image to upload.');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate upload process
+                    setTimeout(() => {
+                        alert(`Thank you for sharing your testimony!\n\nTitle: ${title}\nCategory: ${category}\n\nYour testimony has been submitted for review. We will contact you once it's approved and added to our gallery.`);
+                        
+                        // Reset form
+                        uploadForm.reset();
+                        previewContainer.classList.remove('active');
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // In a real application, you would upload to a server here
+                        console.log('Testimony submission:', {
+                            title,
+                            category,
+                            description,
+                            files: imageInput.files
+                        });
+                        
+                    }, 2000);
+                });
+            }
+            
+            // Gallery filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter images
+                    filterGallery(filter);
+                });
+            });
+        }
+
+        function filterGallery(filter) {
+            const imageItems = document.querySelectorAll('.image-item');
+            
+            imageItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.classList.add('fade-in');
+                    }, 10);
+                } else {
+                    item.classList.remove('fade-in');
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openImageModal(imageSrc, caption) {
+            const modalContent = modals.treasuresModal.querySelector('.fullscreen-image-container');
+            modalContent.innerHTML = `
+                <img src="${imageSrc}" alt="${caption}" class="fullscreen-image">
+                <div class="image-caption">
+                    <h3>${caption}</h3>
+                    <p>Transformation testimony shared by a believer</p>
+                </div>
+            `;
+            openModal('treasuresModal');
+        }
     </script>
 </body>
 </html>
-
-
-
-
-
