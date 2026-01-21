@@ -80,10 +80,13 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            padding: 0.5rem;
         }
 
         nav a:hover {
             color: var(--secondary);
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 5px;
         }
 
         .admin-btn {
@@ -91,6 +94,10 @@
             padding: 0.5rem 1rem;
             border-radius: 5px;
             font-weight: 600;
+        }
+
+        .admin-btn:hover {
+            background-color: #e69500;
         }
 
         .mobile-menu {
@@ -104,7 +111,7 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vh;
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -139,6 +146,7 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #e69500;
         }
 
         .btn-secondary {
@@ -1288,27 +1296,6 @@
             background-color: #e69500;
         }
 
-        /* Back to Home button for ministry pages */
-        .back-to-home {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            z-index: 1000;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .back-to-home:hover {
-            background: #3a5a1f;
-            transform: translateX(-5px);
-        }
-
         /* Hide ministry pages by default */
         .ministry-page {
             display: none;
@@ -1696,6 +1683,7 @@
                 width: 100%;
                 background-color: var(--primary);
                 padding: 1rem;
+                z-index: 1000;
             }
 
             nav ul.show {
@@ -1798,13 +1786,6 @@
                 padding: 2rem 1rem;
             }
             
-            .back-to-home {
-                top: 80px;
-                left: 10px;
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-
             .treasures-header h1 {
                 font-size: 2rem;
             }
@@ -1819,6 +1800,37 @@
             
             .image-item {
                 height: 200px;
+            }
+            
+            .hero {
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
+                margin-right: calc(-50vw + 50%);
+                max-width: 100vw;
+                position: relative;
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-main {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .modal {
+                width: 95%;
             }
         }
     </style>
@@ -1873,7 +1885,7 @@
                 </div>
                 
                 <div style="text-align: center; margin-top: 2rem;">
-                    <p>For more information about our ministry, feel free to <a href="#" id="aboutToContact" style="color: var(--primary); font-weight: 600;">contact us</a> or visit us during our service times.</p>
+                    <p>For more information about our ministry, feel free to <a href="contact.html" style="color: var(--primary); font-weight: 600;">contact us</a> or visit us during our service times.</p>
                 </div>
             </div>
         </div>
@@ -2143,932 +2155,6 @@
         </div>
     </div>
 
-    <!-- Apostolic Tour Ministry Page -->
-    <div id="apostolic-tour-page" class="ministry-page">
-        <a href="#" class="back-to-home" onclick="returnToMainPage()">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-        
-        <section class="ministry-hero">
-            <div>
-                <h1>Apostolic Tour Ministry</h1>
-                <p>Taking the Gospel to nations, cities, and communities through apostolic missions and revival meetings</p>
-                <a href="#join" class="btn">Join Our Next Tour</a>
-            </div>
-        </section>
-
-        <section class="ministry-content">
-            <div class="ministry-section">
-                <h2>About Apostolic Tours</h2>
-                <img src="PTA1.jpg">
-                <p>The Apostolic Tour Ministry is dedicated to spreading the Gospel through strategic missions, revival meetings, and apostolic visitations to various regions. Led by Apostle Mothushi Chuene, these tours are marked by powerful demonstrations of the Holy Spirit, prophetic declarations, and the establishment of God's kingdom principles in new territories.</p>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Upcoming Tours</h2>
-                <div class="upcoming-tours">
-                    <div class="tour-item">
-                        <h3>The Last Days Evangelism Ministries | PTA</h3>
-                        <div class="tour-date">March, 2026</div>
-                        <p>A revival tour covering major cities across South Africa with daily crusades and healing services.</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
-                    </div>
-                    <div class="tour-item">
-                        <h3>The Last Days Evangelism Ministries | Steiloop </h3>
-                        <div class="tour-date">March, 2025</div>
-                        <p>Church leadership training and mass evangelism.</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
-                    </div>
-                    <div class="tour-item">
-                        <h3>TLDEM| Blomfontein</h3>
-                        <div class="tour-date">September, 2025</div>
-                        <p>Go into all the world and preach the gospel <strong>Mark 16:15</strong>.</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Register Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Tour Impact</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">50+</div>
-                        <h4>Cities Reached</h4>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">5,000+</div>
-                        <h4>Souls Saved</h4>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">2,000+</div>
-                        <h4>Healings Reported</h4>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">15</div>
-                        <h4>Nations Visited</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Testimonies</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"During the Apostolic Tour in Pretoria, my son, who was deaf for 5 years, received his hearing. Glory to God!"</p>
-                        <p class="testimonial-author">- Thapelo M., Pretoria</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"The apostolic teaching during the Pretoria tour transformed our church. We've seen unprecedented growth."</p>
-                        <p class="testimonial-author">- Pastor Thapelo, Pretoria</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="join-ministry" id="join">
-                <h2>Join the Next Apostolic Tour</h2>
-                <p>Be part of the next move of God! Join us as we take the Gospel to the nations.</p>
-                <button class="btn" onclick="openModal('contactModal')">
-                    <i class="fas fa-plane"></i> Register for Next Tour
-                </button>
-            </div>
-        </section>
-    </div>
-
-    <!-- Youth Ministry Page -->
-    <div id="youth-ministry-page" class="ministry-page">
-        <a href="#" class="back-to-home" onclick="returnToMainPage()">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-        
-        <section class="ministry-hero youth">
-            <div>
-                <h1>Youth & Young Adults Ministry</h1>
-                <p>Empowering the next generation to live passionately for Christ and impact their world</p>
-                <a href="#join" class="btn">Join Youth Ministry</a>
-            </div>
-        </section>
-
-        <section class="ministry-content">
-            <div class="ministry-section">
-                <h2>About Youth Ministry</h2>
-                <p>The Youth is dedicated to raising a generation of radical disciples who are grounded in God's Word, passionate in worship, and effective in ministry. We provide a safe space for youth to grow spiritually, develop their gifts, and build godly relationships.</p>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Weekly Programs</h2>
-                <div class="youth-programs">
-                    <div class="program-item">
-                        <h3>Friday Night Prayer</h3>
-                        <div class="program-date">Every Friday, 6:00 PM</div>
-                        <p>Youth worship night with contemporary music, relevant teaching, and altar ministry.</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Tonight</button>
-                    </div>
-                    <div class="program-item">
-                        <h3>Bible Study Connect</h3>
-                        <div class="program-date">Tuesdays, 19:00 PM</div>
-                        <p>Interactive Bible study groups discussing real-life issues from a biblical perspective.</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Study</button>
-                    </div>
-                    <div class="program-item">
-                        <h3>Impact Teams</h3>
-                        <div class="program-date">Saturdays, 9:00 AM</div>
-                        <p>Community outreach and evangelism training for youth passionate about soul-winning.</p>
-                        <button class="btn btn-small" onclick="openModal('contactModal')">Join Team</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Annual Events</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h3 style="color: var(--primary);">Youth Camp</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">December , 2026</p>
-                        <p>Camp with outdoor activities, worship, and intensive discipleship training.</p>
-                    </div>
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h3 style="color: var(--primary);">Youth Conference</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">June, 2026</p>
-                        <p>3-day conference with guest speakers, workshops, and career guidance sessions.</p>
-                    </div>
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h3 style="color: var(--primary);">Mission Trips</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">Quarterly</p>
-                        <p>Short-term mission trips to local communities and neighboring countries.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Ministry Areas</h2>
-                <div class="ministry-highlights">
-                    <li><strong>Worship & Creative Arts:</strong> Band, choir, drama, media team</li>
-                    <li><strong>Leadership Development:</strong> Mentorship program, leadership training</li>
-                    <li><strong>Career Guidance:</strong> Career workshops, university preparation</li>
-                    <li><strong>Tech Team:</strong> Sound, lighting, video production training</li>
-                    <li><strong>Counseling:</strong> Peer counseling and professional guidance</li>
-                    <li><strong>Academic Department:</strong> Where innovation meets education</li>
-                </div>
-            </div>
-
-            <div class="join-ministry" id="join">
-                <h2>Join the Youth Revolution!</h2>
-                <p>Be part of a generation that's changing the world for Christ!</p>
-                <button class="btn" onclick="openModal('contactModal')">
-                    <i class="fas fa-user-plus"></i> Register for Youth Ministry
-                </button>
-            </div>
-        </section>
-    </div>
-
-    <!-- Healing Hands Ministry Page -->
-    <div id="healing-hand-page" class="ministry-page">
-        <a href="#" class="back-to-home" onclick="returnToMainPage()">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-        
-        <section class="ministry-hero healing">
-            <div>
-                <h1>Healing Hands Ministry</h1>
-                <p>Extending God's love and care to orphaned and vulnerable children in our community</p>
-                <a href="#donate" class="btn">Donate Now</a>
-            </div>
-        </section>
-
-        <section class="ministry-content">
-            <div class="ministry-section">
-                <h2>About Healing Hands Care</h2>
-                <p style="margin-bottom:20px">The Healing Hands foundation, which Pastor Lerato Chuene founded, adopted a disability school in Moletjie Center.</p>
-                <p><strong>Hebrews 13:16 "Do not neglect to do good and to share what you have, for such sacrifices are pleasing to God"</strong></p>
-                
-                <div style="background: rgba(74, 111, 40, 0.1); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
-                    <h3 style="color: var(--primary); text-align: center;">Our Mission Statement</h3>
-                    <p style="text-align: center; font-style: italic; margin-top: 1rem;">
-                        "As Healing Hands Foundation, our mission and vision are to create a better living for underprivileged people, build, empower, and touch people, and therefore help them discover their purpose in Christ."
-                    </p>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Our Programs & Services</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3 style="color: var(--primary);">Residential Care</h3>
-                        <p>Safe, loving homes for disadvantaged children with house parents who provide family-style care, spiritual guidance, and emotional support.</p>
-                    </div>
-                    
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 style="color: var(--primary);">Education Support</h3>
-                        <p>School fees, uniforms, books, and tutoring for children from preschool through university level.</p>
-                    </div>
-                    
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <h3 style="color: var(--primary);">Healthcare & Nutrition</h3>
-                        <p>Comprehensive healthcare, balanced meals, and nutritional support.</p>
-                    </div>
-                    
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3 style="color: var(--primary);">Counseling & Trauma Care</h3>
-                        <p>Professional counseling services for children dealing with grief, trauma, and emotional challenges.</p>
-                    </div>
-                    
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
-                            <i class="fas fa-bible"></i>
-                        </div>
-                        <h3 style="color: var(--primary);">Spiritual Development</h3>
-                        <p>Daily devotions, Sunday school, Bible studies, and character-building programs.</p>
-                    </div>
-                    
-                    <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;">
-                            <i class="fas fa-futbol"></i>
-                        </div>
-                        <h3 style="color: var(--primary);">Recreation & Skills</h3>
-                        <p>Sports, arts, music programs, and life skills training for holistic development.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Our Impact</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">48</div>
-                        <h4 style="color: var(--primary);">Children Cared For</h4>
-                        <p style="font-size: 0.9rem;">Currently in our residential program</p>
-                    </div>
-                    
-                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">127</div>
-                        <h4 style="color: var(--primary);">Children Supported</h4>
-                        <p style="font-size: 0.9rem;">In education and outreach programs</p>
-                    </div>
-                    
-                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">9</div>
-                        <h4 style="color: var(--primary);">Years of Service</h4>
-                        <p style="font-size: 0.9rem;">Since ministry establishment</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section" id="donate">
-                <h2>How You Can Help</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <h3 style="color: var(--primary);">Financial Support</h3>
-                        <p style="margin: 1rem 0;">Your donations help provide:</p>
-                        <ul style="text-align: left; padding-left: 1.5rem;">
-                            <li>Food and clothing for children</li>
-                            <li>School fees and educational materials</li>
-                            <li>Medical care and medications</li>
-                            <li>Maintenance of homes and facilities</li>
-                        </ul>
-                        <button class="btn" style="margin-top: 1.5rem;" onclick="openModal('contactModal')">
-                            <i class="fas fa-donate"></i> Make a Donation
-                        </button>
-                    </div>
-                    
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <h3 style="color: var(--primary);">Volunteer Opportunities</h3>
-                        <p style="margin: 1rem 0;">Share your time and talents:</p>
-                        <ul style="text-align: left; padding-left: 1.5rem;">
-                            <li>Tutoring and homework help</li>
-                            <li>Mentoring and life skills training</li>
-                            <li>Organizing recreational activities</li>
-                            <li>Maintenance and repair work</li>
-                            <li>Administrative support</li>
-                        </ul>
-                        <button class="btn" style="margin-top: 1.5rem;" onclick="openModal('contactModal')">
-                            <i class="fas fa-hands-helping"></i> Volunteer
-                        </button>
-                    </div>
-                    
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
-                        <h3 style="color: var(--primary);">In-Kind Donations</h3>
-                        <p style="margin: 1rem 0;">We always need:</p>
-                        <ul style="text-align: left; padding-left: 1.5rem;">
-                            <li>School supplies and uniforms</li>
-                            <li>Non-perishable food items</li>
-                            <li>Children's clothing and shoes</li>
-                            <li>Books and educational toys</li>
-                            <li>Bedding and household items</li>
-                        </ul>
-                        <button class="btn" style="margin-top: 1.5rem;" onclick="openModal('contactModal')">
-                            <i class="fas fa-box"></i> Donate Items
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Sponsorship Programs</h2>
-                <div style="background: rgba(74, 111, 40, 0.05); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
-                    <h3 style="color: var(--primary); text-align: center;">Change a Child's Life Through Sponsorship</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <h4 style="color: var(--primary);">Basic Care Sponsor</h4>
-                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R300/month</div>
-                            <p>Provides food, clothing, and necessities for one child</p>
-                        </div>
-                        
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <h4 style="color: var(--primary);">Education Sponsor</h4>
-                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R500/month</div>
-                            <p>Covers school fees, books, and educational materials</p>
-                        </div>
-                        
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <h4 style="color: var(--primary);">Full Support Sponsor</h4>
-                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R800/month</div>
-                            <p>Comprehensive support including healthcare and extras</p>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <p><strong>As a sponsor, you will receive:</strong></p>
-                        <ul style="display: inline-block; text-align: left; margin-top: 1rem;">
-                            <li>Monthly updates about your sponsored child</li>
-                            <li>Photos and letters from the child</li>
-                            <li>Annual progress reports</li>
-                            <li>Special invitation to visit the ministry</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <button class="btn" onclick="openModal('contactModal')">
-                            <i class="fas fa-heart"></i> Become a Sponsor Today
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Banking Details for Donations</h2>
-                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 2rem; text-align: center;">
-                    <div style="background: rgba(245, 166, 35, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Healing Hands Orphan Care Ministry</h3>
-                        <p><strong>Account Name:</strong> Evangelical awakenings</p>
-                        <p><strong>Bank:</strong> Standard Bank</p>
-                        <p><strong>Account Number:</strong> 10127203549</p>
-                        <p><strong>Branch Code:</strong> 51001</p>
-                        <p><strong>Reference:</strong> Your Name + "Healing Hands"</p>
-                    </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <button class="btn" onclick="copyToClipboard('Bank: Standard Bank\nAccount Name: Healing Hands Orphan Care\nAccount Number: 10127203549\nBranch Code: 51001\nReference: Your Name + \"Orphan Care\"', 'Banking Details')">
-                            <i class="fas fa-copy"></i> Copy Banking Details
-                        </button>
-                        <button class="btn" onclick="openModal('contactModal')" style="background-color: var(--primary); margin-left: 1rem;">
-                            <i class="fas fa-question-circle"></i> Get More Information
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="join-ministry">
-                <h2>Join Us in Caring for God's Children</h2>
-                <p>"Whoever welcomes one such child in my name welcomes me." - Matthew 18:5</p>
-                <div style="margin-top: 2rem;">
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-phone"></i> Contact Us
-                    </button>
-                    <button class="btn" onclick="window.location.href='tel:0722285667'" style="background-color: var(--primary); margin-left: 1rem;">
-                        <i class="fas fa-mobile-alt"></i> Call: 072 228 5667
-                    </button>
-                </div>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem;">
-                    <i class="fas fa-envelope"></i> Email: mothushic@gmail.com
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <!-- UPDATED: Transformed Treasures Ministry Page -->
-    <div id="treasures-page" class="ministry-page treasures-page">
-        <a href="#" class="back-to-home" onclick="returnToMainPage()">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-        
-        <section class="ministry-hero treasures">
-            <div>
-                <h1>Transformed Treasures</h1>
-                <p>A women's ministry group dedicated to transformation through God's Word in these last days</p>
-                <a href="#join" class="btn">Join Our Women's Fellowship</a>
-            </div>
-        </section>
-
-        <section class="ministry-content">
-            <div class="treasures-about-content">
-                <div>
-                    <h2 style="color: var(--primary); margin-bottom: 1.5rem;">About Transformed Treasures Women's Ministry</h2>
-                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
-                        Transformed Treasures is a vibrant women's ministry group at The Last Days Evangelism Ministries, 
-                        dedicated to helping women discover their true identity and purpose in Christ. We believe every 
-                        woman is a precious treasure in God's kingdom, called to shine His light in these last days.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
-                        Through Bible study, fellowship, prayer, and practical application of God's Word, we support women 
-                        in their spiritual journey, helping them grow into the godly women God created them to be.
-                    </p>
-                    
-                    <div class="treasures-mission">
-                        <h3><i class="fas fa-bullseye"></i> Our Vision</h3>
-                        <p>To see every woman transformed by the power of God's Word, living out their divine purpose as 
-                        Kingdom treasures who impact their families, communities, and the world for Christ.</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Our Focus Areas</h2>
-                    <div style="background: rgba(245, 166, 35, 0.1); padding: 2rem; border-radius: 10px; margin-top: 1rem;">
-                        <h3 style="color: var(--primary); margin-bottom: 1rem;">
-                            <i class="fas fa-heart"></i> Transforming Lives Through:
-                        </h3>
-                        <ul style="padding-left: 1.5rem;">
-                            <li style="margin-bottom: 0.5rem;"><strong>Bible Study:</strong> Deep diving into God's Word for daily living</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Prayer & Intercession:</strong> Building a strong prayer life</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Fellowship:</strong> Building godly relationships among women</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Practical Living:</strong> Applying biblical principles in home, work, and community</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Mentorship:</strong> Older women mentoring younger women (Titus 2:3-5)</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Service:</strong> Serving in ministry and community outreach</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section" style="margin-top: 3rem;">
-                <h2 style="color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 0.5rem; display: inline-block;">
-                    <i class="fas fa-calendar-alt"></i> Weekly Activities
-                </h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Women's Bible Study</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">Every Tuesday, 19:30 PM</p>
-                        <p>In-depth study of God's Word with practical applications for daily living. Childcare provided.</p>
-                    </div>
-                    
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Prayer & Fellowship</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">Every Tuesday, 19:30 PM</p>
-                        <p>Corporate prayer, sharing, and building meaningful relationships with other women of faith.</p>
-                    </div>
-                    
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Monthly Retreat</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">Last Saturday of Each Month</p>
-                        <p>Special retreats focusing on specific topics relevant to women in today's world.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h2 style="color: var(--primary); text-align: center; margin-top: 4rem; margin-bottom: 2rem;">
-                <i class="fas fa-images"></i> Our Ministry in Pictures
-            </h2>
-            
-            <div class="image-gallery" id="treasuresGallery">
-                <div class="image-item" data-title="Women's Bible Study">
-                    <img src="mama.jpg" alt="Women's Bible Study">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
-                        <p style="font-size: 0.9rem; margin: 0;">Weekly Bible Study Fellowship</p>
-                    </div>
-                </div>
-                
-                <div class="image-item" data-title="Prayer Gathering">
-                    <img src="trans.jpg" alt="Prayer Gathering">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
-                        <p style="font-size: 0.9rem; margin: 0;">Women's Prayer Meeting</p>
-                    </div>
-                </div>
-                
-                <div class="image-item" data-title="Fellowship Lunch">
-                    <img src="transf.jpg" alt="Fellowship Lunch">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
-                        <p style="font-size: 0.9rem; margin: 0;">Monthly Fellowship Lunch</p>
-                    </div>
-                </div>
-                
-                <div class="image-item" data-title="Retreat Session">
-                    <img src="woman.jpg" alt="Retreat Session">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
-                        <p style="font-size: 0.9rem; margin: 0;">Women's Retreat Teaching Session</p>
-                    </div>
-                </div>
-
-                <div class="image-item" data-title="Worship Together">
-                    <img src="transf.jpg" alt="Worship Together">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
-                        <p style="font-size: 0.9rem; margin: 0;">Corporate Worship & Praise</p>
-                    </div>
-                </div>
-
-                <div class="image-item" data-title="Mentorship">
-                    <img src="transf.jpg" alt="Mentorship">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
-                        <p style="font-size: 0.9rem; margin: 0;">Older Women Mentoring Younger Women</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section" id="join" style="margin-top: 4rem;">
-                <h2 style="color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 0.5rem; display: inline-block;">
-                    <i class="fas fa-hands-helping"></i> Join Transformed Treasures
-                </h2>
-                <div style="background: rgba(74, 111, 40, 0.05); padding: 3rem; border-radius: 10px; margin-top: 2rem;">
-                    <h3 style="color: var(--primary); text-align: center; margin-bottom: 1.5rem;">
-                        Become Part of Our Women's Ministry Family
-                    </h3>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;">
-                                <i class="fas fa-book-bible"></i>
-                            </div>
-                            <h4 style="color: var(--primary);">Bible Study</h4>
-                            <p>Grow in knowledge and understanding of God's Word</p>
-                        </div>
-                        
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;">
-                                <i class="fas fa-pray"></i>
-                            </div>
-                            <h4 style="color: var(--primary);">Prayer Support</h4>
-                            <p>Join a community of praying women</p>
-                        </div>
-                        
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;">
-                                <i class="fas fa-user-friends"></i>
-                            </div>
-                            <h4 style="color: var(--primary);">Fellowship</h4>
-                            <p>Build meaningful Christian friendships</p>
-                        </div>
-                        
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;">
-                                <i class="fas fa-hands-helping"></i>
-                            </div>
-                            <h4 style="color: var(--primary);">Service</h4>
-                            <p>Serve together in ministry and outreach</p>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 3rem;">
-                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                            <strong>All women are welcome!</strong> Whether you're young or old, single or married, 
-                            new to faith or have walked with God for years, there's a place for you in Transformed Treasures.
-                        </p>
-                        
-                        <button class="btn" onclick="openModal('contactModal')" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
-                            <i class="fas fa-user-plus"></i> Join Our Next Meeting
-                        </button>
-                        
-                        <p style="margin-top: 1.5rem; color: var(--text);">
-                            <i class="fas fa-info-circle"></i> For more information, contact: 071 184 8883
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, var(--primary) 0%, #3a5a1f 100%); border-radius: 10px; color: white;">
-                <h3 style="color: white; margin-bottom: 1.5rem;">
-                    <i class="fas fa-quote-left"></i> A Scripture for Every Woman
-                </h3>
-                <p style="font-style: italic; font-size: 1.2rem; max-width: 800px; margin: 0 auto 1.5rem;">
-                    "Charm is deceptive, and beauty is fleeting; but a woman who fears the Lord is to be praised."
-                </p>
-                <p style="font-weight: 600;">- Proverbs 31:30</p>
-                <p style="margin-top: 2rem;">
-                    You are a treasure in God's kingdom, called to be transformed by His Word and 
-                    to transform the world around you for His glory!
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <!-- NEW: Building Strong and Godly Families Ministry Page -->
-    <div id="families-page" class="ministry-page">
-        <a href="#" class="back-to-home" onclick="returnToMainPage()">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-        
-        <section class="ministry-hero families">
-            <div>
-                <h1>Building Strong and Godly Families </h1>
-                <p>Strengthening marriages, parenting with purpose, and establishing Christ-centered homes for generational impact</p>
-                <a href="#join" class="btn">Join the Family Revival</a>
-            </div>
-        </section>
-
-        <section class="ministry-content">
-            <div class="ministry-section">
-                <h2>About the Family Ministry</h2>
-                <p>In a world where families are under attack, God is raising a standard of godly households that will withstand the pressures of the last days. Our Building Strong and Godly Families ministry is dedicated to equipping couples, parents, and singles with biblical principles for establishing homes that honor God and bless future generations.</p>
-                
-                <div class="scripture-box">
-                    <p>"As for me and my household, we will serve the Lord." - Joshua 24:15</p>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Our Vision for 2026</h2>
-                <div class="ministry-highlights-grid">
-                    <div class="highlight-card">
-                        <i class="fas fa-home"></i>
-                        <h3> Godly Homes</h3>
-                        <p>Establishing Christ-centered households that will serve as beacons of light in our community by the end of 2026.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-heart"></i>
-                        <h3>Marriage Restoration</h3>
-                        <p>Seeing marriages restored and strengthened through biblical counseling and support groups.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-child"></i>
-                        <h3>Generational Impact</h3>
-                        <p>Equipping parents to raise godly children who will continue the legacy of faith for generations to come.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Monthly Themes 2026</h2>
-                <div class="monthly-theme">
-                    <h3>Month: Foundations of a Godly Home</h3>
-                    <p>Establishing Christ as the cornerstone of every family decision and relationship.</p>
-                </div>
-
-                <div class="event-schedule">
-                    <h3>Weekly Schedule</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Day</th>
-                                <th>Time</th>
-                                <th>Program</th>
-                                <th>Focus</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Friday</td>
-                                <td>6:00 PM</td>
-                                <td>Couples' Night</td>
-                                <td>Marriage enrichment and fellowship</td>
-                            </tr>
-                            <tr>
-                                <td>Saturday</td>
-                                <td>9:00 AM</td>
-                                <td>Parenting Workshop</td>
-                                <td>Biblical parenting principles</td>
-                            </tr>
-                            <tr>
-                                <td>2nd Sunday</td>
-                                <td>After Service</td>
-                                <td>Family Fellowship Lunch</td>
-                                <td>Building community among families</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Key Focus Areas</h2>
-                <div class="kingly-qualities">
-                    <div class="quality-card">
-                        <i class="fas fa-pray"></i>
-                        <h4>Family Altar</h4>
-                        <p>Establishing consistent prayer and devotion times as a family</p>
-                    </div>
-                    <div class="quality-card">
-                        <i class="fas fa-bible"></i>
-                        <h4>Word-Centered Homes</h4>
-                        <p>Making Scripture the foundation of family life and decisions</p>
-                    </div>
-                    <div class="quality-card">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Biblical Conflict Resolution</h4>
-                        <p>Handling disagreements with love, grace, and wisdom</p>
-                    </div>
-                    <div class="quality-card">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <h4>Financial Stewardship</h4>
-                        <p>Managing family resources according to biblical principles</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Family Testimonies</h2>
-                <div class="testimony-grid">
-                    <div class="testimony-card">
-                        <p class="testimonial-text">" Include the families testimony"</p>
-                        <p class="testimonial-author">- Mr. & Mrs. Moshima, Married 40 years</p>
-                    </div>
-            </div>
-
-            <div class="ministry-section" id="join">
-                <h2>Join the Family Revival</h2>
-                <div class="join-ministry">
-                    <h2>Your Family Matters to God!</h2>
-                    <p>Join us as we build strong, godly families that will impact generations to come.</p>
-                    <div style="margin-top: 2rem;">
-                        <button class="btn" onclick="openModal('contactModal')">
-                            <i class="fas fa-home"></i> Register Your Family
-                        </button>
-                        <button class="btn" style="background-color: var(--primary); margin-left: 1rem;" onclick="window.location.href='tel:0722285667'">
-                            <i class="fas fa-phone"></i> Call for Counseling
-                        </button>
-                    </div>
-                    <p style="margin-top: 1.5rem;">
-                        <i class="fas fa-envelope"></i> Email: mothushic@gmail.com | 
-                        <i class="fas fa-phone"></i> Phone: 072 228 5667
-                    </p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- NEW: Priestly Kings Ministry Page -->
-    <div id="priestly-kings-page" class="ministry-page">
-        <a href="#" class="back-to-home" onclick="returnToMainPage()">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-        
-        <section class="ministry-hero priestly-kings">
-            <div>
-                <h1>Priestly Kings Ministry</h1>
-                <p>Raising men who reign in life as kings and minister to God as priests</p>
-                <a href="#join" class="btn">Join the Brotherhood</a>
-            </div>
-        </section>
-
-        <section class="ministry-content">
-            <div class="ministry-section">
-                <h2>About Priestly Kings</h2>
-                <p>The Priestly Kings ministry is dedicated to raising men who understand their dual calling: to reign in life as kings (exercising dominion and authority) and to minister to God as priests (maintaining spiritual intimacy and intercession). Based on Revelation 1:6 and 1 Peter 2:9, we equip men to fulfill their God-given purpose in these last days.</p>
-                
-                <div class="scripture-box">
-                    <p>"And has made us kings and priests to His God and Father, to Him be glory and dominion forever and ever. Amen." - Revelation 1:6</p>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>The Dual Calling of Every Man</h2>
-                <div class="kingly-qualities">
-                    <div class="quality-card">
-                        <i class="fas fa-crown"></i>
-                        <h4>Kingly Dominion</h4>
-                        <p>Exercising authority in family, workplace, and community</p>
-                    </div>
-                    <div class="quality-card">
-                        <i class="fas fa-pray"></i>
-                        <h4>Priestly Intercession</h4>
-                        <p>Standing in the gap in prayer for others</p>
-                    </div>
-                    <div class="quality-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Spiritual Warfare</h4>
-                        <p>Engaging in spiritual battles with authority</p>
-                    </div>
-                    <div class="quality-card">
-                        <i class="fas fa-hands-helping"></i>
-                        <h4>Servant Leadership</h4>
-                        <p>Leading by serving as Christ demonstrated</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Monthly Leadership Gatherings</h2>
-                <div class="event-schedule">
-                    <h3>Men's Ministry Schedule</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Meeting</th>
-                                <th>Frequency</th>
-                                <th>Time</th>
-                                <th>Focus</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Kings' Council</td>
-                                <td>1st Saturday Monthly</td>
-                                <td>11:00 AM</td>
-                                <td>Strategic prayer and planning</td>
-                            </tr>
-                            <tr>
-                                <td>Kingdom Builders</td>
-                                <td>Last Saturday</td>
-                                <td>8:00 AM</td>
-                                <td>Community projects</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Annual Men's Events</h2>
-                <div class="ministry-highlights-grid">
-                    <div class="highlight-card">
-                        <i class="fas fa-mountain"></i>
-                        <h3>Mountain Top Retreat</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">March, 2026</p>
-                        <p>3-day wilderness retreat for spiritual refreshing and vision casting</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-fist-raised"></i>
-                        <h3>Title</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">Month, 2026</p>
-                        <p>Teaching on spiritual authority and deliverance ministry</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-network-wired"></i>
-                        <h3>Kingdom Network Summit</h3>
-                        <p style="color: var(--secondary); font-weight: 600;">Month, 2026</p>
-                        <p>Connecting men in business, ministry, and leadership</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Leadership Development</h2>
-                <div class="leadership-grid">
-                    <div class="leadership-card">
-                        <img src="Apostle3.jpg" alt="Apostle Mothushi Chuene">
-                        <h3>Apostle Mothushi Chuene</h3>
-                        <p><strong>Ministry Overseer</strong></p>
-                        <p>Leading the charge in raising priestly kings for the last days</p>
-                    </div>
-                    <div class="leadership-card">
-                        <i class="fas fa-user" style="font-size: 5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h3>Elder Somo</h3>
-                        <p><strong>Men's Ministry Coordinator</strong></p>
-                        <p>Overseeing weekly gatherings and discipleship programs</p>
-                    </div>
-                    <div class="leadership-card">
-                        <i class="fas fa-user" style="font-size: 5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h3>Mr Moloto</h3>
-                        <p><strong>Young Men's Mentor</strong></p>
-                        <p>Mentoring the next generation of kingdom men</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
-                <h2>Daily Prayer Points for Kings</h2>
-                <div class="prayer-points">
-                    <h3>7 Daily Declarations for Priestly Kings</h3>
-                    <ol>
-                        <li><strong>Authority:</strong> "I exercise dominion over every area of my life in Jesus' name"</li>
-                        <li><strong>Provision:</strong> "As a king, I decree abundance and provision for my household"</li>
-                        <li><strong>Protection:</strong> "My family is protected by the blood of Jesus"</li>
-                        <li><strong>Wisdom:</strong> "I receive divine wisdom for every decision I make"</li>
-                        <li><strong>Influence:</strong> "My influence increases in my sphere of authority"</li>
-                        <li><strong>Holiness:</strong> "As a priest, I maintain purity and intimacy with God"</li>
-                        <li><strong>Legacy:</strong> "I leave a godly legacy for generations to come"</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="ministry-section" id="join">
-                <h2>Join the Priestly of Kings</h2>
-                <div class="join-ministry">
-                    <h2>Answer the Call to Kingship and Priesthood</h2>
-                    <p>Every man is called to reign and to minister. Join us as we raise an army of priestly kings!</p>
-                    <div style="margin-top: 2rem;">
-                        <button class="btn" onclick="openModal('contactModal')">
-                            <i class="fas fa-user-plus"></i> Join Priestly Kings
-                        </button>
-                        <button class="btn" style="background-color: var(--primary); margin-left: 1rem;" onclick="window.location.href='tel:0722285667'">
-                            <i class="fas fa-phone"></i> Call for Mentorship
-                        </button>
-                    </div>
-                    <p style="margin-top: 1.5rem; font-style: italic;">
-                        "The world is waiting for the manifestation of the sons of God - kings and priests who will establish His kingdom on earth."
-                    </p>
-                </div>
-            </div>
-        </section>
-    </div>
-
     <!-- Main Website Content -->
     <header>
         <div class="logo">
@@ -3080,16 +2166,16 @@
         </div>
         <nav>
             <ul id="nav-menu">
-                <li><a href="#" onclick="returnToMainPage()">Home</a></li>
-                <li><a href="#" id="aboutLink">About Us</a></li>
-                <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
-                <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
-                <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
-                <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
-                <li><a href="#" onclick="openMinistryPage('family')">Families 2026</a></li>
-                <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
-                <li><a href="#" id="partnershipLink">Partner With Us</a></li>
-                <li><a href="#" id="contactLink">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="sermons.html">Sermons</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="ministries.html">Ministries</a></li>
+                <li><a href="transformed-treasures.html" class="treasures-nav-item">Transformed Treasures</a></li>
+                <li><a href="building-families.html">Families 2026</a></li>
+                <li><a href="priestly-kings.html">Priestly Kings</a></li>
+                <li><a href="partnership.html">Partner With Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a href="admin/login.html" class="admin-btn">Admin</a></li>
             </ul>
         </nav>
@@ -3103,7 +2189,7 @@
             <div class="hero-content">
                 <h2><strong>THE YEAR OF DIVINE ADMINISTRATION</strong></h2>
                 <p>WE'RE APOSTOLIC | WE'RE PROPHETIC | WE'RE EVANGELICAL | WE'RE GOD'S CASTLE! </p>
-                <a href="#events" class="btn" onclick="scrollToSection('events')">Join Us This Sunday</a>
+                <a href="#events" class="btn">Join Us This Sunday</a>
             </div>
         </section>
 
@@ -3136,7 +2222,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <button class="btn" onclick="openModal('contactModal')">View All Events</button>
+                <a href="events.html" class="btn">View All Events</a>
             </div>
         </section>
 
@@ -3149,7 +2235,7 @@
             </p>
 
             <div class="ministries-grid">
-                <div class="ministry-card" onclick="openMinistryPage('apostolic-tour')">
+                <div class="ministry-card">
                     <img src="PTA - Copy.jpg" alt="Apostolic Tour Ministry">
                     <div class="ministry-card-content">
                         <div class="ministry-icon">
@@ -3164,13 +2250,13 @@
                             <li>Crusades and evangelism</li>
                         </ul>
                         
-                        <div class="view-ministry-btn">
+                        <a href="apostolic-tour.html" class="view-ministry-btn">
                             <i class="fas fa-external-link-alt"></i> Visit Apostolic Tour Ministry
-                        </div>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="ministry-card" onclick="openMinistryPage('youth-ministry')">
+                <div class="ministry-card">
                     <img src="youth-.jpg" alt="Youth Ministry">
                     <div class="ministry-card-content">
                         <div class="ministry-icon">
@@ -3186,13 +2272,13 @@
                             <li>Annual youth camps</li>
                         </ul>
                         
-                        <div class="view-ministry-btn">
+                        <a href="youth-ministry.html" class="view-ministry-btn">
                             <i class="fas fa-external-link-alt"></i> Visit Youth Ministry
-                        </div>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="ministry-card" onclick="openMinistryPage('healing-hand')">
+                <div class="ministry-card">
                     <img src="Healing.jpg" alt="Healing Hands Ministry">
                     <div class="ministry-card-content">
                         <div class="ministry-icon">
@@ -3208,13 +2294,13 @@
                             <li>Child sponsorship programs</li>
                         </ul>
                         
-                        <div class="view-ministry-btn">
+                        <a href="healing-hands.html" class="view-ministry-btn">
                             <i class="fas fa-external-link-alt"></i> Visit Healing Hands Ministry
-                        </div>
+                        </a>
                     </div>
                 </div>
 
-                <div class="ministry-card" onclick="openMinistryPage('treasures')">
+                <div class="ministry-card">
                     <img src="tra.jpg" alt="Transformed Treasures Ministry">
                     <div class="ministry-card-content">
                         <div class="ministry-icon">
@@ -3230,14 +2316,14 @@
                             <li>Mentorship and discipleship</li>
                         </ul>
                         
-                        <div class="view-ministry-btn">
+                        <a href="transformed-treasures.html" class="view-ministry-btn">
                             <i class="fas fa-external-link-alt"></i> Visit Transformed Treasures
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <!-- NEW: Building Strong and Godly Families 2026 Card -->
-                <div class="ministry-card" onclick="openMinistryPage('families-2026')">
+                <div class="ministry-card">
                     <img src="BuildingStrong&Godly.jpeg" alt="Building Strong and Godly Families">
                     <div class="ministry-card-content">
                         <div class="ministry-icon">
@@ -3253,14 +2339,14 @@
                             <li>Generational legacy building</li>
                         </ul>
                         
-                        <div class="view-ministry-btn">
+                        <a href="building-families.html" class="view-ministry-btn">
                             <i class="fas fa-external-link-alt"></i> Visit Family Ministry
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <!-- NEW: Priestly Kings Card -->
-                <div class="ministry-card" onclick="openMinistryPage('priestly-kings')">
+                <div class="ministry-card">
                     <img src="Apostle1.jpg" alt="Priestly Kings Ministry">
                     <div class="ministry-card-content">
                         <div class="ministry-icon">
@@ -3276,9 +2362,9 @@
                             <li>Kingdom business networking</li>
                         </ul>
                         
-                        <div class="view-ministry-btn">
+                        <a href="priestly-kings.html" class="view-ministry-btn">
                             <i class="fas fa-external-link-alt"></i> Visit Priestly Kings
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -3336,9 +2422,9 @@
             </div>
 
             <div class="view-more-sermons">
-                <button class="view-more-btn" id="loadMoreSermons">
+                <a href="sermons.html" class="view-more-btn">
                     <i class="fas fa-book-open"></i> View More Sermons
-                </button>
+                </a>
                 <p style="margin-top: 1rem; color: var(--text);">Click to load more messages from our library</p>
             </div>
         </section>
@@ -3356,12 +2442,12 @@
                     <h3>Prayer Partnership</h3>
                     <p>Join our spiritual army that intercedes for the ministry, our outreaches, and the souls we are reaching.</p>
                     
-                    <button class="btn btn-outline" onclick="openPartnershipModal('prayer')">
+                    <a href="partnership.html#prayer" class="btn btn-outline">
                         <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
+                    </a>
+                    <a href="contact.html" class="btn">
                         <i class="fas fa-pray"></i> Join Now
-                    </button>
+                    </a>
                 </div>
                 
                 <div class="partnership-option">
@@ -3377,12 +2463,12 @@
                         </ul>
                     </div>
                     
-                    <button class="btn btn-outline" onclick="openPartnershipModal('financial')">
+                    <a href="partnership.html#financial" class="btn btn-outline">
                         <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
+                    </a>
+                    <a href="contact.html" class="btn">
                         <i class="fas fa-donate"></i> Give Now
-                    </button>
+                    </a>
                 </div>
                 
                 <div class="partnership-option">
@@ -3400,12 +2486,12 @@
                         </ul>
                     </div>
                     
-                    <button class="btn btn-outline" onclick="openPartnershipModal('volunteer')">
+                    <a href="partnership.html#volunteer" class="btn btn-outline">
                         <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
+                    </a>
+                    <a href="contact.html" class="btn">
                         <i class="fas fa-hands"></i> Volunteer
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -3453,9 +2539,9 @@
                 
                 <div style="text-align: center; margin-top: 2rem;">
                     <p>For banking details or to discuss specific giving options, don't hesitate to get in touch with us.</p>
-                    <button class="btn" onclick="openModal('contactModal')">
+                    <a href="contact.html" class="btn">
                         <i class="fas fa-envelope"></i> Request Banking Details
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -3468,9 +2554,9 @@
                 <p><i class="fas fa-map-marker-alt"></i> Moletjie Motinti, Polokwane</p>
                 <p><i class="fas fa-phone"></i> 072 228 5667</p>
                 <p><i class="fas fa-envelope"></i> mothushic@gmail.com</p>
-                <button class="contact-action btn-small" onclick="openModal('contactModal')">
+                <a href="contact.html" class="contact-action btn-small">
                     <i class="fas fa-directions"></i> Get Directions
-                </button>
+                </a>
             </div>
             <div class="footer-section">
                 <h3>Service Times</h3>
@@ -3481,15 +2567,16 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#" id="aboutFooterLink">About Us</a></li>
-                    <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
-                    <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
-                    <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
-                    <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
-                    <li><a href="#" onclick="openMinistryPage('family')">Families </a></li>
-                    <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
-                    <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
-                    <li><a href="#" id="contactFooterLink">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="ministries.html">Ministries</a></li>
+                    <li><a href="transformed-treasures.html">Transformed Treasures</a></li>
+                    <li><a href="building-families.html">Families 2026</a></li>
+                    <li><a href="priestly-kings.html">Priestly Kings</a></li>
+                    <li><a href="partnership.html">Partner With Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -3556,16 +2643,6 @@
             treasuresModal: document.getElementById('treasuresModal')
         };
 
-        const modalLinks = {
-            aboutLink: document.getElementById('aboutLink'),
-            contactLink: document.getElementById('contactLink'),
-            partnershipLink: document.getElementById('partnershipLink'),
-            aboutFooterLink: document.getElementById('aboutFooterLink'),
-            contactFooterLink: document.getElementById('contactFooterLink'),
-            partnershipFooterLink: document.getElementById('partnershipFooterLink'),
-            aboutToContact: document.getElementById('aboutToContact')
-        };
-
         function openModal(modalId) {
             Object.values(modals).forEach(modal => {
                 modal.classList.remove('active');
@@ -3580,47 +2657,26 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Event listeners for opening modals
-        modalLinks.aboutLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('aboutModal');
+        // Event listeners for opening modals from internal links
+        document.querySelectorAll('a[href="#about"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal('aboutModal');
+            });
         });
 
-        modalLinks.contactLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('contactModal');
-        });
-
-        modalLinks.partnershipLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('partnershipModal');
-        });
-
-        modalLinks.aboutFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('aboutModal');
-        });
-
-        modalLinks.contactFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('contactModal');
-        });
-
-        modalLinks.partnershipFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('partnershipModal');
-        });
-
-        modalLinks.aboutToContact.addEventListener('click', function(e) {
-            e.preventDefault();
-            closeModal('aboutModal');
-            setTimeout(() => {
+        document.querySelectorAll('a[href="#contact"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
                 openModal('contactModal');
-                const contactFormTab = document.querySelector('[data-contact-tab="contact-form"]');
-                if (contactFormTab) {
-                    contactFormTab.click();
-                }
-            }, 300);
+            });
+        });
+
+        document.querySelectorAll('a[href="#partnership"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal('partnershipModal');
+            });
         });
 
         // Event listeners for close buttons
@@ -3687,31 +2743,6 @@
                 const wazeUrl = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`;
                 window.open(wazeUrl, '_blank');
             }
-        }
-
-        // Open partnership modal with specific section
-        function openPartnershipModal(section) {
-            openModal('partnershipModal');
-            setTimeout(() => {
-                const modalContent = document.querySelector('.partnership-modal .modal-content');
-                let targetElement;
-                
-                switch(section) {
-                    case 'prayer':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(4)');
-                        break;
-                    case 'financial':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(5)');
-                        break;
-                    case 'volunteer':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(6)');
-                        break;
-                }
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 300);
         }
 
         // Contact Form Submission
@@ -3787,89 +2818,23 @@ ${message}
             messageStatus.style.display = 'block';
         }
 
-        // Smooth scroll function
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-                document.getElementById('nav-menu').classList.remove('show');
-            }
-        }
-
-        // Ministry Pages Functionality
-        function openMinistryPage(ministry) {
-            // Hide main content and all ministry pages
-            document.getElementById('main-content').style.display = 'none';
-            document.querySelectorAll('.ministry-page').forEach(page => {
-                page.style.display = 'none';
-            });
-            
-            // Show the selected ministry page
-            const ministryPage = document.getElementById(`${ministry}-page`);
-            if (ministryPage) {
-                ministryPage.style.display = 'block';
-                document.title = getMinistryTitle(ministry) + ' - The Last Days Evangelism Ministries';
-            }
-            
-            // Close mobile menu if open
-            document.getElementById('nav-menu').classList.remove('show');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function getMinistryTitle(ministry) {
-            const titles = {
-                'apostolic-tour': 'Apostolic Tour Ministry',
-                'youth-ministry': 'Youth & Young Adults Ministry',
-                'healing-hand': 'Healing Hands Ministry',
-                'treasures': 'Transformed Treasures Ministry',
-                'family': 'Building Strong and Godly Families',
-                'priestly-kings': 'Priestly Kings Ministry'
-            };
-            return titles[ministry] || 'Ministry';
-        }
-
-        function returnToMainPage() {
-            // Hide all ministry pages
-            document.querySelectorAll('.ministry-page').forEach(page => {
-                page.style.display = 'none';
-            });
-            
-            // Show main content
-            document.getElementById('main-content').style.display = 'block';
-            document.title = 'The Last Days Evangelism Ministries';
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Enhanced sermon card click functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Make sermon card titles clickable
-            document.querySelectorAll('.sermon-card h3').forEach(title => {
-                title.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const card = this.closest('.sermon-card');
-                    const watchLink = card.querySelector('a.btn:not(.btn[style*="background-color: var(--primary)"])');
-                    if (watchLink && watchLink.href) {
-                        window.open(watchLink.href, '_blank');
+        // Smooth scroll function for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                if (href.startsWith('#') && !href.includes('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        document.getElementById('nav-menu').classList.remove('show');
                     }
-                });
+                }
             });
-            
-            // Restore active tab on page load
-            const activeTab = sessionStorage.getItem('activeSermonTab') || 'recent';
-            const tabBtn = document.querySelector(`[data-tab="${activeTab}"]`);
-            if (tabBtn) {
-                tabBtn.click();
-            }
-            
-            // Initialize sermons
-            initializeSermons();
-            
-            // Initialize treasures page
-            initializeTreasuresPage();
         });
 
         // Sermon Management System
@@ -4081,45 +3046,6 @@ ${message}
             updateSermonCounter(tab);
         }
 
-        // Function to load more sermons
-        function loadMoreSermons(tab) {
-            const container = document.getElementById(`${tab}-sermons`);
-            const loadingElement = document.getElementById(`${tab}-loading`);
-            const data = sermonData[tab];
-            
-            if (sermonConfig.loadedCount[tab] >= data.length) {
-                document.getElementById('loadMoreSermons').disabled = true;
-                document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
-                return;
-            }
-            
-            loadingElement.classList.add('active');
-            document.getElementById('loadMoreSermons').classList.add('loading');
-            document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-            
-            setTimeout(() => {
-                const startIndex = sermonConfig.loadedCount[tab];
-                const endIndex = Math.min(startIndex + sermonConfig.itemsPerLoad, data.length);
-                
-                for (let i = startIndex; i < endIndex; i++) {
-                    container.innerHTML += createSermonCard(data[i]);
-                    sermonConfig.loadedCount[tab]++;
-                }
-                
-                loadingElement.classList.remove('active');
-                document.getElementById('loadMoreSermons').classList.remove('loading');
-                document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-book-open"></i> View More Sermons';
-                
-                updateSermonCounter(tab);
-                
-                if (sermonConfig.loadedCount[tab] >= data.length) {
-                    document.getElementById('loadMoreSermons').disabled = true;
-                    document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
-                }
-                
-            }, 1000);
-        }
-
         // Function to update sermon counter
         function updateSermonCounter(tab) {
             const visibleCount = sermonConfig.loadedCount[tab];
@@ -4127,24 +3053,7 @@ ${message}
             
             document.getElementById('visibleCount').textContent = visibleCount;
             document.getElementById('totalCount').textContent = totalCount;
-            
-            const remaining = totalCount - visibleCount;
-            const loadMoreBtn = document.getElementById('loadMoreSermons');
-            
-            if (remaining > 0) {
-                loadMoreBtn.innerHTML = `<i class="fas fa-book-open"></i> View More Sermons (${remaining} remaining)`;
-                loadMoreBtn.disabled = false;
-            } else {
-                loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
-                loadMoreBtn.disabled = true;
-            }
         }
-
-        // Load More Sermons button event listener
-        document.getElementById('loadMoreSermons').addEventListener('click', function() {
-            const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
-            loadMoreSermons(activeTab);
-        });
 
         // Add click event to sermon cards
         document.addEventListener('click', function(e) {
@@ -4162,52 +3071,33 @@ ${message}
         // Ministry card click handlers
         document.querySelectorAll('.ministry-card').forEach(card => {
             card.addEventListener('click', function(e) {
-                if (!e.target.closest('.view-ministry-btn') && !e.target.closest('.btn')) {
-                    const ministry = this.getAttribute('data-ministry') || 
-                                   this.querySelector('h3').textContent.toLowerCase().includes('apostolic') ? 'apostolic-tour' :
-                                   this.querySelector('h3').textContent.toLowerCase().includes('youth') ? 'youth-ministry' : 
-                                   this.querySelector('h3').textContent.toLowerCase().includes('healing') ? 'healing-hand' : 
-                                   this.querySelector('h3').textContent.toLowerCase().includes('families') ? 'families-2026' :
-                                   this.querySelector('h3').textContent.toLowerCase().includes('priestly') ? 'priestly-kings' : 'treasures';
-                    openMinistryPage(ministry);
+                if (!e.target.closest('.view-ministry-btn') && !e.target.closest('.btn') && !e.target.closest('a')) {
+                    const link = this.querySelector('.view-ministry-btn');
+                    if (link && link.href) {
+                        window.location.href = link.href;
+                    }
                 }
             });
         });
 
-        // Transformed Treasures Functionality
-        function initializeTreasuresPage() {
-            // Add click event to image items
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('.image-item')) {
-                    const imageItem = e.target.closest('.image-item');
-                    const imgSrc = imageItem.querySelector('img').src;
-                    const caption = imageItem.getAttribute('data-title') || 'Women\'s Ministry Activity';
-                    
-                    openImageModal(imgSrc, caption);
-                }
-            });
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSermons();
             
-            // Open image modal function
-            function openImageModal(imageSrc, caption) {
-                const modalContent = modals.treasuresModal.querySelector('.fullscreen-image-container');
-                modalContent.innerHTML = `
-                    <img src="${imageSrc}" alt="${caption}" class="fullscreen-image">
-                    <div class="image-caption">
-                        <h3>${caption}</h3>
-                        <p>Transformed Treasures Women's Ministry</p>
-                    </div>
-                `;
-                openModal('treasuresModal');
+            // Restore active tab on page load
+            const activeTab = sessionStorage.getItem('activeSermonTab') || 'recent';
+            const tabBtn = document.querySelector(`[data-tab="${activeTab}"]`);
+            if (tabBtn) {
+                tabBtn.click();
             }
-        }
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('nav-menu').classList.remove('show');
+                });
+            });
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
