@@ -372,15 +372,17 @@
             margin-bottom: 0.5rem;
         }
 
+        /* UPDATED: Tabs styling for ministries tab */
         .tabs {
             display: flex;
             justify-content: center;
             margin-bottom: 2rem;
             border-bottom: 2px solid #eee;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             background: none;
             border: none;
             font-size: 1.1rem;
@@ -389,6 +391,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
+            min-width: 120px;
         }
 
         .tab-btn.active {
@@ -1060,69 +1063,87 @@
             font-style: italic;
         }
 
-        /* Special Ministries Section Styles */
-        .special-ministries {
-            background-color: #f8f9fa;
-            padding: 4rem 2rem;
-        }
-
-        .ministries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* UPDATED: Special Ministries as part of sermons section */
+        .sermons-section .special-ministries {
+            background-color: transparent;
+            padding: 2rem 0;
             margin-top: 2rem;
         }
 
-        .ministry-card {
+        .sermons-section .special-ministries h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .sermons-section .ministries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .sermons-section .ministry-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        .ministry-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        .sermons-section .ministry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        .ministry-card img {
+        .sermons-section .ministry-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
 
-        .ministry-card-content {
+        .sermons-section .ministry-card-content {
             padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        .ministry-card h3 {
+        .sermons-section .ministry-card h3 {
             color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            min-height: 3.5rem;
         }
 
-        .ministry-icon {
-            font-size: 2.5rem;
+        .sermons-section .ministry-icon {
+            font-size: 2rem;
             color: var(--secondary);
             margin-bottom: 1rem;
             text-align: center;
         }
 
-        .ministry-highlights {
+        .sermons-section .ministry-highlights {
             list-style: none;
             padding-left: 0;
             margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            flex: 1;
         }
 
-        .ministry-highlights li {
+        .sermons-section .ministry-highlights li {
             margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
+            font-size: 0.9rem;
         }
 
-        .ministry-highlights li:before {
+        .sermons-section .ministry-highlights li:before {
             content: "•";
             position: absolute;
             left: 0;
@@ -1130,11 +1151,11 @@
             font-size: 1.2rem;
         }
 
-        .view-ministry-btn {
+        .sermons-section .view-ministry-btn {
             display: inline-block;
             width: 100%;
             text-align: center;
-            margin-top: 1.5rem;
+            margin-top: auto;
             padding: 0.8rem;
             background-color: var(--primary);
             color: white;
@@ -1142,11 +1163,20 @@
             border-radius: 5px;
             font-weight: 600;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
         }
 
-        .view-ministry-btn:hover {
+        .sermons-section .view-ministry-btn:hover {
             background-color: #3a5a1f;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
+        }
+
+        /* Remove the old standalone ministries section styles */
+        .special-ministries {
+            display: none;
         }
 
         /* Ministry Pages Styles */
@@ -3362,12 +3392,12 @@
             <ul id="nav-menu">
                 <li><a href="#" onclick="returnToMainPage()">Home</a></li>
                 <li><a href="#" id="aboutLink">About Us</a></li>
-                <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
-                <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
-                <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
+                <!-- UPDATED: Changed ministries link to scroll to sermons with tab activation -->
+                <li><a href="#" onclick="openMinistriesTab()">Ministries</a></li>
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
                 <li><a href="#" onclick="openMinistryPage('family')">Families 2026</a></li>
                 <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
+                <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                 <li><a href="#" id="partnershipLink">Partner With Us</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
             </ul>
@@ -3419,162 +3449,23 @@
             </div>
         </section>
 
-        <!-- Special Ministries Section -->
-        <section class="special-ministries" id="ministries">
-            <h2>Our Special Ministries</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                You can explore the various ministries that comprise The Last Days Evangelism Ministries. 
-                Each ministry is designed to meet specific needs and reach different groups with the Gospel.
-            </p>
-
-            <div class="ministries-grid">
-                <div class="ministry-card" onclick="openMinistryPage('apostolic-tour')">
-                    <img src="PTA - Copy.jpg" alt="Apostolic Tour Ministry">
-                    <div class="ministry-card-content">
-                        <div class="ministry-icon">
-                            <i class="fas fa-globe-africa"></i>
-                        </div>
-                        <h3>Apostolic Tour Ministry</h3>
-                        <p>Taking the Gospel to nations, cities, and communities through apostolic missions and revival meetings. Join us as we spread the fire of revival!</p>
-                        
-                        <ul class="ministry-highlights">
-                            <li>Nationwide revival tours</li>
-                            <li>International missions</li>
-                            <li>Crusades and evangelism</li>
-                        </ul>
-                        
-                        <div class="view-ministry-btn">
-                            <i class="fas fa-external-link-alt"></i> Visit Apostolic Tour Ministry
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ministry-card" onclick="openMinistryPage('youth-ministry')">
-                    <img src="youth-.jpg" alt="Youth Ministry">
-                    <div class="ministry-card-content">
-                        <div class="ministry-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Youth Ministry</h3>
-                        <p>Empowering the next generation (ages 13-35) to live passionately for Christ and impact their world through relevant programs and discipleship.</p>
-                        
-                        <ul class="ministry-highlights">
-                            <li>Friday Night worship</li>
-                            <li>Bible study groups</li>
-                            <li>Leadership development</li>
-                            <li>Annual youth camps</li>
-                        </ul>
-                        
-                        <div class="view-ministry-btn">
-                            <i class="fas fa-external-link-alt"></i> Visit Youth Ministry
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ministry-card" onclick="openMinistryPage('healing-hand')">
-                    <img src="Healing.jpg" alt="Healing Hands Foundation">
-                    <div class="ministry-card-content">
-                        <div class="ministry-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3>Healing Hands Foundation</h3>
-                        <p>Providing love, care, and support to orphaned and vulnerable children in our community through Christ-centered programs.</p>
-                        
-                        <ul class="ministry-highlights">
-                            <li>Residential care for orphans</li>
-                            <li>Education and healthcare support</li>
-                            <li>Counseling and trauma care</li>
-                            <li>Child sponsorship programs</li>
-                        </ul>
-                        
-                        <div class="view-ministry-btn">
-                            <i class="fas fa-external-link-alt"></i> Visit Healing Hands Foundation
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ministry-card" onclick="openMinistryPage('treasures')">
-                    <img src="tra.jpg" alt="Transformed Treasures Ministry">
-                    <div class="ministry-card-content">
-                        <div class="ministry-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3>Transformed Treasures</h3>
-                        <p>A women's ministry group dedicated to transformation through God's Word, fellowship, and prayer in these last days.</p>
-                        
-                        <ul class="ministry-highlights">
-                            <li>Weekly Bible studies for women</li>
-                            <li>Prayer and fellowship gatherings</li>
-                            <li>Monthly retreats and events</li>
-                            <li>Mentorship and discipleship</li>
-                        </ul>
-                        
-                        <div class="view-ministry-btn">
-                            <i class="fas fa-external-link-alt"></i> Visit Transformed Treasures
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEW: Building Strong and Godly Families 2026 Card -->
-                <div class="ministry-card" onclick="openMinistryPage('families-2026')">
-                    <img src="BuildingStrong&Godly.jpeg" alt="Building Strong and Godly Families">
-                    <div class="ministry-card-content">
-                        <div class="ministry-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>Building Strong & Godly Families 2026</h3>
-                        <p>Strengthening marriages, parenting with purpose, and establishing Christ-centered homes for generational impact in 2026.</p>
-                        
-                        <ul class="ministry-highlights">
-                            <li>Couples' enrichment programs</li>
-                            <li>Biblical parenting workshops</li>
-                            <li>Family counseling services</li>
-                            <li>Generational legacy building</li>
-                        </ul>
-                        
-                        <div class="view-ministry-btn">
-                            <i class="fas fa-external-link-alt"></i> Visit Family Ministry
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEW: Priestly Kings Card -->
-                <div class="ministry-card" onclick="openMinistryPage('priestly-kings')">
-                    <img src="kings.jpg" alt="Priestly Kings Ministry">
-                    <div class="ministry-card-content">
-                        <div class="ministry-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3>Priestly Kings Ministry</h3>
-                        <p>Raising men who reign in life as kings and minister to God as priests. Equipping men for dominion and intercession.</p>
-                        
-                        <ul class="ministry-highlights">
-                            <li>Men's leadership development</li>
-                            <li>Spiritual warfare training</li>
-                            <li>Priestly fellowship</li>
-                            <li>Kingdom business networking</li>
-                        </ul>
-                        
-                        <div class="view-ministry-btn">
-                            <i class="fas fa-external-link-alt"></i> Visit Priestly Kings
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- UPDATED: Sermons section now includes ministries as a tab -->
         <section class="sermons sermons-section" id="sermons">
-            <h2>Recent Sermons</h2>
+            <h2>Ministries & Sermons</h2>
             <div class="sermon-counter">
-                Showing <span id="visibleCount">3</span> of <span id="totalCount">12</span> sermons
+                <span id="tab-indicator">Browse our ministries and messages</span>
             </div>
+            
+            <!-- UPDATED: Added Ministries tab -->
             <div class="tabs">
-                <button class="tab-btn active" data-tab="recent">Recent</button>
-                <button class="tab-btn" data-tab="popular">Most Popular</button>
+                <button class="tab-btn active" data-tab="recent">Recent Sermons</button>
+                <button class="tab-btn" data-tab="popular">Popular Sermons</button>
                 <button class="tab-btn" data-tab="series">Series</button>
-                <button class="tab-btn" data-tab="praise">Praise Report</button>
+                <button class="tab-btn" data-tab="praise">Praise Reports</button>
+                <button class="tab-btn" data-tab="ministries-tab">Our Ministries</button>
             </div>
 
+            <!-- Recent Sermons Tab -->
             <div class="tab-content active" id="recent">
                 <div class="sermon-cards" id="recent-sermons">
                     <!-- Sermons will be loaded here -->
@@ -3585,6 +3476,7 @@
                 </div>
             </div>
 
+            <!-- Popular Sermons Tab -->
             <div class="tab-content" id="popular">
                 <div class="sermon-cards" id="popular-sermons">
                     <!-- Sermons will be loaded here -->
@@ -3595,6 +3487,7 @@
                 </div>
             </div>
 
+            <!-- Series Tab -->
             <div class="tab-content" id="series">
                 <div class="sermon-cards" id="series-sermons">
                     <!-- Sermons will be loaded here -->
@@ -3604,7 +3497,9 @@
                     <p>Loading more sermons...</p>
                 </div>
             </div>
-                 <div class="tab-content" id="praise">
+
+            <!-- Praise Reports Tab -->
+            <div class="tab-content" id="praise">
                 <div class="sermon-cards" id="praise-sermons">
                     <!-- Sermons will be loaded here -->
                 </div>
@@ -3614,11 +3509,154 @@
                 </div>
             </div>
 
+            <!-- UPDATED: Ministries Tab -->
+            <div class="tab-content" id="ministries-tab">
+                <div class="special-ministries">
+                    <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                        Explore the various ministries that comprise The Last Days Evangelism Ministries. 
+                        Each ministry is designed to meet specific needs and reach different groups with the Gospel.
+                    </p>
+
+                    <div class="ministries-grid">
+                        <div class="ministry-card" onclick="openMinistryPage('apostolic-tour')">
+                            <img src="PTA - Copy.jpg" alt="Apostolic Tour Ministry">
+                            <div class="ministry-card-content">
+                                <div class="ministry-icon">
+                                    <i class="fas fa-globe-africa"></i>
+                                </div>
+                                <h3>Apostolic Tour Ministry</h3>
+                                <p>Taking the Gospel to nations, cities, and communities through apostolic missions and revival meetings.</p>
+                                
+                                <ul class="ministry-highlights">
+                                    <li>Nationwide revival tours</li>
+                                    <li>International missions</li>
+                                    <li>Crusades and evangelism</li>
+                                </ul>
+                                
+                                <button class="view-ministry-btn">
+                                    <i class="fas fa-external-link-alt"></i> Visit Apostolic Tour Ministry
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="ministry-card" onclick="openMinistryPage('youth-ministry')">
+                            <img src="youth-.jpg" alt="Youth Ministry">
+                            <div class="ministry-card-content">
+                                <div class="ministry-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Youth Ministry</h3>
+                                <p>Empowering the next generation (ages 13-35) to live passionately for Christ and impact their world.</p>
+                                
+                                <ul class="ministry-highlights">
+                                    <li>Friday Night worship</li>
+                                    <li>Bible study groups</li>
+                                    <li>Leadership development</li>
+                                    <li>Annual youth camps</li>
+                                </ul>
+                                
+                                <button class="view-ministry-btn">
+                                    <i class="fas fa-external-link-alt"></i> Visit Youth Ministry
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="ministry-card" onclick="openMinistryPage('healing-hand')">
+                            <img src="Healing.jpg" alt="Healing Hands Foundation">
+                            <div class="ministry-card-content">
+                                <div class="ministry-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h3>Healing Hands Foundation</h3>
+                                <p>Providing love, care, and support to orphaned and vulnerable children in our community.</p>
+                                
+                                <ul class="ministry-highlights">
+                                    <li>Residential care for orphans</li>
+                                    <li>Education and healthcare</li>
+                                    <li>Counseling and trauma care</li>
+                                    <li>Child sponsorship programs</li>
+                                </ul>
+                                
+                                <button class="view-ministry-btn">
+                                    <i class="fas fa-external-link-alt"></i> Visit Healing Hands Foundation
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card" onclick="openMinistryPage('treasures')">
+                            <img src="tra.jpg" alt="Transformed Treasures Ministry">
+                            <div class="ministry-card-content">
+                                <div class="ministry-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <h3>Transformed Treasures</h3>
+                                <p>A women's ministry group dedicated to transformation through God's Word, fellowship, and prayer.</p>
+                                
+                                <ul class="ministry-highlights">
+                                    <li>Weekly Bible studies for women</li>
+                                    <li>Prayer and fellowship gatherings</li>
+                                    <li>Monthly retreats and events</li>
+                                    <li>Mentorship and discipleship</li>
+                                </ul>
+                                
+                                <button class="view-ministry-btn">
+                                    <i class="fas fa-external-link-alt"></i> Visit Transformed Treasures
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card" onclick="openMinistryPage('families-2026')">
+                            <img src="BuildingStrong&Godly.jpeg" alt="Building Strong and Godly Families">
+                            <div class="ministry-card-content">
+                                <div class="ministry-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h3>Building Strong & Godly Families 2026</h3>
+                                <p>Strengthening marriages, parenting with purpose, and establishing Christ-centered homes.</p>
+                                
+                                <ul class="ministry-highlights">
+                                    <li>Couples' enrichment programs</li>
+                                    <li>Biblical parenting workshops</li>
+                                    <li>Family counseling services</li>
+                                    <li>Generational legacy building</li>
+                                </ul>
+                                
+                                <button class="view-ministry-btn">
+                                    <i class="fas fa-external-link-alt"></i> Visit Family Ministry
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card" onclick="openMinistryPage('priestly-kings')">
+                            <img src="kings.jpg" alt="Priestly Kings Ministry">
+                            <div class="ministry-card-content">
+                                <div class="ministry-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h3>Priestly Kings Ministry</h3>
+                                <p>Raising men who reign in life as kings and minister to God as priests.</p>
+                                
+                                <ul class="ministry-highlights">
+                                    <li>Men's leadership development</li>
+                                    <li>Spiritual warfare training</li>
+                                    <li>Priestly fellowship</li>
+                                    <li>Kingdom business networking</li>
+                                </ul>
+                                
+                                <button class="view-ministry-btn">
+                                    <i class="fas fa-external-link-alt"></i> Visit Priestly Kings
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="view-more-sermons">
                 <button class="view-more-btn" id="loadMoreSermons">
-                    <i class="fas fa-book-open"></i> View More Sermons
+                    <i class="fas fa-book-open"></i> View More Content
                 </button>
-                <p style="margin-top: 1rem; color: var(--text);">Click to load more messages from our library</p>
+                <p style="margin-top: 1rem; color: var(--text);">Click to load more content from our library</p>
             </div>
         </section>
 
@@ -3761,12 +3799,12 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
-                    <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
-                    <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
-                    <li><a href="#" onclick="scrollToSection('ministries')">Ministries</a></li>
+                    <!-- UPDATED: Ministries link -->
+                    <li><a href="#" onclick="openMinistriesTab()">Ministries</a></li>
                     <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
                     <li><a href="#" onclick="openMinistryPage('family')">Families </a></li>
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
+                    <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                     <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
@@ -3807,10 +3845,29 @@
                 const tabId = btn.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
                 
-                sessionStorage.setItem('activeSermonTab', tabId);
-                updateSermonCounter(tabId);
+                // Update tab indicator
+                updateTabIndicator(tabId);
+                
+                // For sermon tabs, update counter
+                if (tabId !== 'ministries-tab') {
+                    sessionStorage.setItem('activeSermonTab', tabId);
+                    updateSermonCounter(tabId);
+                }
             });
         });
+
+        // NEW: Function to update tab indicator
+        function updateTabIndicator(tabId) {
+            const indicator = document.getElementById('tab-indicator');
+            const tabNames = {
+                'recent': 'Browse recent sermons',
+                'popular': 'Browse popular sermons',
+                'series': 'Browse sermon series',
+                'praise': 'Browse praise reports',
+                'ministries-tab': 'Browse our ministries'
+            };
+            indicator.textContent = tabNames[tabId] || 'Browse our content';
+        }
 
         // Contact Tabs Functionality
         const contactTabBtns = document.querySelectorAll('.contact-tab-btn');
@@ -4075,6 +4132,23 @@ ${message}
             }
         }
 
+        // NEW: Function to open ministries tab
+        function openMinistriesTab() {
+            // Scroll to sermons section
+            scrollToSection('sermons');
+            
+            // Switch to ministries tab
+            setTimeout(() => {
+                const ministriesTabBtn = document.querySelector('[data-tab="ministries-tab"]');
+                if (ministriesTabBtn) {
+                    ministriesTabBtn.click();
+                }
+            }, 500);
+            
+            // Close mobile menu if open
+            document.getElementById('nav-menu').classList.remove('show');
+        }
+
         // Ministry Pages Functionality
         function openMinistryPage(ministry) {
             // Hide main content and all ministry pages
@@ -4142,6 +4216,9 @@ ${message}
             const tabBtn = document.querySelector(`[data-tab="${activeTab}"]`);
             if (tabBtn) {
                 tabBtn.click();
+            } else {
+                // Set default tab indicator
+                updateTabIndicator('recent');
             }
             
             // Initialize sermons
@@ -4423,7 +4500,12 @@ ${message}
         // Load More Sermons button event listener
         document.getElementById('loadMoreSermons').addEventListener('click', function() {
             const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
-            loadMoreSermons(activeTab);
+            if (activeTab !== 'ministries-tab') {
+                loadMoreSermons(activeTab);
+            } else {
+                // For ministries tab, just scroll to top
+                document.getElementById('sermons').scrollIntoView({ behavior: 'smooth' });
+            }
         });
 
         // Add click event to sermon cards
@@ -4440,7 +4522,7 @@ ${message}
         });
 
         // Ministry card click handlers
-        document.querySelectorAll('.ministry-card').forEach(card => {
+        document.querySelectorAll('.sermons-section .ministry-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 if (!e.target.closest('.view-ministry-btn') && !e.target.closest('.btn')) {
                     const ministry = this.getAttribute('data-ministry') || 
