@@ -394,6 +394,100 @@
             gap: 1rem;
         }
 
+        /* Sermons Modal Styles */
+        .sermon-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .sermon-tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sermon-tab-btn.active {
+            color: var(--primary);
+        }
+
+        .sermon-tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .sermon-tab-content {
+            display: none;
+        }
+
+        .sermon-tab-content.active {
+            display: block;
+        }
+
+        .sermon-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .sermon-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .sermon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .sermon-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .sermon-card-content {
+            padding: 1.5rem;
+        }
+
+        .sermon-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .sermon-card .date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sermon-card .speaker {
+            color: var(--primary);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .view-more-sermons {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
         /* Special Ministries Section Styles */
         .special-ministries {
             background-color: #f8f9fa;
@@ -463,77 +557,6 @@
             transform: translateY(-3px);
         }
 
-        /* Ministry Pages Styles */
-        .ministry-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('PTA.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 1rem;
-        }
-
-        .ministry-hero.youth {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('youth.jpg');
-        }
-
-        .ministry-hero.healing {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Healing.jpg');
-        }
-
-        .ministry-hero.treasures {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('mama.jpg');
-        }
-
-        .ministry-hero.families {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('BuildingStrong&Godly.jpeg');
-        }
-
-        .ministry-hero.priestly-kings {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Apostle4.jpg');
-        }
-
-        .ministry-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .ministry-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Back to Home button for ministry pages */
-        .back-to-home {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            z-index: 1000;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .back-to-home:hover {
-            background: #3a5a1f;
-            transform: translateX(-5px);
-        }
-
-        /* Hide ministry pages by default */
-        .ministry-page {
-            display: none;
-        }
-
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -558,6 +581,16 @@
                 font-size: 2rem;
             }
 
+            .sermon-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sermon-tab-btn {
+                width: 100%;
+                text-align: center;
+            }
+
             .modal-header h2 {
                 font-size: 1.5rem;
             }
@@ -568,21 +601,6 @@
 
             .form-row {
                 grid-template-columns: 1fr;
-            }
-
-            .ministry-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .ministry-content {
-                padding: 2rem 1rem;
-            }
-            
-            .back-to-home {
-                top: 80px;
-                left: 10px;
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
             }
         }
     </style>
@@ -679,6 +697,206 @@
                         <p><strong>Account Number:</strong> 10127203549</p>
                         <p><strong>Branch Code:</strong> 51001</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sermons Modal -->
+    <div class="modal-overlay" id="sermonsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-book-open"></i> Sermons & Teachings</h2>
+                <button class="close-modal" data-modal="sermonsModal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="sermon-tabs">
+                    <button class="sermon-tab-btn active" data-sermon-tab="recent">Recent</button>
+                    <button class="sermon-tab-btn" data-sermon-tab="popular">Most Popular</button>
+                    <button class="sermon-tab-btn" data-sermon-tab="series">Series</button>
+                    <button class="sermon-tab-btn" data-sermon-tab="praise">Praise Report</button>
+                </div>
+
+                <!-- Recent Sermons Tab -->
+                <div class="sermon-tab-content active" id="recent-sermons">
+                    <div class="sermon-cards">
+                        <div class="sermon-card">
+                            <img src="RRR.jpeg" alt="Review, Reflect, Rest">
+                            <div class="sermon-card-content">
+                                <h3>Review, Reflect, Rest</h3>
+                                <p class="date">December, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>The Bridegroom will come unexpectedly, and only those who are prepared will enter the wedding feast.</p>
+                                <a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Sermon
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="BuildingStrong&Godly.jpeg" alt="Building Strong and Godly Families">
+                            <div class="sermon-card-content">
+                                <h3>Building Strong and Godly Families</h3>
+                                <p class="date">November, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>Understanding the depth of God's love and how to receive it in your life.</p>
+                                <a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Sermon
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="The Covenant.jpeg" alt="The End Of The Old Covenant">
+                            <div class="sermon-card-content">
+                                <h3>The End Of The Old Covenant</h3>
+                                <p class="date">October, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>The new covenant is the reality and fulfillment of what the old covenant only pictured.</p>
+                                <a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Sermon
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Sermons Tab -->
+                <div class="sermon-tab-content" id="popular-sermons">
+                    <div class="sermon-cards">
+                        <div class="sermon-card">
+                            <img src="TheTwoR.jpeg" alt="The Two Resurrection">
+                            <div class="sermon-card-content">
+                                <h3>The Two Resurrection</h3>
+                                <p class="date">September, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>Jesus is the first Fruit of those to be resurrected.</p>
+                                <a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Sermon
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="TheComing.jpeg" alt="The Coming Of The Bridegroom">
+                            <div class="sermon-card-content">
+                                <h3>The Coming Of The Bridegroom</h3>
+                                <p class="date">August, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>The Bridegroom will come unexpectedly, and only those who are prepared will enter the wedding feast.</p>
+                                <a href="https://youtu.be/wOmFVb451KM?si=6BiMR70IWb6QSIsa" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Sermon
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="InTheLastDays.jpeg" alt="We Are In The Last Days">
+                            <div class="sermon-card-content">
+                                <h3>We Are In The Last Days</h3>
+                                <p class="date">July, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>The Holy Spirit is like an engagement ring from Jesus- reminding us that as believers,we are engaged to Christ.</p>
+                                <button class="btn" style="margin-top: 1rem; opacity: 0.7; cursor: not-allowed;">
+                                    <i class="fas fa-eye-slash"></i> No Video Available
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Series Tab -->
+                <div class="sermon-tab-content" id="series-sermons">
+                    <div class="sermon-cards">
+                        <div class="sermon-card">
+                            <img src="TheTwoR.jpeg" alt="The Two Resurrections Series">
+                            <div class="sermon-card-content">
+                                <h3>The Two Resurrections Series</h3>
+                                <p class="date">September, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>Understanding the resurrection of the just and the unjust.</p>
+                                <a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Series
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="The Covenant.jpeg" alt="Covenant Series">
+                            <div class="sermon-card-content">
+                                <h3>Covenant Series</h3>
+                                <p class="date">October, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>Understanding God's covenants throughout history.</p>
+                                <button class="btn" style="margin-top: 1rem; opacity: 0.7; cursor: not-allowed;">
+                                    <i class="fas fa-eye-slash"></i> No Video Available
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="BuildingStrong&Godly.jpeg" alt="Building Godly Families Series">
+                            <div class="sermon-card-content">
+                                <h3>Building Godly Families Series</h3>
+                                <p class="date">November, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>You cannot build a strong and godly family if you have not arrived at the truth that liberates you.</p>
+                                <a href="https://www.youtube.com/live/PDRnhXc1k1o?si=uaOnlEAkhPnp5fkw" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Series
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Praise Report Tab -->
+                <div class="sermon-tab-content" id="praise-sermons">
+                    <div class="sermon-cards">
+                        <div class="sermon-card">
+                            <img src="PTA1.jpg" alt="PTA Special Service Praise Report">
+                            <div class="sermon-card-content">
+                                <h3>PTA Special Service Praise Report</h3>
+                                <p class="date">November, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>All things work together for good, for them that love the Lord |<strong>Romans 8:28</strong>.</p>
+                                <a href="https://www.facebook.com/share/v/17vbKfEy3x/" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Report
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="Apostle1.jpg" alt="Miraculous Healing Testimony">
+                            <div class="sermon-card-content">
+                                <h3>Miraculous Healing Testimony</h3>
+                                <p class="date">February, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>Sister Iketleng testified of her child's miraculous healing after 9 years.</p>
+                                <a href="https://www.facebook.com/share/v/17sP4vFVj2/" class="btn" target="_blank" style="margin-top: 1rem;">
+                                    <i class="fas fa-play-circle"></i> Watch Testimony
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sermon-card">
+                            <img src="report.jpg" alt="Praise Report">
+                            <div class="sermon-card-content">
+                                <h3>Praise Report</h3>
+                                <p class="date">August, 2025</p>
+                                <p class="speaker">Apostle Mothushi Chuene</p>
+                                <p>Fulfillment of prophecy - securing a senior position with a PA.</p>
+                                <button class="btn" style="margin-top: 1rem; opacity: 0.7; cursor: not-allowed;">
+                                    <i class="fas fa-eye-slash"></i> No Video Available
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="view-more-sermons">
+                    <p style="color: var(--text); font-style: italic; margin-top: 2rem;">
+                        Subscribe to our YouTube channel for more sermons and teachings!
+                    </p>
                 </div>
             </div>
         </div>
@@ -909,6 +1127,8 @@
                     <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
                     <li><a href="#" onclick="openMinistryPage('family')">Families 2026</a></li>
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
+                    <li><a href="#" id="sermonsLink">Sermons & Teachings</a></li>
+                    <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
             </div>
@@ -931,7 +1151,8 @@
         const modals = {
             aboutModal: document.getElementById('aboutModal'),
             contactModal: document.getElementById('contactModal'),
-            partnershipModal: document.getElementById('partnershipModal')
+            partnershipModal: document.getElementById('partnershipModal'),
+            sermonsModal: document.getElementById('sermonsModal')
         };
 
         const modalLinks = {
@@ -939,7 +1160,9 @@
             contactLink: document.getElementById('contactLink'),
             partnershipLink: document.getElementById('partnershipLink'),
             aboutFooterLink: document.getElementById('aboutFooterLink'),
-            contactFooterLink: document.getElementById('contactFooterLink')
+            contactFooterLink: document.getElementById('contactFooterLink'),
+            partnershipFooterLink: document.getElementById('partnershipFooterLink'),
+            sermonsLink: document.getElementById('sermonsLink')
         };
 
         function openModal(modalId) {
@@ -972,6 +1195,11 @@
             openModal('partnershipModal');
         });
 
+        modalLinks.sermonsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('sermonsModal');
+        });
+
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('aboutModal');
@@ -980,6 +1208,11 @@
         modalLinks.contactFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('contactModal');
+        });
+
+        modalLinks.partnershipFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('partnershipModal');
         });
 
         // Event listeners for close buttons
@@ -997,6 +1230,21 @@
                     const modalId = modal.id;
                     closeModal(modalId);
                 }
+            });
+        });
+
+        // Sermon Tabs Functionality
+        const sermonTabBtns = document.querySelectorAll('.sermon-tab-btn');
+        const sermonTabContents = document.querySelectorAll('.sermon-tab-content');
+
+        sermonTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sermonTabBtns.forEach(b => b.classList.remove('active'));
+                sermonTabContents.forEach(c => c.classList.remove('active'));
+
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-sermon-tab');
+                document.getElementById(`${tabId}-sermons`).classList.add('active');
             });
         });
 
