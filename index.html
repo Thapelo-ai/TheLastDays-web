@@ -457,6 +457,17 @@
             color: var(--secondary);
         }
 
+        /* Add this new style for sermon links in footer */
+        .sermon-links {
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .sermon-links li {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
         .copyright {
             text-align: center;
             margin-top: 3rem;
@@ -2076,6 +2087,11 @@
                 padding: 0.8rem 1rem;
                 font-size: 0.9rem;
             }
+            
+            /* Mobile styles for sermon links in footer */
+            .sermon-links {
+                padding-left: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -3372,8 +3388,8 @@
             <ul id="nav-menu">
                 <li><a href="#" onclick="returnToMainPage()">Home</a></li>
                 <li><a href="#" id="aboutLink">About Us</a></li>
-                <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
+                <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
                 <li><a href="#" onclick="openMinistryPage('family')">Families 2026</a></li>
                 <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
@@ -3428,213 +3444,9 @@
             </div>
         </section>
 
-        <!-- REMOVED: Special Ministries Section from here -->
+        <!-- REMOVED: Recent Sermons Section from here -->
 
-        <section class="sermons sermons-section" id="sermons">
-            <h2>Recent Sermons</h2>
-            <div class="sermon-counter">
-                Showing <span id="visibleCount">3</span> of <span id="totalCount">12</span> sermons
-            </div>
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="recent">Recent</button>
-                <button class="tab-btn" data-tab="popular">Most Popular</button>
-                <button class="tab-btn" data-tab="series">Series</button>
-                <button class="tab-btn" data-tab="praise">Praise Report</button>
-                <button class="tab-btn" data-tab="ministries">Special Ministries</button>
-            </div>
-
-            <div class="tab-content active" id="recent">
-                <div class="sermon-cards" id="recent-sermons">
-                    <!-- Sermons will be loaded here -->
-                </div>
-                <div class="sermon-loading" id="recent-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading more sermons...</p>
-                </div>
-            </div>
-
-            <div class="tab-content" id="popular">
-                <div class="sermon-cards" id="popular-sermons">
-                    <!-- Sermons will be loaded here -->
-                </div>
-                <div class="sermon-loading" id="popular-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading more sermons...</p>
-                </div>
-            </div>
-
-            <div class="tab-content" id="series">
-                <div class="sermon-cards" id="series-sermons">
-                    <!-- Sermons will be loaded here -->
-                </div>
-                <div class="sermon-loading" id="series-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading more sermons...</p>
-                </div>
-            </div>
-                 <div class="tab-content" id="praise">
-                <div class="sermon-cards" id="praise-sermons">
-                    <!-- Sermons will be loaded here -->
-                </div>
-                <div class="sermon-loading" id="praise-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading more sermons...</p>
-                </div>
-            </div>
-
-            <!-- NEW: Special Ministries Tab Content -->
-            <div class="tab-content special-ministries-tab" id="ministries">
-                <div class="special-ministries">
-                    <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                        You can explore the various ministries that comprise The Last Days Evangelism Ministries. 
-                        Each ministry is designed to meet specific needs and reach different groups with the Gospel.
-                    </p>
-
-                    <div class="ministries-grid">
-                        <div class="ministry-card" onclick="openMinistryPage('apostolic-tour')">
-                            <img src="PTA - Copy.jpg" alt="Apostolic Tour Ministry">
-                            <div class="ministry-card-content">
-                                <div class="ministry-icon">
-                                    <i class="fas fa-globe-africa"></i>
-                                </div>
-                                <h3>Apostolic Tour Ministry</h3>
-                                <p>Taking the Gospel to nations, cities, and communities through apostolic missions and revival meetings. Join us as we spread the fire of revival!</p>
-                                
-                                <ul class="ministry-highlights">
-                                    <li>Nationwide revival tours</li>
-                                    <li>International missions</li>
-                                    <li>Crusades and evangelism</li>
-                                </ul>
-                                
-                                <div class="view-ministry-btn">
-                                    <i class="fas fa-external-link-alt"></i> Visit Apostolic Tour Ministry
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="ministry-card" onclick="openMinistryPage('youth-ministry')">
-                            <img src="youth-.jpg" alt="Youth Ministry">
-                            <div class="ministry-card-content">
-                                <div class="ministry-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <h3>Youth Ministry</h3>
-                                <p>Empowering the next generation (ages 13-35) to live passionately for Christ and impact their world through relevant programs and discipleship.</p>
-                                
-                                <ul class="ministry-highlights">
-                                    <li>Friday Night worship</li>
-                                    <li>Bible study groups</li>
-                                    <li>Leadership development</li>
-                                    <li>Annual youth camps</li>
-                                </ul>
-                                
-                                <div class="view-ministry-btn">
-                                    <i class="fas fa-external-link-alt"></i> Visit Youth Ministry
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="ministry-card" onclick="openMinistryPage('healing-hand')">
-                            <img src="Healing.jpg" alt="Healing Hands Foundation">
-                            <div class="ministry-card-content">
-                                <div class="ministry-icon">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                                <h3>Healing Hands Foundation</h3>
-                                <p>Providing love, care, and support to orphaned and vulnerable children in our community through Christ-centered programs.</p>
-                                
-                                <ul class="ministry-highlights">
-                                    <li>Residential care for orphans</li>
-                                    <li>Education and healthcare support</li>
-                                    <li>Counseling and trauma care</li>
-                                    <li>Child sponsorship programs</li>
-                                </ul>
-                                
-                                <div class="view-ministry-btn">
-                                    <i class="fas fa-external-link-alt"></i> Visit Healing Hands Foundation
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="ministry-card" onclick="openMinistryPage('treasures')">
-                            <img src="tra.jpg" alt="Transformed Treasures Ministry">
-                            <div class="ministry-card-content">
-                                <div class="ministry-icon">
-                                    <i class="fas fa-gem"></i>
-                                </div>
-                                <h3>Transformed Treasures</h3>
-                                <p>A women's ministry group dedicated to transformation through God's Word, fellowship, and prayer in these last days.</p>
-                                
-                                <ul class="ministry-highlights">
-                                    <li>Weekly Bible studies for women</li>
-                                    <li>Prayer and fellowship gatherings</li>
-                                    <li>Monthly retreats and events</li>
-                                    <li>Mentorship and discipleship</li>
-                                </ul>
-                                
-                                <div class="view-ministry-btn">
-                                    <i class="fas fa-external-link-alt"></i> Visit Transformed Treasures
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- NEW: Building Strong and Godly Families 2026 Card -->
-                        <div class="ministry-card" onclick="openMinistryPage('families-2026')">
-                            <img src="BuildingStrong&Godly.jpeg" alt="Building Strong and Godly Families">
-                            <div class="ministry-card-content">
-                                <div class="ministry-icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <h3>Building Strong & Godly Families 2026</h3>
-                                <p>Strengthening marriages, parenting with purpose, and establishing Christ-centered homes for generational impact in 2026.</p>
-                                
-                                <ul class="ministry-highlights">
-                                    <li>Couples' enrichment programs</li>
-                                    <li>Biblical parenting workshops</li>
-                                    <li>Family counseling services</li>
-                                    <li>Generational legacy building</li>
-                                </ul>
-                                
-                                <div class="view-ministry-btn">
-                                    <i class="fas fa-external-link-alt"></i> Visit Family Ministry
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- NEW: Priestly Kings Card -->
-                        <div class="ministry-card" onclick="openMinistryPage('priestly-kings')">
-                            <img src="kings.jpg" alt="Priestly Kings Ministry">
-                            <div class="ministry-card-content">
-                                <div class="ministry-icon">
-                                    <i class="fas fa-crown"></i>
-                                </div>
-                                <h3>Priestly Kings Ministry</h3>
-                                <p>Raising men who reign in life as kings and minister to God as priests. Equipping men for dominion and intercession.</p>
-                                
-                                <ul class="ministry-highlights">
-                                    <li>Men's leadership development</li>
-                                    <li>Spiritual warfare training</li>
-                                    <li>Priestly fellowship</li>
-                                    <li>Kingdom business networking</li>
-                                </ul>
-                                
-                                <div class="view-ministry-btn">
-                                    <i class="fas fa-external-link-alt"></i> Visit Priestly Kings
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="view-more-sermons">
-                <button class="view-more-btn" id="loadMoreSermons">
-                    <i class="fas fa-book-open"></i> View More Sermons
-                </button>
-                <p style="margin-top: 1rem; color: var(--text);">Click to load more messages from our library</p>
-            </div>
-        </section>
-
+        <!-- Special Ministries Section -->
         <section class="partnership">
             <h2>Partner With Us</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
@@ -3774,8 +3586,14 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
-                    <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                     <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
+                    <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
+                    <ul class="sermon-links">
+                        <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">Review, Reflect, Rest</a></li>
+                        <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">Building Strong Families</a></li>
+                        <li><a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" target="_blank">The End Of The Old Covenant</a></li>
+                        <li><a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" target="_blank">The Two Resurrection</a></li>
+                    </ul>
                     <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
                     <li><a href="#" onclick="openMinistryPage('family')">Families </a></li>
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
@@ -3805,43 +3623,6 @@
 
         // Update copyright year
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Tab functionality for sermons
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-
-                btn.classList.add('active');
-                const tabId = btn.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-                
-                sessionStorage.setItem('activeSermonTab', tabId);
-                
-                // Update sermon counter only for sermon tabs
-                if (tabId !== 'ministries') {
-                    updateSermonCounter(tabId);
-                }
-            });
-        });
-
-        // Contact Tabs Functionality
-        const contactTabBtns = document.querySelectorAll('.contact-tab-btn');
-        const contactTabContents = document.querySelectorAll('.contact-tab-content');
-
-        contactTabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                contactTabBtns.forEach(b => b.classList.remove('active'));
-                contactTabContents.forEach(c => c.classList.remove('active'));
-
-                btn.classList.add('active');
-                const tabId = btn.getAttribute('data-contact-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
 
         // Modal Functionality
         const modals = {
@@ -4139,337 +3920,6 @@ ${message}
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Enhanced sermon card click functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Make sermon card titles clickable
-            document.querySelectorAll('.sermon-card h3').forEach(title => {
-                title.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const card = this.closest('.sermon-card');
-                    const watchLink = card.querySelector('a.btn:not(.btn[style*="background-color: var(--primary)"])');
-                    if (watchLink && watchLink.href) {
-                        window.open(watchLink.href, '_blank');
-                    }
-                });
-            });
-            
-            // Restore active tab on page load
-            const activeTab = sessionStorage.getItem('activeSermonTab') || 'recent';
-            const tabBtn = document.querySelector(`[data-tab="${activeTab}"]`);
-            if (tabBtn) {
-                tabBtn.click();
-            }
-            
-            // Initialize sermons
-            initializeSermons();
-            
-            // Initialize treasures page
-            initializeTreasuresPage();
-            
-            // Initialize Healing Hands gallery
-            initializeHealingGallery();
-        });
-
-        // Sermon Management System
-        const sermonData = {
-            recent: [
-                {
-                    id: 1,
-                    title: "Review, Reflect, Rest",
-                    date: "December, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The Bridegroom will come unexpectedly, and only those who are prepared will enter the wedding feast.",
-                    image: "RRR.jpeg",
-                    watchLink: "https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS",
-                    
-                },
-                {
-                    id: 2,
-                    title: "Building Strong and Godly Families",
-                    date: "November, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Understanding the depth of God's love and how to receive it in your life.",
-                    image: "BuildingStrong&Godly.jpeg",
-                    watchLink: "https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz",
-                    
-                },
-                {
-                    id: 3,
-                    title: "The End Of The Old Covenant",
-                    date: "October, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The new covenant is the reality and fulfillment of what the old covenant only pictured.",
-                    image: "The Covenant.jpeg",
-                    watchLink: "https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g",
-                    
-                }
-            ],
-            popular: [
-                {
-                    id: 4,
-                    title: "The Two Resurrection",
-                    date: "September, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Jesus is the first Fruit of those to be resurrected.",
-                    image: "TheTwoR.jpeg",
-                    watchLink: "https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5",
-                    
-                },
-                {
-                    id: 5,
-                    title: "The Coming Of The Bridegroom",
-                    date: "August, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The Bridegroom will come unexpectedly, and only those who are prepared will enter the wedding feast.",
-                    image: "TheComing.jpeg",
-                    watchLink: "https://youtu.be/wOmFVb451KM?si=6BiMR70IWb6QSIsa",
-                    
-                },
-                {
-                    id: 6,
-                    title: "We Are In The Last Days",
-                    date: "July, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "The Holy Spirit is like an engagement ring from Jesus- reminding us that as believers,we are engaged to Christ.",
-                    image: "InTheLastDays.jpeg",
-                    watchLink: "#",
-                   
-                }
-            ],
-            series: [
-                {
-                    id: 7,
-                    title: "The Two Resurrections Series",
-                    date: "September, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Understanding the resurrection of the just and the unjust.",
-                    image: "TheTwoR.jpeg",
-                    watchLink: "https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5",
-                   
-                },
-                {
-                    id: 8,
-                    title: "Covenant Series",
-                    date: "October, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Understanding God's covenants throughout history.",
-                    image: "The Covenant.jpeg",
-                    watchLink: "#",
-                    
-                },
-                {
-                    id: 9,
-                    title: "Building Godly Families Series",
-                    date: "November, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "You cannot build a strong and godly family if you have not arrived at the truth that liberates you.",
-                    image: "BuildingStrong&Godly.jpeg",
-                    watchLink: "https://www.youtube.com/live/PDRnhXc1k1o?si=uaOnlEAkhPnp5fkw",
-                    
-                }
-            ],
-            praise: [
-                {
-                    id: 10,
-                    title: "PTA Special Service Praise Report",
-                    date: "November, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "All things work together for good, for them that love the Lord |<strong>Romans 8:28</strong>.",
-                    image: "PTA1.jpg",
-                    watchLink: "https://www.facebook.com/share/v/17vbKfEy3x/",
-                    
-                },
-                {
-                    id: 11,
-                    title: "We rejoice with sister Iketleng, who testified of her child's miraculous healing!",
-                    date: "February, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Last year June, Sister Iketleng registered a prayer line seeking divine intervention for her son's condition, which caused involuntary released of stool over 9 years.",
-                    image: "Apostle1.jpg",
-                    watchLink: "https://www.facebook.com/share/v/17sP4vFVj2/",
-                    
-                },
-                {
-                    id: 12,
-                    title: "Praise Report",
-                    date: "August, 2025",
-                    speaker: "Apostle Mothushi Chuene",
-                    description: "Fulfillment of prophecy || She secured a senior position that comes with a PA just as the man of God accurately prophesied .",
-                    image: "report.jpg"
-                }
-            ]
-        };
-
-        // Sermon loading configuration
-        const sermonConfig = {
-            itemsPerLoad: 3,
-            initialLoad: {
-                recent: 3,
-                popular: 3,
-                series: 3,
-                praise: 3
-            },
-            loadedCount: {
-                recent: 0,
-                popular: 0,
-                series: 0,
-                praise: 0
-            },
-            totalCount: {
-                recent: sermonData.recent.length,
-                popular: sermonData.popular.length,
-                series: sermonData.series.length,
-                praise: sermonData.praise.length
-            }
-        };
-
-        // Function to create sermon card HTML
-        function createSermonCard(sermon) {
-            return `
-                <div class="sermon-card fade-in" data-id="${sermon.id}">
-                    <img src="${sermon.image}" alt="${sermon.title}">
-                    <div class="sermon-card-content">
-                        <h3>${sermon.title}</h3>
-                        <p class="date">${sermon.date}</p>
-                        <p class="speaker">${sermon.speaker}</p>
-                        <p>${sermon.description}</p>
-                        <div style="margin-top: 1rem;">
-                            <a href="${sermon.watchLink || '#'}" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;" target="_blank">
-                                <i class="fas fa-play-circle"></i> Watch
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to initialize sermons
-        function initializeSermons() {
-            // Load initial sermons for each tab
-            loadInitialSermons('recent');
-            loadInitialSermons('popular');
-            loadInitialSermons('series');
-            loadInitialSermons('praise');
-            
-            // Update counters
-            updateSermonCounter('recent');
-        }
-
-        // Function to load initial sermons
-        function loadInitialSermons(tab) {
-            const container = document.getElementById(`${tab}-sermons`);
-            const data = sermonData[tab];
-            const initialCount = sermonConfig.initialLoad[tab];
-            
-            container.innerHTML = '';
-            sermonConfig.loadedCount[tab] = 0;
-            
-            // Load initial sermons
-            for (let i = 0; i < Math.min(initialCount, data.length); i++) {
-                container.innerHTML += createSermonCard(data[i]);
-                sermonConfig.loadedCount[tab]++;
-            }
-            
-            // Update counters
-            updateSermonCounter(tab);
-        }
-
-        // Function to load more sermons
-        function loadMoreSermons(tab) {
-            const container = document.getElementById(`${tab}-sermons`);
-            const loadingElement = document.getElementById(`${tab}-loading`);
-            const data = sermonData[tab];
-            
-            if (sermonConfig.loadedCount[tab] >= data.length) {
-                document.getElementById('loadMoreSermons').disabled = true;
-                document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
-                return;
-            }
-            
-            loadingElement.classList.add('active');
-            document.getElementById('loadMoreSermons').classList.add('loading');
-            document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-            
-            setTimeout(() => {
-                const startIndex = sermonConfig.loadedCount[tab];
-                const endIndex = Math.min(startIndex + sermonConfig.itemsPerLoad, data.length);
-                
-                for (let i = startIndex; i < endIndex; i++) {
-                    container.innerHTML += createSermonCard(data[i]);
-                    sermonConfig.loadedCount[tab]++;
-                }
-                
-                loadingElement.classList.remove('active');
-                document.getElementById('loadMoreSermons').classList.remove('loading');
-                document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-book-open"></i> View More Sermons';
-                
-                updateSermonCounter(tab);
-                
-                if (sermonConfig.loadedCount[tab] >= data.length) {
-                    document.getElementById('loadMoreSermons').disabled = true;
-                    document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
-                }
-                
-            }, 1000);
-        }
-
-        // Function to update sermon counter
-        function updateSermonCounter(tab) {
-            const visibleCount = sermonConfig.loadedCount[tab];
-            const totalCount = sermonConfig.totalCount[tab];
-            
-            document.getElementById('visibleCount').textContent = visibleCount;
-            document.getElementById('totalCount').textContent = totalCount;
-            
-            const remaining = totalCount - visibleCount;
-            const loadMoreBtn = document.getElementById('loadMoreSermons');
-            
-            if (remaining > 0) {
-                loadMoreBtn.innerHTML = `<i class="fas fa-book-open"></i> View More Sermons (${remaining} remaining)`;
-                loadMoreBtn.disabled = false;
-            } else {
-                loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
-                loadMoreBtn.disabled = true;
-            }
-        }
-
-        // Load More Sermons button event listener
-        document.getElementById('loadMoreSermons').addEventListener('click', function() {
-            const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
-            // Only load more sermons for sermon tabs, not ministries tab
-            if (activeTab !== 'ministries') {
-                loadMoreSermons(activeTab);
-            }
-        });
-
-        // Add click event to sermon cards
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.sermon-card')) {
-                const card = e.target.closest('.sermon-card');
-                if (!e.target.closest('.btn')) {
-                    const watchLink = card.querySelector('a.btn:not(.btn[style*="background-color: var(--primary)"])');
-                    if (watchLink && watchLink.href !== '#') {
-                        window.open(watchLink.href, '_blank');
-                    }
-                }
-            }
-        });
-
-        // Ministry card click handlers
-        document.querySelectorAll('.ministry-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (!e.target.closest('.view-ministry-btn') && !e.target.closest('.btn')) {
-                    const ministry = this.getAttribute('data-ministry') || 
-                                   this.querySelector('h3').textContent.toLowerCase().includes('apostolic') ? 'apostolic-tour' :
-                                   this.querySelector('h3').textContent.toLowerCase().includes('youth') ? 'youth-ministry' : 
-                                   this.querySelector('h3').textContent.toLowerCase().includes('healing') ? 'healing-hand' : 
-                                   this.querySelector('h3').textContent.toLowerCase().includes('families') ? 'families-2026' :
-                                   this.querySelector('h3').textContent.toLowerCase().includes('priestly') ? 'priestly-kings' : 'treasures';
-                    openMinistryPage(ministry);
-                }
-            });
-        });
-
         // Transformed Treasures Functionality
         function initializeTreasuresPage() {
             // Add click event to image items
@@ -4620,11 +4070,15 @@ ${message}
                 uploadBtn.disabled = false;
             }, 2000);
         }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize treasures page
+            initializeTreasuresPage();
+            
+            // Initialize Healing Hands gallery
+            initializeHealingGallery();
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
