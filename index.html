@@ -468,6 +468,17 @@
             font-size: 0.9rem;
         }
 
+        /* Add this new style for ministry links in footer */
+        .ministry-links {
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .ministry-links li {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
         .copyright {
             text-align: center;
             margin-top: 3rem;
@@ -2092,6 +2103,11 @@
             .sermon-links {
                 padding-left: 0.5rem;
             }
+            
+            /* Mobile styles for ministry links in footer */
+            .ministry-links {
+                padding-left: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -3597,6 +3613,11 @@
                     <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
                     <li><a href="#" onclick="openMinistryPage('family')">Families </a></li>
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
+                    <li><a href="#" onclick="openMinistryPage('healing-hand')">Healing Hands Foundation</a></li>
+                    <ul class="ministry-links">
+                        <li><a href="https://www.facebook.com/share/v/17vbKfEy3x/" target="_blank">PTA Special Service Praise Report</a></li>
+                        <li><a href="https://www.facebook.com/share/v/17sP4vFVj2/" target="_blank">Child Healing Testimony</a></li>
+                    </ul>
                     <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
@@ -3898,7 +3919,7 @@ ${message}
             const titles = {
                 'apostolic-tour': 'Apostolic Tour Ministry',
                 'youth-ministry': 'Youth & Young Adults Ministry',
-                'healing-hand': 'Healing Hands Ministry',
+                'healing-hand': 'Healing Hands Foundation',
                 'treasures': 'Transformed Treasures Ministry',
                 'family': 'Building Strong and Godly Families',
                 'priestly-kings': 'Priestly Kings Ministry'
