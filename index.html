@@ -1686,6 +1686,226 @@
             padding-left: 0.5rem;
         }
 
+        /* NEW: Healing Hands Image Gallery Styles */
+        .image-gallery-section {
+            margin: 4rem 0;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            height: 280px;
+            background: white;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-filter-btn {
+            padding: 0.8rem 2rem;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .gallery-filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .gallery-filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .gallery-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(74, 111, 40, 0.05);
+            border-radius: 12px;
+            color: var(--text);
+        }
+
+        .gallery-empty i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .upload-gallery-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 4rem;
+            text-align: center;
+            border: 2px dashed rgba(74, 111, 40, 0.2);
+        }
+
+        .upload-gallery-section h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .upload-gallery-section p {
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .upload-btn:hover {
+            background: #e69500;
+            transform: translateY(-2px);
+        }
+
+        .image-upload-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .upload-preview {
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .upload-preview.active {
+            display: block;
+        }
+
+        .preview-image {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .upload-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* Healing Hands specific hero background */
+        .healing-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Healing.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -1819,6 +2039,24 @@
             
             .image-item {
                 height: 200px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+            
+            .gallery-item {
+                height: 220px;
+            }
+            
+            .upload-gallery-section {
+                padding: 2rem 1rem;
+            }
+            
+            .gallery-filter-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -2321,13 +2559,13 @@
         </section>
     </div>
 
-    <!-- Healing Hands Ministry Page -->
+    <!-- Healing Hands Ministry Page - UPDATED -->
     <div id="healing-hand-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
         </a>
         
-        <section class="ministry-hero healing">
+        <section class="healing-hero">
             <div>
                 <h1>Healing Hands Foundation</h1>
                 <p>Extending God's love and care to orphaned and vulnerable children in our community</p>
@@ -2337,8 +2575,8 @@
 
         <section class="ministry-content">
             <div class="ministry-section">
-                <h2>About Healing Hands Care</h2>
-                <p style="margin-bottom:20px">The Healing Hands foundation, which Pastor Lerato Chuene founded, adopted a disability school in Moletjie Center.</p>
+                <h2>About Healing Hands Foundation</h2>
+                <p style="margin-bottom:20px">The Healing Hands Foundation, which Pastor Lerato Chuene founded, adopted a disability school in Moletjie Center.</p>
                 <p><strong>Hebrews 13:16 "Do not neglect to do good and to share what you have, for such sacrifices are pleasing to God"</strong></p>
                 
                 <div style="background: rgba(74, 111, 40, 0.1); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
@@ -2402,25 +2640,115 @@
                 </div>
             </div>
 
-            <div class="ministry-section">
-                <h2>Our Impact</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">48</div>
-                        <h4 style="color: var(--primary);">Children Cared For</h4>
-                        <p style="font-size: 0.9rem;">Currently in our residential program</p>
+            <!-- NEW: Image Gallery Section -->
+            <div class="image-gallery-section">
+                <div class="gallery-header">
+                    <h2><i class="fas fa-images"></i> Our Ministry in Pictures</h2>
+                    <p>Witness the impact of Healing Hands Foundation through our collection of photos showcasing our work with children and community outreach.</p>
+                </div>
+
+                <div class="gallery-controls">
+                    <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+                    <button class="gallery-filter-btn" data-filter="children">Children's Activities</button>
+                    <button class="gallery-filter-btn" data-filter="outreach">Community Outreach</button>
+                    <button class="gallery-filter-btn" data-filter="education">Education Support</button>
+                    <button class="gallery-filter-btn" data-filter="events">Special Events</button>
+                </div>
+
+                <div class="gallery-grid" id="healingGallery">
+                    <!-- Images will be loaded here -->
+                    <div class="gallery-item" data-category="children">
+                        <img src="healing1.jpg" alt="Children playing at Healing Hands">
+                        <div class="gallery-overlay">
+                            <h4>Children's Playtime</h4>
+                            <p>Children enjoying recreational activities at our center</p>
+                        </div>
                     </div>
                     
-                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">127</div>
-                        <h4 style="color: var(--primary);">Children Supported</h4>
-                        <p style="font-size: 0.9rem;">In education and outreach programs</p>
+                    <div class="gallery-item" data-category="education">
+                        <img src="healing2.jpg" alt="Education support program">
+                        <div class="gallery-overlay">
+                            <h4>Learning Together</h4>
+                            <p>Children receiving educational support and tutoring</p>
+                        </div>
                     </div>
                     
-                    <div style="text-align: center; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                        <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 700;">9</div>
-                        <h4 style="color: var(--primary);">Years of Service</h4>
-                        <p style="font-size: 0.9rem;">Since ministry establishment</p>
+                    <div class="gallery-item" data-category="outreach">
+                        <img src="healing3.jpg" alt="Community outreach">
+                        <div class="gallery-overlay">
+                            <h4>Community Outreach</h4>
+                            <p>Our team distributing supplies to families in need</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="events">
+                        <img src="healing4.jpg" alt="Christmas celebration">
+                        <div class="gallery-overlay">
+                            <h4>Christmas Celebration</h4>
+                            <p>Annual Christmas party for the children</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="children">
+                        <img src="healing5.jpg" alt="Children's meal time">
+                        <div class="gallery-overlay">
+                            <h4>Nutritious Meals</h4>
+                            <p>Children enjoying healthy meals at our facility</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="education">
+                        <img src="healing6.jpg" alt="School supplies distribution">
+                        <div class="gallery-overlay">
+                            <h4>School Supplies</h4>
+                            <p>Distribution of educational materials to students</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Section for Gallery -->
+                <div class="upload-gallery-section">
+                    <h3><i class="fas fa-cloud-upload-alt"></i> Share Your Healing Hands Photos</h3>
+                    <p>Help us document the wonderful work being done at Healing Hands Foundation. Upload your photos from our events and activities to be featured in our gallery.</p>
+                    
+                    <button class="upload-btn" onclick="openUploadForm()">
+                        <i class="fas fa-camera"></i> Upload Your Photos
+                    </button>
+                    
+                    <div class="image-upload-form" id="uploadForm" style="display: none; margin-top: 2rem;">
+                        <div class="form-group">
+                            <label for="photoUpload"><i class="fas fa-image"></i> Select Photos</label>
+                            <input type="file" id="photoUpload" accept="image/*" multiple onchange="previewImages(event)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="photoCaption"><i class="fas fa-pencil-alt"></i> Photo Caption</label>
+                            <input type="text" id="photoCaption" placeholder="Describe what's happening in the photo...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="photoCategory"><i class="fas fa-tag"></i> Category</label>
+                            <select id="photoCategory">
+                                <option value="children">Children's Activities</option>
+                                <option value="outreach">Community Outreach</option>
+                                <option value="education">Education Support</option>
+                                <option value="events">Special Events</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="upload-preview" id="uploadPreview">
+                            <!-- Preview images will appear here -->
+                        </div>
+                        
+                        <div class="upload-actions">
+                            <button class="btn" onclick="uploadImages()" style="background-color: var(--primary);">
+                                <i class="fas fa-upload"></i> Upload to Gallery
+                            </button>
+                            <button class="btn" onclick="closeUploadForm()" style="background-color: #ccc; color: #333;">
+                                Cancel
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2475,48 +2803,6 @@
             </div>
 
             <div class="ministry-section">
-                <h2>Sponsorship Programs</h2>
-                <div style="background: rgba(74, 111, 40, 0.05); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
-                    <h3 style="color: var(--primary); text-align: center;">Change a Child's Life Through Sponsorship</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <h4 style="color: var(--primary);">Basic Care Sponsor</h4>
-                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R300/month</div>
-                            <p>Provides food, clothing, and necessities for one child</p>
-                        </div>
-                        
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <h4 style="color: var(--primary);">Education Sponsor</h4>
-                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R500/month</div>
-                            <p>Covers school fees, books, and educational materials</p>
-                        </div>
-                        
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                            <h4 style="color: var(--primary);">Full Support Sponsor</h4>
-                            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: 700; margin: 1rem 0;">R800/month</div>
-                            <p>Comprehensive support including healthcare and extras</p>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <p><strong>As a sponsor, you will receive:</strong></p>
-                        <ul style="display: inline-block; text-align: left; margin-top: 1rem;">
-                            <li>Monthly updates about your sponsored child</li>
-                            <li>Photos and letters from the child</li>
-                            <li>Annual progress reports</li>
-                            <li>Special invitation to visit the ministry</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <button class="btn" onclick="openModal('contactModal')">
-                            <i class="fas fa-heart"></i> Become a Sponsor Today
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ministry-section">
                 <h2>Banking Details for Donations</h2>
                 <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 2rem; text-align: center;">
                     <div style="background: rgba(245, 166, 35, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
@@ -2529,7 +2815,7 @@
                     </div>
                     
                     <div style="margin-top: 2rem;">
-                        <button class="btn" onclick="copyToClipboard('Bank: Standard Bank\nAccount Name: Healing Hands Foundation\nAccount Number: 10127203549\nBranch Code: 51001\nReference: Your Name + \"Orphan Care\"', 'Banking Details')">
+                        <button class="btn" onclick="copyToClipboard('Bank: Standard Bank\nAccount Name: Healing Hands Foundation\nAccount Number: 10127203549\nBranch Code: 51001\nReference: Your Name + \"Healing Hands\"', 'Banking Details')">
                             <i class="fas fa-copy"></i> Copy Banking Details
                         </button>
                         <button class="btn" onclick="openModal('contactModal')" style="background-color: var(--primary); margin-left: 1rem;">
@@ -3863,6 +4149,9 @@ ${message}
             
             // Initialize treasures page
             initializeTreasuresPage();
+            
+            // Initialize Healing Hands gallery
+            initializeHealingGallery();
         });
 
         // Sermon Management System
@@ -4190,6 +4479,130 @@ ${message}
                 `;
                 openModal('treasuresModal');
             }
+        }
+
+        // Healing Hands Gallery Functionality
+        function initializeHealingGallery() {
+            // Gallery filter functionality
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide gallery items based on filter
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Open image in full view when clicked
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').src;
+                    const title = this.querySelector('h4').textContent;
+                    const description = this.querySelector('p').textContent;
+                    
+                    openHealingImageModal(imgSrc, title, description);
+                });
+            });
+        }
+        
+        // Function to open image modal
+        function openHealingImageModal(imageSrc, title, description) {
+            const modalContent = modals.treasuresModal.querySelector('.fullscreen-image-container');
+            modalContent.innerHTML = `
+                <img src="${imageSrc}" alt="${title}" class="fullscreen-image">
+                <div class="image-caption">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--secondary);">
+                        <i class="fas fa-heart"></i> Healing Hands Foundation
+                    </p>
+                </div>
+            `;
+            openModal('treasuresModal');
+        }
+        
+        // Upload form functionality
+        function openUploadForm() {
+            const uploadForm = document.getElementById('uploadForm');
+            uploadForm.style.display = 'block';
+        }
+        
+        function closeUploadForm() {
+            const uploadForm = document.getElementById('uploadForm');
+            uploadForm.style.display = 'none';
+            document.getElementById('uploadPreview').innerHTML = '';
+            document.getElementById('photoUpload').value = '';
+            document.getElementById('photoCaption').value = '';
+        }
+        
+        function previewImages(event) {
+            const preview = document.getElementById('uploadPreview');
+            preview.innerHTML = '';
+            preview.classList.add('active');
+            
+            const files = event.target.files;
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.classList.add('preview-image');
+                    preview.appendChild(img);
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function uploadImages() {
+            const caption = document.getElementById('photoCaption').value;
+            const category = document.getElementById('photoCategory').value;
+            const files = document.getElementById('photoUpload').files;
+            
+            if (files.length === 0) {
+                alert('Please select at least one photo to upload.');
+                return;
+            }
+            
+            // In a real application, you would upload to a server here
+            // For demo purposes, we'll simulate an upload
+            
+            const uploadBtn = document.querySelector('.upload-btn');
+            const originalText = uploadBtn.innerHTML;
+            uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+            uploadBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Thank you! ${files.length} photo(s) have been uploaded successfully. They will be reviewed and added to the gallery soon.`);
+                closeUploadForm();
+                uploadBtn.innerHTML = originalText;
+                uploadBtn.disabled = false;
+            }, 2000);
         }
     </script>
 </body>
