@@ -1060,6 +1060,98 @@
             font-style: italic;
         }
 
+        /* Sermon Filter Styles */
+        .sermon-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .filter-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .filter-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 5px;
+            padding: 0.5rem;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .filter-menu.show {
+            display: block;
+        }
+
+        .filter-option {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .filter-option:hover {
+            background-color: rgba(74, 111, 40, 0.1);
+        }
+
+        .filter-option.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .no-sermons-message {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text);
+            font-style: italic;
+            grid-column: 1 / -1;
+        }
+
+        .sermon-card.unavailable {
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .sermon-card.unavailable::after {
+            content: "No Video Available";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0,0,0,0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .watch-only-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            display: none;
+        }
+
+        .sermon-card.has-video .watch-only-indicator {
+            display: block;
+        }
+
         /* Special Ministries Section Styles */
         .special-ministries {
             background-color: #f8f9fa;
@@ -1819,6 +1911,23 @@
             
             .image-item {
                 height: 200px;
+            }
+            
+            /* Mobile styles for sermon filters */
+            .sermon-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-dropdown {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .filter-menu {
+                width: 90%;
+                left: 5%;
+                transform: none;
             }
         }
     </style>
@@ -3279,9 +3388,23 @@
 
         <section class="sermons sermons-section" id="sermons">
             <h2>Recent Sermons</h2>
-            <div class="sermon-counter">
-                Showing <span id="visibleCount">3</span> of <span id="totalCount">12</span> sermons
+            
+            <!-- NEW: Sermon Filters -->
+            <div class="sermon-filters">
+                <button class="btn btn-small" id="watchOnlyToggle" style="margin: 0.5rem; background-color: var(--primary);">
+                    <i class="fas fa-eye"></i> Watch Only
+                </button>
+                <button class="btn btn-small" id="filterBySpeaker" style="margin: 0.5rem; background-color: var(--secondary);">
+                    <i class="fas fa-user"></i> Filter by Speaker
+                </button>
             </div>
+
+            <!-- Modified Sermon Counter -->
+            <div class="sermon-counter">
+                Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> sermons 
+                <span id="filterStatus" style="color: var(--secondary); font-weight: 600;"></span>
+            </div>
+            
             <div class="tabs">
                 <button class="tab-btn active" data-tab="recent">Recent</button>
                 <button class="tab-btn" data-tab="popular">Most Popular</button>
@@ -3523,6 +3646,11 @@
                 
                 sessionStorage.setItem('activeSermonTab', tabId);
                 updateSermonCounter(tabId);
+                
+                // Apply filters to the newly active tab
+                setTimeout(() => {
+                    applySermonFilters();
+                }, 100);
             });
         });
 
@@ -4018,22 +4146,30 @@ ${message}
             }
         };
 
+        // Sermon Filtering System
+        let watchOnlyMode = false;
+        let currentFilter = 'all'; // 'all', 'apostle', 'pastor', 'guest'
+
         // Function to create sermon card HTML
         function createSermonCard(sermon) {
+            const hasVideo = sermon.watchLink && sermon.watchLink !== '#';
+            const videoClass = hasVideo ? 'has-video' : '';
+            
             return `
-                <div class="sermon-card fade-in" data-id="${sermon.id}">
+                <div class="sermon-card fade-in ${videoClass}" data-id="${sermon.id}" data-speaker="${sermon.speaker.toLowerCase()}">
                     <img src="${sermon.image}" alt="${sermon.title}">
+                    ${hasVideo ? '<div class="watch-only-indicator"><i class="fas fa-video"></i> Video Available</div>' : ''}
                     <div class="sermon-card-content">
                         <h3>${sermon.title}</h3>
                         <p class="date">${sermon.date}</p>
                         <p class="speaker">${sermon.speaker}</p>
                         <p>${sermon.description}</p>
                         <div style="margin-top: 1rem;">
-                            <a href="${sermon.watchLink || '#'}" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;" target="_blank">
-                                <i class="fas fa-play-circle"></i> Watch
+                            <a href="${sermon.watchLink || '#'}" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;" target="_blank" ${!hasVideo ? 'onclick="return false;" style="opacity: 0.7; cursor: not-allowed;"' : ''}>
+                                <i class="fas ${hasVideo ? 'fa-play-circle' : 'fa-eye-slash'}"></i> ${hasVideo ? 'Watch' : 'No Video'}
                             </a>
-                            <a href="${sermon.downloadLink || '#'}" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);" target="_blank">
-                                <i class="fas fa-download"></i> Download
+                            <a href="${sermon.downloadLink || '#'}" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);" target="_blank" ${!sermon.downloadLink || sermon.downloadLink === '#' ? 'onclick="return false;" style="opacity: 0.7; cursor: not-allowed; background-color: #ccc;"' : ''}>
+                                <i class="fas fa-download"></i> ${sermon.downloadLink && sermon.downloadLink !== '#' ? 'Download' : 'No Download'}
                             </a>
                         </div>
                     </div>
@@ -4049,8 +4185,11 @@ ${message}
             loadInitialSermons('series');
             loadInitialSermons('praise');
             
-            // Update counters
-            updateSermonCounter('recent');
+            // Initialize filters
+            initializeSermonFilters();
+            
+            // Apply initial filters
+            applySermonFilters();
         }
 
         // Function to load initial sermons
@@ -4070,6 +4209,181 @@ ${message}
             
             // Update counters
             updateSermonCounter(tab);
+        }
+
+        // Initialize filtering system
+        function initializeSermonFilters() {
+            // Add watch only toggle
+            document.getElementById('watchOnlyToggle').addEventListener('click', toggleWatchOnlyMode);
+            
+            // Add speaker filter dropdown
+            const speakerFilterBtn = document.getElementById('filterBySpeaker');
+            const speakerMenu = document.createElement('div');
+            speakerMenu.className = 'filter-menu';
+            speakerMenu.innerHTML = `
+                <div class="filter-option ${currentFilter === 'all' ? 'active' : ''}" data-filter="all">All Speakers</div>
+                <div class="filter-option ${currentFilter === 'apostle' ? 'active' : ''}" data-filter="apostle">Apostle Mothushi Chuene</div>
+                <div class="filter-option" data-filter="pastor">Pastor Lerato Chuene</div>
+                <div class="filter-option" data-filter="guest">Guest Speakers</div>
+            `;
+            
+            const dropdown = document.createElement('div');
+            dropdown.className = 'filter-dropdown';
+            dropdown.appendChild(speakerMenu);
+            speakerFilterBtn.parentNode.insertBefore(dropdown, speakerFilterBtn.nextSibling);
+            dropdown.insertBefore(speakerFilterBtn, speakerMenu);
+            
+            // Toggle speaker dropdown
+            speakerFilterBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                speakerMenu.classList.toggle('show');
+            });
+            
+            // Handle speaker filter selection
+            speakerMenu.querySelectorAll('.filter-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    currentFilter = filter;
+                    
+                    // Update active state
+                    speakerMenu.querySelectorAll('.filter-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    speakerMenu.classList.remove('show');
+                    applySermonFilters();
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    speakerMenu.classList.remove('show');
+                }
+            });
+        }
+
+        // Toggle watch only mode
+        function toggleWatchOnlyMode() {
+            watchOnlyMode = !watchOnlyMode;
+            const toggleBtn = document.getElementById('watchOnlyToggle');
+            
+            if (watchOnlyMode) {
+                toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Show All Sermons';
+                toggleBtn.style.backgroundColor = 'var(--secondary)';
+            } else {
+                toggleBtn.innerHTML = '<i class="fas fa-eye"></i> Watch Only';
+                toggleBtn.style.backgroundColor = 'var(--primary)';
+            }
+            
+            applySermonFilters();
+        }
+
+        // Apply filters to sermons
+        function applySermonFilters() {
+            const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
+            const container = document.getElementById(`${activeTab}-sermons`);
+            const cards = container.querySelectorAll('.sermon-card');
+            let visibleCount = 0;
+            
+            cards.forEach(card => {
+                let shouldShow = true;
+                const watchLink = card.querySelector('a.btn:not(.btn[style*="background-color: var(--primary)"])');
+                const speakerName = card.querySelector('.speaker').textContent;
+                
+                // Apply watch only filter
+                if (watchOnlyMode) {
+                    const hasValidWatchLink = watchLink && watchLink.href && watchLink.href !== '#';
+                    shouldShow = shouldShow && hasValidWatchLink;
+                }
+                
+                // Apply speaker filter
+                if (currentFilter !== 'all') {
+                    if (currentFilter === 'apostle') {
+                        shouldShow = shouldShow && speakerName.includes('Apostle Mothushi Chuene');
+                    } else if (currentFilter === 'pastor') {
+                        shouldShow = shouldShow && speakerName.includes('Pastor Lerato Chuene');
+                    } else if (currentFilter === 'guest') {
+                        shouldShow = shouldShow && !speakerName.includes('Apostle Mothushi Chuene') && 
+                                   !speakerName.includes('Pastor Lerato Chuene');
+                    }
+                }
+                
+                // Show/hide card
+                if (shouldShow) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Update counter
+            updateFilteredCounter(visibleCount, cards.length);
+            
+            // Show message if no sermons match filters
+            const noSermonsMsg = container.querySelector('.no-sermons-message');
+            if (visibleCount === 0) {
+                if (!noSermonsMsg) {
+                    const message = document.createElement('div');
+                    message.className = 'no-sermons-message';
+                    message.innerHTML = `
+                        <i class="fas fa-film" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h3>No sermons match your filters</h3>
+                        <p>Try adjusting your filter settings to see more sermons.</p>
+                    `;
+                    container.appendChild(message);
+                }
+            } else if (noSermonsMsg) {
+                noSermonsMsg.remove();
+            }
+        }
+
+        // Update filtered counter
+        function updateFilteredCounter(visible, total) {
+            document.getElementById('visibleCount').textContent = visible;
+            document.getElementById('totalCount').textContent = total;
+            
+            const filterStatus = document.getElementById('filterStatus');
+            let statusText = '';
+            
+            if (watchOnlyMode) {
+                statusText += ' (Watch Only)';
+            }
+            
+            if (currentFilter !== 'all') {
+                const filterNames = {
+                    'apostle': 'Apostle Mothushi Chuene',
+                    'pastor': 'Pastor Lerato Chuene',
+                    'guest': 'Guest Speakers'
+                };
+                statusText += watchOnlyMode ? ' • ' : ' (';
+                statusText += filterNames[currentFilter] || currentFilter;
+                if (!watchOnlyMode) statusText += ')';
+            }
+            
+            filterStatus.textContent = statusText;
+        }
+
+        // Function to update sermon counter
+        function updateSermonCounter(tab) {
+            const visibleCount = sermonConfig.loadedCount[tab];
+            const totalCount = sermonConfig.totalCount[tab];
+            
+            document.getElementById('visibleCount').textContent = visibleCount;
+            document.getElementById('totalCount').textContent = totalCount;
+            
+            const remaining = totalCount - visibleCount;
+            const loadMoreBtn = document.getElementById('loadMoreSermons');
+            
+            if (remaining > 0) {
+                loadMoreBtn.innerHTML = `<i class="fas fa-book-open"></i> View More Sermons (${remaining} remaining)`;
+                loadMoreBtn.disabled = false;
+            } else {
+                loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
+                loadMoreBtn.disabled = true;
+            }
         }
 
         // Function to load more sermons
@@ -4097,6 +4411,9 @@ ${message}
                     sermonConfig.loadedCount[tab]++;
                 }
                 
+                // Apply filters to newly loaded sermons
+                applySermonFilters();
+                
                 loadingElement.classList.remove('active');
                 document.getElementById('loadMoreSermons').classList.remove('loading');
                 document.getElementById('loadMoreSermons').innerHTML = '<i class="fas fa-book-open"></i> View More Sermons';
@@ -4109,26 +4426,6 @@ ${message}
                 }
                 
             }, 1000);
-        }
-
-        // Function to update sermon counter
-        function updateSermonCounter(tab) {
-            const visibleCount = sermonConfig.loadedCount[tab];
-            const totalCount = sermonConfig.totalCount[tab];
-            
-            document.getElementById('visibleCount').textContent = visibleCount;
-            document.getElementById('totalCount').textContent = totalCount;
-            
-            const remaining = totalCount - visibleCount;
-            const loadMoreBtn = document.getElementById('loadMoreSermons');
-            
-            if (remaining > 0) {
-                loadMoreBtn.innerHTML = `<i class="fas fa-book-open"></i> View More Sermons (${remaining} remaining)`;
-                loadMoreBtn.disabled = false;
-            } else {
-                loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> All Sermons Loaded';
-                loadMoreBtn.disabled = true;
-            }
         }
 
         // Load More Sermons button event listener
@@ -4194,10 +4491,3 @@ ${message}
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
