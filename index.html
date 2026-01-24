@@ -4004,7 +4004,7 @@ ${message}
                     description: "The Bridegroom will come unexpectedly, and only those who are prepared will enter the wedding feast.",
                     image: "RRR.jpeg",
                     watchLink: "https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS",
-                    downloadLink: "https://example.com/sermons/coming-bridegroom.mp3"
+                   
                 },
                 {
                     id: 2,
@@ -4014,7 +4014,7 @@ ${message}
                     description: "Understanding the depth of God's love and how to receive it in your life.",
                     image: "BuildingStrong&Godly.jpeg",
                     watchLink: "https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz",
-                    downloadLink: "https://example.com/sermons/gods-love.mp3"
+                    
                 },
                 {
                     id: 3,
@@ -4024,7 +4024,7 @@ ${message}
                     description: "The new covenant is the reality and fulfillment of what the old covenant only pictured.",
                     image: "The Covenant.jpeg",
                     watchLink: "https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g",
-                    downloadLink: "https://example.com/sermons/holy-spirit.mp3"
+                    
                 }
             ],
             popular: [
@@ -4036,7 +4036,7 @@ ${message}
                     description: "Jesus is the first Fruit of those to be resurrected.",
                     image: "TheTwoR.jpeg",
                     watchLink: "https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5",
-                    downloadLink: "#"
+                    
                 },
                 {
                     id: 5,
@@ -4046,7 +4046,7 @@ ${message}
                     description: "The Bridegroom will come unexpectedly, and only those who are prepared will enter the wedding feast.",
                     image: "TheComing.jpeg",
                     watchLink: "https://youtu.be/wOmFVb451KM?si=6BiMR70IWb6QSIsa",
-                    downloadLink: "#"
+                   
                 },
                 {
                     id: 6,
@@ -4056,7 +4056,7 @@ ${message}
                     description: "The Holy Spirit is like an engagement ring from Jesus- reminding us that as believers,we are engaged to Christ.",
                     image: "InTheLastDays.jpeg",
                     watchLink: "#",
-                    downloadLink: "#"
+                    
                 }
             ],
             series: [
@@ -4068,7 +4068,7 @@ ${message}
                     description: "Understanding the resurrection of the just and the unjust.",
                     image: "TheTwoR.jpeg",
                     watchLink: "https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5",
-                    downloadLink: "#"
+                   
                 },
                 {
                     id: 8,
@@ -4078,7 +4078,7 @@ ${message}
                     description: "Understanding God's covenants throughout history.",
                     image: "The Covenant.jpeg",
                     watchLink: "#",
-                    downloadLink: "#"
+                    
                 },
                 {
                     id: 9,
@@ -4088,7 +4088,7 @@ ${message}
                     description: "You cannot build a strong and godly family if you have not arrived at the truth that liberates you.",
                     image: "BuildingStrong&Godly.jpeg",
                     watchLink: "https://www.youtube.com/live/PDRnhXc1k1o?si=uaOnlEAkhPnp5fkw",
-                    downloadLink: "#"
+                    
                 }
             ],
             praise: [
@@ -4100,7 +4100,7 @@ ${message}
                     description: "All things work together for good, for them that love the Lord |<strong>Romans 8:28</strong>.",
                     image: "PTA1.jpg",
                     watchLink: "https://www.facebook.com/share/v/17vbKfEy3x/",
-                    downloadLink: "#"
+                    
                 },
                 {
                     id: 11,
@@ -4110,7 +4110,7 @@ ${message}
                     description: "Last year June, Sister Iketleng registered a prayer line seeking divine intervention for her son's condition, which caused involuntary released of stool over 9 years.",
                     image: "Apostle1.jpg",
                     watchLink: "https://www.facebook.com/share/v/17sP4vFVj2/",
-                    downloadLink: "#"
+                   
                 },
                 {
                     id: 12,
@@ -4167,9 +4167,6 @@ ${message}
                         <div style="margin-top: 1rem;">
                             <a href="${sermon.watchLink || '#'}" class="btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;" target="_blank" ${!hasVideo ? 'onclick="return false;" style="opacity: 0.7; cursor: not-allowed;"' : ''}>
                                 <i class="fas ${hasVideo ? 'fa-play-circle' : 'fa-eye-slash'}"></i> ${hasVideo ? 'Watch' : 'No Video'}
-                            </a>
-                            <a href="${sermon.downloadLink || '#'}" class="btn" style="padding: 0.5rem 1rem; background-color: var(--primary);" target="_blank" ${!sermon.downloadLink || sermon.downloadLink === '#' ? 'onclick="return false;" style="opacity: 0.7; cursor: not-allowed; background-color: #ccc;"' : ''}>
-                                <i class="fas fa-download"></i> ${sermon.downloadLink && sermon.downloadLink !== '#' ? 'Download' : 'No Download'}
                             </a>
                         </div>
                     </div>
@@ -4491,6 +4488,7 @@ ${message}
     </script>
 </body>
 </html>
+
 
 
 
