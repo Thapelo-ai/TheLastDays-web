@@ -99,41 +99,47 @@
             cursor: pointer;
         }
 
+        /* ENLARGED HERO SECTION */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Apostle4.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh;
-            width: 100vh;
+            height: 90vh; /* Increased from 60vh to 90vh */
+            width: 100%; /* Changed from 100vh to 100% */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding: 0 1rem;
+            position: relative;
         }
 
         .hero-content h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem; /* Increased from 3rem */
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem; /* Increased from 1.2rem */
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            line-height: 1.8;
         }
 
         .btn {
             display: inline-block;
             background-color: var(--secondary);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem; /* Increased padding */
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            font-size: 1.1rem; /* Increased font size */
         }
 
         .btn:hover {
@@ -574,13 +580,6 @@
             padding: 1.5rem;
             margin-bottom: 2rem;
             border-radius: 0 8px 8px 0;
-        }
-
-        .partnership-highlight p {
-            font-style: italic;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1.1rem;
         }
 
         .partnership-scripture {
@@ -1957,7 +1956,15 @@
             }
 
             .hero-content h2 {
-                font-size: 2rem;
+                font-size: 2.5rem; /* Adjusted for mobile */
+            }
+
+            .hero-content p {
+                font-size: 1.2rem; /* Adjusted for mobile */
+            }
+
+            .hero {
+                height: 80vh; /* Adjusted for mobile */
             }
 
             .tabs {
@@ -3411,7 +3418,7 @@
                 <!-- FIXED: Changed from 'family' to 'families' to match the page ID -->
                 <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
                 <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
-                <li><a href="#" id="partnershipLink">Partner With Us</a></li>
+                <!-- REMOVED: Partner With Us from navigation -->
                 <li><a href="#" id="contactLink">Contact</a></li>
             </ul>
         </nav>
@@ -3464,123 +3471,8 @@
 
         <!-- REMOVED: Recent Sermons Section from here -->
 
-        <!-- Special Ministries Section -->
-        <section class="partnership">
-            <h2>Partner With Us</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                Your partnership helps us spread the Gospel and make a difference in our community. 
-                <strong>Together, we can reach more souls and prepare believers for Christ's return.</strong>
-            </p>
+        <!-- REMOVED: Partner With Us Section from home page -->
 
-            <div class="partnership-options">
-                <div class="partnership-option">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Prayer Partnership</h3>
-                    <p>Join our spiritual army that intercedes for the ministry, our outreaches, and the souls we are reaching.</p>
-                    
-                    <button class="btn btn-outline" onclick="openPartnershipModal('prayer')">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-pray"></i> Join Now
-                    </button>
-                </div>
-                
-                <div class="partnership-option">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Financial Partnership</h3>
-                    <p>Support our ministry financially through tithes, offerings, monthly support, or specific project donations.</p>
-                    
-                    <div class="partnership-benefits">
-                        <h4>Benefits Include:</h4>
-                        <ul>
-                            <li>Monthly ministry reports</li>
-                            <li>Annual appreciation event</li>
-                        </ul>
-                    </div>
-                    
-                    <button class="btn btn-outline" onclick="openPartnershipModal('financial')">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-donate"></i> Give Now
-                    </button>
-                </div>
-                
-                <div class="partnership-option">
-                    <i class="fas fa-people-carry"></i>
-                    <h3>Volunteer Partnership</h3>
-                    <p>Offer your time and talents to serve in various ministry areas and outreach programs.</p>
-                    
-                    <div class="partnership-benefits">
-                        <h4>Benefits Include:</h4>
-                        <ul>
-                            <li>Skills development</li>
-                            <li>Team building</li>
-                            <li>Ministry experience</li>
-                            <li>Recognition events</li>
-                        </ul>
-                    </div>
-                    
-                    <button class="btn btn-outline" onclick="openPartnershipModal('volunteer')">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </button>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-hands"></i> Volunteer
-                    </button>
-                </div>
-            </div>
-
-            <div class="partnership-details">
-                <h3>Why Partner With Us?</h3>
-                <p>Your partnership enables us to:</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-cross" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Spread the Gospel</h4>
-                        <p>Reach souls with the message of salvation</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-church" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Build Disciples</h4>
-                        <p>Equip believers for effective ministry</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-hands" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Serve Community</h4>
-                        <p>Some of the money goes to the children who are being taken care of through our foundation of Healing Hands </p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-globe" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                        <h4 style="color: var(--primary);">Expand Impact</h4>
-                        <p>Grow our outreach locally and beyond</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="financial-details">
-                <h3 style="text-align: center;">Financial Partnership Details</h3>
-                <p style="text-align: center;">We offer multiple ways to support us financially:</p>
-                
-                <div class="financial-methods">
-                    <div class="financial-method">
-                        <h5>Electronic Funds Transfer (EFT)</h5>
-                        <p>Direct bank transfers to our ministry account</p>
-                    </div>
-                    <div class="financial-method">
-                        <h5>Cash/Cheque Donations</h5>
-                        <p>Accepted during services or at our office</p>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p>For banking details or to discuss specific giving options, don't hesitate to get in touch with us.</p>
-                    <button class="btn" onclick="openModal('contactModal')">
-                        <i class="fas fa-envelope"></i> Request Banking Details
-                    </button>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -3621,7 +3513,7 @@
                         <li><a href="https://www.facebook.com/share/v/17vbKfEy3x/" target="_blank">PTA Special Service Praise Report</a></li>
                         <li><a href="https://www.facebook.com/share/v/17sP4vFVj2/" target="_blank">Child Healing Testimony</a></li>
                     </ul>
-                    <li><a href="#" id="partnershipFooterLink">Partner With Us</a></li>
+                    <!-- REMOVED: Partner With Us from footer -->
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
             </div>
@@ -3659,10 +3551,8 @@
         const modalLinks = {
             aboutLink: document.getElementById('aboutLink'),
             contactLink: document.getElementById('contactLink'),
-            partnershipLink: document.getElementById('partnershipLink'),
             aboutFooterLink: document.getElementById('aboutFooterLink'),
             contactFooterLink: document.getElementById('contactFooterLink'),
-            partnershipFooterLink: document.getElementById('partnershipFooterLink'),
             aboutToContact: document.getElementById('aboutToContact')
         };
 
@@ -3691,11 +3581,6 @@
             openModal('contactModal');
         });
 
-        modalLinks.partnershipLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('partnershipModal');
-        });
-
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('aboutModal');
@@ -3704,11 +3589,6 @@
         modalLinks.contactFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('contactModal');
-        });
-
-        modalLinks.partnershipFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('partnershipModal');
         });
 
         modalLinks.aboutToContact.addEventListener('click', function(e) {
@@ -3787,31 +3667,6 @@
                 const wazeUrl = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`;
                 window.open(wazeUrl, '_blank');
             }
-        }
-
-        // Open partnership modal with specific section
-        function openPartnershipModal(section) {
-            openModal('partnershipModal');
-            setTimeout(() => {
-                const modalContent = document.querySelector('.partnership-modal .modal-content');
-                let targetElement;
-                
-                switch(section) {
-                    case 'prayer':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(4)');
-                        break;
-                    case 'financial':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(5)');
-                        break;
-                    case 'volunteer':
-                        targetElement = document.querySelector('.partnership-type-details:nth-child(6)');
-                        break;
-                }
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 300);
         }
 
         // Contact Form Submission
