@@ -3202,11 +3202,12 @@
 
             <div class="ministry-section">
                 <h2>Family Testimonies</h2>
-                <div class="testimony-grid">
-                    <div class="testimony-card">
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
                         <p class="testimonial-text">" Include the families testimony"</p>
                         <p class="testimonial-author">- Mr. & Mrs. Moshima, Married 40 years</p>
                     </div>
+                </div>
             </div>
 
             <div class="ministry-section" id="join">
@@ -3407,7 +3408,8 @@
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                 <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
-                <li><a href="#" onclick="openMinistryPage('family')">Building Strong And Godly Families</a></li>
+                <!-- FIXED: Changed from 'family' to 'families' to match the page ID -->
+                <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
                 <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
                 <li><a href="#" id="partnershipLink">Partner With Us</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
@@ -3611,7 +3613,8 @@
                         <li><a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" target="_blank">The Two Resurrection</a></li>
                     </ul>
                     <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
-                    <li><a href="#" onclick="openMinistryPage('family')">Building Strong And Godly Families</a></li>
+                    <!-- FIXED: Footer link also updated to 'families' -->
+                    <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
                     <li><a href="#" onclick="openMinistryPage('healing-hand')">Healing Hands Foundation</a></li>
                     <ul class="ministry-links">
@@ -3921,7 +3924,7 @@ ${message}
                 'youth-ministry': 'Youth & Young Adults Ministry',
                 'healing-hand': 'Healing Hands Foundation',
                 'treasures': 'Transformed Treasures Ministry',
-                'family': 'Building Strong and Godly Families',
+                'families': 'Building Strong and Godly Families',
                 'priestly-kings': 'Priestly Kings Ministry'
             };
             return titles[ministry] || 'Ministry';
@@ -4103,4 +4106,3 @@ ${message}
     </script>
 </body>
 </html>
-
