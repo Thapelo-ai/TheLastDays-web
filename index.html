@@ -134,6 +134,21 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Added text shadow */
         }
 
+        .prophetic-title {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(245, 166, 35, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(245, 166, 35, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(245, 166, 35, 0.5); }
+        }
+
         .btn {
             display: inline-block;
             background-color: var(--secondary);
@@ -194,6 +209,77 @@
             color: var(--primary);
             margin-bottom: 1rem;
             font-size: 1.5rem;
+        }
+
+        /* NEW: Videos Section Styles */
+        .videos-section {
+            background-color: #f5f5f5;
+            padding: 4rem 2rem;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .video-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .video-description {
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .view-all-videos {
+            text-align: center;
+            margin-top: 3rem;
         }
 
         .event-cards, .sermon-cards {
@@ -1965,6 +2051,10 @@
                 font-size: 2.5rem; /* Adjusted for mobile */
             }
 
+            .prophetic-title {
+                font-size: 2rem; /* Adjusted for mobile */
+            }
+
             .hero-content p {
                 font-size: 1.2rem; /* Adjusted for mobile */
             }
@@ -2049,6 +2139,10 @@
             }
 
             .financial-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .videos-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -3420,6 +3514,7 @@
                 <li><a href="#" id="aboutLink">About Us</a></li>
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                 <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
+                <li><a href="#" onclick="scrollToSection('videos')">Videos</a></li>
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
                 <!-- FIXED: Changed from 'family' to 'families' to match the page ID -->
                 <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
@@ -3436,6 +3531,7 @@
     <main id="main-content">
         <section class="hero">
             <div class="hero-content">
+                <div class="prophetic-title">PROPHETIC HEALING AND DELIVERANCE</div>
                 <h2>THE YEAR OF DIVINE ADMINISTRATION</h2>
                 <p>WE'RE APOSTOLIC | WE'RE PROPHETIC | WE'RE EVANGELICAL | WE'RE GOD'S CASTLE</p>
                 <a href="#events" class="btn" onclick="scrollToSection('events')">Join Us This Sunday</a>
@@ -3475,9 +3571,111 @@
             </div>
         </section>
 
-        <!-- REMOVED: Recent Sermons Section from here -->
-
-        <!-- REMOVED: Partner With Us Section from home page -->
+        <!-- NEW: Videos Section -->
+        <section class="videos-section" id="videos">
+            <h2><i class="fas fa-video"></i> Recent Ministry Videos</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--text); max-width: 800px; margin-left: auto; margin-right: auto;">
+                Watch powerful moments of worship, teaching, and miracles from our ministry services and events.
+            </p>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/0bbeJkREI_I" 
+                                title="Review, Reflect, Rest - Sermon by Apostle Mothushi Chuene"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Review, Reflect, Rest</h3>
+                        <div class="video-date">December 2024</div>
+                        <p class="video-description">A powerful message about spiritual renewal and divine rest in God's presence.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/qltHDn-b5i0" 
+                                title="Building Strong Families - Teaching Session"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Building Strong Families</h3>
+                        <div class="video-date">January 2025</div>
+                        <p class="video-description">Biblical principles for establishing godly homes and family relationships.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/-xJAOrMd1JU" 
+                                title="The End Of The Old Covenant - Prophetic Teaching"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>The End Of The Old Covenant</h3>
+                        <div class="video-date">February 2025</div>
+                        <p class="video-description">Understanding the transition from old covenant to new covenant living.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Ydy4vq5cb0c" 
+                                title="The Two Resurrections - End Times Teaching"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>The Two Resurrections</h3>
+                        <div class="video-date">March 2025</div>
+                        <p class="video-description">Biblical teaching about the resurrection of the just and the unjust.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/example5" 
+                                title="Healing Service Testimonies"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Healing Service Testimonies</h3>
+                        <div class="video-date">April 2025</div>
+                        <p class="video-description">Powerful testimonies of healing and deliverance from our recent miracle service.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/example6" 
+                                title="Sunday Worship Service"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Sunday Worship Service</h3>
+                        <div class="video-date">Recent Service</div>
+                        <p class="video-description">Full worship service with praise, worship, and the preached Word.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all-videos">
+                <a href="https://www.youtube.com/@thelastdaysevangelismminis2412" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-youtube"></i> View More Videos on YouTube
+                </a>
+            </div>
+        </section>
 
     </main>
 
@@ -3504,6 +3702,7 @@
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
                     <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                     <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
+                    <li><a href="#" onclick="scrollToSection('videos')">Videos</a></li>
                     <ul class="sermon-links">
                         <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">Review, Reflect, Rest</a></li>
                         <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">Building Strong Families</a></li>
@@ -3967,5 +4166,3 @@ ${message}
     </script>
 </body>
 </html>
-
-
