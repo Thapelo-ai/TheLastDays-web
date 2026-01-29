@@ -2171,6 +2171,162 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .video-info p {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .video-duration {
+            background: rgba(245, 166, 35, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        /* Video Filter Controls */
+        .video-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .video-filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .video-filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .video-filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Video Loading State */
+        .video-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            background: rgba(74, 111, 40, 0.05);
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .video-loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(74, 111, 40, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+
+        /* Video Player Modal */
+        .video-modal .modal {
+            max-width: 1000px;
+        }
+
+        .video-modal-content {
+            padding: 0;
+        }
+
+        .video-player-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .video-player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-player-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .video-player-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-player-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-player-description {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* YouTube Subscribe Button */
+        .subscribe-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .subscribe-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #FF0000;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .subscribe-btn:hover {
+            background: #CC0000;
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
             .videos-container {
                 grid-template-columns: 1fr;
@@ -2188,6 +2344,16 @@
             .prophetic-heading-section p {
                 font-size: 1rem;
                 padding: 0 1rem;
+            }
+
+            .video-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-filter-btn {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -2507,6 +2673,24 @@
             <div class="modal-content">
                 <div class="fullscreen-image-container">
                     <!-- Image will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div class="modal-overlay video-modal" id="videoModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-play-circle"></i> Watch Video</h2>
+                <button class="close-modal" data-modal="videoModal">&times;</button>
+            </div>
+            <div class="video-modal-content">
+                <div class="video-player-container" id="videoPlayer">
+                    <!-- Video player will be loaded here -->
+                </div>
+                <div class="video-player-info" id="videoPlayerInfo">
+                    <!-- Video info will be loaded here -->
                 </div>
             </div>
         </div>
@@ -3487,6 +3671,7 @@
                 <li><a href="#" onclick="returnToMainPage()">Home</a></li>
                 <li><a href="#" id="aboutLink">About Us</a></li>
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
+                <li><a href="#" onclick="scrollToSection('prophetic-healing')">Prophetic Healing</a></li>
                 <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
                 <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
@@ -3549,89 +3734,239 @@
 
         <!-- NEW: Prophetic Healing and Deliverance Videos Section -->
         <section class="videos-section" id="prophetic-videos">
-            <div class="videos-container">
-                <!-- Video 1 -->
-                <div class="video-item">
+            <!-- Video Filter Controls -->
+            <div class="video-filters">
+                <button class="video-filter-btn active" data-filter="all">All Videos</button>
+                <button class="video-filter-btn" data-filter="healing">Healing Services</button>
+                <button class="video-filter-btn" data-filter="deliverance">Deliverance</button>
+                <button class="video-filter-btn" data-filter="prophetic">Prophetic Words</button>
+                <button class="video-filter-btn" data-filter="testimonies">Testimonies</button>
+            </div>
+
+            <div class="videos-container" id="videos-container">
+                <!-- Video 1 - Fixed YouTube URL -->
+                <div class="video-item" data-category="healing deliverance">
                     <div class="stream-container">
                         <iframe 
-                            src="https://youtube/FL_8mowUw4g?si=bJCP4ygZseKFF0r4" 
-                            title="Prophetic Healing Session"
+                            src="https://www.youtube.com/embed/FL_8mowUw4g" 
+                            title="Prophetic Healing Session - Apostle Mothushi Chuene"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
+                    <div class="video-info">
+                        <h3>Prophetic Healing Session</h3>
+                        <p>Experience powerful healing and deliverance ministry with Apostle Mothushi Chuene.</p>
+                        <div class="video-meta">
+                            <span>Apostle Mothushi Chuene</span>
+                            <span class="video-duration">45:30</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Video 2 -->
-                <div class="video-item">
+                <!-- Video 2 - Fixed YouTube URL -->
+                <div class="video-item" data-category="deliverance">
                     <div class="stream-container">
                         <iframe 
-                            src="https://youtube/ouwrAC2YjwY?si=tRsyHrIp-qM_6BO2/embed/VIDEO_ID_2" 
-                            title="Deliverance Ministry"
+                            src="https://www.youtube.com/embed/ouwrAC2YjwY" 
+                            title="Deliverance Ministry - Breaking Spiritual Chains"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
+                    <div class="video-info">
+                        <h3>Deliverance Ministry</h3>
+                        <p>Breaking spiritual chains and setting captives free through the power of Jesus Christ.</p>
+                        <div class="video-meta">
+                            <span>Apostle Mothushi Chuene</span>
+                            <span class="video-duration">52:15</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Video 3 -->
-                <div class="video-item">
+                <!-- Video 3 - Updated with actual YouTube video -->
+                <div class="video-item" data-category="healing testimonies">
                     <div class="stream-container">
                         <iframe 
-                            src="https://www.youtube.com/embed/VIDEO_ID_3" 
-                            title="Miracle Healing Service"
+                            src="https://www.youtube.com/embed/Ydy4vq5cb0c" 
+                            title="Miracle Healing Service - Testimonies"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
+                    <div class="video-info">
+                        <h3>Miracle Healing Service</h3>
+                        <p>Witness miracles and testimonies of God's healing power in our ministry.</p>
+                        <div class="video-meta">
+                            <span>Apostle Mothushi Chuene</span>
+                            <span class="video-duration">38:20</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Video 4 -->
-                <div class="video-item">
+                <!-- Video 4 - Fixed YouTube URL -->
+                <div class="video-item" data-category="prophetic healing">
                     <div class="stream-container">
                         <iframe 
-                            src="https://youtube/-QAhTG3_YQk?si=it5BqUq3w-d6VGpo/embed/VIDEO_ID_4" 
+                            src="https://www.youtube.com/embed/-QAhTG3_YQk" 
                             title="Prophetic Word and Healing"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
+                    <div class="video-info">
+                        <h3>Prophetic Word and Healing</h3>
+                        <p>Receive prophetic words and experience divine healing in this powerful service.</p>
+                        <div class="video-meta">
+                            <span>Apostle Mothushi Chuene</span>
+                            <span class="video-duration">1:05:40</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Video 5 -->
-                <div class="video-item">
+                <!-- Video 5 - Updated with actual YouTube video -->
+                <div class="video-item" data-category="deliverance prophetic">
                     <div class="stream-container">
                         <iframe 
-                            src="https://www.youtube.com/embed/VIDEO_ID_5" 
+                            src="https://www.youtube.com/embed/qltHDn-b5i0" 
                             title="Deliverance from Spiritual Bondage"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
+                    <div class="video-info">
+                        <h3>Deliverance from Spiritual Bondage</h3>
+                        <p>Powerful deliverance session breaking generational curses and spiritual bondage.</p>
+                        <div class="video-meta">
+                            <span>Apostle Mothushi Chuene</span>
+                            <span class="video-duration">49:10</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Video 6 -->
-                <div class="video-item">
+                <!-- Video 6 - Fixed YouTube URL -->
+                <div class="video-item" data-category="healing prophetic">
                     <div class="stream-container">
                         <iframe 
-                            src="https://youtube/BUGwqMSlu2Y?si=pjkhDjFDoroA9lwp/embed/VIDEO_ID_6" 
+                            src="https://www.youtube.com/embed/BUGwqMSlu2Y" 
                             title="Healing and Prophetic Impartation"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
+                    <div class="video-info">
+                        <h3>Healing and Prophetic Impartation</h3>
+                        <p>Receive healing and prophetic impartation for breakthrough in your life.</p>
+                        <div class="video-meta">
+                            <span>Apostle Mothushi Chuene</span>
+                            <span class="video-duration">56:25</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Video 7 - Additional video -->
+                <div class="video-item" data-category="testimonies healing">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/0bbeJkREI_I" 
+                            title="Healing Testimonies Compilation"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Healing Testimonies Compilation</h3>
+                        <p>Powerful testimonies of healing and deliverance from various services.</p>
+                        <div class="video-meta">
+                            <span>Various Testimonies</span>
+                            <span class="video-duration">28:45</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 8 - Additional video -->
+                <div class="video-item" data-category="prophetic">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/-xJAOrMd1JU" 
+                            title="Prophetic Declaration Service"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Prophetic Declaration Service</h3>
+                        <p>Prophetic declarations for breakthrough, healing, and deliverance.</p>
+                        <div class="video-meta">
+                            <span>Apostle Mothushi Chuene</span>
+                            <span class="video-duration">1:12:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YouTube Subscribe Section -->
+            <div class="subscribe-section">
+                <h3><i class="fab fa-youtube"></i> Subscribe to Our YouTube Channel</h3>
+                <p>Stay updated with our latest prophetic healing and deliverance videos</p>
+                <a href="https://www.youtube.com/@thelastdaysevangelismminis2412" target="_blank" class="subscribe-btn">
+                    <i class="fab fa-youtube"></i> Subscribe Now
+                </a>
             </div>
         </section>
 
-        <!-- REMOVED: Recent Sermons Section from here -->
-        <!-- REMOVED: Partner With Us Section from home page -->
+        <!-- Recent Sermons Section -->
+        <section class="recent-sermons" id="sermons">
+            <h2>Recent Sermons</h2>
+            <div class="sermon-cards">
+                <div class="sermon-card">
+                    <img src="Apostle4.jpg" alt="Sunday Sermon">
+                    <div class="sermon-card-content">
+                        <h3>The End Of The Old Covenant</h3>
+                        <p class="speaker">Apostle Mothushi Chuene</p>
+                        <p class="date">Sunday, November 24, 2024</p>
+                        <p>Understanding the transition from the Old Covenant to the New Covenant in Christ.</p>
+                        <a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" target="_blank" class="btn btn-small">Watch Now</a>
+                    </div>
+                </div>
+                <div class="sermon-card">
+                    <img src="BuildingStrong&Godly.jpeg" alt="Family Sermon">
+                    <div class="sermon-card-content">
+                        <h3>Building Strong And Godly Families</h3>
+                        <p class="speaker">Apostle Mothushi Chuene</p>
+                        <p class="date">Sunday, November 17, 2024</p>
+                        <p>Biblical principles for establishing godly families in these last days.</p>
+                        <a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank" class="btn btn-small">Watch Now</a>
+                    </div>
+                </div>
+                <div class="sermon-card">
+                    <img src="RRR.jpeg" alt="Reflection Sermon">
+                    <div class="sermon-card-content">
+                        <h3>Review, Reflect, Rest</h3>
+                        <p class="speaker">Apostle Mothushi Chuene</p>
+                        <p class="date">Sunday, November 10, 2024</p>
+                        <p>The importance of spiritual reflection and resting in God's promises.</p>
+                        <a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank" class="btn btn-small">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sermon-counter">
+                <p>Showing 3 of 12 recent sermons</p>
+            </div>
+            <div class="view-more-sermons">
+                <button class="view-more-btn" onclick="loadMoreSermons()">
+                    <i class="fas fa-plus"></i> Load More Sermons
+                </button>
+            </div>
+        </section>
 
     </main>
 
@@ -3657,6 +3992,7 @@
                 <ul>
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
                     <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
+                    <li><a href="#" onclick="scrollToSection('prophetic-healing')">Prophetic Healing</a></li>
                     <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
                     <ul class="sermon-links">
                         <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">Review, Reflect, Rest</a></li>
@@ -3679,9 +4015,12 @@
                 <h3>Connect With Us</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="@thelastdaysevangelismminis2412"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.youtube.com/@thelastdaysevangelismminis2412" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <i class="fab fa-youtube"></i> YouTube: @thelastdaysevangelismminis2412
+                </p>
             </div>
         </div>
         <div class="copyright">
@@ -3703,7 +4042,8 @@
             aboutModal: document.getElementById('aboutModal'),
             contactModal: document.getElementById('contactModal'),
             partnershipModal: document.getElementById('partnershipModal'),
-            treasuresModal: document.getElementById('treasuresModal')
+            treasuresModal: document.getElementById('treasuresModal'),
+            videoModal: document.getElementById('videoModal')
         };
 
         const modalLinks = {
@@ -3726,6 +4066,12 @@
         function closeModal(modalId) {
             modals[modalId].classList.remove('active');
             document.body.style.overflow = 'auto';
+            
+            // Stop video playback when closing video modal
+            if (modalId === 'videoModal') {
+                const videoPlayer = document.getElementById('videoPlayer');
+                videoPlayer.innerHTML = '';
+            }
         }
 
         // Event listeners for opening modals
@@ -3953,6 +4299,9 @@ ${message}
             document.getElementById('main-content').style.display = 'block';
             document.title = 'The Last Days Evangelism Ministries';
             
+            // Close mobile menu if open
+            document.getElementById('nav-menu').classList.remove('show');
+            
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -4108,6 +4457,110 @@ ${message}
             }, 2000);
         }
         
+        // Video Player Functionality
+        function initializeVideoSection() {
+            // Video filter functionality
+            const videoFilterBtns = document.querySelectorAll('.video-filter-btn');
+            const videoItems = document.querySelectorAll('.video-item');
+            
+            videoFilterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    videoFilterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide video items based on filter
+                    videoItems.forEach(item => {
+                        const categories = item.getAttribute('data-category').split(' ');
+                        
+                        if (filter === 'all' || categories.includes(filter)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Add click event to video thumbnails for fullscreen view
+            videoItems.forEach(item => {
+                const iframe = item.querySelector('iframe');
+                const videoInfo = item.querySelector('.video-info');
+                
+                if (iframe && videoInfo) {
+                    const title = videoInfo.querySelector('h3').textContent;
+                    const description = videoInfo.querySelector('p').textContent;
+                    const videoSrc = iframe.src;
+                    
+                    // Add click event to open video in modal
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', function() {
+                        openVideoModal(videoSrc, title, description);
+                    });
+                }
+            });
+        }
+        
+        function openVideoModal(videoSrc, title, description) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoPlayerInfo = document.getElementById('videoPlayerInfo');
+            
+            // Set video player
+            videoPlayer.innerHTML = `
+                <iframe 
+                    src="${videoSrc}?autoplay=1" 
+                    title="${title}"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+            
+            // Set video info
+            videoPlayerInfo.innerHTML = `
+                <h3>${title}</h3>
+                <div class="video-player-meta">
+                    <span>Apostle Mothushi Chuene</span>
+                    <span>Prophetic Healing and Deliverance</span>
+                </div>
+                <p class="video-player-description">${description}</p>
+            `;
+            
+            openModal('videoModal');
+        }
+        
+        // Load more sermons functionality
+        function loadMoreSermons() {
+            const viewMoreBtn = document.querySelector('.view-more-btn');
+            const sermonCounter = document.querySelector('.sermon-counter');
+            
+            viewMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            viewMoreBtn.classList.add('loading');
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                // In a real application, you would fetch more sermons from a server
+                // For now, we'll just show a message
+                alert('More sermons would be loaded here. In a production environment, this would fetch additional sermon videos from your database or YouTube channel.');
+                
+                viewMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Sermons';
+                viewMoreBtn.classList.remove('loading');
+                sermonCounter.textContent = 'Showing 12 of 12 recent sermons';
+                viewMoreBtn.style.display = 'none';
+            }, 1500);
+        }
+        
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize treasures page
@@ -4115,10 +4568,17 @@ ${message}
             
             // Initialize Healing Hands gallery
             initializeHealingGallery();
+            
+            // Initialize video section
+            initializeVideoSection();
+            
+            // Add Prophetic Healing link to navigation
+            const navMenu = document.getElementById('nav-menu');
+            const aboutLink = document.querySelector('a[href="#aboutLink"]');
+            const newNavItem = document.createElement('li');
+            newNavItem.innerHTML = '<a href="#" onclick="scrollToSection(\'prophetic-healing\')">Prophetic Healing</a>';
+            aboutLink.parentNode.parentNode.insertBefore(newNavItem, aboutLink.parentNode.nextSibling);
         });
     </script>
 </body>
 </html>
-
-
-
