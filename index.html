@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ALL EXISTING CSS CODE REMAINS EXACTLY THE SAME */
         :root {
             --primary: #4a6f28;
             --secondary: #f5a623;
@@ -100,7 +99,6 @@
             cursor: pointer;
         }
 
-        /* ENLARGED HERO SECTION */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Apostle4.jpg');
             background-size: cover;
@@ -2109,7 +2107,6 @@
             }
         }
 
-        /* NEW: Prophetic Healing and Deliverance Section Styles - Minimal */
         .prophetic-heading-section {
             padding: 4rem 2rem;
             background: linear-gradient(135deg, rgba(74, 111, 40, 0.05) 0%, rgba(245, 166, 35, 0.05) 100%);
@@ -2144,7 +2141,6 @@
             line-height: 1.6;
         }
 
-        /* NEW: Videos Section Styles */
         .videos-section {
             padding: 4rem 2rem;
             background-color: var(--light);
@@ -2201,7 +2197,6 @@
             border-radius: 3px;
         }
 
-        /* Video Filter Controls */
         .video-filters {
             display: flex;
             justify-content: center;
@@ -2231,7 +2226,6 @@
             color: white;
         }
 
-        /* Video Loading State */
         .video-loading {
             display: flex;
             align-items: center;
@@ -2251,7 +2245,6 @@
             animation: spin 1s linear infinite;
         }
 
-        /* Video Player Modal */
         .video-modal .modal {
             max-width: 1000px;
         }
@@ -2299,7 +2292,6 @@
             line-height: 1.6;
         }
 
-        /* YouTube Subscribe Button */
         .subscribe-section {
             text-align: center;
             margin-top: 3rem;
@@ -3676,6 +3668,7 @@
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
                 <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
                 <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
+                <li><a href="#" id="partnerLink">Partner with Us</a></li>
                 <li><a href="#" id="contactLink">Contact</a></li>
             </ul>
         </nav>
@@ -4008,6 +4001,7 @@
                         <li><a href="https://www.facebook.com/share/v/17vbKfEy3x/" target="_blank">PTA Special Service Praise Report</a></li>
                         <li><a href="https://www.facebook.com/share/v/17sP4vFVj2/" target="_blank">Child Healing Testimony</a></li>
                     </ul>
+                    <li><a href="#" id="partnerFooterLink">Partner with Us</a></li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
             </div>
@@ -4049,8 +4043,10 @@
         const modalLinks = {
             aboutLink: document.getElementById('aboutLink'),
             contactLink: document.getElementById('contactLink'),
+            partnerLink: document.getElementById('partnerLink'),
             aboutFooterLink: document.getElementById('aboutFooterLink'),
             contactFooterLink: document.getElementById('contactFooterLink'),
+            partnerFooterLink: document.getElementById('partnerFooterLink'),
             aboutToContact: document.getElementById('aboutToContact')
         };
 
@@ -4085,6 +4081,11 @@
             openModal('contactModal');
         });
 
+        modalLinks.partnerLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('partnershipModal');
+        });
+
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('aboutModal');
@@ -4093,6 +4094,11 @@
         modalLinks.contactFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('contactModal');
+        });
+
+        modalLinks.partnerFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('partnershipModal');
         });
 
         modalLinks.aboutToContact.addEventListener('click', function(e) {
@@ -4571,17 +4577,7 @@ ${message}
             
             // Initialize video section
             initializeVideoSection();
-            
-            // Add Prophetic Healing link to navigation
-            const navMenu = document.getElementById('nav-menu');
-            const aboutLink = document.querySelector('a[href="#aboutLink"]');
-            const newNavItem = document.createElement('li');
-            newNavItem.innerHTML = '<a href="#" onclick="scrollToSection(\'prophetic-healing\')">Prophetic Healing</a>';
-            aboutLink.parentNode.parentNode.insertBefore(newNavItem, aboutLink.parentNode.nextSibling);
         });
     </script>
 </body>
 </html>
-
-
-
