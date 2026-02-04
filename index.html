@@ -113,7 +113,7 @@
             top: 100%;
             left: 0;
             background-color: var(--primary);
-            min-width: 200px;
+            min-width: 220px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             border-radius: 0 0 8px 8px;
             opacity: 0;
@@ -121,7 +121,7 @@
             transform: translateY(-10px);
             transition: all 0.3s ease;
             z-index: 1000;
-            padding: 0.5rem 0;
+            padding: 0.8rem 0;
         }
 
         .nav-dropdown:hover .dropdown-menu {
@@ -135,22 +135,53 @@
         }
 
         .dropdown-menu a {
-            padding: 0.6rem 1.5rem;
+            padding: 0.8rem 1.5rem;
             display: block;
-            width: 80%;
             color: white;
             transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            border-bottom: none;
+            background: none;
         }
 
         .dropdown-menu a:hover {
-            background-color: rgba(255,255,255,0.1);
             color: var(--secondary);
             padding-left: 2rem;
+            background-color: transparent;
+        }
+
+        .dropdown-menu li:last-child a {
+            position: relative;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu li:last-child a::before {
+            content: '';
+            position: absolute;
+            top: -0.4rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-menu a .mune-text {
+            display: inline-block;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        .dropdown-menu a[href*="partner"] {
+            color: var(--secondary-light);
+            font-weight: 500;
         }
 
         .dropdown-menu a i {
             width: 20px;
             text-align: center;
+            margin-right: 8px;
         }
 
         /* Hero Section */
@@ -3739,8 +3770,18 @@
                         <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="openModal('aboutModal')"><i class="fas fa-info-circle"></i> About Our Ministry</a></li>
-                        <li><a href="#" onclick="openModal('partnershipModal')"><i class="fas fa-hands-helping"></i> Partner with Us</a></li>
+                        <li>
+                            <a href="#" onclick="openModal('aboutModal')">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="mune-text">About Us</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="openModal('partnershipModal')">
+                                <i class="fas fa-hands-helping"></i>
+                                <span class="mune-text">Partner with Us</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
@@ -4671,6 +4712,3 @@ ${message}
     </script>
 </body>
 </html>
-
-
-
