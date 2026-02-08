@@ -103,7 +103,7 @@
             cursor: pointer;
         }
 
-        /* NEW: Dropdown styles for About Us */
+        /* Dropdown styles */
         .nav-dropdown {
             position: relative;
         }
@@ -3786,7 +3786,26 @@
                 </li>
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                 <li><a href="#" onclick="scrollToSection('prophetic-healing')">Prophetic Healing</a></li>
-                <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" id="sermonsLink">
+                        <span>Sermons</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" onclick="scrollToSection('sermons')">
+                                <i class="fas fa-video"></i>
+                                <span class="mune-text">Recent Sermons</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="praiseReportsLink">
+                                <i class="fas fa-hands-praying"></i>
+                                <span class="mune-text">Praise Reports</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
                 <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
                 <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
@@ -3871,10 +3890,10 @@
                     </div>
                     <div class="video-info">
                         <h3>Prophetic Healing Session</h3>
-                        <p>Experience powerful healing and deliverance ministry with Apostle Mothushi Chuene.</p>
+                        <p>There is a war coming at your workplace, but FEAR not, the Lord is with you!-<strong>Apostle Mothushi Chuene</strong>.</p>
                         <div class="video-meta">
                             <span>Apostle Mothushi Chuene</span>
-                            <span class="video-duration">07:19</span>
+                            <span class="video-duration">07:14</span>
                         </div>
                     </div>
                 </div>
@@ -3895,12 +3914,12 @@
                         <p>Breaking spiritual chains and setting captives free through the power of Jesus Christ.</p>
                         <div class="video-meta">
                             <span>Apostle Mothushi Chuene</span>
-                            <span class="video-duration">17:32</span>
+                            <span class="video-duration">17:33</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Video 3 - Updated with actual YouTube video -->
+                <!-- Video 3 - Updated with actual Facebook video -->
                 <div class="video-item" data-category="healing testimonies">
                     <div class="stream-container">
                         <iframe 
@@ -3947,7 +3966,7 @@
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/qltHDn-b5i0" 
-                            title="Deliverance from Spiritual Bondage"
+                            title="Deliverance from Spiritual Bondage."
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
@@ -3968,7 +3987,7 @@
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/BUGwqMSlu2Y" 
-                            title="Healing and Prophetic Impartation"
+                            title="Prophetic Impartation."
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
@@ -3976,10 +3995,10 @@
                     </div>
                     <div class="video-info">
                         <h3>Healing and Prophetic Impartation</h3>
-                        <p>Receive healing and prophetic impartation for breakthrough in your life.</p>
+                        <p>The power of prophecy brings dollars into rands.</p>
                         <div class="video-meta">
                             <span>Apostle Mothushi Chuene</span>
-                            <span class="video-duration">56:25</span>
+                            <span class="video-duration">09:07</span>
                         </div>
                     </div>
                 </div>
@@ -4108,6 +4127,7 @@
                     <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                     <li><a href="#" onclick="scrollToSection('prophetic-healing')">Prophetic Healing</a></li>
                     <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
+                    <li><a href="#" id="praiseReportsFooterLink">Praise Reports</a></li>
                     <ul class="sermon-links">
                         <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">Review, Reflect, Rest</a></li>
                         <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">Building Strong Families</a></li>
@@ -4164,8 +4184,11 @@
         const modalLinks = {
             aboutLink: document.getElementById('aboutLink'),
             contactLink: document.getElementById('contactLink'),
+            sermonsLink: document.getElementById('sermonsLink'),
+            praiseReportsLink: document.getElementById('praiseReportsLink'),
             aboutFooterLink: document.getElementById('aboutFooterLink'),
             contactFooterLink: document.getElementById('contactFooterLink'),
+            praiseReportsFooterLink: document.getElementById('praiseReportsFooterLink'),
             aboutToContact: document.getElementById('aboutToContact')
         };
 
@@ -4203,6 +4226,16 @@
             openModal('contactModal');
         });
 
+        modalLinks.sermonsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            scrollToSection('sermons');
+        });
+
+        modalLinks.praiseReportsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert("Praise Reports page would open here. You can create a separate page for praise reports or add a section below sermons.");
+        });
+
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('aboutModal');
@@ -4211,6 +4244,11 @@
         modalLinks.contactFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal('contactModal');
+        });
+
+        modalLinks.praiseReportsFooterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert("Praise Reports page would open here. You can create a separate page for praise reports or add a section below sermons.");
         });
 
         modalLinks.aboutToContact.addEventListener('click', function(e) {
