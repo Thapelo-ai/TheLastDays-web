@@ -1522,11 +1522,6 @@
             text-align: center;
         }
 
-        .upload-section h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
         .upload-form {
             max-width: 500px;
             margin: 0 auto;
@@ -2450,6 +2445,57 @@
                 width: 100%;
                 text-align: center;
             }
+        }
+
+        /* Praise Reports Section */
+        .praise-reports-section {
+            padding: 4rem 2rem;
+            background-color: #fff8f0;
+        }
+
+        .praise-reports-section h2 {
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+
+        .praise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .praise-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .praise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .praise-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .praise-card p {
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .praise-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -3799,7 +3845,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" id="praiseReportsLink">
+                            <a href="#" onclick="scrollToSection('praise-reports')" id="praiseReportsLink">
                                 <i class="fas fa-hands-praying"></i>
                                 <span class="mune-text">Praise Reports</span>
                             </a>
@@ -4056,6 +4102,146 @@
             </div>
         </section>
 
+        <!-- Praise Reports Section -->
+        <section class="praise-reports-section" id="praise-reports">
+            <h2><i class="fas fa-hands-praying"></i> Praise Reports & Testimonies</h2>
+            <p style="text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Watch testimonies of God's miracles, healings, and breakthroughs in people's lives through the ministry of Apostle Mothushi Chuene.
+            </p>
+            
+            <div class="videos-container">
+                <!-- Praise Report Video 1 -->
+                <div class="video-item" data-category="testimonies">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/0bbeJkREI_I" 
+                            title="Healing Testimonies Compilation - Praise Reports"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Healing Testimonies Compilation</h3>
+                        <p>Powerful testimonies of healing and deliverance from various services.</p>
+                        <div class="video-meta">
+                            <span>Various Testimonies</span>
+                            <span class="video-duration">28:45</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Praise Report Video 2 -->
+                <div class="video-item" data-category="testimonies">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.facebook.com/share/v/17sP4vFVj2/" 
+                            title="Child Healing Testimony"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Child Healing Testimony</h3>
+                        <p>Testimony of a child receiving healing through prayer.</p>
+                        <div class="video-meta">
+                            <span>Healing Testimony</span>
+                            <span class="video-duration">06:22</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Praise Report Video 3 -->
+                <div class="video-item" data-category="testimonies">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.facebook.com/share/v/17vbKfEy3x/" 
+                            title="PTA Special Service Praise Report"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>PTA Special Service Praise Report</h3>
+                        <p>Testimonies from the Pretoria special service.</p>
+                        <div class="video-meta">
+                            <span>PTA Service</span>
+                            <span class="video-duration">14:33</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Praise Report Video 4 -->
+                <div class="video-item" data-category="testimonies">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/FL_8mowUw4g" 
+                            title="Prophetic Healing Testimony"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Prophetic Healing Testimony</h3>
+                        <p>There is a war coming at your workplace, but FEAR not, the Lord is with you! - Apostle Mothushi Chuene.</p>
+                        <div class="video-meta">
+                            <span>Prophetic Testimony</span>
+                            <span class="video-duration">07:14</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Praise Report Video 5 -->
+                <div class="video-item" data-category="testimonies">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ouwrAC2YjwY" 
+                            title="Deliverance Testimony"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Deliverance Testimony</h3>
+                        <p>Testimony of deliverance from spiritual bondage.</p>
+                        <div class="video-meta">
+                            <span>Deliverance Ministry</span>
+                            <span class="video-duration">17:33</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Praise Report Video 6 -->
+                <div class="video-item" data-category="testimonies">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.facebook.com/share/v/14PZU6mzwcc/" 
+                            title="Miracle Healing Testimony"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Miracle Healing Testimony</h3>
+                        <p>Testimony of miraculous healing during service.</p>
+                        <div class="video-meta">
+                            <span>Miracle Testimony</span>
+                            <span class="video-duration">06:07</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <p>Have a testimony to share? <a href="#" onclick="openModal('contactModal')" style="color: var(--primary); font-weight: 600;">Share your praise report with us!</a></p>
+            </div>
+        </section>
+
         <!-- Recent Sermons Section -->
         <section class="recent-sermons" id="sermons">
             <h2>Recent Sermons</h2>
@@ -4127,7 +4313,7 @@
                     <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                     <li><a href="#" onclick="scrollToSection('prophetic-healing')">Prophetic Healing</a></li>
                     <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
-                    <li><a href="#" id="praiseReportsFooterLink">Praise Reports</a></li>
+                    <li><a href="#" onclick="scrollToSection('praise-reports')" id="praiseReportsFooterLink">Praise Reports</a></li>
                     <ul class="sermon-links">
                         <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">Review, Reflect, Rest</a></li>
                         <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">Building Strong Families</a></li>
@@ -4233,7 +4419,7 @@
 
         modalLinks.praiseReportsLink.addEventListener('click', function(e) {
             e.preventDefault();
-            alert("Praise Reports page would open here. You can create a separate page for praise reports or add a section below sermons.");
+            scrollToSection('praise-reports');
         });
 
         modalLinks.aboutFooterLink.addEventListener('click', function(e) {
@@ -4248,7 +4434,7 @@
 
         modalLinks.praiseReportsFooterLink.addEventListener('click', function(e) {
             e.preventDefault();
-            alert("Praise Reports page would open here. You can create a separate page for praise reports or add a section below sermons.");
+            scrollToSection('praise-reports');
         });
 
         modalLinks.aboutToContact.addEventListener('click', function(e) {
