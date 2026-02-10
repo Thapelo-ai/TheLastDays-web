@@ -2482,6 +2482,17 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Video Only Section */
+        .video-section {
+            padding: 2rem 2rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-section .stream-container {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -3848,6 +3859,19 @@
                 <h2>THE YEAR OF DIVINE ADMINISTRATION</h2>
                 <p>WE'RE APOSTOLIC | WE'RE PROPHETIC | WE'RE EVANGELICAL | WE'RE GOD'S CASTLE</p>
                 <a href="#events" class="btn" onclick="scrollToSection('events')">Join Us This Sunday</a>
+            </div>
+        </section>
+
+        <!-- NEW: Video Section (No Description - Video Only) -->
+        <section class="video-section" id="featured-video">
+            <div class="stream-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/FL_8mowUw4g" 
+                    title="Featured Video - The Last Days Evangelism Ministries"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </section>
 
