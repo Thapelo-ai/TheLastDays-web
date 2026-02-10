@@ -352,6 +352,35 @@
             border: none;
         }
 
+        /* Add specific styling for Facebook video embeds */
+        .stream-container iframe[src*="facebook"] {
+            background-color: #f0f2f5;
+        }
+
+        /* Add video source icon styling */
+        .video-source-icon {
+            margin-right: 5px;
+            font-size: 0.9em;
+        }
+
+        .facebook-video .video-source-icon {
+            color: #1877F2;
+        }
+
+        .youtube-video .video-source-icon {
+            color: #FF0000;
+        }
+
+        .video-source-label {
+            display: inline-block;
+            padding: 2px 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 5px;
+            color: #666;
+        }
+
         .partnership-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -663,14 +692,6 @@
             text-align: center;
         }
 
-        .partnership-highlight {
-            background-color: rgba(74, 111, 40, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
         .partnership-scripture {
             background-color: rgba(245, 166, 35, 0.1);
             padding: 1.5rem;
@@ -683,6 +704,14 @@
         .partnership-scripture p {
             color: var(--primary);
             font-size: 1.1rem;
+        }
+
+        .partnership-highlight {
+            background-color: rgba(74, 111, 40, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
         }
 
         .partnership-type-details {
@@ -3923,8 +3952,8 @@
             </div>
 
             <div class="videos-container" id="videos-container">
-                <!-- Video 1 - Fixed YouTube URL -->
-                <div class="video-item" data-category="healing deliverance">
+                <!-- Video 1 - YouTube -->
+                <div class="video-item youtube-video" data-category="healing deliverance">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/FL_8mowUw4g" 
@@ -3936,16 +3965,16 @@
                     </div>
                     <div class="video-info">
                         <h3>Prophetic Healing Session</h3>
-                        <p>There is a war coming at your workplace, but FEAR not, the Lord is with you!-<strong>Apostle Mothushi Chuene</strong>.</p>
+                        <p>There is a war coming at your workplace, but FEAR not, the Lord is with you!.</p>
                         <div class="video-meta">
-                            <span>Apostle Mothushi Chuene</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">07:14</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Video 2 - Fixed YouTube URL -->
-                <div class="video-item" data-category="deliverance">
+                <!-- Video 2 - YouTube -->
+                <div class="video-item youtube-video" data-category="deliverance">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/ouwrAC2YjwY" 
@@ -3959,17 +3988,17 @@
                         <h3>Deliverance Ministry</h3>
                         <p>Breaking spiritual chains and setting captives free through the power of Jesus Christ.</p>
                         <div class="video-meta">
-                            <span>Apostle Mothushi Chuene</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">17:33</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Video 3 - Updated with actual Facebook video -->
-                <div class="video-item" data-category="healing testimonies">
+                <!-- Video 3 - Facebook Video (Fixed URL format) -->
+                <div class="video-item facebook-video" data-category="healing testimonies">
                     <div class="stream-container">
                         <iframe 
-                            src="https://www.facebook.com/share/v/14PZU6mzwcc/" 
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F14PZU6mzwcc%2F&show_text=false&width=560" 
                             title="Miracle Healing Service"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -3980,14 +4009,14 @@
                         <h3>Miracle Healing Service</h3>
                         <p>Witness miracles and testimonies of God's healing power in our ministry.</p>
                         <div class="video-meta">
-                            <span>Apostle Mothushi Chuene</span>
+                            <span><i class="fab fa-facebook video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">06:07</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Video 4 - Fixed YouTube URL -->
-                <div class="video-item" data-category="prophetic healing">
+                <!-- Video 4 - YouTube -->
+                <div class="video-item youtube-video" data-category="prophetic healing">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/-QAhTG3_YQk" 
@@ -4001,14 +4030,14 @@
                         <h3>Prophetic Word and Healing</h3>
                         <p>Receive prophetic words and experience divine healing in this powerful service.</p>
                         <div class="video-meta">
-                            <span>Apostle Mothushi Chuene</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">37:15</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Video 5 - Updated with actual YouTube video -->
-                <div class="video-item" data-category="deliverance prophetic">
+                <!-- Video 5 - YouTube -->
+                <div class="video-item youtube-video" data-category="deliverance prophetic">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/qltHDn-b5i0" 
@@ -4022,14 +4051,14 @@
                         <h3>Deliverance from Spiritual Bondage</h3>
                         <p>Powerful deliverance session breaking generational curses and spiritual bondage.</p>
                         <div class="video-meta">
-                            <span>Apostle Mothushi Chuene</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">49:10</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Video 6 - Fixed YouTube URL -->
-                <div class="video-item" data-category="healing prophetic">
+                <!-- Video 6 - YouTube -->
+                <div class="video-item youtube-video" data-category="healing prophetic">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/BUGwqMSlu2Y" 
@@ -4043,14 +4072,14 @@
                         <h3>Healing and Prophetic Impartation</h3>
                         <p>The power of prophecy brings dollars into rands.</p>
                         <div class="video-meta">
-                            <span>Apostle Mothushi Chuene</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">09:07</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Video 7 - Additional video -->
-                <div class="video-item" data-category="testimonies healing">
+                <!-- Video 7 - YouTube -->
+                <div class="video-item youtube-video" data-category="testimonies healing">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/0bbeJkREI_I" 
@@ -4064,17 +4093,17 @@
                         <h3>Healing Testimonies Compilation</h3>
                         <p>Powerful testimonies of healing and deliverance from various services.</p>
                         <div class="video-meta">
-                            <span>Various Testimonies</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Various Testimonies</span>
                             <span class="video-duration">28:45</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Video 8 - Additional video -->
-                <div class="video-item" data-category="prophetic">
+                <!-- Video 8 - Facebook Video (Fixed URL format) -->
+                <div class="video-item facebook-video" data-category="prophetic">
                     <div class="stream-container">
                         <iframe 
-                            src="https://www.facebook.com/share/v/17tYDiB8u7/" 
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17tYDiB8u7%2F&show_text=false&width=560" 
                             title="Prophetic Declaration Service"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -4085,7 +4114,7 @@
                         <h3>Prophetic Declaration Service</h3>
                         <p>Prophetic declarations for breakthrough, healing, and deliverance.</p>
                         <div class="video-meta">
-                            <span>Apostle Mothushi Chuene</span>
+                            <span><i class="fab fa-facebook video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">1:12:30</span>
                         </div>
                     </div>
@@ -4110,8 +4139,8 @@
             </p>
             
             <div class="videos-container">
-                <!-- Praise Report Video 1 -->
-                <div class="video-item" data-category="testimonies">
+                <!-- Praise Report Video 1 - YouTube -->
+                <div class="video-item youtube-video" data-category="testimonies">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/0bbeJkREI_I" 
@@ -4125,17 +4154,17 @@
                         <h3>Healing Testimonies Compilation</h3>
                         <p>Powerful testimonies of healing and deliverance from various services.</p>
                         <div class="video-meta">
-                            <span>Various Testimonies</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Various Testimonies</span>
                             <span class="video-duration">28:45</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Praise Report Video 2 -->
-                <div class="video-item" data-category="testimonies">
+                <!-- Praise Report Video 2 - Facebook -->
+                <div class="video-item facebook-video" data-category="testimonies">
                     <div class="stream-container">
                         <iframe 
-                            src="https://www.facebook.com/share/v/17sP4vFVj2/" 
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560" 
                             title="Child Healing Testimony"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -4146,17 +4175,17 @@
                         <h3>Child Healing Testimony</h3>
                         <p>Testimony of a child receiving healing through prayer.</p>
                         <div class="video-meta">
-                            <span>Healing Testimony</span>
+                            <span><i class="fab fa-facebook video-source-icon"></i> Healing Testimony</span>
                             <span class="video-duration">06:22</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Praise Report Video 3 -->
-                <div class="video-item" data-category="testimonies">
+                <!-- Praise Report Video 3 - Facebook -->
+                <div class="video-item facebook-video" data-category="testimonies">
                     <div class="stream-container">
                         <iframe 
-                            src="https://www.facebook.com/share/v/17vbKfEy3x/" 
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560" 
                             title="PTA Special Service Praise Report"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -4167,14 +4196,14 @@
                         <h3>PTA Special Service Praise Report</h3>
                         <p>Testimonies from the Pretoria special service.</p>
                         <div class="video-meta">
-                            <span>PTA Service</span>
+                            <span><i class="fab fa-facebook video-source-icon"></i> PTA Service</span>
                             <span class="video-duration">14:33</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Praise Report Video 4 -->
-                <div class="video-item" data-category="testimonies">
+                <!-- Praise Report Video 4 - YouTube -->
+                <div class="video-item youtube-video" data-category="testimonies">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/FL_8mowUw4g" 
@@ -4188,14 +4217,14 @@
                         <h3>Prophetic Healing Testimony</h3>
                         <p>There is a war coming at your workplace, but FEAR not, the Lord is with you! - Apostle Mothushi Chuene.</p>
                         <div class="video-meta">
-                            <span>Prophetic Testimony</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Prophetic Testimony</span>
                             <span class="video-duration">07:14</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Praise Report Video 5 -->
-                <div class="video-item" data-category="testimonies">
+                <!-- Praise Report Video 5 - YouTube -->
+                <div class="video-item youtube-video" data-category="testimonies">
                     <div class="stream-container">
                         <iframe 
                             src="https://www.youtube.com/embed/ouwrAC2YjwY" 
@@ -4209,17 +4238,17 @@
                         <h3>Deliverance Testimony</h3>
                         <p>Testimony of deliverance from spiritual bondage.</p>
                         <div class="video-meta">
-                            <span>Deliverance Ministry</span>
+                            <span><i class="fab fa-youtube video-source-icon"></i> Deliverance Ministry</span>
                             <span class="video-duration">17:33</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Praise Report Video 6 -->
-                <div class="video-item" data-category="testimonies">
+                <!-- Praise Report Video 6 - Facebook -->
+                <div class="video-item facebook-video" data-category="testimonies">
                     <div class="stream-container">
                         <iframe 
-                            src="https://www.facebook.com/share/v/14PZU6mzwcc/" 
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F14PZU6mzwcc%2F&show_text=false&width=560" 
                             title="Miracle Healing Testimony"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -4230,7 +4259,7 @@
                         <h3>Miracle Healing Testimony</h3>
                         <p>Testimony of miraculous healing during service.</p>
                         <div class="video-meta">
-                            <span>Miracle Testimony</span>
+                            <span><i class="fab fa-facebook video-source-icon"></i> Miracle Testimony</span>
                             <span class="video-duration">06:07</span>
                         </div>
                     </div>
@@ -4253,7 +4282,7 @@
                         <p class="speaker">Apostle Mothushi Chuene</p>
                         <p class="date">Thursday, January, 2026</p>
                         <p>"Fear is faith in the negative.</p>
-                        <a href="https://www.facebook.com/share/v/1AvbzKL5u3/" target="_blank" class="btn btn-small">Watch Now</a>
+                        <a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F1AvbzKL5u3%2F&show_text=false&width=560" target="_blank" class="btn btn-small">Watch Now</a>
                     </div>
                 </div>
                 <div class="sermon-card">
@@ -4263,7 +4292,7 @@
                         <p class="speaker">Apostle Mothushi Chuene</p>
                         <p class="date">Sunday, January, 2026</p>
                         <p>Those who love Him will keep His commands.</p>
-                        <a href="https://www.facebook.com/share/v/1HRUio234e/" target="_blank" class="btn btn-small">Watch Now</a>
+                        <a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F1HRUio234e%2F&show_text=false&width=560" target="_blank" class="btn btn-small">Watch Now</a>
                     </div>
                 </div>
                 <div class="sermon-card">
@@ -4273,7 +4302,7 @@
                         <p class="speaker">Apostle Mothushi Chuene</p>
                         <p class="date">Sunday, January, 2026</p>
                         <p>But I have this against you: you left your first love.</p>
-                        <a href="https://www.facebook.com/share/v/16niiwiiB7/" target="_blank" class="btn btn-small">Watch Now</a>
+                        <a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F16niiwiiB7%2F&show_text=false&width=560" target="_blank" class="btn btn-small">Watch Now</a>
                     </div>
                 </div>
             </div>
@@ -4325,8 +4354,8 @@
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
                     <li><a href="#" onclick="openMinistryPage('healing-hand')">Healing Hands Foundation</a></li>
                     <ul class="ministry-links">
-                        <li><a href="https://www.facebook.com/share/v/17vbKfEy3x/" target="_blank">PTA Special Service Praise Report</a></li>
-                        <li><a href="https://www.facebook.com/share/v/17sP4vFVj2/" target="_blank">Child Healing Testimony</a></li>
+                        <li><a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560" target="_blank">PTA Special Service Praise Report</a></li>
+                        <li><a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560" target="_blank">Child Healing Testimony</a></li>
                     </ul>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
@@ -4799,7 +4828,7 @@ ${message}
             }, 2000);
         }
         
-        // Video Player Functionality
+        // Video Player Functionality - UPDATED for Facebook videos
         function initializeVideoSection() {
             // Video filter functionality
             const videoFilterBtns = document.querySelectorAll('.video-filter-btn');
@@ -4844,36 +4873,79 @@ ${message}
                     const title = videoInfo.querySelector('h3').textContent;
                     const description = videoInfo.querySelector('p').textContent;
                     const videoSrc = iframe.src;
+                    const isYouTube = item.classList.contains('youtube-video');
+                    const isFacebook = item.classList.contains('facebook-video');
                     
                     // Add click event to open video in modal
                     item.style.cursor = 'pointer';
                     item.addEventListener('click', function() {
-                        openVideoModal(videoSrc, title, description);
+                        openVideoModal(videoSrc, title, description, isYouTube, isFacebook);
                     });
                 }
             });
         }
         
-        function openVideoModal(videoSrc, title, description) {
+        function openVideoModal(videoSrc, title, description, isYouTube = true, isFacebook = false) {
             const videoPlayer = document.getElementById('videoPlayer');
             const videoPlayerInfo = document.getElementById('videoPlayerInfo');
             
-            // Set video player
-            videoPlayer.innerHTML = `
-                <iframe 
-                    src="${videoSrc}?autoplay=1" 
-                    title="${title}"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            `;
+            // Set video player based on platform
+            if (isYouTube) {
+                // YouTube video - add autoplay parameter
+                const autoplaySrc = videoSrc.includes('?') ? 
+                    videoSrc + '&autoplay=1' : 
+                    videoSrc + '?autoplay=1';
+                videoPlayer.innerHTML = `
+                    <iframe 
+                        src="${autoplaySrc}" 
+                        title="${title}"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                `;
+            } else if (isFacebook) {
+                // Facebook video - use proper embed format
+                // Extract video ID from URL
+                let videoId = '';
+                if (videoSrc.includes('v/')) {
+                    const match = videoSrc.match(/v\/([^\/?]+)/);
+                    videoId = match ? match[1] : '';
+                }
+                
+                if (videoId) {
+                    const fbEmbedUrl = `https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F${videoId}%2F&show_text=false&width=560&autoplay=true`;
+                    videoPlayer.innerHTML = `
+                        <iframe 
+                            src="${fbEmbedUrl}" 
+                            title="${title}"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    `;
+                } else {
+                    // Fallback to original URL
+                    videoPlayer.innerHTML = `
+                        <iframe 
+                            src="${videoSrc}" 
+                            title="${title}"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    `;
+                }
+            }
             
             // Set video info
+            const sourceIcon = isYouTube ? '<i class="fab fa-youtube video-source-icon"></i>' : 
+                           isFacebook ? '<i class="fab fa-facebook video-source-icon"></i>' : '';
+            
             videoPlayerInfo.innerHTML = `
                 <h3>${title}</h3>
                 <div class="video-player-meta">
-                    <span>Apostle Mothushi Chuene</span>
+                    <span>${sourceIcon} Apostle Mothushi Chuene</span>
                     <span>Prophetic Healing and Deliverance</span>
                 </div>
                 <p class="video-player-description">${description}</p>
@@ -4919,7 +4991,27 @@ ${message}
             });
         }
         
-        // Initialize on page load
+        // Contact tabs functionality
+        function initializeContactTabs() {
+            const contactTabBtns = document.querySelectorAll('.contact-tab-btn');
+            const contactTabContents = document.querySelectorAll('.contact-tab-content');
+            
+            contactTabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-contact-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    contactTabBtns.forEach(b => b.classList.remove('active'));
+                    contactTabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+        
+        // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize treasures page
             initializeTreasuresPage();
@@ -4932,7 +5024,60 @@ ${message}
             
             // Initialize mobile dropdowns
             initializeMobileDropdowns();
+            
+            // Initialize contact tabs
+            initializeContactTabs();
+            
+            // Initialize video filtering
+            initializeVideoFilters();
         });
+        
+        // Video filtering functionality
+        function initializeVideoFilters() {
+            const videoFilterBtns = document.querySelectorAll('.video-filter-btn');
+            const videoItems = document.querySelectorAll('.video-item');
+            
+            videoFilterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    videoFilterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide video items based on filter
+                    videoItems.forEach(item => {
+                        const categories = item.getAttribute('data-category');
+                        const categoryList = categories ? categories.split(' ') : [];
+                        
+                        if (filter === 'all' || categoryList.includes(filter)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+        
+        // Add this function to handle video platform detection
+        function getVideoPlatform(src) {
+            if (src.includes('youtube.com') || src.includes('youtu.be')) {
+                return 'youtube';
+            } else if (src.includes('facebook.com')) {
+                return 'facebook';
+            }
+            return 'unknown';
+        }
     </script>
 </body>
 </html>
