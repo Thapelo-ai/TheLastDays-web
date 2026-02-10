@@ -113,7 +113,7 @@
             top: 100%;
             left: 0;
             background-color: var(--primary);
-            min-width: 250px;
+            min-width: 220px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             border-radius: 0 0 8px 8px;
             opacity: 0;
@@ -149,7 +149,22 @@
         .dropdown-menu a:hover {
             color: var(--secondary);
             padding-left: 2rem;
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: transparent;
+        }
+
+        .dropdown-menu li:last-child a {
+            position: relative;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu li:last-child a::before {
+            content: '';
+            position: absolute;
+            top: -0.4rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .dropdown-menu a .mune-text {
@@ -169,64 +184,24 @@
             margin-right: 8px;
         }
 
-        /* Dropdown divider styling */
-        .dropdown-divider {
-            padding: 0;
-            margin: 0.5rem 0;
-        }
-
-        .divider-line {
-            height: 1px;
-            background-color: rgba(255, 255, 255, 0.2);
-            margin: 0.5rem 1.5rem;
-        }
-
-        /* Dropdown section header */
-        .dropdown-section-header {
-            padding: 0.5rem 1.5rem;
+        /* Nested dropdown for sermon links */
+        .sermon-links-dropdown {
+            padding-left: 1.5rem;
             margin-top: 0.5rem;
         }
 
-        .section-title {
-            font-size: 0.8rem;
-            color: var(--secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .sermon-links-dropdown li {
+            margin-bottom: 0.3rem;
         }
 
-        /* Sermon list item styling */
-        .sermon-list-item {
-            width: 100%;
-        }
-
-        .sermon-list-item a {
-            padding: 0.8rem 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        .sermon-list-item a:hover {
-            color: var(--secondary);
-            background-color: rgba(255, 255, 255, 0.05);
-            padding-left: 2rem;
-        }
-
-        .sermon-list-item i {
-            width: 20px;
-            text-align: center;
+        .sermon-links-dropdown a {
+            padding: 0.6rem 1rem;
             font-size: 0.9rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Remove old nested dropdown styles */
-        .sermon-links-dropdown {
-            display: none;
+        .sermon-links-dropdown a:hover {
+            border-left-color: var(--secondary);
         }
 
         /* Hero Section */
@@ -2278,21 +2253,10 @@
                 display: block;
             }
 
-            /* Mobile dropdown styling */
-            .dropdown-divider {
-                margin: 0.3rem 0;
-            }
-            
-            .divider-line {
-                margin: 0.3rem 1rem;
-            }
-            
-            .dropdown-section-header {
-                padding: 0.5rem 1rem;
-            }
-            
-            .sermon-list-item a {
-                padding: 0.7rem 1rem;
+            /* Mobile sermon links dropdown */
+            .sermon-links-dropdown {
+                padding-left: 1rem;
+                margin-left: 0;
             }
         }
 
@@ -3899,41 +3863,30 @@
                                 <span class="mune-text">Recent Sermons</span>
                             </a>
                         </li>
-                        <li class="dropdown-divider">
-                            <div class="divider-line"></div>
-                        </li>
-                        <li class="dropdown-section-header">
-                            <span class="section-title">Watch Sermon Series</span>
-                        </li>
-                        <li class="sermon-list-item">
-                            <a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">
-                                <i class="fas fa-book-open"></i>
-                                <span class="mune-text">Review, Reflect, Rest</span>
-                            </a>
-                        </li>
-                        <li class="sermon-list-item">
-                            <a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">
-                                <i class="fas fa-home"></i>
-                                <span class="mune-text">Building Strong Families</span>
-                            </a>
-                        </li>
-                        <li class="sermon-list-item">
-                            <a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" target="_blank">
-                                <i class="fas fa-scroll"></i>
-                                <span class="mune-text">The End Of The Old Covenant</span>
-                            </a>
-                        </li>
-                        <li class="sermon-list-item">
-                            <a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" target="_blank">
-                                <i class="fas fa-church"></i>
-                                <span class="mune-text">The Two Resurrections</span>
-                            </a>
-                        </li>
-                        <li class="sermon-list-item">
-                            <a href="#" onclick="showPraiseReports()">
-                                <i class="fas fa-hands-praying"></i>
-                                <span class="mune-text">Praise Reports & Testimonies</span>
-                            </a>
+                        <!-- ADDED: Sermon Links in Dropdown -->
+                        <li class="sermon-links-dropdown">
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li><a href="#" onclick="showPraiseReports()" id="praiseReportsDropdownLink">
+                                    <i class="fas fa-hands-praying"></i>
+                                    <span class="mune-text">Praise Reports</span>
+                                </a></li>
+                                <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">
+                                    <i class="fas fa-book-open"></i>
+                                    <span class="mune-text">Review, Reflect, Rest</span>
+                                </a></li>
+                                <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">
+                                    <i class="fas fa-home"></i>
+                                    <span class="mune-text">Building Strong Families</span>
+                                </a></li>
+                                <li><a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" target="_blank">
+                                    <i class="fas fa-scroll"></i>
+                                    <span class="mune-text">The End Of The Old Covenant</span>
+                                </a></li>
+                                <li><a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" target="_blank">
+                                    <i class="fas fa-church"></i>
+                                    <span class="mune-text">The Two Resurrections</span>
+                                </a></li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -4311,7 +4264,7 @@
             aboutFooterLink: document.getElementById('aboutFooterLink'),
             contactFooterLink: document.getElementById('contactFooterLink'),
             aboutToContact: document.getElementById('aboutToContact'),
-            praiseReportsFooterLink: document.getElementById('praiseReportsFooterLink')
+            praiseReportsDropdownLink: document.getElementById('praiseReportsDropdownLink')
         };
 
         function openModal(modalId) {
@@ -4677,13 +4630,19 @@ ${message}
             document.body.style.overflow = 'hidden';
         }
 
-        // Add event listener for Praise Reports footer link
-        if (modalLinks.praiseReportsFooterLink) {
-            modalLinks.praiseReportsFooterLink.addEventListener('click', function(e) {
+        // Add event listener for Praise Reports dropdown link
+        if (modalLinks.praiseReportsDropdownLink) {
+            modalLinks.praiseReportsDropdownLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 showPraiseReports();
             });
         }
+
+        // Add event listener for Praise Reports footer link
+        document.getElementById('praiseReportsFooterLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            showPraiseReports();
+        });
 
         // Transformed Treasures Functionality
         function initializeTreasuresPage() {
