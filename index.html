@@ -184,6 +184,26 @@
             margin-right: 8px;
         }
 
+        /* Nested dropdown for sermon links */
+        .sermon-links-dropdown {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .sermon-links-dropdown li {
+            margin-bottom: 0.3rem;
+        }
+
+        .sermon-links-dropdown a {
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sermon-links-dropdown a:hover {
+            border-left-color: var(--secondary);
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Apostle4.jpg');
@@ -2232,6 +2252,12 @@
             .nav-dropdown.active .dropdown-menu {
                 display: block;
             }
+
+            /* Mobile sermon links dropdown */
+            .sermon-links-dropdown {
+                padding-left: 1rem;
+                margin-left: 0;
+            }
         }
 
         .prophetic-heading-section {
@@ -2475,9 +2501,6 @@
                 text-align: center;
             }
         }
-
-        /* Praise Reports Section - REMOVED from homepage */
-        /* This section will only be accessible via the footer link */
 
         html {
             scroll-behavior: smooth;
@@ -3840,6 +3863,31 @@
                                 <span class="mune-text">Recent Sermons</span>
                             </a>
                         </li>
+                        <!-- ADDED: Sermon Links in Dropdown -->
+                        <li class="sermon-links-dropdown">
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li><a href="#" onclick="showPraiseReports()" id="praiseReportsDropdownLink">
+                                    <i class="fas fa-hands-praying"></i>
+                                    <span class="mune-text">Praise Reports</span>
+                                </a></li>
+                                <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">
+                                    <i class="fas fa-book-open"></i>
+                                    <span class="mune-text">Review, Reflect, Rest</span>
+                                </a></li>
+                                <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">
+                                    <i class="fas fa-home"></i>
+                                    <span class="mune-text">Building Strong Families</span>
+                                </a></li>
+                                <li><a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" target="_blank">
+                                    <i class="fas fa-scroll"></i>
+                                    <span class="mune-text">The End Of The Old Covenant</span>
+                                </a></li>
+                                <li><a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" target="_blank">
+                                    <i class="fas fa-church"></i>
+                                    <span class="mune-text">The Two Resurrections</span>
+                                </a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#" onclick="openMinistryPage('treasures')" class="treasures-nav-item">Transformed Treasures</a></li>
@@ -4215,7 +4263,8 @@
             sermonsLink: document.getElementById('sermonsLink'),
             aboutFooterLink: document.getElementById('aboutFooterLink'),
             contactFooterLink: document.getElementById('contactFooterLink'),
-            aboutToContact: document.getElementById('aboutToContact')
+            aboutToContact: document.getElementById('aboutToContact'),
+            praiseReportsDropdownLink: document.getElementById('praiseReportsDropdownLink')
         };
 
         function openModal(modalId) {
@@ -4579,6 +4628,14 @@ ${message}
             
             document.body.appendChild(modal);
             document.body.style.overflow = 'hidden';
+        }
+
+        // Add event listener for Praise Reports dropdown link
+        if (modalLinks.praiseReportsDropdownLink) {
+            modalLinks.praiseReportsDropdownLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPraiseReports();
+            });
         }
 
         // Add event listener for Praise Reports footer link
@@ -4991,5 +5048,3 @@ ${message}
     </script>
 </body>
 </html>
-
-
