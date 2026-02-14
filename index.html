@@ -31,7 +31,7 @@
         header {
             background-color: transparent;
             color: white;
-            padding: 1rem 1.2rem;
+            padding: 0.5rem 1.2rem; /* REDUCED: was 1rem 1.2rem, now 0.5rem 1.2rem */
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: absolute;
             top: 0;
@@ -52,8 +52,8 @@
         }
 
         .logo img {
-            height: 60px;
-            width: 65px;
+            height: 50px; /* REDUCED: was 60px, now 50px */
+            width: 55px; /* REDUCED: was 65px, now 55px */
             border-radius: 8px;
         }
 
@@ -63,14 +63,14 @@
         }
 
         .logo-main {
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* REDUCED: was 1.5rem, now 1.3rem */
             font-weight: 700;
         }
 
         .logo-subtitle {
-            font-size: 0.9rem;
+            font-size: 0.8rem; /* REDUCED: was 0.9rem, now 0.8rem */
             color: var(--secondary);
-            margin-top: 2px;
+            margin-top: 0; /* REMOVED: was 2px */
         }
 
         nav ul {
@@ -84,6 +84,7 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem; /* ADDED: slightly smaller font size */
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -139,12 +140,12 @@
         }
 
         .dropdown-menu a {
-            padding: 0.8rem 1.5rem;
+            padding: 0.6rem 1.5rem; /* REDUCED: was 0.8rem 1.5rem, now 0.6rem 1.5rem */
             display: block;
             color: white;
             transition: all 0.3s ease;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem; /* REDUCED: was 0.95rem, now 0.9rem */
             font-weight: 400;
             border-bottom: none;
             background: none;
@@ -199,8 +200,8 @@
         }
 
         .sermon-links-dropdown a {
-            padding: 0.6rem 1rem;
-            font-size: 0.9rem;
+            padding: 0.4rem 1rem; /* REDUCED: was 0.6rem 1rem, now 0.4rem 1rem */
+            font-size: 0.85rem; /* REDUCED: was 0.9rem, now 0.85rem */
             border-left: 2px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -223,7 +224,7 @@
             padding: 0 1rem;
             position: relative;
             margin-top: 0;
-            padding-top: 80px; /* Space for header */
+            padding-top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
         }
 
         .hero-content h2 {
@@ -1460,7 +1461,7 @@
 
         .back-to-home {
             position: fixed;
-            top: 100px;
+            top: 80px; /* REDUCED: was 100px, now 80px to match smaller header */
             left: 20px;
             z-index: 1000;
             background: var(--primary);
@@ -2067,14 +2068,14 @@
 
         @media (max-width: 768px) {
             header {
-                padding: 0.8rem 1rem;
+                padding: 0.4rem 1rem; /* REDUCED: was 0.8rem 1rem, now 0.4rem 1rem for mobile */
             }
             
             nav ul {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 80px;
+                top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
                 left: 0;
                 width: 100%;
                 background-color: var(--primary);
@@ -2099,7 +2100,7 @@
 
             .hero {
                 height: 100vh;
-                padding-top: 80px;
+                padding-top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
             }
 
             .tabs {
@@ -2170,7 +2171,7 @@
             }
 
             .sermons-section {
-                scroll-margin-top: 80px;
+                scroll-margin-top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
             }
 
             .commitment-levels {
@@ -2190,7 +2191,7 @@
             }
             
             .back-to-home {
-                top: 80px;
+                top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
                 left: 10px;
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
@@ -2530,6 +2531,8 @@
     </style>
 </head>
 <body>
+    <!-- All the body content remains exactly the same -->
+    <!-- ... (keep all the existing body content from your original code) ... -->
     <!-- About Us Modal -->
     <div class="modal-overlay" id="aboutModal">
         <div class="modal about-modal">
@@ -5062,4 +5065,5 @@ ${message}
     </script>
 </body>
 </html>
+
 
