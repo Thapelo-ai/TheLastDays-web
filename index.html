@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Keep all your existing styles exactly as they were */
         :root {
             --primary: #4a6f28;
             --secondary: #f5a623;
@@ -31,7 +32,7 @@
         header {
             background-color: transparent;
             color: white;
-            padding: 0.5rem 1.2rem; /* REDUCED: was 1rem 1.2rem, now 0.5rem 1.2rem */
+            padding: 0.5rem 1.2rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: absolute;
             top: 0;
@@ -52,8 +53,8 @@
         }
 
         .logo img {
-            height: 50px; /* REDUCED: was 60px, now 50px */
-            width: 55px; /* REDUCED: was 65px, now 55px */
+            height: 50px;
+            width: 55px;
             border-radius: 8px;
         }
 
@@ -63,14 +64,14 @@
         }
 
         .logo-main {
-            font-size: 1.3rem; /* REDUCED: was 1.5rem, now 1.3rem */
+            font-size: 1.3rem;
             font-weight: 700;
         }
 
         .logo-subtitle {
-            font-size: 0.8rem; /* REDUCED: was 0.9rem, now 0.8rem */
+            font-size: 0.8rem;
             color: var(--secondary);
-            margin-top: 0; /* REMOVED: was 2px */
+            margin-top: 0;
         }
 
         nav ul {
@@ -84,7 +85,7 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem; /* ADDED: slightly smaller font size */
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -140,12 +141,12 @@
         }
 
         .dropdown-menu a {
-            padding: 0.6rem 1.5rem; /* REDUCED: was 0.8rem 1.5rem, now 0.6rem 1.5rem */
+            padding: 0.6rem 1.5rem;
             display: block;
             color: white;
             transition: all 0.3s ease;
             text-decoration: none;
-            font-size: 0.9rem; /* REDUCED: was 0.95rem, now 0.9rem */
+            font-size: 0.9rem;
             font-weight: 400;
             border-bottom: none;
             background: none;
@@ -200,8 +201,8 @@
         }
 
         .sermon-links-dropdown a {
-            padding: 0.4rem 1rem; /* REDUCED: was 0.6rem 1rem, now 0.4rem 1rem */
-            font-size: 0.85rem; /* REDUCED: was 0.9rem, now 0.85rem */
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
             border-left: 2px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -224,7 +225,7 @@
             padding: 0 1rem;
             position: relative;
             margin-top: 0;
-            padding-top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
+            padding-top: 70px;
         }
 
         .hero-content h2 {
@@ -1461,7 +1462,7 @@
 
         .back-to-home {
             position: fixed;
-            top: 80px; /* REDUCED: was 100px, now 80px to match smaller header */
+            top: 80px;
             left: 20px;
             z-index: 1000;
             background: var(--primary);
@@ -2068,14 +2069,14 @@
 
         @media (max-width: 768px) {
             header {
-                padding: 0.4rem 1rem; /* REDUCED: was 0.8rem 1rem, now 0.4rem 1rem for mobile */
+                padding: 0.4rem 1rem;
             }
             
             nav ul {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background-color: var(--primary);
@@ -2100,7 +2101,7 @@
 
             .hero {
                 height: 100vh;
-                padding-top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
+                padding-top: 70px;
             }
 
             .tabs {
@@ -2171,7 +2172,7 @@
             }
 
             .sermons-section {
-                scroll-margin-top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
+                scroll-margin-top: 70px;
             }
 
             .commitment-levels {
@@ -2191,7 +2192,7 @@
             }
             
             .back-to-home {
-                top: 70px; /* REDUCED: was 80px, now 70px to match smaller header */
+                top: 70px;
                 left: 10px;
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
@@ -2531,8 +2532,6 @@
     </style>
 </head>
 <body>
-    <!-- All the body content remains exactly the same -->
-    <!-- ... (keep all the existing body content from your original code) ... -->
     <!-- About Us Modal -->
     <div class="modal-overlay" id="aboutModal">
         <div class="modal about-modal">
@@ -3930,7 +3929,7 @@
         <section class="video-section" id="featured-video">
             <div class="stream-container">
                 <iframe 
-                    src="https://www.facebook.com/reel/1963500900870135/?mibextid=rS40aB7S9Ucbxw6v" 
+                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1963500900870135%2F&show_text=false&width=560" 
                     title="Featured Video - The Last Days Evangelism Ministries"
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -3978,7 +3977,7 @@
             <p>Experience the transformative power of God through prophetic ministry, divine healing, and deliverance from spiritual bondage.</p>
         </section>
 
-        <!-- NEW: Prophetic Healing and Deliverance Videos Section -->
+        <!-- NEW: Prophetic Healing and Deliverance Videos Section - UPDATED WITH PROPER FACEBOOK EMBEDS -->
         <section class="videos-section" id="prophetic-videos">
             <!-- Video Filter Controls -->
             <div class="video-filters">
@@ -4003,7 +4002,7 @@
                     </div>
                     <div class="video-info">
                         <h3>Prophetic Healing Session</h3>
-                        <p>There is a war coming at your workplace, but FEAR not, the Lord is with you!.</p>
+                        <p>There is a war coming at your workplace, but FEAR not, the Lord is with you!</p>
                         <div class="video-meta">
                             <span><i class="fab fa-youtube video-source-icon"></i> Apostle Mothushi Chuene</span>
                             <span class="video-duration">07:14</span>
@@ -4136,6 +4135,48 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- NEW: Facebook Video - Child Healing Testimony -->
+                <div class="video-item facebook-video" data-category="testimonies healing">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560" 
+                            title="Child Healing Testimony"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Child Healing Testimony</h3>
+                        <p>What doctors could not do, Jesus did it!! The boy's eyes are opened.</p>
+                        <div class="video-meta">
+                            <span><i class="fab fa-facebook video-source-icon"></i> PTA Service</span>
+                            <span class="video-duration">03:16</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Facebook Video - PTA Special Service -->
+                <div class="video-item facebook-video" data-category="testimonies healing">
+                    <div class="stream-container">
+                        <iframe 
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560" 
+                            title="PTA Special Service Praise Report"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>PTA Special Service Praise Report</h3>
+                        <p>And we know that all things work together for good for them that love God, to them who are called according to his purpose - Romans 8:28.</p>
+                        <div class="video-meta">
+                            <span><i class="fab fa-facebook video-source-icon"></i> Healing Testimony</span>
+                            <span class="video-duration">04:26</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- YouTube Subscribe Section -->
@@ -4148,7 +4189,7 @@
             </div>
         </section>
 
-        <!-- Recent Sermons Section -->
+        <!-- Recent Sermons Section - UPDATED WITH PROPER FACEBOOK EMBEDS -->
         <section class="recent-sermons" id="sermons">
             <h2>Recent Sermons</h2>
             <div class="sermon-cards">
@@ -4158,7 +4199,7 @@
                         <h3>Fear And Faith</h3>
                         <p class="speaker">Apostle Mothushi Chuene</p>
                         <p class="date">Thursday, January, 2026</p>
-                        <p>"Fear is faith in the negative.</p>
+                        <p>"Fear is faith in the negative."</p>
                         <a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F1AvbzKL5u3%2F&show_text=false&width=560" target="_blank" class="btn btn-small">Watch Now</a>
                     </div>
                 </div>
@@ -4175,10 +4216,10 @@
                 <div class="sermon-card">
                     <img src="Apostle1.jpg" alt="Reflection Sermon">
                     <div class="sermon-card-content">
-                        <h3></h3>
+                        <h3>But I have this against you: you left your first love</h3>
                         <p class="speaker">Apostle Mothushi Chuene</p>
                         <p class="date">Sunday, January, 2026</p>
-                        <p>But I have this against you: you left your first love.</p>
+                        <p>Revelation 2:4 - But I have this against you: you left your first love.</p>
                         <a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F16niiwiiB7%2F&show_text=false&width=560" target="_blank" class="btn btn-small">Watch Now</a>
                     </div>
                 </div>
@@ -4232,8 +4273,8 @@
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
                     <li><a href="#" onclick="openMinistryPage('healing-hand')">Healing Hands Foundation</a></li>
                     <ul class="ministry-links">
-                        <li><a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560" target="_blank">PTA Special Service Praise Report</a></li>
-                        <li><a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560" target="_blank">Child Healing Testimony</a></li>
+                        <li><a href="#" onclick="openVideoModal('https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560', 'PTA Special Service Praise Report', 'Watch this powerful testimony from our PTA service.', false, true)">PTA Special Service Praise Report</a></li>
+                        <li><a href="#" onclick="openVideoModal('https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560', 'Child Healing Testimony', 'What doctors could not do, Jesus did it!! The boy\'s eyes are opened.', false, true)">Child Healing Testimony</a></li>
                     </ul>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
@@ -4286,64 +4327,81 @@
 
         function openModal(modalId) {
             Object.values(modals).forEach(modal => {
-                modal.classList.remove('active');
+                if (modal) modal.classList.remove('active');
             });
             
-            modals[modalId].classList.add('active');
-            document.body.style.overflow = 'hidden';
+            if (modals[modalId]) {
+                modals[modalId].classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
             
             // Close mobile menu if open
-            document.getElementById('nav-menu').classList.remove('show');
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu) navMenu.classList.remove('show');
         }
 
         function closeModal(modalId) {
-            modals[modalId].classList.remove('active');
-            document.body.style.overflow = 'auto';
+            if (modals[modalId]) {
+                modals[modalId].classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
             
             // Stop video playback when closing video modal
             if (modalId === 'videoModal') {
                 const videoPlayer = document.getElementById('videoPlayer');
-                videoPlayer.innerHTML = '';
+                if (videoPlayer) videoPlayer.innerHTML = '';
             }
         }
 
         // Event listeners for opening modals
-        modalLinks.aboutLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('aboutModal');
-        });
+        if (modalLinks.aboutLink) {
+            modalLinks.aboutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal('aboutModal');
+            });
+        }
 
-        modalLinks.contactLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('contactModal');
-        });
-
-        modalLinks.sermonsLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            scrollToSection('sermons');
-        });
-
-        modalLinks.aboutFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('aboutModal');
-        });
-
-        modalLinks.contactFooterLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('contactModal');
-        });
-
-        modalLinks.aboutToContact.addEventListener('click', function(e) {
-            e.preventDefault();
-            closeModal('aboutModal');
-            setTimeout(() => {
+        if (modalLinks.contactLink) {
+            modalLinks.contactLink.addEventListener('click', function(e) {
+                e.preventDefault();
                 openModal('contactModal');
-                const contactFormTab = document.querySelector('[data-contact-tab="contact-form"]');
-                if (contactFormTab) {
-                    contactFormTab.click();
-                }
-            }, 300);
-        });
+            });
+        }
+
+        if (modalLinks.sermonsLink) {
+            modalLinks.sermonsLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToSection('sermons');
+            });
+        }
+
+        if (modalLinks.aboutFooterLink) {
+            modalLinks.aboutFooterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal('aboutModal');
+            });
+        }
+
+        if (modalLinks.contactFooterLink) {
+            modalLinks.contactFooterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal('contactModal');
+            });
+        }
+
+        if (modalLinks.aboutToContact) {
+            modalLinks.aboutToContact.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeModal('aboutModal');
+                setTimeout(() => {
+                    openModal('contactModal');
+                    const contactFormTab = document.querySelector('[data-contact-tab="contact-form"]');
+                    if (contactFormTab) {
+                        contactFormTab.click();
+                    }
+                }, 300);
+            });
+        }
 
         // Event listeners for close buttons
         document.querySelectorAll('.close-modal').forEach(button => {
@@ -4355,19 +4413,21 @@
 
         // Close modal when clicking outside
         Object.values(modals).forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    const modalId = modal.id;
-                    closeModal(modalId);
-                }
-            });
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        const modalId = modal.id;
+                        closeModal(modalId);
+                    }
+                });
+            }
         });
 
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 Object.entries(modals).forEach(([modalId, modal]) => {
-                    if (modal.classList.contains('active')) {
+                    if (modal && modal.classList.contains('active')) {
                         closeModal(modalId);
                     }
                 });
@@ -4412,58 +4472,61 @@
         }
 
         // Contact Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            const messageStatus = document.getElementById('messageStatus');
-            
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            if (!name || !email || !subject || !message) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                const subjectText = getSubjectText(subject);
-                const emailBody = `
-Name: ${name}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Subject: ${subjectText}
-
-Message:
-${message}
-                `;
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                const mailtoLink = `mailto:mothushic@gmail.com?subject=Website Contact: ${subjectText}&body=${encodeURIComponent(emailBody)}`;
+                const form = e.target;
+                const formData = new FormData(form);
+                const messageStatus = document.getElementById('messageStatus');
                 
-                window.location.href = mailtoLink;
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const phone = formData.get('phone');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
                 
-                showMessage('Thank you! Your message has been prepared. Please check your email client to send it.', 'success');
+                if (!name || !email || !subject || !message) {
+                    showMessage('Please fill in all required fields.', 'error');
+                    return;
+                }
                 
-                form.reset();
-                
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
                 
                 setTimeout(() => {
-                    messageStatus.style.display = 'none';
-                }, 10000);
-                
-            }, 1500);
-        });
+                    const subjectText = getSubjectText(subject);
+                    const emailBody = `
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone || 'Not provided'}
+        Subject: ${subjectText}
+
+        Message:
+        ${message}
+                    `;
+                    
+                    const mailtoLink = `mailto:mothushic@gmail.com?subject=Website Contact: ${subjectText}&body=${encodeURIComponent(emailBody)}`;
+                    
+                    window.location.href = mailtoLink;
+                    
+                    showMessage('Thank you! Your message has been prepared. Please check your email client to send it.', 'success');
+                    
+                    form.reset();
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    setTimeout(() => {
+                        if (messageStatus) messageStatus.style.display = 'none';
+                    }, 10000);
+                    
+                }, 1500);
+            });
+        }
         
         function getSubjectText(subjectValue) {
             const subjects = {
@@ -4479,9 +4542,11 @@ ${message}
         
         function showMessage(message, type) {
             const messageStatus = document.getElementById('messageStatus');
-            messageStatus.textContent = message;
-            messageStatus.className = `message-status ${type}`;
-            messageStatus.style.display = 'block';
+            if (messageStatus) {
+                messageStatus.textContent = message;
+                messageStatus.className = `message-status ${type}`;
+                messageStatus.style.display = 'block';
+            }
         }
 
         // Smooth scroll function
@@ -4489,14 +4554,17 @@ ${message}
             const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
-                document.getElementById('nav-menu').classList.remove('show');
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu) navMenu.classList.remove('show');
             }
         }
 
         // Ministry Pages Functionality
         function openMinistryPage(ministry) {
             // Hide main content and all ministry pages
-            document.getElementById('main-content').style.display = 'none';
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) mainContent.style.display = 'none';
+            
             document.querySelectorAll('.ministry-page').forEach(page => {
                 page.style.display = 'none';
             });
@@ -4509,7 +4577,8 @@ ${message}
             }
             
             // Close mobile menu if open
-            document.getElementById('nav-menu').classList.remove('show');
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu) navMenu.classList.remove('show');
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4534,11 +4603,13 @@ ${message}
             });
             
             // Show main content
-            document.getElementById('main-content').style.display = 'block';
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) mainContent.style.display = 'block';
             document.title = 'The Last Days Evangelism Ministries';
             
             // Close mobile menu if open
-            document.getElementById('nav-menu').classList.remove('show');
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu) navMenu.classList.remove('show');
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4561,7 +4632,7 @@ ${message}
                         <div class="video-item facebook-video">
                             <div class="stream-container">
                                 <iframe 
-                                    src="https://www.facebook.com/share/v/16WWWJNuUV/" 
+                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560" 
                                     title="Child healing testimony - Praise Reports"
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -4582,7 +4653,7 @@ ${message}
                         <div class="video-item facebook-video">
                             <div class="stream-container">
                                 <iframe 
-                                    src="https://www.facebook.com/reel/824495483907789" 
+                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560" 
                                     title="PTA Special Service Praise Report"
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -4603,7 +4674,7 @@ ${message}
                         <div class="video-item facebook-video">
                             <div class="stream-container">
                                 <iframe 
-                                    src="https://www.facebook.com/reel/1461616778244232/?mibextid=rS40aB7S9Ucbxw6v" 
+                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F14PZU6mzwcc%2F&show_text=false&width=560" 
                                     title="Praise Report✨"
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -4615,7 +4686,7 @@ ${message}
                                 <p>What doctors could not do, Jesus did it!! The boy's eyes are opened.</p>
                                 <div class="video-meta">
                                     <span><i class="fab fa-facebook video-source-icon"></i> PTA Service</span>
-                                    <span class="video-duration">09:00</span>
+                                    <span class="video-duration">06:07</span>
                                 </div>
                             </div>
                         </div>
@@ -4656,10 +4727,13 @@ ${message}
         }
 
         // Add event listener for Praise Reports footer link
-        document.getElementById('praiseReportsFooterLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            showPraiseReports();
-        });
+        const praiseReportsFooterLink = document.getElementById('praiseReportsFooterLink');
+        if (praiseReportsFooterLink) {
+            praiseReportsFooterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPraiseReports();
+            });
+        }
 
         // Transformed Treasures Functionality
         function initializeTreasuresPage() {
@@ -4676,15 +4750,20 @@ ${message}
             
             // Open image modal function
             function openImageModal(imageSrc, caption) {
-                const modalContent = modals.treasuresModal.querySelector('.fullscreen-image-container');
-                modalContent.innerHTML = `
-                    <img src="${imageSrc}" alt="${caption}" class="fullscreen-image">
-                    <div class="image-caption">
-                        <h3>${caption}</h3>
-                        <p>Transformed Treasures Women's Ministry</p>
-                    </div>
-                `;
-                openModal('treasuresModal');
+                const treasuresModal = document.getElementById('treasuresModal');
+                if (treasuresModal) {
+                    const modalContent = treasuresModal.querySelector('.fullscreen-image-container');
+                    if (modalContent) {
+                        modalContent.innerHTML = `
+                            <img src="${imageSrc}" alt="${caption}" class="fullscreen-image">
+                            <div class="image-caption">
+                                <h3>${caption}</h3>
+                                <p>Transformed Treasures Women's Ministry</p>
+                            </div>
+                        `;
+                    }
+                    openModal('treasuresModal');
+                }
             }
         }
 
@@ -4736,62 +4815,72 @@ ${message}
         
         // Function to open image modal
         function openHealingImageModal(imageSrc, title, description) {
-            const modalContent = modals.treasuresModal.querySelector('.fullscreen-image-container');
-            modalContent.innerHTML = `
-                <img src="${imageSrc}" alt="${title}" class="fullscreen-image">
-                <div class="image-caption">
-                    <h3>${title}</h3>
-                    <p>${description}</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--secondary);">
-                        <i class="fas fa-heart"></i> Healing Hands Foundation
-                    </p>
-                </div>
-            `;
-            openModal('treasuresModal');
+            const treasuresModal = document.getElementById('treasuresModal');
+            if (treasuresModal) {
+                const modalContent = treasuresModal.querySelector('.fullscreen-image-container');
+                if (modalContent) {
+                    modalContent.innerHTML = `
+                        <img src="${imageSrc}" alt="${title}" class="fullscreen-image">
+                        <div class="image-caption">
+                            <h3>${title}</h3>
+                            <p>${description}</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--secondary);">
+                                <i class="fas fa-heart"></i> Healing Hands Foundation
+                            </p>
+                        </div>
+                    `;
+                }
+                openModal('treasuresModal');
+            }
         }
         
         // Upload form functionality
         function openUploadForm() {
             const uploadForm = document.getElementById('uploadForm');
-            uploadForm.style.display = 'block';
+            if (uploadForm) uploadForm.style.display = 'block';
         }
         
         function closeUploadForm() {
             const uploadForm = document.getElementById('uploadForm');
-            uploadForm.style.display = 'none';
-            document.getElementById('uploadPreview').innerHTML = '';
-            document.getElementById('photoUpload').value = '';
-            document.getElementById('photoCaption').value = '';
+            if (uploadForm) uploadForm.style.display = 'none';
+            const uploadPreview = document.getElementById('uploadPreview');
+            if (uploadPreview) uploadPreview.innerHTML = '';
+            const photoUpload = document.getElementById('photoUpload');
+            if (photoUpload) photoUpload.value = '';
+            const photoCaption = document.getElementById('photoCaption');
+            if (photoCaption) photoCaption.value = '';
         }
         
         function previewImages(event) {
             const preview = document.getElementById('uploadPreview');
-            preview.innerHTML = '';
-            preview.classList.add('active');
-            
-            const files = event.target.files;
-            
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                const reader = new FileReader();
+            if (preview) {
+                preview.innerHTML = '';
+                preview.classList.add('active');
                 
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.classList.add('preview-image');
-                    preview.appendChild(img);
+                const files = event.target.files;
+                
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.classList.add('preview-image');
+                        preview.appendChild(img);
+                    }
+                    
+                    reader.readAsDataURL(file);
                 }
-                
-                reader.readAsDataURL(file);
             }
         }
         
         function uploadImages() {
-            const caption = document.getElementById('photoCaption').value;
-            const category = document.getElementById('photoCategory').value;
-            const files = document.getElementById('photoUpload').files;
+            const caption = document.getElementById('photoCaption') ? document.getElementById('photoCaption').value : '';
+            const category = document.getElementById('photoCategory') ? document.getElementById('photoCategory').value : '';
+            const files = document.getElementById('photoUpload') ? document.getElementById('photoUpload').files : null;
             
-            if (files.length === 0) {
+            if (!files || files.length === 0) {
                 alert('Please select at least one photo to upload.');
                 return;
             }
@@ -4800,16 +4889,18 @@ ${message}
             // For demo purposes, we'll simulate an upload
             
             const uploadBtn = document.querySelector('.upload-btn');
-            const originalText = uploadBtn.innerHTML;
-            uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
-            uploadBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert(`Thank you! ${files.length} photo(s) have been uploaded successfully. They will be reviewed and added to the gallery soon.`);
-                closeUploadForm();
-                uploadBtn.innerHTML = originalText;
-                uploadBtn.disabled = false;
-            }, 2000);
+            if (uploadBtn) {
+                const originalText = uploadBtn.innerHTML;
+                uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+                uploadBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert(`Thank you! ${files.length} photo(s) have been uploaded successfully. They will be reviewed and added to the gallery soon.`);
+                    closeUploadForm();
+                    uploadBtn.innerHTML = originalText;
+                    uploadBtn.disabled = false;
+                }, 2000);
+            }
         }
         
         // Video Player Functionality - UPDATED for Facebook videos
@@ -4829,7 +4920,7 @@ ${message}
                     
                     // Show/hide video items based on filter
                     videoItems.forEach(item => {
-                        const categories = item.getAttribute('data-category').split(' ');
+                        const categories = item.getAttribute('data-category') ? item.getAttribute('data-category').split(' ') : [];
                         
                         if (filter === 'all' || categories.includes(filter)) {
                             item.style.display = 'block';
@@ -4854,8 +4945,10 @@ ${message}
                 const videoInfo = item.querySelector('.video-info');
                 
                 if (iframe && videoInfo) {
-                    const title = videoInfo.querySelector('h3').textContent;
-                    const description = videoInfo.querySelector('p').textContent;
+                    const titleElement = videoInfo.querySelector('h3');
+                    const descriptionElement = videoInfo.querySelector('p');
+                    const title = titleElement ? titleElement.textContent : 'Video';
+                    const description = descriptionElement ? descriptionElement.textContent : '';
                     const videoSrc = iframe.src;
                     const isYouTube = item.classList.contains('youtube-video');
                     const isFacebook = item.classList.contains('facebook-video');
@@ -4873,6 +4966,8 @@ ${message}
             const videoPlayer = document.getElementById('videoPlayer');
             const videoPlayerInfo = document.getElementById('videoPlayerInfo');
             
+            if (!videoPlayer || !videoPlayerInfo) return;
+            
             // Set video player based on platform
             if (isYouTube) {
                 // YouTube video - add autoplay parameter
@@ -4889,37 +4984,20 @@ ${message}
                     </iframe>
                 `;
             } else if (isFacebook) {
-                // Facebook video - use proper embed format
-                // Extract video ID from URL
-                let videoId = '';
-                if (videoSrc.includes('v/')) {
-                    const match = videoSrc.match(/v\/([^\/?]+)/);
-                    videoId = match ? match[1] : '';
+                // Facebook video - ensure proper embed format with autoplay
+                let fbEmbedUrl = videoSrc;
+                if (!fbEmbedUrl.includes('autoplay')) {
+                    fbEmbedUrl = fbEmbedUrl + (fbEmbedUrl.includes('?') ? '&autoplay=1' : '?autoplay=1');
                 }
-                
-                if (videoId) {
-                    const fbEmbedUrl = `https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F${videoId}%2F&show_text=false&width=560&autoplay=true`;
-                    videoPlayer.innerHTML = `
-                        <iframe 
-                            src="${fbEmbedUrl}" 
-                            title="${title}"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    `;
-                } else {
-                    // Fallback to original URL
-                    videoPlayer.innerHTML = `
-                        <iframe 
-                            src="${videoSrc}" 
-                            title="${title}"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    `;
-                }
+                videoPlayer.innerHTML = `
+                    <iframe 
+                        src="${fbEmbedUrl}" 
+                        title="${title}"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                `;
             }
             
             // Set video info
@@ -4943,8 +5021,10 @@ ${message}
             const viewMoreBtn = document.querySelector('.view-more-btn');
             const sermonCounter = document.querySelector('.sermon-counter');
             
-            viewMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-            viewMoreBtn.classList.add('loading');
+            if (viewMoreBtn) {
+                viewMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                viewMoreBtn.classList.add('loading');
+            }
             
             // Simulate loading delay
             setTimeout(() => {
@@ -4952,10 +5032,16 @@ ${message}
                 // For now, we'll just show a message
                 alert('More sermons would be loaded here. In a production environment, this would fetch additional sermon videos from your database or YouTube channel.');
                 
-                viewMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Sermons';
-                viewMoreBtn.classList.remove('loading');
-                sermonCounter.textContent = 'Showing 12 of 12 recent sermons';
-                viewMoreBtn.style.display = 'none';
+                if (viewMoreBtn) {
+                    viewMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Sermons';
+                    viewMoreBtn.classList.remove('loading');
+                }
+                if (sermonCounter) {
+                    sermonCounter.textContent = 'Showing 12 of 12 recent sermons';
+                }
+                if (viewMoreBtn) {
+                    viewMoreBtn.style.display = 'none';
+                }
             }, 1500);
         }
         
@@ -4966,12 +5052,14 @@ ${message}
             dropdowns.forEach(dropdown => {
                 const link = dropdown.querySelector('a');
                 
-                link.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        dropdown.classList.toggle('active');
-                    }
-                });
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+                }
             });
         }
         
@@ -4990,31 +5078,11 @@ ${message}
                     
                     // Add active class to clicked button and corresponding content
                     this.classList.add('active');
-                    document.getElementById(tabId).classList.add('active');
+                    const tabContent = document.getElementById(tabId);
+                    if (tabContent) tabContent.classList.add('active');
                 });
             });
         }
-        
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize treasures page
-            initializeTreasuresPage();
-            
-            // Initialize Healing Hands gallery
-            initializeHealingGallery();
-            
-            // Initialize video section
-            initializeVideoSection();
-            
-            // Initialize mobile dropdowns
-            initializeMobileDropdowns();
-            
-            // Initialize contact tabs
-            initializeContactTabs();
-            
-            // Initialize video filtering
-            initializeVideoFilters();
-        });
         
         // Video filtering functionality
         function initializeVideoFilters() {
@@ -5062,8 +5130,66 @@ ${message}
             }
             return 'unknown';
         }
+
+        // Helper function to convert Facebook video URLs to proper embed format
+        function getFacebookEmbedUrl(videoUrl) {
+            // Extract video ID from various Facebook URL formats
+            let videoId = '';
+            
+            // Format: facebook.com/share/v/VIDEO_ID/
+            if (videoUrl.includes('/share/v/')) {
+                const match = videoUrl.match(/\/share\/v\/([^\/?]+)/);
+                if (match) videoId = match[1];
+            }
+            // Format: facebook.com/reel/VIDEO_ID/
+            else if (videoUrl.includes('/reel/')) {
+                const match = videoUrl.match(/\/reel\/([^\/?]+)/);
+                if (match) videoId = match[1];
+            }
+            // Format: facebook.com/VIDEO_ID
+            else if (videoUrl.includes('facebook.com/') && !videoUrl.includes('/share/') && !videoUrl.includes('/reel/')) {
+                const match = videoUrl.match(/facebook\.com\/(?:watch\?v=)?(\d+)/);
+                if (match) videoId = match[1];
+            }
+            
+            if (videoId) {
+                return `https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F${videoId}%2F&show_text=false&width=560`;
+            }
+            
+            // If we can't extract the ID, return the original URL
+            return videoUrl;
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize treasures page
+            initializeTreasuresPage();
+            
+            // Initialize Healing Hands gallery
+            initializeHealingGallery();
+            
+            // Initialize video section
+            initializeVideoSection();
+            
+            // Initialize mobile dropdowns
+            initializeMobileDropdowns();
+            
+            // Initialize contact tabs
+            initializeContactTabs();
+            
+            // Initialize video filtering
+            initializeVideoFilters();
+
+            // Convert all Facebook video URLs to proper embed format
+            document.querySelectorAll('iframe[src*="facebook.com"]').forEach(iframe => {
+                const src = iframe.getAttribute('src');
+                if (src && !src.includes('plugins/video.php')) {
+                    // Convert to proper embed format
+                    const embedUrl = getFacebookEmbedUrl(src);
+                    iframe.setAttribute('src', embedUrl);
+                }
+            });
+        });
     </script>
 </body>
 </html>
-
-
