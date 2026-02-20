@@ -2534,9 +2534,10 @@
         /* ===== NEW STYLES FOR APOSTLE MODAL ===== */
         .apostle-bg-section {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Apostle4.jpg') center/cover no-repeat;
-            padding: 3rem 2rem;
-            text-align: center;
-            color: white;
+            min-height: 400px;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
             border-radius: 8px 8px 0 0;
             margin: -2rem -2rem 2rem -2rem;
         }
@@ -2545,6 +2546,7 @@
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .apostle-bg-section p {
@@ -2609,6 +2611,10 @@
             }
             .apostle-bg-section h1 {
                 font-size: 2rem;
+            }
+            .apostle-bg-section {
+                padding: 2rem 1rem;
+                min-height: 300px;
             }
         }
     </style>
@@ -2951,7 +2957,7 @@
         </div>
     </div>
 
-    <!-- ===== NEW MODAL: About Apostle Mothushi Chuene ===== -->
+    <!-- ===== MODIFIED MODAL: About Apostle Mothushi Chuene ===== -->
     <div class="modal-overlay" id="apostleModal">
         <div class="modal">
             <div class="modal-header">
@@ -2959,22 +2965,23 @@
                 <button class="close-modal" data-modal="apostleModal">&times;</button>
             </div>
             <div class="modal-content" style="padding-top: 0;">
-                <!-- Background Image Section -->
+                <!-- Enlarged background section with overlay content -->
                 <div class="apostle-bg-section">
-                    <h1>Apostle Mothushi Chuene</h1>
-                    <p>Founder & Senior Pastor • The Last Days Evangelism Ministries</p>
-                </div>
-
-                <!-- Profile Picture + Paragraph -->
-                <div class="apostle-profile">
-                    <img src="Apostle4.jpg" alt="Apostle Mothushi Chuene">
-                    <div class="apostle-profile-text">
-                        <h3>A Man of Prophetic Grace</h3>
-                        <p>Apostle Mothushi Chuene is a devoted servant of God, called to preach the Gospel in these last days. He leads The Last Days Evangelism Ministries with passion and dedication, teaching the Word of God with clarity and anointing. Known for his precise prophetic utterances and demonstrations of the Holy Spirit's power, he has become a spiritual father to many.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; width: 100%;">
+                        <!-- Paragraph on the left -->
+                        <div style="flex: 1 1 250px; text-align: left; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+                            <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Apostle Mothushi Chuene</h1>
+                            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Founder & Senior Pastor • The Last Days Evangelism Ministries</p>
+                            <p style="font-size: 1.1rem; font-style: italic;">"A man of prophetic grace, called to preach the Gospel in these last days with power and precision."</p>
+                        </div>
+                        <!-- Picture on the right (on top of background) -->
+                        <div style="flex: 0 0 200px;">
+                            <img src="Apostle1.jpg" alt="Apostle Mothushi Chuene" style="width: 100%; height: auto; border-radius: 50%; border: 4px solid var(--secondary); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                        </div>
                     </div>
                 </div>
 
-                <!-- Full Biography -->
+                <!-- Full Biography (unchanged) -->
                 <div class="apostle-biography">
                     <h3>Biography</h3>
                     <p>Apostle Mothushi Chuene was called into ministry at a young age and has since dedicated his life to spreading the Gospel of Jesus Christ. He founded The Last Days Evangelism Ministries, also known as "God's Castle," in Moletjie Motinti, Polokwane, with a vision of building a strong, Holy Spirit‑filled, Word‑based, and power‑filled church.</p>
@@ -5312,5 +5319,3 @@
     </script>
 </body>
 </html>
-
-
