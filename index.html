@@ -1,18 +1,28 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Last Days Evangelism Ministries (God's Castle) – Apostolic, prophetic, evangelical church in Moletjie Motinti, Polokwane. Led by Apostle Mothushi Chuene.">
+    <meta name="author" content="The Last Days Evangelism Ministries">
+    <meta name="keywords" content="church, evangelism, Polokwane, Apostle Chuene, healing, deliverance, sermons">
     <title>The Last Days Evangelism Ministries</title>
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ===== ALL EXISTING STYLES (unchanged) ===== */
+        /* ===== RESET & VARIABLES ===== */
         :root {
             --primary: #4a6f28;
             --secondary: #f5a623;
             --light: #f9f9f9;
             --dark: #222;
             --text: #333;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -28,6 +38,23 @@
             background-color: var(--light);
         }
 
+        /* ===== SKIP LINK ===== */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            z-index: 1000;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
         header {
             background-color: transparent;
             color: white;
@@ -56,6 +83,7 @@
             height: 50px;
             width: 55px;
             border-radius: 8px;
+            object-fit: cover;
         }
 
         .logo-text {
@@ -74,6 +102,10 @@
             margin-top: 0;
         }
 
+        nav {
+            /* no extra styles */
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -86,14 +118,17 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.3rem;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: var(--secondary);
+            outline: 2px solid var(--secondary);
+            outline-offset: 4px;
         }
 
         .admin-btn {
@@ -107,6 +142,13 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: white;
+            background: transparent;
+            border: none;
+            padding: 0.5rem;
+        }
+        .mobile-menu:focus {
+            outline: 2px solid var(--secondary);
         }
 
         /* Dropdown styles */
@@ -125,12 +167,13 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             z-index: 1000;
             padding: 0.8rem 0;
         }
 
-        .nav-dropdown:hover .dropdown-menu {
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -144,7 +187,7 @@
             padding: 0.6rem 1.5rem;
             display: block;
             color: white;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 400;
@@ -152,7 +195,8 @@
             background: none;
         }
 
-        .dropdown-menu a:hover {
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus {
             color: var(--secondary);
             padding-left: 2rem;
             background-color: transparent;
@@ -206,11 +250,12 @@
             border-left: 2px solid rgba(255, 255, 255, 0.1);
         }
 
-        .sermon-links-dropdown a:hover {
+        .sermon-links-dropdown a:hover,
+        .sermon-links-dropdown a:focus {
             border-left-color: var(--secondary);
         }
 
-        /* Hero Section - Full width and height covering header */
+        /* ===== HERO SECTION ===== */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Apostle4.jpg');
             background-size: cover;
@@ -247,6 +292,7 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
         }
 
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-block;
             background-color: var(--secondary);
@@ -255,22 +301,26 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
         }
 
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            outline: 2px solid white;
+            outline-offset: 2px;
         }
 
         .btn-secondary {
             background-color: var(--primary);
         }
 
-        .btn-secondary:hover {
+        .btn-secondary:hover,
+        .btn-secondary:focus {
             background-color: #3a5a1f;
         }
 
@@ -285,11 +335,13 @@
             color: var(--primary);
         }
 
-        .btn-outline:hover {
+        .btn-outline:hover,
+        .btn-outline:focus {
             background-color: var(--primary);
             color: white;
         }
 
+        /* ===== SECTIONS ===== */
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -309,6 +361,7 @@
             font-size: 1.5rem;
         }
 
+        /* ===== EVENT & SERMON CARDS ===== */
         .event-cards, .sermon-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -321,11 +374,12 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             cursor: pointer;
         }
 
-        .event-card:hover, .sermon-card:hover {
+        .event-card:hover, .sermon-card:hover,
+        .event-card:focus-within, .sermon-card:focus-within {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
@@ -362,6 +416,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* ===== VIDEO CONTAINERS ===== */
         .stream-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -380,12 +435,6 @@
             border: none;
         }
 
-        /* Add specific styling for Facebook video embeds */
-        .stream-container iframe[src*="facebook"] {
-            background-color: #f0f2f5;
-        }
-
-        /* Add video source icon styling */
         .video-source-icon {
             margin-right: 5px;
             font-size: 0.9em;
@@ -409,6 +458,7 @@
             color: #666;
         }
 
+        /* ===== PARTNERSHIP SECTION ===== */
         .partnership-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -422,7 +472,7 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .partnership-option:hover {
@@ -526,6 +576,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* ===== TABS ===== */
         .tabs {
             display: flex;
             justify-content: center;
@@ -542,7 +593,7 @@
             font-weight: 600;
             color: var(--text);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             position: relative;
         }
 
@@ -568,6 +619,7 @@
             display: block;
         }
 
+        /* ===== FOOTER ===== */
         footer {
             background-color: var(--dark);
             color: white;
@@ -604,29 +656,31 @@
         .footer-section a {
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
-        .footer-section a:hover {
+        .footer-section a:hover,
+        .footer-section a:focus {
             color: var(--secondary);
+            text-decoration: underline;
         }
 
-        .sermon-links {
+        /* Fixed nested list styling */
+        .footer-section .sermon-links {
             margin-top: 0.5rem;
-            padding-left: 1rem;
+            padding-left: 1.5rem;
+            list-style: disc;
         }
-
-        .sermon-links li {
+        .footer-section .sermon-links li {
             margin-bottom: 0.3rem;
             font-size: 0.9rem;
         }
-
-        .ministry-links {
+        .footer-section .ministry-links {
             margin-top: 0.5rem;
-            padding-left: 1rem;
+            padding-left: 1.5rem;
+            list-style: disc;
         }
-
-        .ministry-links li {
+        .footer-section .ministry-links li {
             margin-bottom: 0.3rem;
             font-size: 0.9rem;
         }
@@ -638,6 +692,7 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* ===== MODALS ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -667,14 +722,8 @@
         }
 
         @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .modal-header {
@@ -700,1373 +749,22 @@
             color: white;
             font-size: 1.8rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            padding: 0 0.5rem;
         }
 
-        .close-modal:hover {
+        .close-modal:hover,
+        .close-modal:focus {
             color: var(--secondary);
             transform: scale(1.1);
+            outline: 2px solid white;
         }
 
         .modal-content {
             padding: 2rem;
         }
 
-        .partnership-intro {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            color: var(--text);
-            text-align: center;
-        }
-
-        .partnership-scripture {
-            background-color: rgba(245, 166, 35, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .partnership-scripture p {
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .partnership-highlight {
-            background-color: rgba(74, 111, 40, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .partnership-type-details {
-            margin-bottom: 2rem;
-        }
-
-        .partnership-type-details h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .partnership-type-details h3 i {
-            color: var(--secondary);
-        }
-
-        .benefits-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .benefits-list li {
-            margin-bottom: 0.8rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .benefits-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-size: 1.5rem;
-        }
-
-        .commitment-levels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .commitment-level {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--secondary);
-        }
-
-        .commitment-level h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .commitment-level p {
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-
-        .contact-tabs {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #eee;
-        }
-
-        .contact-tab-btn {
-            flex: 1;
-            padding: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .contact-tab-btn.active {
-            color: var(--primary);
-        }
-
-        .contact-tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-        }
-
-        .contact-tab-content {
-            display: none;
-        }
-
-        .contact-tab-content.active {
-            display: block;
-        }
-
-        .contact-form {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(74, 111, 40, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
-
-        .message-status {
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: 600;
-            display: none;
-        }
-
-        .message-status.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-
-        .message-status.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: rgba(74, 111, 40, 0.05);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details {
-            flex: 1;
-        }
-
-        .contact-details h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-details p {
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-action {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-            display: inline-block;
-        }
-
-        .contact-action:hover {
-            background-color: #e69500;
-        }
-
-        .contact-map-container {
-            margin-top: 2rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .contact-map {
-            width: 100%;
-            height: 300px;
-            border: none;
-        }
-
-        .map-overlay {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .directions-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .directions-btn:hover {
-            background-color: #3a5a1f;
-            transform: translateY(-2px);
-        }
-
-        .contact-note {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: rgba(74, 111, 40, 0.1);
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-            color: var(--primary);
-        }
-
-        .about-intro {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        .about-highlight {
-            background-color: rgba(74, 111, 40, 0.1);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .about-highlight p {
-            font-style: italic;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .about-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .about-card {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
-
-        .about-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .about-card i {
-            color: var(--secondary);
-            margin-right: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .about-leader {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            text-align: center;
-            border: 2px solid rgba(74, 111, 40, 0.2);
-        }
-
-        .about-leader img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid var(--secondary);
-        }
-
-        .about-leader h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .about-leader p {
-            color: var(--text);
-            font-style: italic;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .sermons-section {
-            scroll-margin-top: 100px;
-        }
-
-        .sermons-section:target {
-            animation: highlightSection 2s ease;
-        }
-
-        @keyframes highlightSection {
-            0% {
-                background-color: transparent;
-            }
-            20% {
-                background-color: rgba(245, 166, 35, 0.1);
-            }
-            100% {
-                background-color: transparent;
-            }
-        }
-
-        .view-more-sermons {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid rgba(74, 111, 40, 0.1);
-        }
-
-        .view-more-btn {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(74, 111, 40, 0.2);
-            border: none;
-            cursor: pointer;
-        }
-
-        .view-more-btn:hover {
-            background-color: #3a5a1f;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(74, 111, 40, 0.3);
-        }
-
-        .view-more-btn.loading {
-            background-color: var(--secondary);
-            pointer-events: none;
-        }
-
-        .view-more-btn.loading i {
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .sermon-loading {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .sermon-loading.active {
-            display: block;
-        }
-
-        .loading-spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(74, 111, 40, 0.1);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s ease-in-out infinite;
-            margin-bottom: 1rem;
-        }
-
-        .sermon-cards .sermon-card.hidden {
-            display: none;
-        }
-
-        .sermon-cards .sermon-card.fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .sermon-counter {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--text);
-            font-style: italic;
-        }
-
-        .special-ministries-tab {
-            padding: 2rem 0;
-        }
-
-        .ministries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .ministry-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .ministry-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .ministry-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .ministry-card-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .ministry-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .ministry-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .ministry-highlights {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
-            flex: 1;
-        }
-
-        .ministry-highlights li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .ministry-highlights li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-size: 1.2rem;
-        }
-
-        .view-ministry-btn {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            margin-top: auto;
-            padding: 0.8rem;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .view-ministry-btn:hover {
-            background-color: #3a5a1f;
-            transform: translateY(-3px);
-        }
-
-        .ministry-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('PTA.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 1rem;
-        }
-
-        .ministry-hero.youth {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('youth.jpg');
-        }
-
-        .ministry-hero.healing {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Healing.jpg');
-        }
-
-        .ministry-hero.treasures {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('mama.jpg');
-        }
-
-        .ministry-hero.families {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('BuildingStrong&Godly.jpeg');
-        }
-
-        .ministry-hero.priestly-kings {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Apostle4.jpg');
-        }
-
-        .ministry-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .ministry-hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        .ministry-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .ministry-section {
-            margin-bottom: 3rem;
-        }
-
-        .ministry-section h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--secondary);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .upcoming-tours, .youth-programs, .healing-events {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .tour-item, .program-item, .event-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .tour-item h3, .program-item h3, .event-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .tour-date, .program-date, .event-date {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            border-left: 4px solid var(--secondary);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .join-ministry {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-radius: 10px;
-            margin-top: 3rem;
-        }
-
-        .join-ministry h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .join-ministry .btn {
-            background-color: var(--secondary);
-            color: white;
-            margin-top: 1rem;
-        }
-
-        .join-ministry .btn:hover {
-            background-color: #e69500;
-        }
-
-        .back-to-home {
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            z-index: 1000;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .back-to-home:hover {
-            background: #3a5a1f;
-            transform: translateX(-5px);
-        }
-
-        .ministry-page {
-            display: none;
-        }
-
-        .treasures-header {
-            background: linear-gradient(135deg, var(--primary) 0%, #3a5a1f 100%);
-            padding: 4rem 2rem;
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-        }
-
-        .treasures-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .treasures-header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        .treasures-about {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-        }
-
-        .treasures-about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .treasures-about-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .treasures-mission {
-            background: rgba(74, 111, 40, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .treasures-mission h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .image-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            height: 250px;
-        }
-
-        .image-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .image-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .image-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .upload-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        .upload-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .form-group input[type="file"] {
-            width: 100%;
-            padding: 1rem;
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            background: #f9f9f9;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input[type="file"]:hover {
-            border-color: var(--primary);
-            background: rgba(74, 111, 40, 0.05);
-        }
-
-        .form-group input[type="text"] {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-group input[type="text"]:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .preview-container {
-            margin-top: 1rem;
-            display: none;
-        }
-
-        .preview-container.active {
-            display: block;
-        }
-
-        .image-preview {
-            max-width: 300px;
-            max-height: 200px;
-            margin: 0 auto;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .image-preview img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .treasures-modal .modal-content {
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .fullscreen-image {
-            max-width: 90vw;
-            max-height: 80vh;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .image-caption {
-            text-align: center;
-            margin-top: 1rem;
-            color: var(--text);
-            font-style: italic;
-        }
-
-        .treasures-page {
-            background-color: var(--light);
-        }
-
-        .treasures-nav-item {
-            color: var(--secondary) !important;
-            font-weight: 700 !important;
-        }
-
-        .gallery-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            background: white;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .ministry-highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .highlight-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            border-top: 4px solid var(--secondary);
-        }
-
-        .highlight-card i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .scripture-box {
-            background: rgba(74, 111, 40, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .scripture-box p {
-            font-style: italic;
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .monthly-theme {
-            background: linear-gradient(135deg, var(--primary) 0%, #3a5a1f 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 10px;
-            margin: 3rem 0;
-            text-align: center;
-        }
-
-        .monthly-theme h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .event-schedule {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-        }
-
-        .event-schedule table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        .event-schedule th {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .event-schedule td {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .event-schedule tr:hover {
-            background-color: rgba(74, 111, 40, 0.05);
-        }
-
-        .kingly-qualities {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .quality-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            border: 2px solid rgba(245, 166, 35, 0.2);
-        }
-
-        .quality-card i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .leadership-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .leadership-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid var(--secondary);
-        }
-
-        .prayer-points {
-            background: rgba(245, 166, 35, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-
-        .prayer-points ol {
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        .prayer-points li {
-            margin-bottom: 0.5rem;
-            padding-left: 0.5rem;
-        }
-
-        .image-gallery-section {
-            margin: 4rem 0;
-        }
-
-        .gallery-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .gallery-header h2 {
-            color: var(--primary);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .gallery-header p {
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text);
-            font-size: 1.1rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            height: 280px;
-            background: white;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 2rem 1.5rem 1.5rem;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .gallery-overlay h4 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        .gallery-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-
-        .gallery-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .gallery-filter-btn {
-            padding: 0.8rem 2rem;
-            background: white;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .gallery-filter-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .gallery-filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .gallery-empty {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 3rem;
-            background: rgba(74, 111, 40, 0.05);
-            border-radius: 12px;
-            color: var(--text);
-        }
-
-        .gallery-empty i {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .upload-gallery-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-top: 4rem;
-            text-align: center;
-            border: 2px dashed rgba(74, 111, 40, 0.2);
-        }
-
-        .upload-gallery-section h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .upload-gallery-section p {
-            color: var(--text);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-
-        .upload-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--secondary);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .upload-btn:hover {
-            background: #e69500;
-            transform: translateY(-2px);
-        }
-
-        .image-upload-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .upload-preview {
-            margin-top: 2rem;
-            display: none;
-        }
-
-        .upload-preview.active {
-            display: block;
-        }
-
-        .preview-image {
-            max-width: 100%;
-            max-height: 300px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-        }
-
-        .upload-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .healing-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Healing.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 1rem;
-        }
-
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             header {
                 padding: 0.4rem 1rem;
@@ -2266,271 +964,23 @@
                 display: block;
             }
 
-            /* Mobile sermon links dropdown */
             .sermon-links-dropdown {
                 padding-left: 1rem;
                 margin-left: 0;
             }
         }
 
-        .prophetic-heading-section {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(74, 111, 40, 0.05) 0%, rgba(245, 166, 35, 0.05) 100%);
-            text-align: center;
-        }
-
-        .prophetic-heading-section h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .prophetic-heading-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-
-        .prophetic-heading-section p {
-            font-size: 1.2rem;
-            color: var(--text);
-            max-width: 800px;
-            margin: 2rem auto 0;
-            line-height: 1.6;
-        }
-
-        .videos-section {
-            padding: 4rem 2rem;
-            background-color: var(--light);
-        }
-
-        .videos-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .video-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .video-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        .video-info {
-            padding: 1.5rem;
-        }
-
-        .video-info h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .video-info p {
-            color: var(--text);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .video-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--secondary);
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .video-duration {
-            background: rgba(245, 166, 35, 0.1);
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-        }
-
-        .video-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .video-filter-btn {
-            padding: 0.8rem 1.5rem;
-            background: white;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .video-filter-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .video-filter-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .video-loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            background: rgba(74, 111, 40, 0.05);
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-
-        .video-loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(74, 111, 40, 0.1);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s linear infinite;
-        }
-
-        .video-modal .modal {
-            max-width: 1000px;
-        }
-
-        .video-modal-content {
-            padding: 0;
-        }
-
-        .video-player-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            background: #000;
-        }
-
-        .video-player-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-player-info {
-            padding: 1.5rem;
-            background: white;
-        }
-
-        .video-player-info h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .video-player-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .video-player-description {
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .subscribe-section {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            background: rgba(255, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        .subscribe-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #FF0000;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .subscribe-btn:hover {
-            background: #CC0000;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .videos-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .videos-section {
-                padding: 3rem 1rem;
-            }
-            
-            .prophetic-heading-section h2 {
-                font-size: 2.2rem;
-            }
-            
-            .prophetic-heading-section p {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-
-            .video-filters {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .video-filter-btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Video Only Section */
+        /* ===== VIDEO SECTION ===== */
         .video-section {
             padding: 2rem 2rem 0;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .video-section .stream-container {
             margin-bottom: 0;
         }
 
-        /* ===== NEW STYLES FOR APOSTLE MODAL ===== */
+        /* ===== APOSTLE MODAL BACKGROUND ===== */
         .apostle-bg-section {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Apostle4.jpg') center/cover no-repeat;
             min-height: 400px;
@@ -2619,12 +1069,15 @@
     </style>
 </head>
 <body>
-    <!-- About Us Modal (existing) -->
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- About Us Modal -->
     <div class="modal-overlay" id="aboutModal">
         <div class="modal about-modal">
             <div class="modal-header">
                 <h2><i class="fas fa-church"></i> About The Last Days Evangelism Ministries</h2>
-                <button class="close-modal" data-modal="aboutModal">&times;</button>
+                <button class="close-modal" data-modal="aboutModal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-content">
                 <div class="about-intro">
@@ -2658,7 +1111,7 @@
                 </div>
                 
                 <div class="about-leader">
-                    <img src="Apostle1.jpg" alt="Apostle Mothushi Chuene">
+                    <img src="Apostle1.jpg" alt="Apostle Mothushi Chuene, founder and senior pastor">
                     <h3>Apostle Mothushi Chuene</h3>
                     <p style="margin-bottom:20px;">The founder and senior pastor of the Last Days Evangelism Ministries.</p>
                     <p style="margin-bottom:20px;">Apostle Mothushi Chuene is a devoted servant of God called to preach the Gospel in these last days.
@@ -2674,12 +1127,12 @@
         </div>
     </div>
 
-    <!-- Contact Modal (existing) -->
+    <!-- Contact Modal -->
     <div class="modal-overlay" id="contactModal">
         <div class="modal contact-modal">
             <div class="modal-header">
                 <h2><i class="fas fa-address-book"></i> Contact The Last Days Evangelism Ministries</h2>
-                <button class="close-modal" data-modal="contactModal">&times;</button>
+                <button class="close-modal" data-modal="contactModal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-content">
                 <div class="contact-tabs">
@@ -2794,7 +1247,8 @@
                             class="contact-map"
                             allowfullscreen="" 
                             loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Google Maps location of Moletjie Motinti, Polokwane">
                         </iframe>
                         <div class="map-overlay">
                             <button class="directions-btn" onclick="openDirections('google')">
@@ -2812,9 +1266,9 @@
                     
                     <div style="text-align: center; margin-top: 1.5rem;">
                         <p>Follow us on social media: 
-                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-facebook"></i></a>
-                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-youtube"></i></a>
-                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" style="color: var(--primary); margin: 0 0.5rem;" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </p>
                     </div>
                 </div>
@@ -2822,12 +1276,12 @@
         </div>
     </div>
 
-    <!-- Partnership Modal (existing) -->
+    <!-- Partnership Modal -->
     <div class="modal-overlay" id="partnershipModal">
         <div class="modal partnership-modal">
             <div class="modal-header">
                 <h2><i class="fas fa-hands-helping"></i> Partnership Details</h2>
-                <button class="close-modal" data-modal="partnershipModal">&times;</button>
+                <button class="close-modal" data-modal="partnershipModal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-content">
                 <div class="partnership-intro">
@@ -2876,7 +1330,6 @@
                         
                         <h4 style="margin-top: 2rem;">Banking Details:</h4>
                         <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
-                            <!-- UPDATED BANKING DETAILS -->
                             <p><strong>Bank:</strong> Standard Bank</p>
                             <p><strong>Account Name:</strong> Evangelical awakenings</p>
                             <p><strong>Account Number:</strong> 10127203549</p>
@@ -2923,12 +1376,12 @@
         </div>
     </div>
 
-    <!-- Transformed Treasures Modal (existing) -->
+    <!-- Transformed Treasures Modal -->
     <div class="modal-overlay" id="treasuresModal">
         <div class="modal treasures-modal">
             <div class="modal-header">
                 <h2><i class="fas fa-gem"></i> Transformed Treasures</h2>
-                <button class="close-modal" data-modal="treasuresModal">&times;</button>
+                <button class="close-modal" data-modal="treasuresModal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-content">
                 <div class="fullscreen-image-container">
@@ -2938,12 +1391,12 @@
         </div>
     </div>
 
-    <!-- Video Player Modal (existing) -->
+    <!-- Video Player Modal -->
     <div class="modal-overlay video-modal" id="videoModal">
         <div class="modal">
             <div class="modal-header">
                 <h2><i class="fas fa-play-circle"></i> Watch Video</h2>
-                <button class="close-modal" data-modal="videoModal">&times;</button>
+                <button class="close-modal" data-modal="videoModal" aria-label="Close modal">&times;</button>
             </div>
             <div class="video-modal-content">
                 <div class="video-player-container" id="videoPlayer">
@@ -2956,45 +1409,40 @@
         </div>
     </div>
 
-    <!-- ===== MODIFIED MODAL: About Apostle Mothushi Chuene (HEADING REMOVED) ===== -->
+    <!-- Apostle Modal (Heading Removed) -->
     <div class="modal-overlay" id="apostleModal">
         <div class="modal">
             <div class="modal-header">
                 <!-- Heading removed as requested -->
-                <button class="close-modal" data-modal="apostleModal">&times;</button>
+                <button class="close-modal" data-modal="apostleModal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-content" style="padding-top: 0;">
-                <!-- Enlarged background section with overlay content -->
                 <div class="apostle-bg-section">
                     <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; width: 100%;">
-                        <!-- Paragraph on the left -->
                         <div style="flex: 1 1 250px; text-align: left; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                             <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Apostle Mothushi Chuene</h1>
                             <p style="font-size: 1.2rem; margin-bottom: 1rem;">Founder & Senior Pastor • The Last Days Evangelism Ministries</p>
-                            <p style="font-size: 1.1rem; font-style: italic;">"Teach of the gospel of Jesus Christ, a mentor and a life coach."</p>
+                            <p style="font-size: 1.1rem; font-style: italic;">"Teacher of the gospel of Jesus Christ, a mentor and a life coach."</p>
                         </div>
-                        <!-- Picture on the right (on top of background) -->
                         <div style="flex: 0 0 200px;">
                             <img src="Apostle1.jpg" alt="Apostle Mothushi Chuene" style="width: 100%; height: 100%; border-radius: 80%; border: 4px solid var(--secondary); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
                         </div>
                     </div>
                 </div>
 
-                <!-- Full Biography (unchanged) -->
                 <div class="apostle-biography">
                     <h3>Biography</h3>
                     <p>Apostle Mothushi Chuene was called into ministry at a young age and has since dedicated his life to spreading the Gospel of Jesus Christ. He founded The Last Days Evangelism Ministries, also known as "God's Castle," in Moletjie Motinti, Polokwane, with a vision of building a strong, Holy Spirit‑filled, Word‑based, and power‑filled church.</p>
                     <h3>Ministry</h3>
-                    <p>His ministry is marked by apostolic authority, prophetic accuracy, and a deep compassion for the lost. Through apostolic tours, teachings, and healing services, countless lives have been transformed. He often says, "TLDEM does not belong to me, it's God's idea, and I am just a servant there together with all 
-                        the souls Christ brought there. It is my everyday prayer that the flock under my care should know Christ more than me. I must never replace Christ with myself in the hearts of those I lead".</p>
-                    <P> I will be utterly embarrassed before my Father in heaven and the Holy angels if those I lead and happen to be their pastor are wordless, Christless, and prayerless, and they are just following me because of a gift. <strong>Imitate me as I imitate Christ| 1 Corinthians 11:1</strong></P>
+                    <p>His ministry is marked by apostolic authority, prophetic accuracy, and a deep compassion for the lost. Through apostolic tours, teachings, and healing services, countless lives have been transformed. He often says, "TLDEM does not belong to me, it's God's idea, and I am just a servant there together with all the souls Christ brought there. It is my everyday prayer that the flock under my care should know Christ more than me. I must never replace Christ with myself in the hearts of those I lead."</p>
+                    <p>I will be utterly embarrassed before my Father in heaven and the Holy angels if those I lead and happen to be their pastor are wordless, Christless, and prayerless, and they are just following me because of a gift. <strong>Imitate me as I imitate Christ| 1 Corinthians 11:1</strong></p>
                     <p>Apostle Chuene is married, and together with his wife, Pastor Lerato Chuene, they oversee the Healing Hands Foundation, which cares for orphaned and vulnerable children. His message is simple: prepare for the return of the King.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Apostolic Tour Ministry Page (existing) -->
+    <!-- Apostolic Tour Ministry Page -->
     <div id="apostolic-tour-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -3011,7 +1459,7 @@
         <section class="ministry-content">
             <div class="ministry-section">
                 <h2>About Apostolic Tours</h2>
-                <img src="PTA1.jpg">
+                <img src="PTA1.jpg" alt="Apostolic tour gathering" style="max-width:100%; border-radius:8px; margin-bottom:1rem;">
                 <p>The Apostolic Tour Ministry is dedicated to spreading the Gospel through strategic missions, revival meetings, and apostolic visitations to various regions. Led by Apostle Mothushi Chuene, these tours are marked by powerful demonstrations of the Holy Spirit, prophetic declarations, and the establishment of God's kingdom principles in new territories.</p>
             </div>
 
@@ -3085,7 +1533,7 @@
         </section>
     </div>
 
-    <!-- Youth Ministry Page (existing) -->
+    <!-- Youth Ministry Page -->
     <div id="youth-ministry-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -3172,7 +1620,7 @@
         </section>
     </div>
 
-    <!-- Healing Hands Ministry Page (existing) -->
+    <!-- Healing Hands Ministry Page -->
     <div id="healing-hand-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -3269,9 +1717,8 @@
                 </div>
 
                 <div class="gallery-grid" id="healingGallery">
-                    <!-- Images will be loaded here -->
                     <div class="gallery-item" data-category="children">
-                        <img src="mamaH.jpg" alt="Children playing at Healing Hands">
+                        <img src="mamaH.jpg" alt="Children playing at Healing Hands" loading="lazy">
                         <div class="gallery-overlay">
                             <h4>Children's Playtime</h4>
                             <p>Children enjoying recreational activities at our center</p>
@@ -3279,7 +1726,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="education">
-                        <img src="heal.jpg" alt="Education support program">
+                        <img src="heal.jpg" alt="Education support program" loading="lazy">
                         <div class="gallery-overlay">
                             <h4>Learning Together</h4>
                             <p>Children receiving educational support and tutoring</p>
@@ -3287,7 +1734,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="outreach">
-                        <img src="ApostleH.jpg" alt="Community outreach">
+                        <img src="ApostleH.jpg" alt="Community outreach" loading="lazy">
                         <div class="gallery-overlay">
                             <h4>Community Outreach</h4>
                             <p>Our team is distributing supplies to families in need</p>
@@ -3295,7 +1742,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="children">
-                        <img src="mamah 1(2).jpg" alt="Children's meal time">
+                        <img src="mamah 1(2).jpg" alt="Children's meal time" loading="lazy">
                         <div class="gallery-overlay">
                             <h4>Nutritious Meals</h4>
                             <p>Children enjoying healthy meals at our facility</p>
@@ -3303,7 +1750,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="education">
-                        <img src="heal.jpg" alt="School supplies distribution">
+                        <img src="heal.jpg" alt="School supplies distribution" loading="lazy">
                         <div class="gallery-overlay">
                             <h4>School Supplies</h4>
                             <p>Distribution of educational materials to students</p>
@@ -3448,7 +1895,7 @@
         </section>
     </div>
 
-    <!-- Transformed Treasures Ministry Page (existing) -->
+    <!-- Transformed Treasures Ministry Page -->
     <div id="treasures-page" class="ministry-page treasures-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -3532,42 +1979,42 @@
             
             <div class="image-gallery" id="treasuresGallery">
                 <div class="image-item" data-title="Women's Bible Study">
-                    <img src="mama.jpg" alt="Women's Bible Study">
+                    <img src="mama.jpg" alt="Women's Bible Study" loading="lazy">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
                         <p style="font-size: 0.9rem; margin: 0;">Weekly Bible Study Fellowship</p>
                     </div>
                 </div>
                 
                 <div class="image-item" data-title="Prayer Gathering">
-                    <img src="trans.jpg" alt="Prayer Gathering">
+                    <img src="trans.jpg" alt="Prayer Gathering" loading="lazy">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
                         <p style="font-size: 0.9rem; margin: 0;">Women's Prayer Meeting</p>
                     </div>
                 </div>
                 
                 <div class="image-item" data-title="Fellowship Lunch">
-                    <img src="transf.jpg" alt="Fellowship Lunch">
+                    <img src="transf.jpg" alt="Fellowship Lunch" loading="lazy">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
                         <p style="font-size: 0.9rem; margin: 0;">Monthly Fellowship Lunch</p>
                     </div>
                 </div>
                 
                 <div class="image-item" data-title="Retreat Session">
-                    <img src="woman.jpg" alt="Retreat Session">
+                    <img src="woman.jpg" alt="Retreat Session" loading="lazy">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
                         <p style="font-size: 0.9rem; margin: 0;">Women's Retreat Teaching Session</p>
                     </div>
                 </div>
 
                 <div class="image-item" data-title="Worship Together">
-                    <img src="transf.jpg" alt="Worship Together">
+                    <img src="transf.jpg" alt="Worship Together" loading="lazy">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
                         <p style="font-size: 0.9rem; margin: 0;">Corporate Worship & Praise</p>
                     </div>
                 </div>
 
                 <div class="image-item" data-title="Mentorship">
-                    <img src="transformed.jpg" alt="Mentorship">
+                    <img src="transformed.jpg" alt="Mentorship" loading="lazy">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 1rem; text-align: center;">
                         <p style="font-size: 0.9rem; margin: 0;">Older Women Mentoring Younger Women</p>
                     </div>
@@ -3650,7 +2097,7 @@
         </section>
     </div>
 
-    <!-- Building Strong and Godly Families Ministry Page (existing) -->
+    <!-- Building Strong and Godly Families Ministry Page -->
     <div id="families-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -3795,7 +2242,7 @@
         </section>
     </div>
 
-    <!-- Priestly Kings Ministry Page (existing) -->
+    <!-- Priestly Kings Ministry Page -->
     <div id="priestly-kings-page" class="ministry-page">
         <a href="#" class="back-to-home" onclick="returnToMainPage()">
             <i class="fas fa-arrow-left"></i> Back to Home
@@ -3955,21 +2402,20 @@
         </section>
     </div>
 
-    <!-- Header - Now absolute positioned over the hero -->
+    <!-- Header - Absolute positioned over the hero -->
     <header>
         <div class="logo" onclick="returnToMainPage()">
-            <img src="church-logo!.jpeg" alt="Church Logo">
+            <img src="church-logo!.jpeg" alt="The Last Days Evangelism Ministries logo - God's Castle">
             <div class="logo-text">
                 <div class="logo-main">The Last Days Evangelism Ministries</div>
                 <div class="logo-subtitle">"God's Castle"</div>
             </div>
         </div>
-        <nav>
+        <nav aria-label="Main navigation">
             <ul id="nav-menu">
-                <!-- REPLACED "Home" with "About Apostle Mothushi Chuene" -->
                 <li><a href="#" onclick="openModal('apostleModal')">About Apostle Mothushi Chuene</a></li>
                 <li class="nav-dropdown">
-                    <a href="#" id="aboutLink">
+                    <a href="#" id="aboutLink" aria-expanded="false">
                         <span>About Us</span>
                         <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
                     </a>
@@ -3991,7 +2437,7 @@
                 <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
                 <li><a href="#" onclick="scrollToSection('prophetic-healing')">Prophetic Healing</a></li>
                 <li class="nav-dropdown">
-                    <a href="#" id="sermonsLink">
+                    <a href="#" id="sermonsLink" aria-expanded="false">
                         <span>Sermons</span>
                         <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
                     </a>
@@ -4002,7 +2448,6 @@
                                 <span class="mune-text">Recent Sermons</span>
                             </a>
                         </li>
-                        <!-- ADDED: Sermon Links in Dropdown -->
                         <li class="sermon-links-dropdown">
                             <ul style="list-style: none; padding-left: 0;">
                                 <li><a href="#" onclick="showPraiseReports()" id="praiseReportsDropdownLink">
@@ -4035,12 +2480,12 @@
                 <li><a href="#" id="contactLink">Contact</a></li>
             </ul>
         </nav>
-        <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Menu" aria-expanded="false">
             <i class="fas fa-bars"></i>
-        </div>
+        </button>
     </header>
 
-    <!-- Hero Section - Now placed after header but covers the header -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h2>THE YEAR OF DIVINE ADMINISTRATION</h2>
@@ -4051,7 +2496,7 @@
 
     <!-- Main Content -->
     <main id="main-content">
-        <!-- NEW: Video Section (No Description - Video Only) -->
+        <!-- Video Section (Video Only) -->
         <section class="video-section" id="featured-video">
             <div class="stream-container">
                 <iframe 
@@ -4068,7 +2513,7 @@
             <h2>Upcoming Events</h2>
             <div class="event-cards" id="event-cards">
                 <div class="event-card">
-                    <img src="faith.jpg" alt="Sunday Service">
+                    <img src="faith.jpg" alt="Sunday Service congregation" loading="lazy">
                     <div class="event-card-content">
                         <h3>Sunday Worship Service</h3>
                         <p class="date">Every Sunday at 09:00 AM</p>
@@ -4076,7 +2521,7 @@
                     </div>
                 </div>
                 <div class="event-card">
-                    <img src="WhatsApp%20Image%202025-11-25%20at%2014.09.36%20(1).jpeg" alt="Teaching and Miracle servicee">
+                    <img src="WhatsApp%20Image%202025-11-25%20at%2014.09.36%20(1).jpeg" alt="Teaching and Miracle service" loading="lazy">
                     <div class="event-card-content">
                         <h3>Thursday Teaching and Miracle service</h3>
                         <p class="date">Every Thursday at 10:00 AM</p>
@@ -4084,7 +2529,7 @@
                     </div>
                 </div>
                 <div class="event-card">
-                    <img src="MondayS.jpeg" alt="Prayer Meeting">
+                    <img src="MondayS.jpeg" alt="Prayer Meeting" loading="lazy">
                     <div class="event-card-content">
                         <h3>Weekly Prayer Meeting</h3>
                         <p class="date">Every Monday at 6:00 PM</p>
@@ -4097,15 +2542,14 @@
             </div>
         </section>
 
-        <!-- NEW: Prophetic Healing and Deliverance Section -->
+        <!-- Prophetic Healing and Deliverance Section -->
         <section class="prophetic-heading-section" id="prophetic-healing">
             <h2><i class="fas fa-hands-praying"></i> Prophetic Healing and Deliverance</h2>
             <p>Experience the transformative power of God through prophetic ministry, divine healing, and deliverance from spiritual bondage.</p>
         </section>
 
-        <!-- NEW: Prophetic Healing and Deliverance Videos Section - UPDATED WITH PROPER FACEBOOK EMBEDS -->
+        <!-- Prophetic Healing and Deliverance Videos Section -->
         <section class="videos-section" id="prophetic-videos">
-            <!-- Video Filter Controls -->
             <div class="video-filters">
                 <button class="video-filter-btn active" data-filter="all">All Videos</button>
                 <button class="video-filter-btn" data-filter="healing">Healing Services</button>
@@ -4123,7 +2567,7 @@
                             title="Prophetic Healing Session - Apostle Mothushi Chuene"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4144,7 +2588,7 @@
                             title="Deliverance Ministry - Breaking Spiritual Chains"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4157,7 +2601,7 @@
                     </div>
                 </div>
                 
-                <!-- Video 3 - Facebook Video (Fixed URL format) -->
+                <!-- Video 3 - Facebook Video -->
                 <div class="video-item facebook-video" data-category="healing testimonies">
                     <div class="stream-container">
                         <iframe 
@@ -4165,7 +2609,7 @@
                             title="Miracle Healing Service"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4186,7 +2630,7 @@
                             title="Prophetic Word and Healing"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4207,7 +2651,7 @@
                             title="Deliverance from Spiritual Bondage."
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4228,7 +2672,7 @@
                             title="Prophetic Impartation."
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4249,7 +2693,7 @@
                             title="Healing Testimonies Compilation"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4262,7 +2706,7 @@
                     </div>
                 </div>
 
-                <!-- NEW: Facebook Video - Child Healing Testimony -->
+                <!-- Facebook Video - Child Healing Testimony -->
                 <div class="video-item facebook-video" data-category="testimonies healing">
                     <div class="stream-container">
                         <iframe 
@@ -4270,7 +2714,7 @@
                             title="Child Healing Testimony"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4283,7 +2727,7 @@
                     </div>
                 </div>
 
-                <!-- NEW: Facebook Video - PTA Special Service -->
+                <!-- Facebook Video - PTA Special Service -->
                 <div class="video-item facebook-video" data-category="testimonies healing">
                     <div class="stream-container">
                         <iframe 
@@ -4291,7 +2735,7 @@
                             title="PTA Special Service Praise Report"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                            allowfullscreen loading="lazy">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -4315,12 +2759,12 @@
             </div>
         </section>
 
-        <!-- Recent Sermons Section - UPDATED WITH PROPER FACEBOOK EMBEDS -->
+        <!-- Recent Sermons Section -->
         <section class="recent-sermons" id="sermons">
             <h2>Recent Sermons</h2>
             <div class="sermon-cards">
                 <div class="sermon-card">
-                    <img src="Apostle4.jpg" alt="Sunday Sermon">
+                    <img src="Apostle4.jpg" alt="Sunday Sermon thumbnail" loading="lazy">
                     <div class="sermon-card-content">
                         <h3>Fear And Faith</h3>
                         <p class="speaker">Apostle Mothushi Chuene</p>
@@ -4330,7 +2774,7 @@
                     </div>
                 </div>
                 <div class="sermon-card">
-                    <img src="Apostle.jpg" alt="Family Sermon">
+                    <img src="Apostle.jpg" alt="Family Sermon thumbnail" loading="lazy">
                     <div class="sermon-card-content">
                         <h3>The First Love</h3>
                         <p class="speaker">Apostle Mothushi Chuene</p>
@@ -4340,7 +2784,7 @@
                     </div>
                 </div>
                 <div class="sermon-card">
-                    <img src="Apostle1.jpg" alt="Reflection Sermon">
+                    <img src="Apostle1.jpg" alt="Reflection Sermon thumbnail" loading="lazy">
                     <div class="sermon-card-content">
                         <h3>But I have this against you: you left your first love</h3>
                         <p class="speaker">Apostle Mothushi Chuene</p>
@@ -4383,34 +2827,38 @@
                 <ul>
                     <li><a href="#" id="aboutFooterLink">About Us</a></li>
                     <li><a href="#" onclick="scrollToSection('events')">Events</a></li>
-                    <!-- Removed the link to 'prophetic-healing' from the footer -->
-                    <!-- <li><a href="#" onclick="scrollToSection('prophetic-healing')">Prophetic Healing</a></li> -->
                     <li><a href="#" onclick="scrollToSection('sermons')">Sermons</a></li>
-                    <!-- Praise Reports link moved here under Sermons section -->
-                    <ul class="sermon-links">
-                        <li><a href="#" onclick="showPraiseReports()" id="praiseReportsFooterLink">Praise Reports</a></li>
-                        <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">Review, Reflect, Rest</a></li>
-                        <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">Building Strong Families</a></li>
-                        <li><a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" target="_blank">The End Of The Old Covenant</a></li>
-                        <li><a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" target="_blank">The Two Resurrection</a></li>
-                    </ul>
+                    <!-- Fixed nested list: moved sermon links inside a nested ul -->
+                    <li>
+                        <strong>Sermon Links</strong>
+                        <ul class="sermon-links">
+                            <li><a href="#" onclick="showPraiseReports()" id="praiseReportsFooterLink">Praise Reports</a></li>
+                            <li><a href="https://youtu.be/0bbeJkREI_I?si=R2e60BcU_vTygiHS" target="_blank">Review, Reflect, Rest</a></li>
+                            <li><a href="https://www.youtube.com/live/qltHDn-b5i0?si=VN5I6p3adddFHVSz" target="_blank">Building Strong Families</a></li>
+                            <li><a href="https://www.youtube.com/live/-xJAOrMd1JU?si=ddT2xKm7_Mn2n-3g" target="_blank">The End Of The Old Covenant</a></li>
+                            <li><a href="https://youtu.be/Ydy4vq5cb0c?si=_lTRnwezS327vqc5" target="_blank">The Two Resurrection</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#" onclick="openMinistryPage('treasures')">Transformed Treasures</a></li>
                     <li><a href="#" onclick="openMinistryPage('families')">Building Strong And Godly Families</a></li>
                     <li><a href="#" onclick="openMinistryPage('priestly-kings')">Priestly Kings</a></li>
                     <li><a href="#" onclick="openMinistryPage('healing-hand')">Healing Hands Foundation</a></li>
-                    <ul class="ministry-links">
-                        <li><a href="#" onclick="openVideoModal('https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560', 'PTA Special Service Praise Report', 'Watch this powerful testimony from our PTA service.', false, true)">PTA Special Service Praise Report</a></li>
-                        <li><a href="#" onclick="openVideoModal('https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560', 'Child Healing Testimony', 'What doctors could not do, Jesus did it!! The boy\'s eyes are opened.', false, true)">Child Healing Testimony</a></li>
-                    </ul>
+                    <li>
+                        <strong>Ministry Links</strong>
+                        <ul class="ministry-links">
+                            <li><a href="#" onclick="openVideoModal('https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17vbKfEy3x%2F&show_text=false&width=560', 'PTA Special Service Praise Report', 'Watch this powerful testimony from our PTA service.', false, true)">PTA Special Service Praise Report</a></li>
+                            <li><a href="#" onclick="openVideoModal('https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17sP4vFVj2%2F&show_text=false&width=560', 'Child Healing Testimony', 'What doctors could not do, Jesus did it!! The boy\'s eyes are opened.', false, true)">Child Healing Testimony</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#" id="contactFooterLink">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/@thelastdaysevangelismminis2412" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@thelastdaysevangelismminis2412" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <p style="margin-top: 1rem; font-size: 0.9rem;">
                     <i class="fab fa-youtube"></i> YouTube: @thelastdaysevangelismminis2412
@@ -4424,10 +2872,15 @@
 
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('show');
-        });
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+                this.setAttribute('aria-expanded', expanded);
+                navMenu.classList.toggle('show');
+            });
+        }
 
         // Update copyright year
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -4439,7 +2892,7 @@
             partnershipModal: document.getElementById('partnershipModal'),
             treasuresModal: document.getElementById('treasuresModal'),
             videoModal: document.getElementById('videoModal'),
-            apostleModal: document.getElementById('apostleModal')   // ADDED new modal
+            apostleModal: document.getElementById('apostleModal')
         };
 
         const modalLinks = {
@@ -4463,8 +2916,8 @@
             }
             
             // Close mobile menu if open
-            const navMenu = document.getElementById('nav-menu');
             if (navMenu) navMenu.classList.remove('show');
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
 
         function closeModal(modalId) {
@@ -4681,14 +3134,13 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
-                const navMenu = document.getElementById('nav-menu');
                 if (navMenu) navMenu.classList.remove('show');
+                if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         }
 
         // Ministry Pages Functionality
         function openMinistryPage(ministry) {
-            // Hide main content and all ministry pages
             const mainContent = document.getElementById('main-content');
             if (mainContent) mainContent.style.display = 'none';
             
@@ -4696,18 +3148,15 @@
                 page.style.display = 'none';
             });
             
-            // Show the selected ministry page
             const ministryPage = document.getElementById(`${ministry}-page`);
             if (ministryPage) {
                 ministryPage.style.display = 'block';
                 document.title = getMinistryTitle(ministry) + ' - The Last Days Evangelism Ministries';
             }
             
-            // Close mobile menu if open
-            const navMenu = document.getElementById('nav-menu');
             if (navMenu) navMenu.classList.remove('show');
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
             
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -4724,27 +3173,22 @@
         }
 
         function returnToMainPage() {
-            // Hide all ministry pages
             document.querySelectorAll('.ministry-page').forEach(page => {
                 page.style.display = 'none';
             });
             
-            // Show main content
             const mainContent = document.getElementById('main-content');
             if (mainContent) mainContent.style.display = 'block';
             document.title = 'The Last Days Evangelism Ministries';
             
-            // Close mobile menu if open
-            const navMenu = document.getElementById('nav-menu');
             if (navMenu) navMenu.classList.remove('show');
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
             
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Show Praise Reports function (when accessed from footer)
+        // Show Praise Reports function
         function showPraiseReports() {
-            // Create and show a modal with Praise Reports
             const praiseReportsContent = `
                 <div style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
                     <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">
@@ -4755,7 +3199,6 @@
                     </p>
                     
                     <div class="videos-container" style="margin-top: 2rem;">
-                        <!-- Praise Report Video 1 - Facebook -->
                         <div class="video-item facebook-video">
                             <div class="stream-container">
                                 <iframe 
@@ -4776,7 +3219,6 @@
                             </div>
                         </div>
                         
-                        <!-- Praise Report Video 2 - Facebook -->
                         <div class="video-item facebook-video">
                             <div class="stream-container">
                                 <iframe 
@@ -4797,7 +3239,6 @@
                             </div>
                         </div>
                         
-                        <!-- Praise Report Video 3 - Facebook -->
                         <div class="video-item facebook-video">
                             <div class="stream-container">
                                 <iframe 
@@ -4825,7 +3266,6 @@
                 </div>
             `;
             
-            // Create a modal for Praise Reports
             const modal = document.createElement('div');
             modal.className = 'modal-overlay active';
             modal.id = 'praiseReportsModal';
@@ -4845,7 +3285,6 @@
             document.body.style.overflow = 'hidden';
         }
 
-        // Add event listener for Praise Reports dropdown link
         if (modalLinks.praiseReportsDropdownLink) {
             modalLinks.praiseReportsDropdownLink.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -4853,7 +3292,6 @@
             });
         }
 
-        // Add event listener for Praise Reports footer link
         const praiseReportsFooterLink = document.getElementById('praiseReportsFooterLink');
         if (praiseReportsFooterLink) {
             praiseReportsFooterLink.addEventListener('click', function(e) {
@@ -4864,7 +3302,6 @@
 
         // Transformed Treasures Functionality
         function initializeTreasuresPage() {
-            // Add click event to image items
             document.addEventListener('click', function(e) {
                 if (e.target.closest('.image-item')) {
                     const imageItem = e.target.closest('.image-item');
@@ -4875,7 +3312,6 @@
                 }
             });
             
-            // Open image modal function
             function openImageModal(imageSrc, caption) {
                 const treasuresModal = document.getElementById('treasuresModal');
                 if (treasuresModal) {
@@ -4896,20 +3332,16 @@
 
         // Healing Hands Gallery Functionality
         function initializeHealingGallery() {
-            // Gallery filter functionality
             const filterBtns = document.querySelectorAll('.gallery-filter-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
             
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
                     
-                    // Show/hide gallery items based on filter
                     galleryItems.forEach(item => {
                         if (filter === 'all' || item.getAttribute('data-category') === filter) {
                             item.style.display = 'block';
@@ -4928,7 +3360,6 @@
                 });
             });
             
-            // Open image in full view when clicked
             galleryItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const imgSrc = this.querySelector('img').src;
@@ -4940,7 +3371,6 @@
             });
         }
         
-        // Function to open image modal
         function openHealingImageModal(imageSrc, title, description) {
             const treasuresModal = document.getElementById('treasuresModal');
             if (treasuresModal) {
@@ -4961,7 +3391,7 @@
             }
         }
         
-        // Upload form functionality
+        // Upload form functions
         function openUploadForm() {
             const uploadForm = document.getElementById('uploadForm');
             if (uploadForm) uploadForm.style.display = 'block';
@@ -5012,9 +3442,6 @@
                 return;
             }
             
-            // In a real application, you would upload to a server here
-            // For demo purposes, we'll simulate an upload
-            
             const uploadBtn = document.querySelector('.upload-btn');
             if (uploadBtn) {
                 const originalText = uploadBtn.innerHTML;
@@ -5030,22 +3457,18 @@
             }
         }
         
-        // Video Player Functionality - UPDATED for Facebook videos
+        // Video Player Functionality
         function initializeVideoSection() {
-            // Video filter functionality
             const videoFilterBtns = document.querySelectorAll('.video-filter-btn');
             const videoItems = document.querySelectorAll('.video-item');
             
             videoFilterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
                     videoFilterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
                     
-                    // Show/hide video items based on filter
                     videoItems.forEach(item => {
                         const categories = item.getAttribute('data-category') ? item.getAttribute('data-category').split(' ') : [];
                         
@@ -5066,7 +3489,6 @@
                 });
             });
             
-            // Add click event to video thumbnails for fullscreen view
             videoItems.forEach(item => {
                 const iframe = item.querySelector('iframe');
                 const videoInfo = item.querySelector('.video-info');
@@ -5080,7 +3502,6 @@
                     const isYouTube = item.classList.contains('youtube-video');
                     const isFacebook = item.classList.contains('facebook-video');
                     
-                    // Add click event to open video in modal
                     item.style.cursor = 'pointer';
                     item.addEventListener('click', function() {
                         openVideoModal(videoSrc, title, description, isYouTube, isFacebook);
@@ -5095,9 +3516,7 @@
             
             if (!videoPlayer || !videoPlayerInfo) return;
             
-            // Set video player based on platform
             if (isYouTube) {
-                // YouTube video - add autoplay parameter
                 const autoplaySrc = videoSrc.includes('?') ? 
                     videoSrc + '&autoplay=1' : 
                     videoSrc + '?autoplay=1';
@@ -5111,7 +3530,6 @@
                     </iframe>
                 `;
             } else if (isFacebook) {
-                // Facebook video - ensure proper embed format with autoplay
                 let fbEmbedUrl = videoSrc;
                 if (!fbEmbedUrl.includes('autoplay')) {
                     fbEmbedUrl = fbEmbedUrl + (fbEmbedUrl.includes('?') ? '&autoplay=1' : '?autoplay=1');
@@ -5127,7 +3545,6 @@
                 `;
             }
             
-            // Set video info
             const sourceIcon = isYouTube ? '<i class="fab fa-youtube video-source-icon"></i>' : 
                            isFacebook ? '<i class="fab fa-facebook video-source-icon"></i>' : '';
             
@@ -5143,7 +3560,7 @@
             openModal('videoModal');
         }
         
-        // Load more sermons functionality
+        // Load more sermons
         function loadMoreSermons() {
             const viewMoreBtn = document.querySelector('.view-more-btn');
             const sermonCounter = document.querySelector('.sermon-counter');
@@ -5153,10 +3570,7 @@
                 viewMoreBtn.classList.add('loading');
             }
             
-            // Simulate loading delay
             setTimeout(() => {
-                // In a real application, you would fetch more sermons from a server
-                // For now, we'll just show a message
                 alert('More sermons would be loaded here. In a production environment, this would fetch additional sermon videos from your database or YouTube channel.');
                 
                 if (viewMoreBtn) {
@@ -5184,13 +3598,15 @@
                         if (window.innerWidth <= 768) {
                             e.preventDefault();
                             dropdown.classList.toggle('active');
+                            const expanded = link.getAttribute('aria-expanded') === 'true' ? false : true;
+                            link.setAttribute('aria-expanded', expanded);
                         }
                     });
                 }
             });
         }
         
-        // Contact tabs functionality
+        // Contact tabs
         function initializeContactTabs() {
             const contactTabBtns = document.querySelectorAll('.contact-tab-btn');
             const contactTabContents = document.querySelectorAll('.contact-tab-content');
@@ -5199,11 +3615,9 @@
                 btn.addEventListener('click', function() {
                     const tabId = this.getAttribute('data-contact-tab');
                     
-                    // Remove active class from all buttons and contents
                     contactTabBtns.forEach(b => b.classList.remove('active'));
                     contactTabContents.forEach(c => c.classList.remove('active'));
                     
-                    // Add active class to clicked button and corresponding content
                     this.classList.add('active');
                     const tabContent = document.getElementById(tabId);
                     if (tabContent) tabContent.classList.add('active');
@@ -5211,21 +3625,18 @@
             });
         }
         
-        // Video filtering functionality
+        // Video filtering
         function initializeVideoFilters() {
             const videoFilterBtns = document.querySelectorAll('.video-filter-btn');
             const videoItems = document.querySelectorAll('.video-item');
             
             videoFilterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
                     videoFilterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
                     
-                    // Show/hide video items based on filter
                     videoItems.forEach(item => {
                         const categories = item.getAttribute('data-category');
                         const categoryList = categories ? categories.split(' ') : [];
@@ -5247,8 +3658,7 @@
                 });
             });
         }
-        
-        // Add this function to handle video platform detection
+
         function getVideoPlatform(src) {
             if (src.includes('youtube.com') || src.includes('youtu.be')) {
                 return 'youtube';
@@ -5258,22 +3668,17 @@
             return 'unknown';
         }
 
-        // Helper function to convert Facebook video URLs to proper embed format
         function getFacebookEmbedUrl(videoUrl) {
-            // Extract video ID from various Facebook URL formats
             let videoId = '';
             
-            // Format: facebook.com/share/v/VIDEO_ID/
             if (videoUrl.includes('/share/v/')) {
                 const match = videoUrl.match(/\/share\/v\/([^\/?]+)/);
                 if (match) videoId = match[1];
             }
-            // Format: facebook.com/reel/VIDEO_ID/
             else if (videoUrl.includes('/reel/')) {
                 const match = videoUrl.match(/\/reel\/([^\/?]+)/);
                 if (match) videoId = match[1];
             }
-            // Format: facebook.com/VIDEO_ID
             else if (videoUrl.includes('facebook.com/') && !videoUrl.includes('/share/') && !videoUrl.includes('/reel/')) {
                 const match = videoUrl.match(/facebook\.com\/(?:watch\?v=)?(\d+)/);
                 if (match) videoId = match[1];
@@ -5283,35 +3688,22 @@
                 return `https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F${videoId}%2F&show_text=false&width=560`;
             }
             
-            // If we can't extract the ID, return the original URL
             return videoUrl;
         }
         
-        // Initialize everything when page loads
+        // Initialize everything on DOMContentLoaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize treasures page
             initializeTreasuresPage();
-            
-            // Initialize Healing Hands gallery
             initializeHealingGallery();
-            
-            // Initialize video section
             initializeVideoSection();
-            
-            // Initialize mobile dropdowns
             initializeMobileDropdowns();
-            
-            // Initialize contact tabs
             initializeContactTabs();
-            
-            // Initialize video filtering
             initializeVideoFilters();
 
             // Convert all Facebook video URLs to proper embed format
             document.querySelectorAll('iframe[src*="facebook.com"]').forEach(iframe => {
                 const src = iframe.getAttribute('src');
                 if (src && !src.includes('plugins/video.php')) {
-                    // Convert to proper embed format
                     const embedUrl = getFacebookEmbedUrl(src);
                     iframe.setAttribute('src', embedUrl);
                 }
@@ -5320,4 +3712,3 @@
     </script>
 </body>
 </html>
-
